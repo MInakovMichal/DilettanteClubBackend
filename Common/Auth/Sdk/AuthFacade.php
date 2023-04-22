@@ -2,10 +2,7 @@
 
 namespace Common\Auth\Sdk;
 
-use Common\Auth\Sdk\Contract\AuthContract;
 use Common\Auth\Sdk\Contract\RegisterContract;
-use Common\Auth\Sdk\Model\Authenticate;
-use Common\Auth\Sdk\Model\AuthUser;
 
 interface AuthFacade
 {

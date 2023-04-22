@@ -197,7 +197,9 @@ return [
         App\Providers\TelescopeServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         \Component\User\Infrastructure\Provider\UserServiceProvider::class,
+        \Common\Auth\Infrastructure\Provider\AuthServiceProvider::class,
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
     ],
 
     /*

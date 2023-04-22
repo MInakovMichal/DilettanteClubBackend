@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Common\Auth\Infrastructure\Http\Requests\RegisterRequest;
 use Common\Auth\Sdk\AuthFacade;
 use Common\Http\ApiResponse;
-use Component\User\Sdk\UserFacade;
 use Illuminate\Http\JsonResponse;
 
 class RegisterController extends Controller

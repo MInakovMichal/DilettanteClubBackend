@@ -112,4 +112,9 @@ return [
 
     'password_timeout' => 10800,
 
+    'password_regex' => [
+        'rule' => '/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/',
+    ],
+
+    'maxPasswordLength' => 32,
 ];
