@@ -1,0 +1,22 @@
+<?php
+
+namespace Component\User\Infrastructure\Service;
+
+use Component\User\Infrastructure\Repository\UserRepository;
+use Common\Auth\Sdk\Contract\RegisterContract;
+use Component\User\Sdk\Model\UserRead;
+
+class UserServiceImpl implements UserService
+{
+    private UserRepository $userRepository;
+
+    public function __construct(UserRepository $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
+
+    public function createUser(RegisterContract $contract): UserRead
+    {
+        return $this->userRepository->createUser($contract);
+    }
+}

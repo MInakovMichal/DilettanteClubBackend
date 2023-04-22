@@ -1,0 +1,84 @@
+version: '3.9'
+services:
+  nginx:
+    image: nginx:latest
+    restart: unless-stopped
+    tty: true
+    container_name: ${NGINX_CONTAINER_NAME}
+    ports:
+      - ${NGINX_EXTERNAL_PORT}:80
+      - ${NGINX_SSL_EXTERNAL_PORT}:443
+    volumes:
+      - ./:/var/www/
+      - ./.docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php
+      - database
+      - redis
+      - phpmyadmin
+    networks:
+      - ${NETWORK_NAME}
+
+  database:
+    container_name: ${DB_CONTAINER_NAME}
+    build:
+      context: ./
+      dockerfile: ./.docker/mysql/Dockerfile
+    restart: unless-stopped
+    environment:
+      - MYSQL_DATABASE=${DB_DATABASE}
+      - MYSQL_USER=${DB_USERNAME}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - ./.docker/mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - database:/var/lib/mysql
+    ports:
+      - ${DB_PORT}:3306
+    networks:
+      - ${NETWORK_NAME}
+
+  php:
+    build:
+      context: .
+      dockerfile: ./.docker/php-fpm/Dockerfile
+    container_name: ${API_CONTAINER_NAME}
+    restart: unless-stopped
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - database
+      - redis
+    networks:
+      - ${NETWORK_NAME}
+    entrypoint: /opt/docker-entrypoint.sh
+
+  redis:
+    image: redis:latest
+    container_name: ${REDIS_CONTAINER_NAME}
+    ports:
+      - ${REDIS_PORT}:6379
+    restart: unless-stopped
+    networks:
+      - ${NETWORK_NAME}
+
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: ${PHPMYADMIN_CONTAINER_NAME}
+    restart: unless-stopped
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=database
+    ports:
+      - ${PHPMYADMIN_EXTERNAL_PORT}:80
+    networks:
+        - ${NETWORK_NAME}
+
+networks:
+  ClubBackend:
+    driver: bridge
+
+volumes:
+  database:
+    driver: local
+

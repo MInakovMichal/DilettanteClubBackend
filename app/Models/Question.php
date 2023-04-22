@@ -1,0 +1,56 @@
+<?php
+
+namespace App\Models;
+
+use Database\Factories\QuestionFactory;
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Carbon;
+
+/**
+ * App\Models\Question
+ *
+ * @property int $id
+ * @property int $user_id
+ * @property string $question
+ * @property int $answer_id
+ * @property int $use_count
+ * @property int $language_id
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property Carbon|null $deleted_at
+ * @method static QuestionFactory factory($count = null, $state = [])
+ * @method static Builder|Question newModelQuery()
+ * @method static Builder|Question newQuery()
+ * @method static Builder|Question onlyTrashed()
+ * @method static Builder|Question query()
+ * @method static Builder|Question whereAnswerId($value)
+ * @method static Builder|Question whereCreatedAt($value)
+ * @method static Builder|Question whereDeletedAt($value)
+ * @method static Builder|Question whereId($value)
+ * @method static Builder|Question whereLanguageId($value)
+ * @method static Builder|Question whereQuestion($value)
+ * @method static Builder|Question whereUpdatedAt($value)
+ * @method static Builder|Question whereUseCount($value)
+ * @method static Builder|Question whereUserId($value)
+ * @method static Builder|Question withTrashed()
+ * @method static Builder|Question withoutTrashed()
+ * @mixin Eloquent
+ */
+class Question extends Model
+{
+    use HasFactory;
+    use SoftDeletes;
+
+    public $fillable = [
+        'id',
+        'user_id',
+        'question',
+        'answer',
+        'use_count',
+        'language_id',
+    ];
+}

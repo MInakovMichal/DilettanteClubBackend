@@ -1,0 +1,64 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main", "develop"]
+
+jobs:
+  analysis-phpcs:
+    runs-on: ubuntu-latest
+    container:
+      image: kirschbaumdevelopment/laravel-test-runner:8.2
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+      - run: cp .env.example .env
+      - run: rm composer.json && composer require php
+      - run: composer require --dev squizlabs/php_codesniffer
+      - name: phpcs
+        run: vendor/bin/phpcs --standard=phpcs.xml --tab-width=4 -sp
+  analysis-phpstan:
+    runs-on: ubuntu-latest
+    container:
+      image: kirschbaumdevelopment/laravel-test-runner:8.2
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+      - run: ./init.sh
+      - run: composer require --dev phpstan/phpstan
+      - name: phpstan
+        run: vendor/bin/phpstan analyse --configuration=phpstan.neon
+  analysis-psalm:
+    runs-on: ubuntu-latest
+    container:
+      image: kirschbaumdevelopment/laravel-test-runner:8.2
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+      - run: ./init.sh
+      - run: composer require --dev psalm/plugin-laravel
+      - name: psalm
+        run: vendor/bin/psalm --show-info=true
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+      - run: ./init.sh
+      - run: docker-compose up -d --build app database redis
+      - name: "Wait for running api container"
+        run: sleep 200
+      - name: Container logs
+        run: docker logs ClubBackend_api
+      - name: Autoload files
+        run: docker exec ClubBackend_api composer update composer install composer dump-autoload -o
+      - name: Clear configuration file
+        run: docker exec ClubBackend_api php artisan optimize:clear
+      - name: Run tests
+        run: docker exec ClubBackend_api php ./vendor/bin/phpunit tests
