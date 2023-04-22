@@ -74,6 +74,7 @@ function random_pass {
 
 function defaulting {
     name="ClubBackend"
+
     env="$1"
     debug="true"
     network_name="$name"
