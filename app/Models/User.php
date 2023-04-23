@@ -69,10 +69,6 @@ use Spatie\Permission\Traits\HasRoles;
  * @method static Builder|User whereUuid($value)
  * @method static Builder|User withTrashed()
  * @method static Builder|User withoutTrashed()
- * @property-read DatabaseNotificationCollection<int, DatabaseNotification> $notifications
- * @property-read Collection<int, Permission> $permissions
- * @property-read Collection<int, Role> $roles
- * @property-read Collection<int, PersonalAccessToken> $tokens
  * @mixin Eloquent
  */
 class User extends Authenticatable

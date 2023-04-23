@@ -17,12 +17,12 @@ class LoginController extends Controller
         $this->authFacade = $authFacade;
     }
 
-//    public function login(LoginRequest $request): JsonResponse
-//    {
-//        $authenticate = $this->authFacade->authLogin($request);
-//
-//        $message = 'User was logged in successfully';
-//
-//        return ApiResponse::successResponse($authenticate->toArray(), $message);
-//    }
+    public function login(LoginRequest $request): JsonResponse
+    {
+        $authenticate = $this->authFacade->authLogin($request);
+
+        $message = 'User was logged in successfully';
+
+        return ApiResponse::successResponse($authenticate->toArray(), $message);
+    }
 }

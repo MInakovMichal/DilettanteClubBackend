@@ -6,8 +6,6 @@ namespace Common\Auth\Sdk\Model;
 
 use Carbon\Carbon;
 use Common\ValueObject\Email;
-use Common\ValueObject\Gender;
-use Common\ValueObject\Language;
 use Component\User\Sdk\Model\UserRead;
 
 final class AuthUser

@@ -6,7 +6,7 @@ namespace Common\Auth\Sdk\Contract;
 
 use Common\ValueObject\RoleValueObject;
 
-interface AuthContract
+interface LoginContract
 {
     public function getDeviceToken(): string;
 

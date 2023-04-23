@@ -3,7 +3,9 @@
 namespace Common\Auth\Domain;
 
 use Common\Auth\Sdk\AuthFacade;
+use Common\Auth\Sdk\Contract\LoginContract;
 use Common\Auth\Sdk\Contract\RegisterContract;
+use Common\Auth\Sdk\Model\Authenticate;
 use Component\User\Sdk\UserFacade;
 
 class AuthFacadeImpl implements AuthFacade
@@ -25,10 +27,10 @@ class AuthFacadeImpl implements AuthFacade
 //        // TODO: Implement current() method.
 //    }
 
-//    public function authLogin(AuthContract $contract): Authenticate
-//    {
-//        // TODO: Implement authLogin() method.
-//    }
+    public function authLogin(LoginContract $contract): Authenticate
+    {
+        // TODO: Implement authLogin() method.
+    }
 
     public function register(RegisterContract $contract): void
     {
