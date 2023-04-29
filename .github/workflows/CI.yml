@@ -51,7 +51,7 @@ jobs:
         with:
           fetch-depth: 1
       - run: ./init.sh
-      - run: docker-compose up -d --build app database redis
+      - run: docker-compose up -d --build php database redis
       - name: "Wait for running api container"
         run: sleep 200
       - name: Container logs
