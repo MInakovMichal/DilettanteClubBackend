@@ -45,7 +45,7 @@ services:
     container_name: ${API_CONTAINER_NAME}
     restart: unless-stopped
     volumes:
-      - ./src:/var/www/html
+      - ./:/var/www/
       - api_logs:/var/www/storage/logs/
     depends_on:
       - database
