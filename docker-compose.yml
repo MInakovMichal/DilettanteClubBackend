@@ -45,7 +45,8 @@ services:
     container_name: ${API_CONTAINER_NAME}
     restart: unless-stopped
     volumes:
-        - ./:/var/www/
+      - ./src:/var/www/html
+      - api_logs:/var/www/storage/logs/
     depends_on:
       - database
       - redis
@@ -81,4 +82,5 @@ networks:
 volumes:
   database:
     driver: local
+  api_logs:
 
