@@ -46,6 +46,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./src:/var/www/html
+      - api_logs:/var/www/storage/logs/
     depends_on:
       - database
       - redis
@@ -81,4 +82,5 @@ networks:
 volumes:
   database:
     driver: local
+  api_logs:
 
