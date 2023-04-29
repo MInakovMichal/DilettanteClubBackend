@@ -1,10 +1,122 @@
 openapi: 3.0.3
 info:
-  title: Laravel
+  title: ClubBackend_api
   description: ''
   version: 1.0.0
 servers:
   -
     url: 'http://localhost'
-paths: []
-tags: []
+paths:
+  /api/auth/register:
+    post:
+      summary: ''
+      operationId: postApiAuthRegister
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: msojfuyswggytsgdibfcujq
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: fabian.gerhold@example.org
+                username:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: xpshfgniqbnblgdmmuhijvfu
+                language_id:
+                  type: number
+                  description: 'Must not be greater than 255.'
+                  example: 18
+                password:
+                  type: string
+                  description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/. Must be at least 8 characters. Must not be greater than 32 characters.'
+                  example: 'q\ul^xTL}a70G^q#('
+                password_confirmation:
+                  type: string
+                  description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/. Must be at least 8 characters. Must not be greater than 32 characters.'
+                  example: qczqaduaupfhmxt
+              required:
+                - name
+                - email
+                - username
+                - language_id
+                - password
+                - password_confirmation
+      security: []
+  /api/auth/login:
+    post:
+      summary: ''
+      operationId: postApiAuthLogin
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: finn.waters@example.com
+                password:
+                  type: string
+                  description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/. Must be at least 8 characters. Must not be greater than 32 characters.'
+                  example: 'hYVKjD`9<#15Ic<ky'
+                device_token:
+                  type: string
+                  description: ''
+                  example: omnis
+              required:
+                - email
+                - password
+                - device_token
+      security: []
+tags:
+  -
+    name: Endpoints
+    description: ''

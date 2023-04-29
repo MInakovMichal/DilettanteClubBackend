@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Common\Auth\Sdk\Model;
 
-use Carbon\Carbon;
-use Common\ValueObject\Email;
 use Component\User\Sdk\Model\UserRead;
 
 final class AuthUser

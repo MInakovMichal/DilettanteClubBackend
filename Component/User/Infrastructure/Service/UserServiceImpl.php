@@ -2,8 +2,9 @@
 
 namespace Component\User\Infrastructure\Service;
 
-use Component\User\Infrastructure\Repository\UserRepository;
 use Common\Auth\Sdk\Contract\RegisterContract;
+use Common\ValueObject\Email;
+use Component\User\Infrastructure\Repository\UserRepository;
 use Component\User\Sdk\Model\UserRead;
 
 class UserServiceImpl implements UserService
@@ -18,5 +19,15 @@ class UserServiceImpl implements UserService
     public function createUser(RegisterContract $contract): UserRead
     {
         return $this->userRepository->createUser($contract);
+    }
+
+    public function findByEmailOrFail(Email $email): UserRead
+    {
+        return $this->userRepository->findByEmailOrFail($email);
+    }
+
+    public function findByIdOrFail(int $id): UserRead
+    {
+        return $this->userRepository->findByIdOrFail($id);
     }
 }

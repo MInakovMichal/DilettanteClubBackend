@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Common\Auth\Sdk\Contract;
 
+use Common\ValueObject\Email;
 use Common\ValueObject\RoleValueObject;
 
 interface LoginContract
@@ -16,7 +17,7 @@ interface LoginContract
 
     public function hasEmail(): bool;
 
-    public function getEmail(): string;
+    public function getEmail(): Email;
 
     public function getPassword(): string;
 }

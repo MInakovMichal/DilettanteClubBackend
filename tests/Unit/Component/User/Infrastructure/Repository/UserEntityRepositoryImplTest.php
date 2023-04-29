@@ -3,15 +3,20 @@
 namespace Tests\Unit\Component\User\Infrastructure\Repository;
 
 use App\Models\Language;
+use App\Models\User;
 use Common\Auth\Infrastructure\Http\Requests\RegisterRequest;
+use Common\Exception\UserNotFoundException;
+use Common\ValueObject\Email;
 use Component\User\Infrastructure\Repository\UserEntityRepositoryImpl;
-use Component\User\Sdk\Model\UserRead;
+use Component\User\Sdk\Exception\UserByEmailNotFoundException;
 use Tests\TestCase;
 use UnexpectedValueException;
 
 class UserEntityRepositoryImplTest extends TestCase
 {
     private UserEntityRepositoryImpl $repositoryImpl;
+
+    private User $user;
 
     private string $name;
 
@@ -35,7 +40,7 @@ class UserEntityRepositoryImplTest extends TestCase
 
         $response = $this->repositoryImpl->createUser($contract);
 
-        $this->assertInstanceOf(UserRead::class, $response);
+        $this->assertInstanceOf(User::class, $response);
     }
 
     public function test_CreateUser_ShouldThrowUnexpectedValueException_WhenSomethingWrong(): void
@@ -52,6 +57,34 @@ class UserEntityRepositoryImplTest extends TestCase
         $this->repositoryImpl->createUser($contract);
     }
 
+    public function test_FindByIdOrFail_ShouldThrowUserNotFoundException_WhenUserNotFind(): void
+    {
+        $this->expectException(UserNotFoundException::class);
+        $this->repositoryImpl->findByIdOrFail($this->user->getId() + 1);
+    }
+
+    public function test_FindByIdOrFail_ShouldUserReadClass_WhenUserFind(): void
+    {
+        $userRead = $this->repositoryImpl->findByIdOrFail($this->user->getId());
+
+        $this->assertInstanceOf(User::class, $userRead);
+    }
+
+    public function test_FindByEmailOrFail_ShouldThrowUserByEmailNotFoundException_WhenUserNotFind(): void
+    {
+        $this->expectException(UserByEmailNotFoundException::class);
+        $email = new Email('wrong_mail@gmail.com');
+        $this->repositoryImpl->findByEmailOrFail($email);
+    }
+
+    public function test_FindByEmailOrFail_ShouldUserReadClass_WhenUserFind(): void
+    {
+        $email = new Email($this->user->getEmail());
+        $userRead = $this->repositoryImpl->findByEmailOrFail($email);
+
+        $this->assertInstanceOf(User::class, $userRead);
+    }
+
     protected function setUp(): void
     {
         parent::setUp();
@@ -61,6 +94,13 @@ class UserEntityRepositoryImplTest extends TestCase
         $this->username = 'username';
         $this->language_id = Language::firstOrFail()->getId();
         $this->password = 'Pass123#';
+
+        $this->user = User::factory()->create([
+            'name' => $this->name,
+            'email' => 'test@gmail.com',
+            'username' => $this->username,
+            'actual_language_id' => $this->language_id
+        ]);
 
         $this->repositoryImpl = resolve(UserEntityRepositoryImpl::class);
     }

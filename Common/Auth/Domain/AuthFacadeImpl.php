@@ -2,38 +2,42 @@
 
 namespace Common\Auth\Domain;
 
+use Common\Auth\Infrastructure\Service\SocialiteService;
 use Common\Auth\Sdk\AuthFacade;
 use Common\Auth\Sdk\Contract\LoginContract;
 use Common\Auth\Sdk\Contract\RegisterContract;
 use Common\Auth\Sdk\Model\Authenticate;
-use Component\User\Sdk\UserFacade;
+use Component\User\Sdk\Model\UserRead;
 
 class AuthFacadeImpl implements AuthFacade
 {
-    private UserFacade $userFacade;
+    private SocialiteService $socialiteService;
 
-    public function __construct(UserFacade $userFacade)
+    /**
+     * @param SocialiteService $socialiteService
+     */
+    public function __construct(SocialiteService $socialiteService)
     {
-        $this->userFacade = $userFacade;
+        $this->socialiteService = $socialiteService;
     }
 
-//    public function isLoggedIn(): bool
-//    {
-//        // TODO: Implement isLoggedIn() method.
-//    }
-//
-//    public function current(): Authenticate
-//    {
-//        // TODO: Implement current() method.
-//    }
-
-    public function authLogin(LoginContract $contract): Authenticate
+    public function current(): Authenticate
     {
-        // TODO: Implement authLogin() method.
+        return $this->socialiteService->current();
     }
 
-    public function register(RegisterContract $contract): void
+    public function isLoggedIn(): bool
     {
-        $this->userFacade->createUser($contract);
+        return $this->socialiteService->isLoggedIn();
+    }
+
+    public function login(LoginContract $contract): Authenticate
+    {
+        return $this->socialiteService->login($contract);
+    }
+
+    public function register(RegisterContract $contract): UserRead
+    {
+        return $this->socialiteService->register($contract);
     }
 }

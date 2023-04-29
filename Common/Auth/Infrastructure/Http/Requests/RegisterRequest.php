@@ -3,6 +3,7 @@
 namespace Common\Auth\Infrastructure\Http\Requests;
 
 use Common\Auth\Sdk\Contract\RegisterContract;
+use Common\ValueObject\Email;
 use Illuminate\Foundation\Http\FormRequest;
 
 class RegisterRequest extends FormRequest implements RegisterContract
@@ -62,11 +63,11 @@ class RegisterRequest extends FormRequest implements RegisterContract
         return $username;
     }
 
-    public function getEmail(): string
+    public function getEmail(): Email
     {
         /** @var string $email */
         $email = $this->get('email');
-        return $email;
+        return new Email($email);
     }
 
     public function getPassword(): string

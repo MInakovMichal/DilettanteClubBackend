@@ -39,4 +39,19 @@ class Answer extends Model
         'user_id',
         'answer',
     ];
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function getUserId(): int
+    {
+        return $this->user_id;
+    }
+
+    public function getAnswer(): string
+    {
+        return $this->answer;
+    }
 }

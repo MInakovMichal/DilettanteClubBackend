@@ -40,12 +40,12 @@ services:
 
   php:
     build:
-      context: .
+      context: ./
       dockerfile: ./.docker/php-fpm/Dockerfile
     container_name: ${API_CONTAINER_NAME}
     restart: unless-stopped
     volumes:
-      - ./src:/var/www/html
+        - ./:/var/www/
     depends_on:
       - database
       - redis

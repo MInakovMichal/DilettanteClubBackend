@@ -9,7 +9,7 @@ class InvalidArgumentException extends ApiException
     /**
      * @param string $message
      * @param int $httpCode
-     * @param array $extraParams
+     * @param array<mixed> $extraParams
      */
     public function __construct(
         string $message,

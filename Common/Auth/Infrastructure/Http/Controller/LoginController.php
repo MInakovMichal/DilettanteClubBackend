@@ -19,7 +19,7 @@ class LoginController extends Controller
 
     public function login(LoginRequest $request): JsonResponse
     {
-        $authenticate = $this->authFacade->authLogin($request);
+        $authenticate = $this->authFacade->login($request);
 
         $message = 'User was logged in successfully';
 

@@ -90,6 +90,8 @@
         <UndefinedMagicMethod>
             <errorLevel type="suppress">
                 <directory name="tests"/>
+                <file name="*/*/Infrastructure/UserProvider/*"/>
+                <file name="*/*/Infrastructure/Repository/*EntityRepositoryImpl*"/>
             </errorLevel>
         </UndefinedMagicMethod>
 
