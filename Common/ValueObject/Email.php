@@ -16,9 +16,11 @@ final class Email
         $this->emailAddress = $emailAddress;
     }
 
-    public function __toString(): string
+    private function validate(string $emailAddress): void
     {
-        return $this->emailAddress;
+        if (filter_var($emailAddress, FILTER_VALIDATE_EMAIL) === false) {
+            throw new InvalidArgumentException("Invalid email signature");
+        }
     }
 
     public function equals(self $object): bool
@@ -29,12 +31,5 @@ final class Email
     public function getEmailAddress(): string
     {
         return $this->emailAddress;
-    }
-
-    private function validate(string $emailAddress): void
-    {
-        if (filter_var($emailAddress, FILTER_VALIDATE_EMAIL) === false) {
-            throw new InvalidArgumentException("Invalid email signature");
-        }
     }
 }

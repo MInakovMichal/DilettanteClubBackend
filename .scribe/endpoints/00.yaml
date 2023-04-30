@@ -1,0 +1,135 @@
+name: Endpoints
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/register
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must not be greater than 50 characters.'
+        required: true
+        example: bawb
+        type: string
+        custom: []
+      email:
+        name: email
+        description: 'Must be a valid email address. Must not be greater than 255 characters.'
+        required: true
+        example: zsanford@example.net
+        type: string
+        custom: []
+      username:
+        name: username
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: umvjaeyesoxq
+        type: string
+        custom: []
+      language_id:
+        name: language_id
+        description: 'Must not be greater than 255.'
+        required: true
+        example: 24
+        type: number
+        custom: []
+      password:
+        name: password
+        description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/. Must be at least 8 characters. Must not be greater than 32 characters.'
+        required: true
+        example: pMOkCYs=hJ
+        type: string
+        custom: []
+      password_confirmation:
+        name: password_confirmation
+        description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/. Must be at least 8 characters. Must not be greater than 32 characters.'
+        required: true
+        example: zqu
+        type: string
+        custom: []
+    cleanBodyParameters:
+      name: bawb
+      email: zsanford@example.net
+      username: umvjaeyesoxq
+      language_id: 24
+      password: pMOkCYs=hJ
+      password_confirmation: zqu
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/login
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'Must be a valid email address. Must not be greater than 255 characters.'
+        required: true
+        example: clementina.wolff@example.com
+        type: string
+        custom: []
+      password:
+        name: password
+        description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/. Must be at least 8 characters. Must not be greater than 32 characters.'
+        required: true
+        example: 'dP7)G*Fu{R'
+        type: string
+        custom: []
+      device_token:
+        name: device_token
+        description: ''
+        required: true
+        example: animi
+        type: string
+        custom: []
+    cleanBodyParameters:
+      email: clementina.wolff@example.com
+      password: 'dP7)G*Fu{R'
+      device_token: animi
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

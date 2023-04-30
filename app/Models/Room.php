@@ -37,4 +37,43 @@ use Illuminate\Support\Carbon;
 class Room extends Model
 {
     use HasFactory;
+
+    public $fillable = [
+        'id',
+        'user_id',
+        'name',
+        'is_private',
+        'password',
+    ];
+
+    protected $casts = [
+        'is_private' => 'boolean',
+    ];
+
+    protected $hidden = [
+        'password',
+    ];
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function getUserId(): int
+    {
+        return $this->user_id;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function isPrivate(): bool
+    {
+        /** @var bool $isPrivate */
+        $isPrivate = $this->is_private;
+
+        return $isPrivate;
+    }
 }

@@ -20,7 +20,7 @@ class RegisterController extends Controller
 
     public function register(RegisterRequest $request): JsonResponse
     {
-        $this->authFacade->register($request);
+        $userRead = $this->authFacade->register($request);
 
         $message = 'User was created successfully';
 

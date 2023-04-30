@@ -41,9 +41,33 @@ class Punishment extends Model
     public $fillable = [
         'id',
         'user_id',
-        'question',
         'punishment',
         'use_count',
         'language_id',
     ];
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function getUserId(): int
+    {
+        return $this->user_id;
+    }
+
+    public function getPunishment(): string
+    {
+        return $this->punishment;
+    }
+
+    public function getUseCount(): int
+    {
+        return $this->use_count;
+    }
+
+    public function getLanguageId(): int
+    {
+        return $this->language_id;
+    }
 }

@@ -51,9 +51,9 @@ jobs:
         with:
           fetch-depth: 1
       - run: ./init.sh
-      - run: docker-compose up -d --build app database redis
+      - run: docker-compose up -d --build
       - name: "Wait for running api container"
-        run: sleep 200
+        run: sleep 300
       - name: Container logs
         run: docker logs ClubBackend_api
       - name: Autoload files

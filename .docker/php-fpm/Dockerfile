@@ -23,12 +23,8 @@ ADD .docker/php-fpm/entrypoint/docker-entrypoint.sh /opt/docker-entrypoint.sh
 # Set working directory
 WORKDIR /var/www
 
-# Copy source code
-COPY . .
-
 # Run composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-RUN composer install --no-dev --no-scripts --no-progress --prefer-dist --optimize-autoloader
 
 # Set recommended PHP settings
 RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
@@ -36,6 +32,7 @@ RUN sed -i 's/memory_limit = .*/memory_limit = 512M/' "$PHP_INI_DIR/php.ini"
 RUN sed -i 's/upload_max_filesize = .*/upload_max_filesize = 100M/' "$PHP_INI_DIR/php.ini"
 RUN sed -i 's/post_max_size = .*/post_max_size = 100M/' "$PHP_INI_DIR/php.ini"
 
+EXPOSE 9000
+
 # Start PHP-FPM
 CMD ["php-fpm"]
-

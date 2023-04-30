@@ -3,8 +3,12 @@
 namespace Tests\Unit\Component\User\Domain;
 
 use App\Models\Language;
+use App\Models\User;
 use Common\Auth\Infrastructure\Http\Requests\RegisterRequest;
+use Common\Exception\UserNotFoundException;
+use Common\ValueObject\Email;
 use Component\User\Domain\UserFacadeImpl;
+use Component\User\Sdk\Exception\UserByEmailNotFoundException;
 use Component\User\Sdk\Model\UserRead;
 use Tests\TestCase;
 use UnexpectedValueException;
@@ -12,6 +16,8 @@ use UnexpectedValueException;
 class UserFacadeImplTest extends TestCase
 {
     private UserFacadeImpl $facadeImpl;
+
+    private User $user;
 
     private string $name;
 
@@ -52,6 +58,34 @@ class UserFacadeImplTest extends TestCase
         $this->facadeImpl->createUser($contract);
     }
 
+    public function test_FindByIdOrFail_ShouldThrowUserNotFoundException_WhenUserNotFind(): void
+    {
+        $this->expectException(UserNotFoundException::class);
+        $this->facadeImpl->findByIdOrFail($this->user->getId() + 1);
+    }
+
+    public function test_FindByIdOrFail_ShouldUserReadClass_WhenUserFind(): void
+    {
+        $userRead = $this->facadeImpl->findByIdOrFail($this->user->getId());
+
+        $this->assertInstanceOf(UserRead::class, $userRead);
+    }
+
+    public function test_FindByEmailOrFail_ShouldThrowUserByEmailNotFoundException_WhenUserNotFind(): void
+    {
+        $this->expectException(UserByEmailNotFoundException::class);
+        $email = new Email('wrong_mail@gmail.com');
+        $this->facadeImpl->findByEmailOrFail($email);
+    }
+
+    public function test_FindByEmailOrFail_ShouldUserReadClass_WhenUserFind(): void
+    {
+        $email = new Email($this->user->getEmail());
+        $userRead = $this->facadeImpl->findByEmailOrFail($email);
+
+        $this->assertInstanceOf(UserRead::class, $userRead);
+    }
+
     protected function setUp(): void
     {
         parent::setUp();
@@ -61,6 +95,13 @@ class UserFacadeImplTest extends TestCase
         $this->username = 'username';
         $this->language_id = Language::firstOrFail()->getId();
         $this->password = 'Pass123#';
+
+        $this->user = User::factory()->create([
+            'name' => $this->name,
+            'email' => 'test@gmail.com',
+            'username' => $this->username,
+            'actual_language_id' => $this->language_id
+        ]);
 
         $this->facadeImpl = resolve(UserFacadeImpl::class);
     }

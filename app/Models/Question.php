@@ -49,8 +49,38 @@ class Question extends Model
         'id',
         'user_id',
         'question',
-        'answer',
+        'answer_id',
         'use_count',
         'language_id',
     ];
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function getUserId(): int
+    {
+        return $this->user_id;
+    }
+
+    public function getQuestion(): string
+    {
+        return $this->question;
+    }
+
+    public function getAnswerId(): int
+    {
+        return $this->answer_id;
+    }
+
+    public function getUseCount(): int
+    {
+        return $this->use_count;
+    }
+
+    public function getLanguageId(): int
+    {
+        return $this->language_id;
+    }
 }

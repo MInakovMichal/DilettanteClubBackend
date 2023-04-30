@@ -41,6 +41,10 @@ function prepare_basic_dependency() {
    php artisan storage:link
    php artisan key:generate
    php artisan jwt:secret
+
+   php artisan --env=testing storage:link
+   php artisan --env=testing key:generate
+   php artisan --env=testing jwt:secret
   popd
 }
 

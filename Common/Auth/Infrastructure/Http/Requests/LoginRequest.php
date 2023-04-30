@@ -2,12 +2,13 @@
 
 namespace Common\Auth\Infrastructure\Http\Requests;
 
-use Common\Auth\Sdk\Contract\AuthContract;
+use Common\Auth\Sdk\Contract\LoginContract;
+use Common\ValueObject\Email;
 use Common\ValueObject\RoleValueObject;
 use Illuminate\Foundation\Http\FormRequest;
 use InvalidArgumentException;
 
-class LoginRequest extends FormRequest implements AuthContract
+class LoginRequest extends FormRequest implements LoginContract
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -59,7 +60,7 @@ class LoginRequest extends FormRequest implements AuthContract
         return $this->get('roleType') !== null;
     }
 
-    public function getEmail(): string
+    public function getEmail(): Email
     {
         if (!$this->hasEmail()) {
             throw new InvalidArgumentException("Email not found");
@@ -67,7 +68,7 @@ class LoginRequest extends FormRequest implements AuthContract
         /** @var string $email */
         $email = $this->get('email');
 
-        return $email;
+        return new Email($email);
     }
 
     public function hasEmail(): bool

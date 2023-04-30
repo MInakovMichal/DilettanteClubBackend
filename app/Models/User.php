@@ -20,12 +20,12 @@ use Laravel\Sanctum\PersonalAccessToken;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
 /**
  * App\Models\User
  *
  * @property int $id
- * @property string $uuid
  * @property string $name
  * @property string $username
  * @property string $email
@@ -66,12 +66,11 @@ use Spatie\Permission\Traits\HasRoles;
  * @method static Builder|User whereRememberToken($value)
  * @method static Builder|User whereUpdatedAt($value)
  * @method static Builder|User whereUsername($value)
- * @method static Builder|User whereUuid($value)
  * @method static Builder|User withTrashed()
  * @method static Builder|User withoutTrashed()
  * @mixin Eloquent
  */
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
 {
     use HasApiTokens;
     use HasFactory;
@@ -86,7 +85,6 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'id',
-        'uuid',
         'name',
         'username',
         'actual_language_id',
@@ -151,6 +149,26 @@ class User extends Authenticatable
 
     public function isBlocked(): bool
     {
-        return $this->is_blocked;
+        return $this->is_blocked === true;
+    }
+
+    /**
+     * Get the identifier that will be stored in the subject claim of the JWT.
+     *
+     * @return mixed
+     */
+    public function getJWTIdentifier(): mixed
+    {
+        return $this->getKey();
+    }
+
+    /**
+     * Return a key value array, containing any custom claims to be added to the JWT.
+     *
+     * @return array
+     */
+    public function getJWTCustomClaims(): array
+    {
+        return [];
     }
 }

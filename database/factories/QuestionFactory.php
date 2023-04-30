@@ -2,10 +2,14 @@
 
 namespace Database\Factories;
 
+use App\Models\Answer;
+use App\Models\Language;
+use App\Models\Question;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Question>
+ * @extends Factory<Question>
  */
 class QuestionFactory extends Factory
 {
@@ -17,7 +21,11 @@ class QuestionFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'user_id' => User::factory(),
+            'question' => fake()->sentence(),
+            'answer_id' => Answer::factory(),
+            'use_count' => fake()->randomDigit(),
+            'language_id' => Language::firstOrFail()->getId(),
         ];
     }
 }
