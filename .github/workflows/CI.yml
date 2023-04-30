@@ -53,7 +53,7 @@ jobs:
       - run: ./init.sh
       - run: docker-compose up -d --build
       - name: "Wait for running api container"
-        run: sleep 300
+        run: sleep 20
       - name: Container logs
         run: docker logs ClubBackend_api
       - name: Autoload files
