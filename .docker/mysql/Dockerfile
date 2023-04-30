@@ -1,7 +1,6 @@
 FROM mysql:8
 
-COPY ./.docker/mysql/docker-entrypoint-initdb.d/setup.sh /docker-entrypoint-initdb.d/setup.sh
-RUN chmod +x /docker-entrypoint-initdb.d/setup.sh
+ADD .docker/mysql/docker-entrypoint-initdb.d/setup.sh /opt/setup.sh
 
 ARG TZ=UTC
 ENV TZ ${TZ}

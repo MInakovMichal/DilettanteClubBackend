@@ -3,7 +3,6 @@ set -e
 
 function fix_permissions() {
   pushd /var/www
-    chown -R $USER:$USER *
     chmod -R 777 storage bootstrap/cache
     chmod -R 775 resources/lang
   popd

@@ -38,6 +38,7 @@ services:
       - ${DB_PORT}:3306
     networks:
       - ${NETWORK_NAME}
+    entrypoint: /opt/setup.sh
 
   php:
     build:
