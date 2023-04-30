@@ -18,10 +18,6 @@ RUN apt-get update && \
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd mysqli opcache pdo_mysql zip intl
 
-RUN useradd -ms /bin/bash dilettante
-
-RUN groupmod -o -g ${PGID} dilettante && usermod -o -u ${PUID} -g dilettante dilettante
-
 ADD .docker/php-fpm/entrypoint/docker-entrypoint.sh /opt/docker-entrypoint.sh
 
 # Set working directory
