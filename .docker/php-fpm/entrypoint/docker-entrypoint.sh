@@ -42,7 +42,7 @@ function prepare_basic_dependency() {
    php artisan jwt:secret --always-no
 
    php artisan --env=testing key:generate
-   php artisan --env=testing jwt:secret--always-no
+   php artisan --env=testing jwt:secret --always-no
   popd
 }
 
