@@ -62,21 +62,36 @@ function generate_api_doc() {
 echo "Start container configuration... Please wait 30 seconds."
 CONTAINER_FIRST_STARTUP="CONTAINER_FIRST_STARTUP"
 /bin/sleep 30
+echo "1"
 if [ ! -e /$CONTAINER_FIRST_STARTUP ]; then
+    echo "2"
   touch /$CONTAINER_FIRST_STARTUP
+  echo "3"
   install_dependencies
+  echo "4"
   fix_permissions
+  echo "5"
   clear_cache
+  echo "6"
   prepare_basic_dependency
+  echo "7"
   run_migration
+  echo "8"
   run_seed
+  echo "9"
   clear_cache
 else
+    echo "11"
   install_dependencies
+  echo "12"
   fix_permissions
+  echo "13"
   clear_cache
+  echo "14"
   run_migration
+  echo "15"
   clear_cache
+  echo "16"
 fi
 generate_api_doc
 fix_permissions
