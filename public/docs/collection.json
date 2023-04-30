@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "ClubBackend_api",
-        "_postman_id": "a1187954-9e33-4006-b407-b3943004607a",
+        "_postman_id": "0ae7563b-6b46-48b3-851f-088d79888762",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -41,7 +41,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"bawb\",\"email\":\"zsanford@example.net\",\"username\":\"umvjaeyesoxq\",\"language_id\":24,\"password\":\"pMOkCYs=hJ\",\"password_confirmation\":\"zqu\"}"
+                            "raw": "{\"name\":\"bhudfwkcgk\",\"email\":\"zwitting@example.net\",\"username\":\"jrklnyzewyae\",\"language_id\":5,\"password\":\"}##_P\\\\\",\"password_confirmation\":\"sccgjwzk\"}"
                         },
                         "description": "",
                         "auth": {
@@ -72,7 +72,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"clementina.wolff@example.com\",\"password\":\"dP7)G*Fu{R\",\"device_token\":\"animi\"}"
+                            "raw": "{\"email\":\"dustin91@example.org\",\"password\":\"kGW7\\\\1a~XpJN^3<\\\"@1R<\",\"device_token\":\"nemo\"}"
                         },
                         "description": "",
                         "auth": {

@@ -83,11 +83,9 @@ function defaulting {
     if [[ $1 = "testing" ]]; then
         db_database="test"
         db_username="root"
-        db_connection="testing"
     else
         db_database="$name"
         db_username="$name"
-        db_connection="mysql"
     fi
 
     db_container_name=$name"_db"
@@ -95,6 +93,7 @@ function defaulting {
     db_external_port=3306
     db_username="$name"
     db_password="$2"
+    db_connection="mysql"
 
     phpmyadmin_container_name=$name"_phpmyadmin"
     phpmyadmin_external_port=8081
