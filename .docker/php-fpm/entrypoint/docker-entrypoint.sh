@@ -61,7 +61,7 @@ function generate_api_doc() {
 
 echo "Start container configuration... Please wait 30 seconds."
 CONTAINER_FIRST_STARTUP="CONTAINER_FIRST_STARTUP"
-sleep 30
+/bin/sleep 30
 if [ ! -e /$CONTAINER_FIRST_STARTUP ]; then
   touch /$CONTAINER_FIRST_STARTUP
   install_dependencies
