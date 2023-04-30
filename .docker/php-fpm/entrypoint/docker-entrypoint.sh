@@ -5,7 +5,6 @@ function fix_permissions() {
   pushd /var/www
     chown -R $USER:$USER *
     chmod -R 777 storage bootstrap/cache
-#    chmod -R 775 resources/lang
   popd
 }
 
@@ -40,11 +39,10 @@ function prepare_basic_dependency() {
   pushd /var/www
    php artisan storage:link
    php artisan key:generate
-   php artisan jwt:secret
+   php artisan jwt:secret --always-no
 
-   php artisan --env=testing storage:link
    php artisan --env=testing key:generate
-   php artisan --env=testing jwt:secret
+   php artisan --env=testing jwt:secret--always-no
   popd
 }
 
