@@ -40,27 +40,27 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 50 characters.'
-                  example: msojfuyswggytsgdibfcujq
+                  example: bawb
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: fabian.gerhold@example.org
+                  example: zsanford@example.net
                 username:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: xpshfgniqbnblgdmmuhijvfu
+                  example: umvjaeyesoxq
                 language_id:
                   type: number
                   description: 'Must not be greater than 255.'
-                  example: 18
+                  example: 24
                 password:
                   type: string
                   description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/. Must be at least 8 characters. Must not be greater than 32 characters.'
-                  example: 'q\ul^xTL}a70G^q#('
+                  example: pMOkCYs=hJ
                 password_confirmation:
                   type: string
                   description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/. Must be at least 8 characters. Must not be greater than 32 characters.'
-                  example: qczqaduaupfhmxt
+                  example: zqu
               required:
                 - name
                 - email
@@ -102,15 +102,15 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: finn.waters@example.com
+                  example: clementina.wolff@example.com
                 password:
                   type: string
                   description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/. Must be at least 8 characters. Must not be greater than 32 characters.'
-                  example: 'hYVKjD`9<#15Ic<ky'
+                  example: 'dP7)G*Fu{R'
                 device_token:
                   type: string
                   description: ''
-                  example: omnis
+                  example: animi
               required:
                 - email
                 - password

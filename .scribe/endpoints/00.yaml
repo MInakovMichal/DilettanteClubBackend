@@ -26,51 +26,51 @@ endpoints:
         name: name
         description: 'Must not be greater than 50 characters.'
         required: true
-        example: msojfuyswggytsgdibfcujq
+        example: bawb
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: fabian.gerhold@example.org
+        example: zsanford@example.net
         type: string
         custom: []
       username:
         name: username
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: xpshfgniqbnblgdmmuhijvfu
+        example: umvjaeyesoxq
         type: string
         custom: []
       language_id:
         name: language_id
         description: 'Must not be greater than 255.'
         required: true
-        example: 18
+        example: 24
         type: number
         custom: []
       password:
         name: password
         description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/. Must be at least 8 characters. Must not be greater than 32 characters.'
         required: true
-        example: 'q\ul^xTL}a70G^q#('
+        example: pMOkCYs=hJ
         type: string
         custom: []
       password_confirmation:
         name: password_confirmation
         description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/. Must be at least 8 characters. Must not be greater than 32 characters.'
         required: true
-        example: qczqaduaupfhmxt
+        example: zqu
         type: string
         custom: []
     cleanBodyParameters:
-      name: msojfuyswggytsgdibfcujq
-      email: fabian.gerhold@example.org
-      username: xpshfgniqbnblgdmmuhijvfu
-      language_id: 18
-      password: 'q\ul^xTL}a70G^q#('
-      password_confirmation: qczqaduaupfhmxt
+      name: bawb
+      email: zsanford@example.net
+      username: umvjaeyesoxq
+      language_id: 24
+      password: pMOkCYs=hJ
+      password_confirmation: zqu
     fileParameters: []
     responses: []
     responseFields: []
@@ -104,27 +104,27 @@ endpoints:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: finn.waters@example.com
+        example: clementina.wolff@example.com
         type: string
         custom: []
       password:
         name: password
         description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/. Must be at least 8 characters. Must not be greater than 32 characters.'
         required: true
-        example: 'hYVKjD`9<#15Ic<ky'
+        example: 'dP7)G*Fu{R'
         type: string
         custom: []
       device_token:
         name: device_token
         description: ''
         required: true
-        example: omnis
+        example: animi
         type: string
         custom: []
     cleanBodyParameters:
-      email: finn.waters@example.com
-      password: 'hYVKjD`9<#15Ic<ky'
-      device_token: omnis
+      email: clementina.wolff@example.com
+      password: 'dP7)G*Fu{R'
+      device_token: animi
     fileParameters: []
     responses: []
     responseFields: []
