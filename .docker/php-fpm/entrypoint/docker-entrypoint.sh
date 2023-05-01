@@ -41,8 +41,8 @@ function prepare_basic_dependency() {
    php artisan key:generate
    php artisan jwt:secret
 
-   php artisan --env=testing key:generate
-   php artisan --env=testing jwt:secret
+#   php artisan --env=testing key:generate
+#   php artisan --env=testing jwt:secret
   popd
 }
 
@@ -67,7 +67,8 @@ if [ ! -e /$CONTAINER_FIRST_STARTUP ]; then
   fix_permissions
   clear_cache
   prepare_basic_dependency
-  run_migration  run_seed
+  run_migration
+  run_seed
   clear_cache
 else
   install_dependencies
