@@ -60,5 +60,7 @@ jobs:
         run: docker exec ClubBackend_api composer update composer install composer dump-autoload -o
       - name: Clear configuration file
         run: docker exec ClubBackend_api php artisan optimize:clear
+      - name: create jwt secret
+        run: docker exec ClubBackend_api php artisan --env=testing jwt:secret
       - name: Run tests
         run: docker exec ClubBackend_api php ./vendor/bin/phpunit tests

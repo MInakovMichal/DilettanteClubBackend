@@ -39,10 +39,10 @@ function prepare_basic_dependency() {
   pushd /var/www
    php artisan storage:link
    php artisan key:generate
-   php artisan jwt:secret --always-no
+   php artisan jwt:secret
 
    php artisan --env=testing key:generate
-   php artisan --env=testing jwt:secret --always-no
+   php artisan --env=testing jwt:secret
   popd
 }
 
