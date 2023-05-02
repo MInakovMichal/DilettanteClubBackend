@@ -8,13 +8,13 @@ use Illuminate\Support\Facades\Facade;
 class ApiResponse extends Facade
 {
     /**
-     * @param array<mixed> $data
+     * @param array<mixed>|mixed $data
      * @param string|null $message
      * @param int $code
      * @return JsonResponse
      */
     public static function successResponse(
-        array $data,
+        $data,
         string $message = null,
         int $code = 200
     ): JsonResponse {

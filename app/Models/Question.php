@@ -16,7 +16,7 @@ use Illuminate\Support\Carbon;
  * @property int $id
  * @property int $user_id
  * @property string $question
- * @property int $answer_id
+ * @property int $answer
  * @property int $use_count
  * @property int $language_id
  * @property Carbon|null $created_at
@@ -27,7 +27,7 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Question newQuery()
  * @method static Builder|Question onlyTrashed()
  * @method static Builder|Question query()
- * @method static Builder|Question whereAnswerId($value)
+ * @method static Builder|Question whereAnswer($value)
  * @method static Builder|Question whereCreatedAt($value)
  * @method static Builder|Question whereDeletedAt($value)
  * @method static Builder|Question whereId($value)
@@ -49,7 +49,7 @@ class Question extends Model
         'id',
         'user_id',
         'question',
-        'answer_id',
+        'answer',
         'use_count',
         'language_id',
     ];
@@ -69,9 +69,9 @@ class Question extends Model
         return $this->question;
     }
 
-    public function getAnswerId(): int
+    public function getAnswer(): int
     {
-        return $this->answer_id;
+        return $this->answer;
     }
 
     public function getUseCount(): int

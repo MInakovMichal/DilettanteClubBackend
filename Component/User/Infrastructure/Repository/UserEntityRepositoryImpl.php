@@ -4,10 +4,10 @@ namespace Component\User\Infrastructure\Repository;
 
 use App\Models\User;
 use Common\Auth\Sdk\Contract\RegisterContract;
+use Common\Exception\UserByEmailNotFoundException;
 use Common\Exception\UserNotFoundException;
 use Common\ValueObject\Email;
 use Common\ValueObject\RoleValueObject;
-use Component\User\Sdk\Exception\UserByEmailNotFoundException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Hash;

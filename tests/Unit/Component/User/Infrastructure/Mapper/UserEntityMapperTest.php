@@ -3,9 +3,9 @@
 namespace Tests\Unit\Component\User\Infrastructure\Mapper;
 
 use App\Models\User;
+use Common\Exception\UserIsBlockedException;
+use Common\Exception\UserIsNotVerifiedException;
 use Component\User\Infrastructure\Mapper\UserEntityMapper;
-use Component\User\Sdk\Exception\UserIsBlockedException;
-use Component\User\Sdk\Exception\UserIsNotVerifiedException;
 use Component\User\Sdk\Model\UserRead;
 use Tests\TestCase;
 

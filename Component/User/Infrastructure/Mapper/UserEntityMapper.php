@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Component\User\Infrastructure\Mapper;
 
 use App\Models\User;
-use Component\User\Sdk\Exception\UserIsBlockedException;
-use Component\User\Sdk\Exception\UserIsNotVerifiedException;
+use Common\Exception\UserIsBlockedException;
+use Common\Exception\UserIsNotVerifiedException;
 use Component\User\Sdk\Model\UserRead;
 
 final class UserEntityMapper

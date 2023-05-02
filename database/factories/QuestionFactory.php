@@ -23,7 +23,7 @@ class QuestionFactory extends Factory
         return [
             'user_id' => User::factory(),
             'question' => fake()->sentence(),
-            'answer_id' => Answer::factory(),
+            'answer' => fake()->randomDigit(),
             'use_count' => fake()->randomDigit(),
             'language_id' => Language::firstOrFail()->getId(),
         ];

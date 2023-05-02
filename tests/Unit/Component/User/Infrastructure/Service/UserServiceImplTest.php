@@ -5,17 +5,17 @@ namespace Tests\Unit\Component\User\Infrastructure\Service;
 use App\Models\Language;
 use App\Models\User;
 use Common\Auth\Infrastructure\Http\Requests\RegisterRequest;
+use Common\Exception\UserByEmailNotFoundException;
 use Common\Exception\UserNotFoundException;
 use Common\ValueObject\Email;
-use Component\User\Infrastructure\Service\UserServiceImpl;
-use Component\User\Sdk\Exception\UserByEmailNotFoundException;
+use Component\User\Infrastructure\Service\UserService;
 use Component\User\Sdk\Model\UserRead;
 use Tests\TestCase;
 use UnexpectedValueException;
 
 class UserServiceImplTest extends TestCase
 {
-    private UserServiceImpl $serviceImpl;
+    private UserService $serviceImpl;
 
     private User $user;
 
@@ -103,6 +103,6 @@ class UserServiceImplTest extends TestCase
             'actual_language_id' => $this->language_id
         ]);
 
-        $this->serviceImpl = resolve(UserServiceImpl::class);
+        $this->serviceImpl = resolve(UserService::class);
     }
 }

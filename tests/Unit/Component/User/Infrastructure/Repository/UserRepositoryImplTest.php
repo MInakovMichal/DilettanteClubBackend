@@ -5,17 +5,17 @@ namespace Tests\Unit\Component\User\Infrastructure\Repository;
 use App\Models\Language;
 use App\Models\User;
 use Common\Auth\Infrastructure\Http\Requests\RegisterRequest;
+use Common\Exception\UserByEmailNotFoundException;
 use Common\Exception\UserNotFoundException;
 use Common\ValueObject\Email;
-use Component\User\Infrastructure\Repository\UserRepositoryImpl;
-use Component\User\Sdk\Exception\UserByEmailNotFoundException;
+use Component\User\Infrastructure\Repository\UserRepository;
 use Component\User\Sdk\Model\UserRead;
 use Tests\TestCase;
 use UnexpectedValueException;
 
 class UserRepositoryImplTest extends TestCase
 {
-    private UserRepositoryImpl $repositoryImpl;
+    private UserRepository $repositoryImpl;
 
     private User $user;
 
@@ -103,6 +103,6 @@ class UserRepositoryImplTest extends TestCase
             'actual_language_id' => $this->language_id
         ]);
 
-        $this->repositoryImpl = resolve(UserRepositoryImpl::class);
+        $this->repositoryImpl = resolve(UserRepository::class);
     }
 }

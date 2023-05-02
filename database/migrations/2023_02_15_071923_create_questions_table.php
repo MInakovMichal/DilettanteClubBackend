@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('question');
-            $table->unsignedBigInteger('answer_id');
-            $table->unsignedBigInteger('use_count')->default(0);
+            $table->BigInteger('answer');
+            $table->unsignedBigInteger('use_count')->nullable()->default(0);
             $table->unsignedBigInteger('language_id');
 
             $table->timestamps();

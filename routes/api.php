@@ -2,6 +2,7 @@
 
 use Common\Auth\Infrastructure\Http\Controller\LoginController;
 use Common\Auth\Infrastructure\Http\Controller\RegisterController;
+use Component\Question\Infrastructure\Http\Controller\QuestionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,3 +19,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/auth/register', [RegisterController::class, 'register'])->name('user.register');
 Route::post('/auth/login', [LoginController::class, 'login'])->name('user.login');
+
+Route::group(["middleware" => ["auth:api"]], static function () {
+    Route::get('/questions', [QuestionController::class, 'getAllQuestions'])->name('user.questions');
+    Route::post('/questions/add', [QuestionController::class, 'addQuestion'])->name('user.questions.add');
+});

@@ -5,17 +5,17 @@ namespace Tests\Unit\Component\User\Domain;
 use App\Models\Language;
 use App\Models\User;
 use Common\Auth\Infrastructure\Http\Requests\RegisterRequest;
+use Common\Exception\UserByEmailNotFoundException;
 use Common\Exception\UserNotFoundException;
 use Common\ValueObject\Email;
-use Component\User\Domain\UserFacadeImpl;
-use Component\User\Sdk\Exception\UserByEmailNotFoundException;
 use Component\User\Sdk\Model\UserRead;
+use Component\User\Sdk\UserFacade;
 use Tests\TestCase;
 use UnexpectedValueException;
 
 class UserFacadeImplTest extends TestCase
 {
-    private UserFacadeImpl $facadeImpl;
+    private UserFacade $facadeImpl;
 
     private User $user;
 
@@ -103,6 +103,6 @@ class UserFacadeImplTest extends TestCase
             'actual_language_id' => $this->language_id
         ]);
 
-        $this->facadeImpl = resolve(UserFacadeImpl::class);
+        $this->facadeImpl = resolve(UserFacade::class);
     }
 }

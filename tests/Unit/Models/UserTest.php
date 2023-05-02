@@ -3,7 +3,7 @@
 namespace Tests\Unit\Models;
 
 use App\Models\User;
-use Component\User\Sdk\Exception\UserEmailIsNotSetException;
+use Common\Exception\UserEmailIsNotSetException;
 use Illuminate\Support\Carbon;
 use Tests\TestCase;
 

@@ -19,7 +19,7 @@ class QuestionTest extends TestCase
     private int $useCount;
 
     private Language $language;
-    private Answer $answer;
+    private int $answer;
     private User $user;
 
     public function test_GetId_ShouldReturnId(): void
@@ -39,7 +39,7 @@ class QuestionTest extends TestCase
 
     public function test_GetAnswerId_ShouldReturnAnswerId(): void
     {
-        $this->assertSame($this->answer->getId(), $this->question->getAnswerId());
+        $this->assertSame($this->answer, $this->question->getAnswer());
     }
 
     public function test_GetUseCount_ShouldReturnCount(): void
@@ -61,12 +61,12 @@ class QuestionTest extends TestCase
         $this->questionValue = $this->faker()->sentence();
         $this->useCount = $this->faker->randomDigit();
         $this->language = Language::firstOrFail();
-        $this->answer = Answer::factory()->create();
+        $this->answer = $this->faker->randomDigit();
         $this->question = Question::factory()->make([
             'id' => $this->id,
             'question' => $this->questionValue,
             'user_id' => $this->user->getId(),
-            'answer_id' => $this->answer->getId(),
+            'answer' => $this->answer,
             'use_count' => $this->useCount,
             'language_id' => $this->language->getId()
         ]);

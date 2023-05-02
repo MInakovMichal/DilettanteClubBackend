@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::table('questions', function (Blueprint $table) {
             $table->foreign('user_id')->on('users')->references('id');
-            $table->foreign('answer_id')->on('answers')->references('id');
             $table->foreign('language_id')->on('languages')->references('id');
         });
     }
@@ -24,9 +23,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('questions', function (Blueprint $table) {
-            $table->dropForeign('user_id');
-            $table->dropForeign('answer_id');
-            $table->dropForeign('language_id');
+            $table->dropForeign(['user_id']);
+            $table->dropForeign(['language_id']);
         });
     }
 };

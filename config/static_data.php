@@ -4,15 +4,15 @@ return [
     'languages' => [
         [
             'name' => 'Ukraine',
-            'code' => 'ua',
+            'code' => 'UA',
         ],
         [
             'name' => 'English',
-            'code' => 'en',
+            'code' => 'EN',
         ],
         [
             'name' => 'Polish',
-            'code' => 'pl',
+            'code' => 'PL',
         ],
     ],
 ];

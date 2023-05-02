@@ -198,6 +198,7 @@ return [
         Spatie\Permission\PermissionServiceProvider::class,
         \Component\User\Infrastructure\Provider\UserServiceProvider::class,
         \Common\Auth\Infrastructure\Provider\AuthServiceProvider::class,
+        \Component\Question\Infrastructure\Provider\QuestionServiceProvider::class,
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
     ],

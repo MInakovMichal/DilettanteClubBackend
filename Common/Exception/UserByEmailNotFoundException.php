@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Component\User\Sdk\Exception;
-
-use Common\Exception\ApiException;
+namespace Common\Exception;
 
 class UserByEmailNotFoundException extends ApiException
 {

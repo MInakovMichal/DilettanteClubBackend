@@ -3,7 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Component\User\Sdk\Exception\UserEmailIsNotSetException;
+use Common\Exception\UserEmailIsNotSetException;
 use Database\Factories\UserFactory;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;

@@ -23,8 +23,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('room_questions', function (Blueprint $table) {
-            $table->dropForeign('room_id');
-            $table->dropForeign('question_id');
+            $table->dropForeign(['room_id']);
+            $table->dropForeign(['question_id']);
         });
     }
 };
