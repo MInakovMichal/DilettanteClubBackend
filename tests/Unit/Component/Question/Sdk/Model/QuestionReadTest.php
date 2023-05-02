@@ -3,6 +3,7 @@
 namespace Tests\Unit\Component\Question\Sdk\Model;
 
 use App\Models\Language;
+use App\Models\User;
 use Component\Question\Sdk\Model\QuestionRead;
 use Tests\TestCase;
 
@@ -14,6 +15,7 @@ class QuestionReadTest extends TestCase
     private int $answer;
     private int $useCount;
     private Language $language;
+    private User $user;
 
     public function test_GetId_ShouldReturnQuestionId(): void
     {
@@ -45,6 +47,7 @@ class QuestionReadTest extends TestCase
         parent::setUp();
 
         $this->id = 1;
+        $this->user = User::factory()->create();
         $this->questionValue = $this->faker->sentence();
         $this->answer = $this->faker->randomDigit();
         $this->useCount = $this->faker->randomDigit();
@@ -52,6 +55,7 @@ class QuestionReadTest extends TestCase
 
         $this->questionReadModel = new QuestionRead(
             $this->id,
+            $this->user->getId(),
             $this->questionValue,
             $this->answer,
             $this->useCount,

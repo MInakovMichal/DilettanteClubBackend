@@ -25,7 +25,7 @@ class QuestionControllerTest extends SmokeTestCase
         $response->assertStatus(200);
     }
 
-    public function test_AddAllQuestion(): void
+    public function test_AddQuestion(): void
     {
         $user = User::factory()->create();
         $question = $this->faker->sentence();

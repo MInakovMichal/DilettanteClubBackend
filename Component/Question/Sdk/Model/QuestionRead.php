@@ -10,6 +10,8 @@ final class QuestionRead implements Arrayable
 {
     private int $id;
 
+    private int $userId;
+
     private string $question;
 
     private int $answer;
@@ -25,13 +27,14 @@ final class QuestionRead implements Arrayable
      * @param int $useCount
      * @param int $languageId
      */
-    public function __construct(int $id, string $question, int $answer, int $useCount, int $languageId)
+    public function __construct(int $id, int $userId, string $question, int $answer, int $useCount, int $languageId)
     {
         $this->id = $id;
         $this->question = $question;
         $this->answer = $answer;
         $this->useCount = $useCount;
         $this->languageId = $languageId;
+        $this->userId = $userId;
     }
 
     /**
@@ -78,6 +81,7 @@ final class QuestionRead implements Arrayable
     {
         return [
             'id' => $this->id,
+            'user_id' => $this->userId,
             'question' => $this->question,
             'answer' => $this->answer,
             'use_count' => $this->useCount,
@@ -85,4 +89,11 @@ final class QuestionRead implements Arrayable
         ];
     }
 
+    /**
+     * @return int
+     */
+    public function getUserId(): int
+    {
+        return $this->userId;
+    }
 }

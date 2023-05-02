@@ -13,6 +13,7 @@ final class QuestionEntityMapper
     {
         return new QuestionRead(
             $questionEntity->getId(),
+            $questionEntity->getUserId(),
             $questionEntity->getQuestion(),
             $questionEntity->getAnswer(),
             $questionEntity->getUseCount(),
