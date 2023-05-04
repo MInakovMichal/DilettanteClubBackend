@@ -18,18 +18,9 @@ class AddPunishmentRequest extends FormRequest implements AddPunishmentContract
     public function rules(): array
     {
         return [
-            'user' => ['required', 'integer', 'exists:users,id'],
             'punishment' => ['required', 'string'],
             'language_id' => ['required', 'integer', 'exists:languages,id']
         ];
-    }
-
-    public function getUserId(): int
-    {
-        /** @var int $userId */
-        $userId = $this->get('user');
-
-        return $userId;
     }
 
     public function getPunishment(): string

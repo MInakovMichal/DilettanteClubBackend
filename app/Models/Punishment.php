@@ -70,4 +70,20 @@ class Punishment extends Model
     {
         return $this->language_id;
     }
+
+    /**
+     * @param string $punishment
+     */
+    public function setPunishment(string $punishment): void
+    {
+        $this->punishment = $punishment;
+    }
+
+    /**
+     * @param int $language_id
+     */
+    public function setLanguageId(int $language_id): void
+    {
+        $this->language_id = $language_id;
+    }
 }

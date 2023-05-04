@@ -18,19 +18,10 @@ class AddQuestionRequest extends FormRequest implements AddQuestionContract
     public function rules(): array
     {
         return [
-            'user' => ['required', 'integer', 'exists:users,id'],
             'question' => ['required', 'string'],
             'answer' => ['required', 'integer'],
             'language_id' => ['required', 'integer', 'exists:languages,id']
         ];
-    }
-
-    public function getUserId(): int
-    {
-        /** @var int $userId */
-        $userId = $this->get('user');
-
-        return $userId;
     }
 
     public function getQuestion(): string

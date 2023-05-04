@@ -24,10 +24,14 @@ Route::group(["middleware" => ["auth:api"],], static function () {
     Route::group(["prefix" => '/questions',], static function () {
         Route::get('/', [QuestionController::class, 'getAllQuestions'])->name('user.questions');
         Route::post('/add', [QuestionController::class, 'addQuestion'])->name('user.questions.add');
+        Route::delete('/delete', [QuestionController::class, 'deleteQuestion'])->name('user.questions.delete');
+        Route::put('/update', [QuestionController::class, 'updateQuestion'])->name('user.questions.update');
     });
 
     Route::group(["prefix" => '/punishment',], static function () {
         Route::get('/', [PunishmentController::class, 'getAllPunishments'])->name('user.punishments');
         Route::post('/add', [PunishmentController::class, 'addPunishment'])->name('user.punishments.add');
+        Route::delete('/delete', [PunishmentController::class, 'deletePunishment'])->name('user.punishments.delete');
+        Route::put('/update', [PunishmentController::class, 'updatePunishment'])->name('user.punishments.update');
     });
 });

@@ -26,51 +26,51 @@ endpoints:
         name: name
         description: 'Must not be greater than 50 characters.'
         required: true
-        example: ytnerxbatwgi
+        example: eae
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: hilda41@example.org
+        example: vsteuber@example.com
         type: string
         custom: []
       username:
         name: username
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: ynxvftjmqe
+        example: h
         type: string
         custom: []
       language_id:
         name: language_id
         description: 'Must not be greater than 255.'
         required: true
-        example: 23
+        example: 3
         type: number
         custom: []
       password:
         name: password
         description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/. Must be at least 8 characters. Must not be greater than 32 characters.'
         required: true
-        example: MaE7)F
+        example: '_H?sE}uawl/yOx~['
         type: string
         custom: []
       password_confirmation:
         name: password_confirmation
         description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/. Must be at least 8 characters. Must not be greater than 32 characters.'
         required: true
-        example: shoozdlztlxxujckv
+        example: h
         type: string
         custom: []
     cleanBodyParameters:
-      name: ytnerxbatwgi
-      email: hilda41@example.org
-      username: ynxvftjmqe
-      language_id: 23
-      password: MaE7)F
-      password_confirmation: shoozdlztlxxujckv
+      name: eae
+      email: vsteuber@example.com
+      username: h
+      language_id: 3
+      password: '_H?sE}uawl/yOx~['
+      password_confirmation: h
     fileParameters: []
     responses: []
     responseFields: []
@@ -104,27 +104,27 @@ endpoints:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: maximillia50@example.org
+        example: senger.alan@example.com
         type: string
         custom: []
       password:
         name: password
         description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/. Must be at least 8 characters. Must not be greater than 32 characters.'
         required: true
-        example: K~pL/NVydz83H
+        example: 16$+R8p.f0Z-
         type: string
         custom: []
       device_token:
         name: device_token
         description: ''
         required: true
-        example: enim
+        example: eos
         type: string
         custom: []
     cleanBodyParameters:
-      email: maximillia50@example.org
-      password: K~pL/NVydz83H
-      device_token: enim
+      email: senger.alan@example.com
+      password: 16$+R8p.f0Z-
+      device_token: eos
     fileParameters: []
     responses: []
     responseFields: []
@@ -158,11 +158,11 @@ endpoints:
         name: user
         description: ''
         required: true
-        example: 1
+        example: 2
         type: integer
         custom: []
     cleanBodyParameters:
-      user: 1
+      user: 2
     fileParameters: []
     responses:
       -
@@ -811,39 +811,780 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      user:
-        name: user
-        description: ''
-        required: true
-        example: 19
-        type: integer
-        custom: []
       question:
         name: question
         description: ''
         required: true
-        example: eius
+        example: esse
         type: string
         custom: []
       answer:
         name: answer
         description: ''
         required: true
-        example: 4
+        example: 13
         type: integer
         custom: []
       language_id:
         name: language_id
         description: ''
         required: true
-        example: 9
+        example: 2
         type: integer
         custom: []
     cleanBodyParameters:
-      user: 19
-      question: eius
-      answer: 4
-      language_id: 9
+      question: esse
+      answer: 13
+      language_id: 2
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: api/questions/delete
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: ''
+        required: true
+        example: voluptas
+        type: string
+        custom: []
+    cleanBodyParameters:
+      id: voluptas
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/punishment
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      user:
+        name: user
+        description: ''
+        required: true
+        example: 20
+        type: integer
+        custom: []
+    cleanBodyParameters:
+      user: 20
+    fileParameters: []
+    responses:
+      -
+        status: 500
+        content: |-
+          {
+              "message": "Secret is not set.",
+              "exception": "Tymon\\JWTAuth\\Exceptions\\JWTException",
+              "file": "/var/www/vendor/tymon/jwt-auth/src/Providers/JWT/Lcobucci.php",
+              "line": 244,
+              "trace": [
+                  {
+                      "file": "/var/www/vendor/tymon/jwt-auth/src/Providers/JWT/Lcobucci.php",
+                      "line": 186,
+                      "function": "getSigningKey",
+                      "class": "Tymon\\JWTAuth\\Providers\\JWT\\Lcobucci",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/tymon/jwt-auth/src/Providers/JWT/Lcobucci.php",
+                      "line": 57,
+                      "function": "buildConfig",
+                      "class": "Tymon\\JWTAuth\\Providers\\JWT\\Lcobucci",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/tymon/jwt-auth/src/Providers/AbstractServiceProvider.php",
+                      "line": 167,
+                      "function": "__construct",
+                      "class": "Tymon\\JWTAuth\\Providers\\JWT\\Lcobucci",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php",
+                      "line": 885,
+                      "function": "Tymon\\JWTAuth\\Providers\\{closure}",
+                      "class": "Tymon\\JWTAuth\\Providers\\AbstractServiceProvider",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php",
+                      "line": 770,
+                      "function": "build",
+                      "class": "Illuminate\\Container\\Container",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Application.php",
+                      "line": 933,
+                      "function": "resolve",
+                      "class": "Illuminate\\Container\\Container",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php",
+                      "line": 706,
+                      "function": "resolve",
+                      "class": "Illuminate\\Foundation\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Application.php",
+                      "line": 918,
+                      "function": "make",
+                      "class": "Illuminate\\Container\\Container",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/tymon/jwt-auth/src/Providers/AbstractServiceProvider.php",
+                      "line": 367,
+                      "function": "make",
+                      "class": "Illuminate\\Foundation\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/tymon/jwt-auth/src/Providers/AbstractServiceProvider.php",
+                      "line": 138,
+                      "function": "getConfigInstance",
+                      "class": "Tymon\\JWTAuth\\Providers\\AbstractServiceProvider",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php",
+                      "line": 885,
+                      "function": "Tymon\\JWTAuth\\Providers\\{closure}",
+                      "class": "Tymon\\JWTAuth\\Providers\\AbstractServiceProvider",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php",
+                      "line": 770,
+                      "function": "build",
+                      "class": "Illuminate\\Container\\Container",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Application.php",
+                      "line": 933,
+                      "function": "resolve",
+                      "class": "Illuminate\\Container\\Container",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php",
+                      "line": 706,
+                      "function": "resolve",
+                      "class": "Illuminate\\Foundation\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Application.php",
+                      "line": 918,
+                      "function": "make",
+                      "class": "Illuminate\\Container\\Container",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php",
+                      "line": 1431,
+                      "function": "make",
+                      "class": "Illuminate\\Foundation\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/tymon/jwt-auth/src/Providers/AbstractServiceProvider.php",
+                      "line": 208,
+                      "function": "offsetGet",
+                      "class": "Illuminate\\Container\\Container",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php",
+                      "line": 885,
+                      "function": "Tymon\\JWTAuth\\Providers\\{closure}",
+                      "class": "Tymon\\JWTAuth\\Providers\\AbstractServiceProvider",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php",
+                      "line": 770,
+                      "function": "build",
+                      "class": "Illuminate\\Container\\Container",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Application.php",
+                      "line": 933,
+                      "function": "resolve",
+                      "class": "Illuminate\\Container\\Container",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php",
+                      "line": 706,
+                      "function": "resolve",
+                      "class": "Illuminate\\Foundation\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Application.php",
+                      "line": 918,
+                      "function": "make",
+                      "class": "Illuminate\\Container\\Container",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php",
+                      "line": 1431,
+                      "function": "make",
+                      "class": "Illuminate\\Foundation\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/tymon/jwt-auth/src/Providers/AbstractServiceProvider.php",
+                      "line": 250,
+                      "function": "offsetGet",
+                      "class": "Illuminate\\Container\\Container",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php",
+                      "line": 885,
+                      "function": "Tymon\\JWTAuth\\Providers\\{closure}",
+                      "class": "Tymon\\JWTAuth\\Providers\\AbstractServiceProvider",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php",
+                      "line": 770,
+                      "function": "build",
+                      "class": "Illuminate\\Container\\Container",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Application.php",
+                      "line": 933,
+                      "function": "resolve",
+                      "class": "Illuminate\\Container\\Container",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php",
+                      "line": 706,
+                      "function": "resolve",
+                      "class": "Illuminate\\Foundation\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Application.php",
+                      "line": 918,
+                      "function": "make",
+                      "class": "Illuminate\\Container\\Container",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php",
+                      "line": 1431,
+                      "function": "make",
+                      "class": "Illuminate\\Foundation\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/tymon/jwt-auth/src/Providers/AbstractServiceProvider.php",
+                      "line": 96,
+                      "function": "offsetGet",
+                      "class": "Illuminate\\Container\\Container",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Auth/AuthManager.php",
+                      "line": 113,
+                      "function": "Tymon\\JWTAuth\\Providers\\{closure}",
+                      "class": "Tymon\\JWTAuth\\Providers\\AbstractServiceProvider",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Auth/AuthManager.php",
+                      "line": 90,
+                      "function": "callCustomCreator",
+                      "class": "Illuminate\\Auth\\AuthManager",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Auth/AuthManager.php",
+                      "line": 70,
+                      "function": "resolve",
+                      "class": "Illuminate\\Auth\\AuthManager",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php",
+                      "line": 64,
+                      "function": "guard",
+                      "class": "Illuminate\\Auth\\AuthManager",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php",
+                      "line": 43,
+                      "function": "authenticate",
+                      "class": "Illuminate\\Auth\\Middleware\\Authenticate",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Auth\\Middleware\\Authenticate",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 116,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+                      "line": 797,
+                      "function": "then",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+                      "line": 776,
+                      "function": "runRouteWithinStack",
+                      "class": "Illuminate\\Routing\\Router",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+                      "line": 740,
+                      "function": "runRoute",
+                      "class": "Illuminate\\Routing\\Router",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+                      "line": 729,
+                      "function": "dispatchToRoute",
+                      "class": "Illuminate\\Routing\\Router",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+                      "line": 200,
+                      "function": "dispatch",
+                      "class": "Illuminate\\Routing\\Router",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 141,
+                      "function": "Illuminate\\Foundation\\Http\\{closure}",
+                      "class": "Illuminate\\Foundation\\Http\\Kernel",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php",
+                      "line": 21,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php",
+                      "line": 31,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php",
+                      "line": 21,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php",
+                      "line": 40,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TrimStrings",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php",
+                      "line": 27,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php",
+                      "line": 86,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php",
+                      "line": 62,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Http\\Middleware\\HandleCors",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php",
+                      "line": 39,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Http\\Middleware\\TrustProxies",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 116,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+                      "line": 175,
+                      "function": "then",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+                      "line": 144,
+                      "function": "sendRequestThroughRouter",
+                      "class": "Illuminate\\Foundation\\Http\\Kernel",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 299,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Kernel",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 287,
+                      "function": "callLaravelOrLumenRoute",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 92,
+                      "function": "makeApiCall",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 45,
+                      "function": "makeResponseCall",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 35,
+                      "function": "makeResponseCallIfConditionsPass",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "line": 209,
+                      "function": "__invoke",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "line": 163,
+                      "function": "iterateThroughStrategies",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "line": 95,
+                      "function": "fetchResponses",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "line": 124,
+                      "function": "processRoute",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "line": 71,
+                      "function": "extractEndpointsInfoFromLaravelApp",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "line": 49,
+                      "function": "extractEndpointsInfoAndWriteToDisk",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php",
+                      "line": 51,
+                      "function": "get",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "line": 36,
+                      "function": "handle",
+                      "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/Util.php",
+                      "line": 41,
+                      "function": "Illuminate\\Container\\{closure}",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "line": 93,
+                      "function": "unwrapIfClosure",
+                      "class": "Illuminate\\Container\\Util",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "line": 35,
+                      "function": "callBoundMethod",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php",
+                      "line": 661,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Console/Command.php",
+                      "line": 194,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\Container",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/symfony/console/Command/Command.php",
+                      "line": 312,
+                      "function": "execute",
+                      "class": "Illuminate\\Console\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Console/Command.php",
+                      "line": 163,
+                      "function": "run",
+                      "class": "Symfony\\Component\\Console\\Command\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/symfony/console/Application.php",
+                      "line": 1040,
+                      "function": "run",
+                      "class": "Illuminate\\Console\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/symfony/console/Application.php",
+                      "line": 314,
+                      "function": "doRunCommand",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/symfony/console/Application.php",
+                      "line": 168,
+                      "function": "doRun",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php",
+                      "line": 200,
+                      "function": "run",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/artisan",
+                      "line": 35,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Console\\Kernel",
+                      "type": "->"
+                  }
+              ]
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/punishment/add
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      user:
+        name: user
+        description: ''
+        required: true
+        example: 18
+        type: integer
+        custom: []
+      punishment:
+        name: punishment
+        description: ''
+        required: true
+        example: amet
+        type: string
+        custom: []
+      language_id:
+        name: language_id
+        description: ''
+        required: true
+        example: 10
+        type: integer
+        custom: []
+    cleanBodyParameters:
+      user: 18
+      punishment: amet
+      language_id: 10
     fileParameters: []
     responses: []
     responseFields: []

@@ -5,8 +5,11 @@ namespace Tests\Unit\Component\Question\Infrastructure\Service;
 use App\Models\Language;
 use App\Models\Question;
 use App\Models\User;
+use Common\Exception\UnauthorizedException;
 use Component\Question\Infrastructure\Http\Requests\AddQuestionRequest;
+use Component\Question\Infrastructure\Http\Requests\DeleteQuestionRequest;
 use Component\Question\Infrastructure\Http\Requests\GetQuestionsRequest;
+use Component\Question\Infrastructure\Http\Requests\UpdateQuestionRequest;
 use Component\Question\Infrastructure\Service\QuestionService;
 use Component\Question\Sdk\Model\QuestionRead;
 use Tests\TestCase;
@@ -51,15 +54,92 @@ class QuestionServiceImplTest extends TestCase
         $language = Language::firstOrFail();
 
         $contract = new AddQuestionRequest([
-            'user' => $this->userWithoutQuestions->getId(),
+            'user' => $this->user->getId(),
             'question' => $questionValue,
             'answer' => $answer,
             'language_id' => $language->getId()
         ]);
 
-        $questionRead = $this->serviceImpl->addQuestion($contract);
+        $questionRead = $this->serviceImpl->addQuestion($contract, $this->user->getId());
 
         $this->assertInstanceOf(QuestionRead::class, $questionRead);
+    }
+
+    public function test_DeleteQuestion_ShouldDeleteQuestion(): void
+    {
+        $question = Question::factory()->create([
+            'user_id' => $this->user->getId()
+        ]);
+
+        $contract = new DeleteQuestionRequest([
+            'id' => $question->getId(),
+        ]);
+
+        $questionsBeforeDelete = Question::all()->count();
+        $this->serviceImpl->deleteQuestion($contract, $this->user->getId());
+        $questionsAfterDelete = Question::all()->count();
+
+        $this->assertSame($questionsBeforeDelete - 1, $questionsAfterDelete);
+    }
+
+    public function test_DeleteQuestion_ShouldThrowUnauthorizedRequest_WhetTryToDeleteNotOwnQuestion(): void
+    {
+        $this->expectException(UnauthorizedException::class);
+
+        /** @var Question $question */
+        $question = Question::factory()->create();
+
+        $contract = new DeleteQuestionRequest([
+            'id' => $question->getId(),
+        ]);
+
+        $this->serviceImpl->deleteQuestion($contract, $this->user->getId());
+    }
+
+    public function test_UpdateQuestion_ShouldThrowUnauthorizedRequest_WhetTryToUpdateNotOwnQuestion(): void
+    {
+        $this->expectException(UnauthorizedException::class);
+
+        /** @var Question $question */
+        $question = Question::factory()->create();
+
+        $contract = new UpdateQuestionRequest([
+            'id' => $question->getId(),
+            'question' => $this->faker->sentence(),
+            'answer' => $this->faker->randomDigit(),
+            'language_id' => $question->getLanguageId(),
+        ]);
+
+        $this->serviceImpl->updateQuestion($contract, $this->user->getId());
+    }
+
+    public function test_UpdateQuestion_ShouldReturnQuestionReadClassWithNewData_WhenUserUpdateOwnQuestion(): void
+    {
+        $oldQuestionValue = $this->faker->sentence();
+        $newQuestionValue = $this->faker->sentence();
+        $oldAnswer = $this->faker->randomDigit();
+        $newAnswer = $this->faker->randomDigit();
+        /** @var Language $language */
+        $language = Language::firstOrFail();
+
+        $question = Question::factory()->create([
+            'user_id' => $this->user->getId(),
+            'question' => $oldQuestionValue,
+            'answer' => $oldAnswer
+        ]);
+
+        $contract = new UpdateQuestionRequest([
+            'id' => $question->getId(),
+            "question" => $newQuestionValue,
+            "answer" => $newAnswer,
+            "language_id" => $language->getId(),
+        ]);
+
+        $questionRead = $this->serviceImpl->updateQuestion($contract, $this->user->getId());
+
+        $this->assertInstanceOf(QuestionRead::class, $questionRead);
+        $this->assertSame($newQuestionValue, $questionRead->getQuestion());
+        $this->assertSame($newAnswer, $questionRead->getAnswer());
     }
 
     protected function setUp(): void

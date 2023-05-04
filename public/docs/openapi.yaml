@@ -40,27 +40,27 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 50 characters.'
-                  example: ytnerxbatwgi
+                  example: eae
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: hilda41@example.org
+                  example: vsteuber@example.com
                 username:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: ynxvftjmqe
+                  example: h
                 language_id:
                   type: number
                   description: 'Must not be greater than 255.'
-                  example: 23
+                  example: 3
                 password:
                   type: string
                   description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/. Must be at least 8 characters. Must not be greater than 32 characters.'
-                  example: MaE7)F
+                  example: '_H?sE}uawl/yOx~['
                 password_confirmation:
                   type: string
                   description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/. Must be at least 8 characters. Must not be greater than 32 characters.'
-                  example: shoozdlztlxxujckv
+                  example: h
               required:
                 - name
                 - email
@@ -102,15 +102,15 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: maximillia50@example.org
+                  example: senger.alan@example.com
                 password:
                   type: string
                   description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/. Must be at least 8 characters. Must not be greater than 32 characters.'
-                  example: K~pL/NVydz83H
+                  example: 16$+R8p.f0Z-
                 device_token:
                   type: string
                   description: ''
-                  example: enim
+                  example: eos
               required:
                 - email
                 - password
@@ -1227,7 +1227,7 @@ paths:
                 user:
                   type: integer
                   description: ''
-                  example: 1
+                  example: 2
               required:
                 - user
       security: []
@@ -1261,26 +1261,1220 @@ paths:
             schema:
               type: object
               properties:
-                user:
-                  type: integer
-                  description: ''
-                  example: 19
                 question:
                   type: string
                   description: ''
-                  example: eius
+                  example: esse
                 answer:
                   type: integer
                   description: ''
-                  example: 4
+                  example: 13
                 language_id:
                   type: integer
                   description: ''
-                  example: 9
+                  example: 2
               required:
-                - user
                 - question
                 - answer
+                - language_id
+      security: []
+  /api/questions/delete:
+    delete:
+      summary: ''
+      operationId: deleteApiQuestionsDelete
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: ''
+                  example: voluptas
+              required:
+                - id
+      security: []
+  /api/punishment:
+    get:
+      summary: ''
+      operationId: getApiPunishment
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        500:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Secret is not set.'
+                  exception: Tymon\JWTAuth\Exceptions\JWTException
+                  file: /var/www/vendor/tymon/jwt-auth/src/Providers/JWT/Lcobucci.php
+                  line: 244
+                  trace:
+                    -
+                      file: /var/www/vendor/tymon/jwt-auth/src/Providers/JWT/Lcobucci.php
+                      line: 186
+                      function: getSigningKey
+                      class: Tymon\JWTAuth\Providers\JWT\Lcobucci
+                      type: '->'
+                    -
+                      file: /var/www/vendor/tymon/jwt-auth/src/Providers/JWT/Lcobucci.php
+                      line: 57
+                      function: buildConfig
+                      class: Tymon\JWTAuth\Providers\JWT\Lcobucci
+                      type: '->'
+                    -
+                      file: /var/www/vendor/tymon/jwt-auth/src/Providers/AbstractServiceProvider.php
+                      line: 167
+                      function: __construct
+                      class: Tymon\JWTAuth\Providers\JWT\Lcobucci
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php
+                      line: 885
+                      function: 'Tymon\JWTAuth\Providers\{closure}'
+                      class: Tymon\JWTAuth\Providers\AbstractServiceProvider
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php
+                      line: 770
+                      function: build
+                      class: Illuminate\Container\Container
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Application.php
+                      line: 933
+                      function: resolve
+                      class: Illuminate\Container\Container
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php
+                      line: 706
+                      function: resolve
+                      class: Illuminate\Foundation\Application
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Application.php
+                      line: 918
+                      function: make
+                      class: Illuminate\Container\Container
+                      type: '->'
+                    -
+                      file: /var/www/vendor/tymon/jwt-auth/src/Providers/AbstractServiceProvider.php
+                      line: 367
+                      function: make
+                      class: Illuminate\Foundation\Application
+                      type: '->'
+                    -
+                      file: /var/www/vendor/tymon/jwt-auth/src/Providers/AbstractServiceProvider.php
+                      line: 138
+                      function: getConfigInstance
+                      class: Tymon\JWTAuth\Providers\AbstractServiceProvider
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php
+                      line: 885
+                      function: 'Tymon\JWTAuth\Providers\{closure}'
+                      class: Tymon\JWTAuth\Providers\AbstractServiceProvider
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php
+                      line: 770
+                      function: build
+                      class: Illuminate\Container\Container
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Application.php
+                      line: 933
+                      function: resolve
+                      class: Illuminate\Container\Container
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php
+                      line: 706
+                      function: resolve
+                      class: Illuminate\Foundation\Application
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Application.php
+                      line: 918
+                      function: make
+                      class: Illuminate\Container\Container
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php
+                      line: 1431
+                      function: make
+                      class: Illuminate\Foundation\Application
+                      type: '->'
+                    -
+                      file: /var/www/vendor/tymon/jwt-auth/src/Providers/AbstractServiceProvider.php
+                      line: 208
+                      function: offsetGet
+                      class: Illuminate\Container\Container
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php
+                      line: 885
+                      function: 'Tymon\JWTAuth\Providers\{closure}'
+                      class: Tymon\JWTAuth\Providers\AbstractServiceProvider
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php
+                      line: 770
+                      function: build
+                      class: Illuminate\Container\Container
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Application.php
+                      line: 933
+                      function: resolve
+                      class: Illuminate\Container\Container
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php
+                      line: 706
+                      function: resolve
+                      class: Illuminate\Foundation\Application
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Application.php
+                      line: 918
+                      function: make
+                      class: Illuminate\Container\Container
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php
+                      line: 1431
+                      function: make
+                      class: Illuminate\Foundation\Application
+                      type: '->'
+                    -
+                      file: /var/www/vendor/tymon/jwt-auth/src/Providers/AbstractServiceProvider.php
+                      line: 250
+                      function: offsetGet
+                      class: Illuminate\Container\Container
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php
+                      line: 885
+                      function: 'Tymon\JWTAuth\Providers\{closure}'
+                      class: Tymon\JWTAuth\Providers\AbstractServiceProvider
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php
+                      line: 770
+                      function: build
+                      class: Illuminate\Container\Container
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Application.php
+                      line: 933
+                      function: resolve
+                      class: Illuminate\Container\Container
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php
+                      line: 706
+                      function: resolve
+                      class: Illuminate\Foundation\Application
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Application.php
+                      line: 918
+                      function: make
+                      class: Illuminate\Container\Container
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php
+                      line: 1431
+                      function: make
+                      class: Illuminate\Foundation\Application
+                      type: '->'
+                    -
+                      file: /var/www/vendor/tymon/jwt-auth/src/Providers/AbstractServiceProvider.php
+                      line: 96
+                      function: offsetGet
+                      class: Illuminate\Container\Container
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Auth/AuthManager.php
+                      line: 113
+                      function: 'Tymon\JWTAuth\Providers\{closure}'
+                      class: Tymon\JWTAuth\Providers\AbstractServiceProvider
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Auth/AuthManager.php
+                      line: 90
+                      function: callCustomCreator
+                      class: Illuminate\Auth\AuthManager
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Auth/AuthManager.php
+                      line: 70
+                      function: resolve
+                      class: Illuminate\Auth\AuthManager
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php
+                      line: 64
+                      function: guard
+                      class: Illuminate\Auth\AuthManager
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php
+                      line: 43
+                      function: authenticate
+                      class: Illuminate\Auth\Middleware\Authenticate
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
+                      line: 180
+                      function: handle
+                      class: Illuminate\Auth\Middleware\Authenticate
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
+                      line: 116
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php
+                      line: 797
+                      function: then
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php
+                      line: 776
+                      function: runRouteWithinStack
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php
+                      line: 740
+                      function: runRoute
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php
+                      line: 729
+                      function: dispatchToRoute
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php
+                      line: 200
+                      function: dispatch
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
+                      line: 141
+                      function: 'Illuminate\Foundation\Http\{closure}'
+                      class: Illuminate\Foundation\Http\Kernel
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php
+                      line: 21
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php
+                      line: 31
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
+                      line: 180
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php
+                      line: 21
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php
+                      line: 40
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
+                      line: 180
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\TrimStrings
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php
+                      line: 27
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
+                      line: 180
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\ValidatePostSize
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php
+                      line: 86
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
+                      line: 180
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php
+                      line: 62
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
+                      line: 180
+                      function: handle
+                      class: Illuminate\Http\Middleware\HandleCors
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php
+                      line: 39
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
+                      line: 180
+                      function: handle
+                      class: Illuminate\Http\Middleware\TrustProxies
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
+                      line: 116
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php
+                      line: 175
+                      function: then
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php
+                      line: 144
+                      function: sendRequestThroughRouter
+                      class: Illuminate\Foundation\Http\Kernel
+                      type: '->'
+                    -
+                      file: /var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
+                      line: 299
+                      function: handle
+                      class: Illuminate\Foundation\Http\Kernel
+                      type: '->'
+                    -
+                      file: /var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
+                      line: 287
+                      function: callLaravelOrLumenRoute
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: /var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
+                      line: 92
+                      function: makeApiCall
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: /var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
+                      line: 45
+                      function: makeResponseCall
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: /var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
+                      line: 35
+                      function: makeResponseCallIfConditionsPass
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: /var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php
+                      line: 209
+                      function: __invoke
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: /var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php
+                      line: 163
+                      function: iterateThroughStrategies
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: /var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php
+                      line: 95
+                      function: fetchResponses
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: /var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php
+                      line: 124
+                      function: processRoute
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: /var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php
+                      line: 71
+                      function: extractEndpointsInfoFromLaravelApp
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: /var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php
+                      line: 49
+                      function: extractEndpointsInfoAndWriteToDisk
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: /var/www/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php
+                      line: 51
+                      function: get
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php
+                      line: 36
+                      function: handle
+                      class: Knuckles\Scribe\Commands\GenerateDocumentation
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Container/Util.php
+                      line: 41
+                      function: 'Illuminate\Container\{closure}'
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php
+                      line: 93
+                      function: unwrapIfClosure
+                      class: Illuminate\Container\Util
+                      type: '::'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php
+                      line: 35
+                      function: callBoundMethod
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php
+                      line: 661
+                      function: call
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Console/Command.php
+                      line: 194
+                      function: call
+                      class: Illuminate\Container\Container
+                      type: '->'
+                    -
+                      file: /var/www/vendor/symfony/console/Command/Command.php
+                      line: 312
+                      function: execute
+                      class: Illuminate\Console\Command
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Console/Command.php
+                      line: 163
+                      function: run
+                      class: Symfony\Component\Console\Command\Command
+                      type: '->'
+                    -
+                      file: /var/www/vendor/symfony/console/Application.php
+                      line: 1040
+                      function: run
+                      class: Illuminate\Console\Command
+                      type: '->'
+                    -
+                      file: /var/www/vendor/symfony/console/Application.php
+                      line: 314
+                      function: doRunCommand
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: /var/www/vendor/symfony/console/Application.php
+                      line: 168
+                      function: doRun
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php
+                      line: 200
+                      function: run
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: /var/www/artisan
+                      line: 35
+                      function: handle
+                      class: Illuminate\Foundation\Console\Kernel
+                      type: '->'
+                properties:
+                  message:
+                    type: string
+                    example: 'Secret is not set.'
+                  exception:
+                    type: string
+                    example: Tymon\JWTAuth\Exceptions\JWTException
+                  file:
+                    type: string
+                    example: /var/www/vendor/tymon/jwt-auth/src/Providers/JWT/Lcobucci.php
+                  line:
+                    type: integer
+                    example: 244
+                  trace:
+                    type: array
+                    example:
+                      -
+                        file: /var/www/vendor/tymon/jwt-auth/src/Providers/JWT/Lcobucci.php
+                        line: 186
+                        function: getSigningKey
+                        class: Tymon\JWTAuth\Providers\JWT\Lcobucci
+                        type: '->'
+                      -
+                        file: /var/www/vendor/tymon/jwt-auth/src/Providers/JWT/Lcobucci.php
+                        line: 57
+                        function: buildConfig
+                        class: Tymon\JWTAuth\Providers\JWT\Lcobucci
+                        type: '->'
+                      -
+                        file: /var/www/vendor/tymon/jwt-auth/src/Providers/AbstractServiceProvider.php
+                        line: 167
+                        function: __construct
+                        class: Tymon\JWTAuth\Providers\JWT\Lcobucci
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php
+                        line: 885
+                        function: 'Tymon\JWTAuth\Providers\{closure}'
+                        class: Tymon\JWTAuth\Providers\AbstractServiceProvider
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php
+                        line: 770
+                        function: build
+                        class: Illuminate\Container\Container
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Application.php
+                        line: 933
+                        function: resolve
+                        class: Illuminate\Container\Container
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php
+                        line: 706
+                        function: resolve
+                        class: Illuminate\Foundation\Application
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Application.php
+                        line: 918
+                        function: make
+                        class: Illuminate\Container\Container
+                        type: '->'
+                      -
+                        file: /var/www/vendor/tymon/jwt-auth/src/Providers/AbstractServiceProvider.php
+                        line: 367
+                        function: make
+                        class: Illuminate\Foundation\Application
+                        type: '->'
+                      -
+                        file: /var/www/vendor/tymon/jwt-auth/src/Providers/AbstractServiceProvider.php
+                        line: 138
+                        function: getConfigInstance
+                        class: Tymon\JWTAuth\Providers\AbstractServiceProvider
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php
+                        line: 885
+                        function: 'Tymon\JWTAuth\Providers\{closure}'
+                        class: Tymon\JWTAuth\Providers\AbstractServiceProvider
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php
+                        line: 770
+                        function: build
+                        class: Illuminate\Container\Container
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Application.php
+                        line: 933
+                        function: resolve
+                        class: Illuminate\Container\Container
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php
+                        line: 706
+                        function: resolve
+                        class: Illuminate\Foundation\Application
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Application.php
+                        line: 918
+                        function: make
+                        class: Illuminate\Container\Container
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php
+                        line: 1431
+                        function: make
+                        class: Illuminate\Foundation\Application
+                        type: '->'
+                      -
+                        file: /var/www/vendor/tymon/jwt-auth/src/Providers/AbstractServiceProvider.php
+                        line: 208
+                        function: offsetGet
+                        class: Illuminate\Container\Container
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php
+                        line: 885
+                        function: 'Tymon\JWTAuth\Providers\{closure}'
+                        class: Tymon\JWTAuth\Providers\AbstractServiceProvider
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php
+                        line: 770
+                        function: build
+                        class: Illuminate\Container\Container
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Application.php
+                        line: 933
+                        function: resolve
+                        class: Illuminate\Container\Container
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php
+                        line: 706
+                        function: resolve
+                        class: Illuminate\Foundation\Application
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Application.php
+                        line: 918
+                        function: make
+                        class: Illuminate\Container\Container
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php
+                        line: 1431
+                        function: make
+                        class: Illuminate\Foundation\Application
+                        type: '->'
+                      -
+                        file: /var/www/vendor/tymon/jwt-auth/src/Providers/AbstractServiceProvider.php
+                        line: 250
+                        function: offsetGet
+                        class: Illuminate\Container\Container
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php
+                        line: 885
+                        function: 'Tymon\JWTAuth\Providers\{closure}'
+                        class: Tymon\JWTAuth\Providers\AbstractServiceProvider
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php
+                        line: 770
+                        function: build
+                        class: Illuminate\Container\Container
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Application.php
+                        line: 933
+                        function: resolve
+                        class: Illuminate\Container\Container
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php
+                        line: 706
+                        function: resolve
+                        class: Illuminate\Foundation\Application
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Application.php
+                        line: 918
+                        function: make
+                        class: Illuminate\Container\Container
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php
+                        line: 1431
+                        function: make
+                        class: Illuminate\Foundation\Application
+                        type: '->'
+                      -
+                        file: /var/www/vendor/tymon/jwt-auth/src/Providers/AbstractServiceProvider.php
+                        line: 96
+                        function: offsetGet
+                        class: Illuminate\Container\Container
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Auth/AuthManager.php
+                        line: 113
+                        function: 'Tymon\JWTAuth\Providers\{closure}'
+                        class: Tymon\JWTAuth\Providers\AbstractServiceProvider
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Auth/AuthManager.php
+                        line: 90
+                        function: callCustomCreator
+                        class: Illuminate\Auth\AuthManager
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Auth/AuthManager.php
+                        line: 70
+                        function: resolve
+                        class: Illuminate\Auth\AuthManager
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php
+                        line: 64
+                        function: guard
+                        class: Illuminate\Auth\AuthManager
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php
+                        line: 43
+                        function: authenticate
+                        class: Illuminate\Auth\Middleware\Authenticate
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
+                        line: 180
+                        function: handle
+                        class: Illuminate\Auth\Middleware\Authenticate
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
+                        line: 116
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php
+                        line: 797
+                        function: then
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php
+                        line: 776
+                        function: runRouteWithinStack
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php
+                        line: 740
+                        function: runRoute
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php
+                        line: 729
+                        function: dispatchToRoute
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php
+                        line: 200
+                        function: dispatch
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
+                        line: 141
+                        function: 'Illuminate\Foundation\Http\{closure}'
+                        class: Illuminate\Foundation\Http\Kernel
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php
+                        line: 21
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php
+                        line: 31
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
+                        line: 180
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php
+                        line: 21
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php
+                        line: 40
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
+                        line: 180
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\TrimStrings
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php
+                        line: 27
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
+                        line: 180
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\ValidatePostSize
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php
+                        line: 86
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
+                        line: 180
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php
+                        line: 62
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
+                        line: 180
+                        function: handle
+                        class: Illuminate\Http\Middleware\HandleCors
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php
+                        line: 39
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
+                        line: 180
+                        function: handle
+                        class: Illuminate\Http\Middleware\TrustProxies
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php
+                        line: 116
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php
+                        line: 175
+                        function: then
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php
+                        line: 144
+                        function: sendRequestThroughRouter
+                        class: Illuminate\Foundation\Http\Kernel
+                        type: '->'
+                      -
+                        file: /var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
+                        line: 299
+                        function: handle
+                        class: Illuminate\Foundation\Http\Kernel
+                        type: '->'
+                      -
+                        file: /var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
+                        line: 287
+                        function: callLaravelOrLumenRoute
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: /var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
+                        line: 92
+                        function: makeApiCall
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: /var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
+                        line: 45
+                        function: makeResponseCall
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: /var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php
+                        line: 35
+                        function: makeResponseCallIfConditionsPass
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: /var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php
+                        line: 209
+                        function: __invoke
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: /var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php
+                        line: 163
+                        function: iterateThroughStrategies
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: /var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php
+                        line: 95
+                        function: fetchResponses
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: /var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php
+                        line: 124
+                        function: processRoute
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: /var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php
+                        line: 71
+                        function: extractEndpointsInfoFromLaravelApp
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: /var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php
+                        line: 49
+                        function: extractEndpointsInfoAndWriteToDisk
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: /var/www/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php
+                        line: 51
+                        function: get
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php
+                        line: 36
+                        function: handle
+                        class: Knuckles\Scribe\Commands\GenerateDocumentation
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Container/Util.php
+                        line: 41
+                        function: 'Illuminate\Container\{closure}'
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php
+                        line: 93
+                        function: unwrapIfClosure
+                        class: Illuminate\Container\Util
+                        type: '::'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php
+                        line: 35
+                        function: callBoundMethod
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php
+                        line: 661
+                        function: call
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Console/Command.php
+                        line: 194
+                        function: call
+                        class: Illuminate\Container\Container
+                        type: '->'
+                      -
+                        file: /var/www/vendor/symfony/console/Command/Command.php
+                        line: 312
+                        function: execute
+                        class: Illuminate\Console\Command
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Console/Command.php
+                        line: 163
+                        function: run
+                        class: Symfony\Component\Console\Command\Command
+                        type: '->'
+                      -
+                        file: /var/www/vendor/symfony/console/Application.php
+                        line: 1040
+                        function: run
+                        class: Illuminate\Console\Command
+                        type: '->'
+                      -
+                        file: /var/www/vendor/symfony/console/Application.php
+                        line: 314
+                        function: doRunCommand
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: /var/www/vendor/symfony/console/Application.php
+                        line: 168
+                        function: doRun
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: /var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php
+                        line: 200
+                        function: run
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: /var/www/artisan
+                        line: 35
+                        function: handle
+                        class: Illuminate\Foundation\Console\Kernel
+                        type: '->'
+                    items:
+                      type: object
+                      properties:
+                        file:
+                          type: string
+                          example: /var/www/vendor/tymon/jwt-auth/src/Providers/JWT/Lcobucci.php
+                        line:
+                          type: integer
+                          example: 186
+                        function:
+                          type: string
+                          example: getSigningKey
+                        class:
+                          type: string
+                          example: Tymon\JWTAuth\Providers\JWT\Lcobucci
+                        type:
+                          type: string
+                          example: '->'
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: integer
+                  description: ''
+                  example: 20
+              required:
+                - user
+      security: []
+  /api/punishment/add:
+    post:
+      summary: ''
+      operationId: postApiPunishmentAdd
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: integer
+                  description: ''
+                  example: 18
+                punishment:
+                  type: string
+                  description: ''
+                  example: amet
+                language_id:
+                  type: integer
+                  description: ''
+                  example: 10
+              required:
+                - user
+                - punishment
                 - language_id
       security: []
 tags:

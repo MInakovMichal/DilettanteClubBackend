@@ -57,7 +57,7 @@ class UserEntityRepositoryImplTest extends TestCase
         $this->repositoryImpl->createUser($contract);
     }
 
-    public function test_FindByIdOrFail_ShouldThrowUserNotFoundException_WhenUserNotFind(): void
+    public function test_FindByIdOrFail_ShouldThrowUserNotFoundException_WhenUserNotFound(): void
     {
         $this->expectException(UserNotFoundException::class);
         $this->repositoryImpl->findByIdOrFail($this->user->getId() + 1);

@@ -44,4 +44,46 @@ class PunishmentControllerTest extends SmokeTestCase
         );
         $response->assertStatus(200);
     }
+
+    public function test_DeleteQuestion(): void
+    {
+        $user = User::factory()->create();
+        $punishment = Punishment::factory()->create(['user_id' => $user->getId()]);
+
+        $response = $this->actingAs($user, "api")->json(
+            "DELETE",
+            route("user.punishments.delete"),
+            [
+                "id" => $punishment->getId(),
+            ]
+        );
+
+        $response->assertStatus(200);
+    }
+
+    public function test_UpdateQuestion(): void
+    {
+        $oldPunishmentValue = $this->faker->sentence();
+        $newPunishmentValue = $this->faker->sentence();
+        /** @var Language $language */
+        $language = Language::firstOrFail();
+
+        $user = User::factory()->create();
+        $punishment = Punishment::factory()->create([
+            'user_id' => $user->getId(),
+            'punishment' => $oldPunishmentValue,
+        ]);
+
+        $response = $this->actingAs($user, "api")->json(
+            "PUT",
+            route("user.punishments.update"),
+            [
+                "id" => $punishment->getId(),
+                "punishment" => $newPunishmentValue,
+                "language_id" => $language->getId(),
+            ]
+        );
+
+        $response->assertStatus(200);
+    }
 }

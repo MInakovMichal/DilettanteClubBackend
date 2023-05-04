@@ -83,4 +83,30 @@ class Question extends Model
     {
         return $this->language_id;
     }
+
+    /**
+     * @param string $question
+     */
+    public function setQuestion(string $question): void
+    {
+        $this->question = $question;
+    }
+
+    /**
+     * @param int $answer
+     */
+    public function setAnswer(int $answer): void
+    {
+        $this->answer = $answer;
+    }
+
+    /**
+     * @param int $language_id
+     */
+    public function setLanguageId(int $language_id): void
+    {
+        $this->language_id = $language_id;
+    }
+
+
 }
