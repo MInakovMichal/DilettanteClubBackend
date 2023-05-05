@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('room_id');
             $table->unsignedBigInteger('question_id');
+            $table->boolean('in_game');
+            $table->boolean('is_used');
 
             $table->timestamps();
         });

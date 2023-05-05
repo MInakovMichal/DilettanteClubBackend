@@ -26,20 +26,22 @@ class QuestionEntityRepositoryImpl implements QuestionEntityRepository
     public function getAllQuestions(GetQuestionsContract $contract): Collection
     {
         $userId = $contract->getUserId();
-        return $this->entity->where('user_id', $userId)->get();
+        /** @var Collection $questions */
+        $questions = $this->entity->where('user_id', $userId)->get();
+
+        return $questions;
     }
 
     public function addQuestion(AddQuestionContract $contract, int $authUserId): Question
     {
         try {
-            /** @var Question $question */
-            $question = $this->entity::create([
-                'user_id' => $authUserId,
-                'question' => $contract->getQuestion(),
-                'answer' => $contract->getAnswer(),
-                'language_id' => $contract->getLanguageId(),
-                'use_count' => 0,
-            ]);/** @phpstan-ignore-line */
+            $question = new Question();
+
+            $question->setQuestion($contract->getQuestion());
+            $question->setAnswer($contract->getAnswer());
+            $question->setLanguageId($contract->getLanguageId());
+            $question->setUserId($authUserId);
+            $question->save();
 
             return $question;
         } catch (Throwable $exception) {

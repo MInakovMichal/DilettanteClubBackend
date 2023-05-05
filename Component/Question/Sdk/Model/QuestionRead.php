@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Component\Question\Sdk\Model;
 
-use Illuminate\Contracts\Support\Arrayable;
+use Common\Util\Arrayable;
 
 final class QuestionRead implements Arrayable
 {

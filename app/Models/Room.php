@@ -14,8 +14,9 @@ use Illuminate\Support\Carbon;
  *
  * @property int $id
  * @property string $name
- * @property int $user_id
+ * @property int $author_id
  * @property int $is_private
+ * @property int $language_id
  * @property string|null $password
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
@@ -31,7 +32,8 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Room whereName($value)
  * @method static Builder|Room wherePassword($value)
  * @method static Builder|Room whereUpdatedAt($value)
- * @method static Builder|Room whereUserId($value)
+ * @method static Builder|Room whereAuthorId($value)
+ * @method static Builder|Room whereLanguageId($value)
  * @mixin Eloquent
  */
 class Room extends Model
@@ -40,10 +42,11 @@ class Room extends Model
 
     public $fillable = [
         'id',
-        'user_id',
+        'author_id',
         'name',
         'is_private',
         'password',
+        'language_id',
     ];
 
     protected $casts = [
@@ -59,9 +62,9 @@ class Room extends Model
         return $this->id;
     }
 
-    public function getUserId(): int
+    public function getAuthorId(): int
     {
-        return $this->user_id;
+        return $this->author_id;
     }
 
     public function getName(): string
@@ -71,9 +74,54 @@ class Room extends Model
 
     public function isPrivate(): bool
     {
-        /** @var bool $isPrivate */
-        $isPrivate = $this->is_private;
+        return $this->is_private;
+    }
 
-        return $isPrivate;
+    /**
+     * @return int
+     */
+    public function getLanguageId(): int
+    {
+        return $this->language_id;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @param int $author_id
+     */
+    public function setAuthorId(int $author_id): void
+    {
+        $this->author_id = $author_id;
+    }
+
+    /**
+     * @param bool $is_private
+     */
+    public function setIsPrivate(bool $is_private): void
+    {
+        $this->is_private = $is_private ? 1 : 0;
+    }
+
+    /**
+     * @param int $language_id
+     */
+    public function setLanguageId(int $language_id): void
+    {
+        $this->language_id = $language_id;
+    }
+
+    /**
+     * @param string|null $password
+     */
+    public function setPassword(?string $password): void
+    {
+        $this->password = $password;
     }
 }

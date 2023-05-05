@@ -108,5 +108,11 @@ class Question extends Model
         $this->language_id = $language_id;
     }
 
-
+    /**
+     * @param int $user_id
+     */
+    public function setUserId(int $user_id): void
+    {
+        $this->user_id = $user_id;
+    }
 }

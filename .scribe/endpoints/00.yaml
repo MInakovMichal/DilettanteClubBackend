@@ -26,51 +26,51 @@ endpoints:
         name: name
         description: 'Must not be greater than 50 characters.'
         required: true
-        example: eae
+        example: koqvphhwrzruzrwrxevuonpw
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: vsteuber@example.com
+        example: grant.wintheiser@example.net
         type: string
         custom: []
       username:
         name: username
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: h
+        example: upowybmhgmgyovpkibdmpdpvo
         type: string
         custom: []
       language_id:
         name: language_id
         description: 'Must not be greater than 255.'
         required: true
-        example: 3
+        example: 7
         type: number
         custom: []
       password:
         name: password
         description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/. Must be at least 8 characters. Must not be greater than 32 characters.'
         required: true
-        example: '_H?sE}uawl/yOx~['
+        example: '.o?/FVA;.V].3r3&S'
         type: string
         custom: []
       password_confirmation:
         name: password_confirmation
         description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/. Must be at least 8 characters. Must not be greater than 32 characters.'
         required: true
-        example: h
+        example: qqwtwrpnkatiiwegv
         type: string
         custom: []
     cleanBodyParameters:
-      name: eae
-      email: vsteuber@example.com
-      username: h
-      language_id: 3
-      password: '_H?sE}uawl/yOx~['
-      password_confirmation: h
+      name: koqvphhwrzruzrwrxevuonpw
+      email: grant.wintheiser@example.net
+      username: upowybmhgmgyovpkibdmpdpvo
+      language_id: 7
+      password: '.o?/FVA;.V].3r3&S'
+      password_confirmation: qqwtwrpnkatiiwegv
     fileParameters: []
     responses: []
     responseFields: []
@@ -104,27 +104,27 @@ endpoints:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: senger.alan@example.com
+        example: rsipes@example.org
         type: string
         custom: []
       password:
         name: password
         description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/. Must be at least 8 characters. Must not be greater than 32 characters.'
         required: true
-        example: 16$+R8p.f0Z-
+        example: 'gU:S/Grpz-;'
         type: string
         custom: []
       device_token:
         name: device_token
         description: ''
         required: true
-        example: eos
+        example: labore
         type: string
         custom: []
     cleanBodyParameters:
-      email: senger.alan@example.com
-      password: 16$+R8p.f0Z-
-      device_token: eos
+      email: rsipes@example.org
+      password: 'gU:S/Grpz-;'
+      device_token: labore
     fileParameters: []
     responses: []
     responseFields: []
@@ -158,11 +158,11 @@ endpoints:
         name: user
         description: ''
         required: true
-        example: 2
+        example: 19
         type: integer
         custom: []
     cleanBodyParameters:
-      user: 2
+      user: 19
     fileParameters: []
     responses:
       -
@@ -815,27 +815,27 @@ endpoints:
         name: question
         description: ''
         required: true
-        example: esse
+        example: rerum
         type: string
         custom: []
       answer:
         name: answer
         description: ''
         required: true
-        example: 13
+        example: 16
         type: integer
         custom: []
       language_id:
         name: language_id
         description: ''
         required: true
-        example: 2
+        example: 20
         type: integer
         custom: []
     cleanBodyParameters:
-      question: esse
-      answer: 13
-      language_id: 2
+      question: rerum
+      answer: 16
+      language_id: 20
     fileParameters: []
     responses: []
     responseFields: []
@@ -869,11 +869,73 @@ endpoints:
         name: id
         description: ''
         required: true
-        example: voluptas
-        type: string
+        example: 9
+        type: integer
         custom: []
     cleanBodyParameters:
-      id: voluptas
+      id: 9
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: api/questions/update
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: ''
+        required: true
+        example: 12
+        type: integer
+        custom: []
+      question:
+        name: question
+        description: ''
+        required: true
+        example: molestiae
+        type: string
+        custom: []
+      answer:
+        name: answer
+        description: ''
+        required: true
+        example: 16
+        type: integer
+        custom: []
+      language_id:
+        name: language_id
+        description: ''
+        required: true
+        example: 8
+        type: integer
+        custom: []
+    cleanBodyParameters:
+      id: 12
+      question: molestiae
+      answer: 16
+      language_id: 8
     fileParameters: []
     responses: []
     responseFields: []
@@ -907,11 +969,11 @@ endpoints:
         name: user
         description: ''
         required: true
-        example: 20
+        example: 16
         type: integer
         custom: []
     cleanBodyParameters:
-      user: 20
+      user: 16
     fileParameters: []
     responses:
       -
@@ -1560,31 +1622,177 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      user:
-        name: user
-        description: ''
-        required: true
-        example: 18
-        type: integer
-        custom: []
       punishment:
         name: punishment
         description: ''
         required: true
-        example: amet
+        example: aliquid
         type: string
         custom: []
       language_id:
         name: language_id
         description: ''
         required: true
-        example: 10
+        example: 7
         type: integer
         custom: []
     cleanBodyParameters:
-      user: 18
-      punishment: amet
-      language_id: 10
+      punishment: aliquid
+      language_id: 7
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: api/punishment/delete
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: ''
+        required: true
+        example: 11
+        type: integer
+        custom: []
+    cleanBodyParameters:
+      id: 11
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: api/punishment/update
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: ''
+        required: true
+        example: 1
+        type: integer
+        custom: []
+      punishment:
+        name: punishment
+        description: ''
+        required: true
+        example: odio
+        type: string
+        custom: []
+      language_id:
+        name: language_id
+        description: ''
+        required: true
+        example: 18
+        type: integer
+        custom: []
+    cleanBodyParameters:
+      id: 1
+      punishment: odio
+      language_id: 18
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/punishment/create
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: est
+        type: string
+        custom: []
+      language_id:
+        name: language_id
+        description: ''
+        required: true
+        example: 13
+        type: integer
+        custom: []
+      is_private:
+        name: is_private
+        description: ''
+        required: true
+        example: false
+        type: boolean
+        custom: []
+      password:
+        name: password
+        description: 'This field is required when <code>field1</code> is <code>true</code>.  Must match the regex /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/. Must be at least 8 characters. Must not be greater than 32 characters.'
+        required: false
+        example: 'jtN&2.RzY|)K[>1;'
+        type: string
+        custom: []
+    cleanBodyParameters:
+      name: est
+      language_id: 13
+      is_private: false
+      password: 'jtN&2.RzY|)K[>1;'
     fileParameters: []
     responses: []
     responseFields: []

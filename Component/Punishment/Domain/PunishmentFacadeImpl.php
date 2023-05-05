@@ -42,5 +42,4 @@ class PunishmentFacadeImpl implements PunishmentFacade
     {
         return $this->punishmentService->updatePunishment($contract, $authUserId);
     }
-
 }

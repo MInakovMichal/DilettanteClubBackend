@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Language;
 use App\Models\Room;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -20,8 +21,9 @@ class RoomFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'user_id' => User::factory(),
+            'author_id' => User::factory(),
             'is_private' => true,
+            'language_id' => Language::firstOrFail()->getId(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
         ];
     }

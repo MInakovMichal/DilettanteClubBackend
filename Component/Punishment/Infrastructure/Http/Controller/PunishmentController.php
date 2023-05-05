@@ -56,11 +56,10 @@ class PunishmentController extends Controller
     public function updatePunishment(UpdatePunishmentRequest $request): JsonResponse
     {
         $authUser = $this->authFacade->current();
-        $PunishmentRead = $this->punishmentFacade->updatePunishment($request, $authUser->getAuthUserId());
+        $punishmentRead = $this->punishmentFacade->updatePunishment($request, $authUser->getAuthUserId());
 
         $message = 'Punishment was updated successfully';
 
-        return ApiResponse::successResponse($PunishmentRead->toArray(), $message);
+        return ApiResponse::successResponse($punishmentRead->toArray(), $message);
     }
-
 }

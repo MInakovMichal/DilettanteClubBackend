@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "ClubBackend_api",
-        "_postman_id": "054d23d8-3aa2-4361-8b81-5e4971fee9fb",
+        "_postman_id": "9e9a8a76-a224-437e-91dd-ebf9b48419cc",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -41,7 +41,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"eae\",\"email\":\"vsteuber@example.com\",\"username\":\"h\",\"language_id\":3,\"password\":\"_H?sE}uawl\\\/yOx~[\",\"password_confirmation\":\"h\"}"
+                            "raw": "{\"name\":\"koqvphhwrzruzrwrxevuonpw\",\"email\":\"grant.wintheiser@example.net\",\"username\":\"upowybmhgmgyovpkibdmpdpvo\",\"language_id\":7,\"password\":\".o?\\\/FVA;.V].3r3&S\",\"password_confirmation\":\"qqwtwrpnkatiiwegv\"}"
                         },
                         "description": "",
                         "auth": {
@@ -72,7 +72,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"senger.alan@example.com\",\"password\":\"16$+R8p.f0Z-\",\"device_token\":\"eos\"}"
+                            "raw": "{\"email\":\"rsipes@example.org\",\"password\":\"gU:S\\\/Grpz-;\",\"device_token\":\"labore\"}"
                         },
                         "description": "",
                         "auth": {
@@ -103,7 +103,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"user\":2}"
+                            "raw": "{\"user\":19}"
                         },
                         "description": "",
                         "auth": {
@@ -154,7 +154,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"question\":\"esse\",\"answer\":13,\"language_id\":2}"
+                            "raw": "{\"question\":\"rerum\",\"answer\":16,\"language_id\":20}"
                         },
                         "description": "",
                         "auth": {
@@ -185,7 +185,38 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"id\":\"voluptas\"}"
+                            "raw": "{\"id\":9}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "PUT api\/questions\/update",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/questions\/update",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/questions\/update"
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"id\":12,\"question\":\"molestiae\",\"answer\":16,\"language_id\":8}"
                         },
                         "description": "",
                         "auth": {
@@ -216,7 +247,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"user\":20}"
+                            "raw": "{\"user\":16}"
                         },
                         "description": "",
                         "auth": {
@@ -267,7 +298,100 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"user\":18,\"punishment\":\"amet\",\"language_id\":10}"
+                            "raw": "{\"punishment\":\"aliquid\",\"language_id\":7}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DELETE api\/punishment\/delete",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/punishment\/delete",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/punishment\/delete"
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"id\":11}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "PUT api\/punishment\/update",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/punishment\/update",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/punishment\/update"
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"id\":1,\"punishment\":\"odio\",\"language_id\":18}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "POST api\/punishment\/create",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/punishment\/create",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/punishment\/create"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"est\",\"language_id\":13,\"is_private\":false,\"password\":\"jtN&2.RzY|)K[>1;\"}"
                         },
                         "description": "",
                         "auth": {

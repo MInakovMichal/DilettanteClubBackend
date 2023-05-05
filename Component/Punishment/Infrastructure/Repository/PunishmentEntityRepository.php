@@ -20,5 +20,4 @@ interface PunishmentEntityRepository
     public function updatePunishment(UpdatePunishmentContract $contract, int $authUserId): Punishment;
 
     public function findByIdOrFail(int $id): Punishment;
-
 }

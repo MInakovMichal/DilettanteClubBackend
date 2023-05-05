@@ -200,6 +200,7 @@ return [
         \Common\Auth\Infrastructure\Provider\AuthServiceProvider::class,
         \Component\Question\Infrastructure\Provider\QuestionServiceProvider::class,
         \Component\Punishment\Infrastructure\Provider\PunishmentServiceProvider::class,
+        \Component\Room\Infrastructure\Provider\RoomServiceProvider::class,
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
     ],

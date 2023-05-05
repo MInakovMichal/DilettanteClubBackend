@@ -41,5 +41,4 @@ class PunishmentRepositoryImpl implements PunishmentRepository
     {
         return $this->entityMapper->mapToReadModel($this->entityRepository->updatePunishment($contract, $authUserId));
     }
-
 }

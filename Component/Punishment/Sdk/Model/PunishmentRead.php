@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Component\Punishment\Sdk\Model;
 
-use Illuminate\Contracts\Support\Arrayable;
+use Common\Util\Arrayable;
 
 final class PunishmentRead implements Arrayable
 {
@@ -66,6 +66,9 @@ final class PunishmentRead implements Arrayable
         return $this->languageId;
     }
 
+    /**
+     * @return array<string,mixed>
+     */
     public function toArray(): array
     {
         return [

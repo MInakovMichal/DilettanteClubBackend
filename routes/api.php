@@ -4,6 +4,7 @@ use Common\Auth\Infrastructure\Http\Controller\LoginController;
 use Common\Auth\Infrastructure\Http\Controller\RegisterController;
 use Component\Punishment\Infrastructure\Http\Controller\PunishmentController;
 use Component\Question\Infrastructure\Http\Controller\QuestionController;
+use Component\Room\Infrastructure\Http\Controller\RoomController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,5 +34,12 @@ Route::group(["middleware" => ["auth:api"],], static function () {
         Route::post('/add', [PunishmentController::class, 'addPunishment'])->name('user.punishments.add');
         Route::delete('/delete', [PunishmentController::class, 'deletePunishment'])->name('user.punishments.delete');
         Route::put('/update', [PunishmentController::class, 'updatePunishment'])->name('user.punishments.update');
+    });
+
+    Route::group(["prefix" => '/punishment',], static function () {
+//        Route::get('/', [PunishmentController::class, 'getAllPunishments'])->name('user.punishments');
+        Route::post('/create', [RoomController::class, 'createRoom'])->name('user.room.create');
+//        Route::delete('/delete', [PunishmentController::class, 'deletePunishment'])->name('user.punishments.delete');
+//        Route::put('/update', [PunishmentController::class, 'updatePunishment'])->name('user.punishments.update');
     });
 });

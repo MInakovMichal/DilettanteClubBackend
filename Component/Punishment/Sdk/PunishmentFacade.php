@@ -18,5 +18,4 @@ interface PunishmentFacade
     public function deletePunishment(DeletePunishmentContract $contract, int $authUserId): void;
 
     public function updatePunishment(UpdatePunishmentContract $contract, int $authUserId): PunishmentRead;
-
 }

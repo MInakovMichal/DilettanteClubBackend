@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('author_id');
+            $table->unsignedBigInteger('language_id');
             $table->boolean('is_private')->default(false);
             $table->string('password')->nullable();
 

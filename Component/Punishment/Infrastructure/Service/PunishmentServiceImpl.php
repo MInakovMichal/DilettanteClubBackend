@@ -38,5 +38,4 @@ class PunishmentServiceImpl implements PunishmentService
     {
         return $this->punishmentRepository->updatePunishment($contract, $authUserId);
     }
-
 }

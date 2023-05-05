@@ -26,20 +26,21 @@ class PunishmentEntityRepositoryImpl implements PunishmentEntityRepository
     public function getAllPunishments(GetPunishmentsContract $contract): Collection
     {
         $userId = $contract->getUserId();
-        return $this->entity->where('user_id', $userId)->get();
+        /** @var Collection $punishments */
+        $punishments = $this->entity->where('user_id', $userId)->get();
+
+        return $punishments;
     }
 
     public function addPunishment(AddPunishmentContract $contract, int $authUserId): Punishment
     {
         try {
-            /** @var Punishment $punishment */
-            $punishment = $this->entity::create([
-                'user_id' => $authUserId,
-                'punishment' => $contract->getPunishment(),
-                'language_id' => $contract->getLanguageId(),
-                'use_count' => 0,
-            ]);
-            /** @phpstan-ignore-line */
+            $punishment = new Punishment();
+
+            $punishment->setPunishment($contract->getPunishment());
+            $punishment->setUserId($authUserId);
+            $punishment->setLanguageId($contract->getLanguageId());
+            $punishment->save();
 
             return $punishment;
         } catch (Throwable $exception) {
