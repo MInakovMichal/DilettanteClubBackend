@@ -20,7 +20,7 @@ interface RoomRepository
 
     /**
      * @param int $roomId
-     * @return array<int,mixed>
+     * @return array<array-key, mixed>
      */
     public function getUsersInRoom(int $roomId): array;
 }

@@ -55,9 +55,18 @@ class RoomRepositoryImpl implements RoomRepository
 
     public function createRoom(CreateRoomContract $contract, int $authUserId): RoomRead
     {
-        return $this->entityMapper->mapToReadModel($this->repository->createRoom($contract, $authUserId));
+        $room = $this->entityMapper->mapToReadModel($this->repository->createRoom($contract, $authUserId));
+        $this->roomUserRepository->userEnterRoom($room->getId(), $authUserId);
+
+        return $room;
     }
 
+    public function userEnterRoom(UserEnterRoomContract $contract, int $authUserId): void
+    {
+        $this->checker->check($contract);
+
+        $this->roomUserRepository->userEnterRoom($contract->getRoomId(), $authUserId);
+    }
 
     public function addQuestionsToRoom(AddQuestionsToRoomContract $contract): void
     {
@@ -79,16 +88,9 @@ class RoomRepositoryImpl implements RoomRepository
         }
     }
 
-    public function userEnterRoom(UserEnterRoomContract $contract, int $authUserId): void
-    {
-        $this->checker->check($contract);
-
-        $this->roomUserRepository->userEnterRoom($contract->getRoomId(), $authUserId);
-    }
-
     /**
      * @param int $roomId
-     * @return array<int,mixed>
+     * @return array<array-key, mixed>
      */
     public function getUsersInRoom(int $roomId): array
     {

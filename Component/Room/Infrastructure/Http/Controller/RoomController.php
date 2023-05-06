@@ -32,9 +32,14 @@ class RoomController
         $authUser = $this->authFacade->current();
         $room = $this->roomFacade->createRoom($request, $authUser->getAuthUserId());
 
+        $usersInRoom = $this->roomFacade->getUsersInRoom($room->getId());
+
         $message = 'Room was created successfully';
 
-        return ApiResponse::successResponse($room->toArray(), $message);
+        return ApiResponse::successResponse([
+            'users' => $usersInRoom,
+            'room' => $room->toArray()
+        ], $message);
     }
 
     public function addQuestionsToRoom(AddQuestionsToRoomRequest $request): JsonResponse

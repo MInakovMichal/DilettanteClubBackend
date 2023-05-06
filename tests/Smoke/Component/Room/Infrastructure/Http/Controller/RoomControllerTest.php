@@ -14,7 +14,7 @@ use Tests\TestCase;
 
 class RoomControllerTest extends TestCase
 {
-    public function test_GetAllQuestions(): void
+    public function test_CreateRoom(): void
     {
         $user = User::factory()->create();
 
