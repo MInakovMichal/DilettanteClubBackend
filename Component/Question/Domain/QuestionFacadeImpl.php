@@ -42,4 +42,9 @@ class QuestionFacadeImpl implements QuestionFacade
     {
         return $this->questionService->updateQuestion($contract, $authUserId);
     }
+
+    public function findByIdOrFail(int $id): QuestionRead
+    {
+        return $this->questionService->findByIdOrFail($id);
+    }
 }

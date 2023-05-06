@@ -7,6 +7,7 @@ use Common\Http\ApiResponse;
 use Component\Room\Infrastructure\Http\Requests\AddPunishmentsToRoomRequest;
 use Component\Room\Infrastructure\Http\Requests\AddQuestionsToRoomRequest;
 use Component\Room\Infrastructure\Http\Requests\CreateRoomRequest;
+use Component\Room\Infrastructure\Http\Requests\DeleteQuestionsFromRoomRequest;
 use Component\Room\Infrastructure\Http\Requests\UserEnterRoomRequest;
 use Component\Room\Sdk\RoomFacade;
 use Illuminate\Http\JsonResponse;
@@ -72,5 +73,15 @@ class RoomController
         return ApiResponse::successResponse([
             'users' => $usersInRoom
         ], $message);
+    }
+
+    public function deleteQuestionsFromRoom(DeleteQuestionsFromRoomRequest $request): JsonResponse
+    {
+        $authUser = $this->authFacade->current();
+
+        $this->roomFacade->deleteQuestionsFromRoom($request, $authUser->getAuthUserId());
+        $message = 'Questions was deleted successfully';
+
+        return ApiResponse::successResponse([], $message);
     }
 }

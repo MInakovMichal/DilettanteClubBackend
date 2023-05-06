@@ -1,12 +1,11 @@
 <?php
 
-namespace Tests\Unit\Componnt\Room\Infrastructure\Service;
-
+namespace Tests\Unit\Component\Room\Infrastructure\Checker;
 
 use App\Models\Room;
 use Common\Exception\PasswordNotMatchException;
+use Component\Room\Infrastructure\Checker\RoomPasswordChecker;
 use Component\Room\Infrastructure\Http\Requests\UserEnterRoomRequest;
-use Component\Room\Infrastructure\Service\RoomPasswordChecker;
 use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 
@@ -28,7 +27,7 @@ class RoomPasswordCheckerImplTest extends TestCase
         $this->checker->check($request);
     }
 
-    public function test_Login_ShouldReturnAuthenticatedClass_WhenUserIsLoggedIn(): void
+    public function test_Check_ShouldReturnAuthenticatedClass_WhenPasswordIsMatch(): void
     {
         $request = new UserEnterRoomRequest([
             'password' => $this->password,

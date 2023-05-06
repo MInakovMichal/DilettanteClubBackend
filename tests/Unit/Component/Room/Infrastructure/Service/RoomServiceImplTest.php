@@ -13,6 +13,7 @@ use App\Models\User;
 use Component\Room\Infrastructure\Http\Requests\AddPunishmentsToRoomRequest;
 use Component\Room\Infrastructure\Http\Requests\AddQuestionsToRoomRequest;
 use Component\Room\Infrastructure\Http\Requests\CreateRoomRequest;
+use Component\Room\Infrastructure\Http\Requests\DeleteQuestionsFromRoomRequest;
 use Component\Room\Infrastructure\Http\Requests\UserEnterRoomRequest;
 use Component\Room\Infrastructure\Service\RoomService;
 use Component\Room\Sdk\Model\RoomRead;
@@ -116,6 +117,32 @@ class RoomServiceImplTest extends TestCase
         $users = $this->serviceImpl->getUsersInRoom($room->getId());
 
         $this->assertSame($userCount, count($users));
+    }
+
+    public function test_DeleteQuestionsFromRoom_ShouldDeleteQuestionsFromRoom(): void
+    {
+        $questionsCount = 10;
+        $questions = Question::factory($questionsCount)->create(['user_id' => $this->user->getId()]);
+        $room = Room::factory()->create(['author_id' => $this->user->getId()]);
+
+        foreach ($questions as $question){
+            RoomQuestion::factory()->create([
+                'room_id' => $room->getId(),
+                'question_id' => $question->getId()
+            ]);
+        }
+        $contract = new DeleteQuestionsFromRoomRequest([
+            'questions' => $questions->take($questionsCount/2)->pluck('id')->toArray(),
+            'room_id' => $room->getId()
+        ]);
+
+        $questionsInRoomBeforeDelete = RoomQuestion::all();
+        $this->assertSame($questionsCount, $questionsInRoomBeforeDelete->count());
+
+        $this->serviceImpl->deleteQuestionsFromRoom($contract, $this->user->getId());
+        $questionsInRoomAfterDelete = RoomQuestion::all();
+
+        $this->assertSame($questionsCount/2, $questionsInRoomAfterDelete->count());
     }
 
     protected function setUp(): void

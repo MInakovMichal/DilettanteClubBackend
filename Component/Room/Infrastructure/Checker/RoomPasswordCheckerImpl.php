@@ -1,6 +1,6 @@
 <?php
 
-namespace Component\Room\Infrastructure\Service;
+namespace Component\Room\Infrastructure\Checker;
 
 use Common\Exception\PasswordNotMatchException;
 use Component\Room\Infrastructure\Repository\RoomEntityRepository;

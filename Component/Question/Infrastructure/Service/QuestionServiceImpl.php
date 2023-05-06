@@ -38,4 +38,9 @@ class QuestionServiceImpl implements QuestionService
     {
         return $this->questionRepository->updateQuestion($contract, $authUserId);
     }
+
+    public function findByIdOrFail(int $id): QuestionRead
+    {
+        return $this->questionRepository->findByIdOrFail($id);
+    }
 }

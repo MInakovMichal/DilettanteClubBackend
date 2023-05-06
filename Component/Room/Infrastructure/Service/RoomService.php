@@ -5,6 +5,7 @@ namespace Component\Room\Infrastructure\Service;
 use Component\Room\Sdk\Contract\AddPunishmentsToRoomContract;
 use Component\Room\Sdk\Contract\AddQuestionsToRoomContract;
 use Component\Room\Sdk\Contract\CreateRoomContract;
+use Component\Room\Sdk\Contract\DeleteQuestionsFromRoomContract;
 use Component\Room\Sdk\Contract\UserEnterRoomContract;
 use Component\Room\Sdk\Model\RoomRead;
 
@@ -23,4 +24,6 @@ interface RoomService
      * @return array<array-key, mixed>
      */
     public function getUsersInRoom(int $roomId): array;
+
+    public function deleteQuestionsFromRoom(DeleteQuestionsFromRoomContract $contract, int $authUserId): void;
 }

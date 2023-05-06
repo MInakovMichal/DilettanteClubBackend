@@ -18,4 +18,6 @@ interface QuestionService
     public function deleteQuestion(DeleteQuestionContract $contract, int $authUserId): void;
 
     public function updateQuestion(UpdateQuestionContract $contract, int $authUserId): QuestionRead;
+
+    public function findByIdOrFail(int $id): QuestionRead;
 }

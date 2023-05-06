@@ -41,4 +41,9 @@ class QuestionRepositoryImpl implements QuestionRepository
     {
         return $this->entityMapper->mapToReadModel($this->entityRepository->updateQuestion($contract, $authUserId));
     }
+
+    public function findByIdOrFail(int $id): QuestionRead
+    {
+        return $this->entityMapper->mapToReadModel($this->entityRepository->findByIdOrFail($id));
+    }
 }

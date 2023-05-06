@@ -6,6 +6,7 @@ use App\Models\Language;
 use App\Models\Punishment;
 use App\Models\Question;
 use App\Models\Room;
+use App\Models\RoomQuestion;
 use App\Models\RoomUser;
 use App\Models\User;
 use Illuminate\Support\Collection;
@@ -99,4 +100,31 @@ class RoomControllerTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    public function test_DeleteQuestionsFromRoom(): void
+    {
+        $user = User::factory()->create();
+        $room = Room::factory()->create();
+
+        $questions = Question::factory(10)->create(['user_id' => $user->getId()]);
+        foreach ($questions as $question) {
+            RoomQuestion::factory()->create([
+                'room_id' => $room->getId(),
+                'question_id' => $question->getId()
+            ]);
+        }
+        $deleteQuestion = Question::get()->take(5);
+
+        $response = $this->actingAs($user, "api")->json(
+            "DELETE",
+            route("user.room.deleteQuestions"),
+            [
+                "questions" => $deleteQuestion->pluck('id'),
+                "room_id" => $room->getId(),
+            ]
+        );
+
+        $response->assertStatus(200);
+    }
+
 }

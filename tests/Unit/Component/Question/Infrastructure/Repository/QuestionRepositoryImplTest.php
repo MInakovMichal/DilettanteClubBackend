@@ -5,6 +5,7 @@ namespace Tests\Unit\Component\Question\Infrastructure\Repository;
 use App\Models\Language;
 use App\Models\Question;
 use App\Models\User;
+use Common\Exception\QuestionByIdNotFoundException;
 use Common\Exception\UnauthorizedException;
 use Component\Question\Infrastructure\Http\Requests\AddQuestionRequest;
 use Component\Question\Infrastructure\Http\Requests\DeleteQuestionRequest;
@@ -140,6 +141,25 @@ class QuestionRepositoryImplTest extends TestCase
         $this->assertSame($newQuestionValue, $questionRead->getQuestion());
         $this->assertSame($newAnswer, $questionRead->getAnswer());
     }
+
+    public function test_FindByIdOrFail_ShouldThrowQuestionByIdNotFoundException_WhenQuestionNotFound(): void
+    {
+        /** @var Question $question */
+        $question = Question::factory()->create();
+        $this->expectException(QuestionByIdNotFoundException::class);
+        $this->repositoryImpl->findByIdOrFail($question->getId() + 1);
+    }
+
+    public function test_FindByIdOrFail_ShouldUserReadClass_WhenUserFind(): void
+    {
+        /** @var Question $question */
+        $question = Question::factory()->create();
+
+        $questionRead = $this->repositoryImpl->findByIdOrFail($question->getId());
+
+        $this->assertInstanceOf(QuestionRead::class, $questionRead);
+    }
+
 
     protected function setUp(): void
     {

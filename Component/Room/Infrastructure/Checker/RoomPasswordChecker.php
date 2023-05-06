@@ -1,9 +1,8 @@
 <?php
 
-namespace Component\Room\Infrastructure\Service;
+namespace Component\Room\Infrastructure\Checker;
 
 use Component\Room\Sdk\Contract\UserEnterRoomContract;
-use Component\Room\Sdk\Model\RoomRead;
 
 interface RoomPasswordChecker
 {

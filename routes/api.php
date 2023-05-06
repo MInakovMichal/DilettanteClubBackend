@@ -39,9 +39,10 @@ Route::group(["middleware" => ["auth:api"],], static function () {
     Route::group(["prefix" => '/punishment',], static function () {
 //        Route::get('/', [PunishmentController::class, 'getAllPunishments'])->name('user.punishments');
         Route::post('/create', [RoomController::class, 'createRoom'])->name('user.room.create');
-        Route::post('/addQuestions', [RoomController::class, 'addQuestionsToRoom'])->name('user.room.addQuestions');
-        Route::post('/addPunishments', [RoomController::class, 'addPunishmentsToRoom'])->name('user.room.addPunishments');
-        Route::post('/usersInRoom', [RoomController::class, 'userEnterRoom'])->name('user.room.usersInRoom');
+        Route::post('/add-questions', [RoomController::class, 'addQuestionsToRoom'])->name('user.room.addQuestions');
+        Route::delete('/delete-questions', [RoomController::class, 'deleteQuestionsFromRoom'])->name('user.room.deleteQuestions');
+        Route::post('/add-punishments', [RoomController::class, 'addPunishmentsToRoom'])->name('user.room.addPunishments');
+        Route::post('/users-in-room', [RoomController::class, 'userEnterRoom'])->name('user.room.usersInRoom');
 //        Route::delete('/delete', [PunishmentController::class, 'deletePunishment'])->name('user.punishments.delete');
 //        Route::put('/update', [PunishmentController::class, 'updatePunishment'])->name('user.punishments.update');
     });

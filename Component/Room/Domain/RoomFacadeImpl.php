@@ -6,6 +6,7 @@ use Component\Room\Infrastructure\Service\RoomService;
 use Component\Room\Sdk\Contract\AddPunishmentsToRoomContract;
 use Component\Room\Sdk\Contract\AddQuestionsToRoomContract;
 use Component\Room\Sdk\Contract\CreateRoomContract;
+use Component\Room\Sdk\Contract\DeleteQuestionsFromRoomContract;
 use Component\Room\Sdk\Contract\UserEnterRoomContract;
 use Component\Room\Sdk\Model\RoomRead;
 use Component\Room\Sdk\RoomFacade;
@@ -49,5 +50,10 @@ class RoomFacadeImpl implements RoomFacade
     public function getUsersInRoom(int $roomId): array
     {
         return $this->roomService->getUsersInRoom($roomId);
+    }
+
+    public function deleteQuestionsFromRoom(DeleteQuestionsFromRoomContract $contract, int $authUserId): void
+    {
+        $this->roomService->deleteQuestionsFromRoom($contract, $authUserId);
     }
 }

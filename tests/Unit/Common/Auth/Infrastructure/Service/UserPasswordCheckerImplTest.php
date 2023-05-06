@@ -9,7 +9,7 @@ use Common\Exception\UserWithProvidedCredentialsNotFoundException;
 use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 
-class UserPasswordChekerImplTest extends TestCase
+class UserPasswordCheckerImplTest extends TestCase
 {
     private UserPasswordChecker $checker;
     private string $password;
@@ -27,7 +27,7 @@ class UserPasswordChekerImplTest extends TestCase
         $this->checker->check($request);
     }
 
-    public function test_Login_ShouldReturnAuthenticatedClass_WhenUserIsLoggedIn(): void
+    public function test_Check_ShouldReturnString_WhenUserWithEmailAndPasswordIsset(): void
     {
         $request = new LoginRequest([
             'email' => $this->email,
