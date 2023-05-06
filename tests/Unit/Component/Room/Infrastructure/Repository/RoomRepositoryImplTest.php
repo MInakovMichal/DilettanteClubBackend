@@ -3,10 +3,20 @@
 namespace Tests\Unit\Component\Room\Infrastructure\Repository;
 
 use App\Models\Language;
+use App\Models\Punishment;
+use App\Models\Question;
+use App\Models\Room;
+use App\Models\RoomPunishment;
+use App\Models\RoomQuestion;
+use App\Models\RoomUser;
 use App\Models\User;
+use Component\Room\Infrastructure\Http\Requests\AddPunishmentsToRoomRequest;
+use Component\Room\Infrastructure\Http\Requests\AddQuestionsToRoomRequest;
 use Component\Room\Infrastructure\Http\Requests\CreateRoomRequest;
+use Component\Room\Infrastructure\Http\Requests\UserEnterRoomRequest;
 use Component\Room\Infrastructure\Repository\RoomRepository;
 use Component\Room\Sdk\Model\RoomRead;
+use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 
 class RoomRepositoryImplTest extends TestCase
@@ -31,11 +41,87 @@ class RoomRepositoryImplTest extends TestCase
         $this->assertInstanceOf(RoomRead::class, $roomRead);
     }
 
+    public function test_AddQuestionsToRoom_ShouldAddNewQuestions_WhenUserAddQuestions(): void
+    {
+        $questionsCount = 10;
+        $questions = Question::factory($questionsCount)->create(['user_id' => $this->user->getId()]);
+        $room = Room::factory()->create(['author_id' => $this->user->getId()]);
+
+        $contract = new AddQuestionsToRoomRequest([
+            'questions' => $questions->pluck('id')->toArray(),
+            'room_id' => $room->getId()
+        ]);
+
+        $questionsInRoomBeforeAddNew = RoomQuestion::all();
+        $this->assertSame(0, $questionsInRoomBeforeAddNew->count());
+
+        $this->repositoryImpl->addQuestionsToRoom($contract);
+        $questionsInRoomAfterAddNew = RoomQuestion::all();
+
+        $this->assertSame($questionsCount, $questionsInRoomAfterAddNew->count());
+    }
+
+    public function test_AddPunishmentsToRoom_ShouldAddNewPunishments_WhenUserAddPunishments(): void
+    {
+        $punishmentsCount = 10;
+        $punishments = Punishment::factory($punishmentsCount)->create(['user_id' => $this->user->getId()]);
+        $room = Room::factory()->create(['author_id' => $this->user->getId()]);
+
+        $contract = new AddPunishmentsToRoomRequest([
+            'punishments' => $punishments->pluck('id')->toArray(),
+            'room_id' => $room->getId()
+        ]);
+
+        $punishmentsInRoomBeforeAddNew = RoomPunishment::all();
+        $this->assertSame(0, $punishmentsInRoomBeforeAddNew->count());
+
+        $this->repositoryImpl->addPunishmentsToRoom($contract);
+        $punishmentsInRoomAfterAddNew = RoomPunishment::all();
+
+        $this->assertSame($punishmentsCount, $punishmentsInRoomAfterAddNew->count());
+    }
+
+    public function test_UserEnterRoom_ShouldAddNewUserInRoom_WhenUserEnterInRoom(): void
+    {
+        $password = $this->faker->password();
+
+        $room = Room::factory()->create([
+            'author_id' => $this->user->getId(),
+            'is_private' => true,
+            'password' => Hash::make($password)
+        ]);
+
+        $contract = new UserEnterRoomRequest([
+            'is_private' => true,
+            'password' => $password,
+            'room_id' => $room->getId()
+        ]);
+
+        $usersInRoomBeforeEnter = RoomUser::all();
+        $this->assertSame(0, $usersInRoomBeforeEnter->count());
+
+        $this->repositoryImpl->userEnterRoom($contract, $this->user->getId());
+        $usersInRoomAfterEnter = RoomUser::all();
+
+        $this->assertSame(1, $usersInRoomAfterEnter->count());
+    }
+
+    public function test_GetUsersInRoom_ShouldReturnArrayWithTenElement(): void
+    {
+        $userCount = 10;
+        $room = Room::factory()->create();
+
+        RoomUser::factory($userCount)->create(['room_id' => $room->getId()]);
+
+        $users = $this->repositoryImpl->getUsersInRoom($room->getId());
+
+        $this->assertSame($userCount, count($users));
+    }
+
     protected function setUp(): void
     {
         parent::setUp();
         $this->user = User::factory()->create();
-        $this->userWithoutRooms = User::factory()->create();
 
         $this->repositoryImpl = resolve(RoomRepository::class);
     }

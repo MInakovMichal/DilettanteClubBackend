@@ -94,4 +94,12 @@ class Punishment extends Model
     {
         $this->user_id = $user_id;
     }
+
+    /**
+     * @param int $use_count
+     */
+    public function setUseCount(int $use_count): void
+    {
+        $this->use_count = $use_count;
+    }
 }

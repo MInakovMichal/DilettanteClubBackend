@@ -40,27 +40,27 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 50 characters.'
-                  example: koqvphhwrzruzrwrxevuonpw
+                  example: hbgf
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: grant.wintheiser@example.net
+                  example: jschmitt@example.net
                 username:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: upowybmhgmgyovpkibdmpdpvo
+                  example: sonso
                 language_id:
                   type: number
                   description: 'Must not be greater than 255.'
-                  example: 7
+                  example: 15
                 password:
                   type: string
                   description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/. Must be at least 8 characters. Must not be greater than 32 characters.'
-                  example: '.o?/FVA;.V].3r3&S'
+                  example: 'c%%X9k"PQS&X@inw'
                 password_confirmation:
                   type: string
                   description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/. Must be at least 8 characters. Must not be greater than 32 characters.'
-                  example: qqwtwrpnkatiiwegv
+                  example: gzhzenq
               required:
                 - name
                 - email
@@ -102,15 +102,15 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: rsipes@example.org
+                  example: grimes.jevon@example.com
                 password:
                   type: string
                   description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/. Must be at least 8 characters. Must not be greater than 32 characters.'
-                  example: 'gU:S/Grpz-;'
+                  example: c6qaMP5B>yRYW
                 device_token:
                   type: string
                   description: ''
-                  example: labore
+                  example: explicabo
               required:
                 - email
                 - password
@@ -1227,7 +1227,7 @@ paths:
                 user:
                   type: integer
                   description: ''
-                  example: 19
+                  example: 13
               required:
                 - user
       security: []
@@ -1264,15 +1264,15 @@ paths:
                 question:
                   type: string
                   description: ''
-                  example: rerum
+                  example: distinctio
                 answer:
                   type: integer
                   description: ''
-                  example: 16
+                  example: 6
                 language_id:
                   type: integer
                   description: ''
-                  example: 20
+                  example: 16
               required:
                 - question
                 - answer
@@ -1311,7 +1311,7 @@ paths:
                 id:
                   type: integer
                   description: ''
-                  example: 9
+                  example: 15
               required:
                 - id
       security: []
@@ -1348,11 +1348,11 @@ paths:
                 id:
                   type: integer
                   description: ''
-                  example: 12
+                  example: 10
                 question:
                   type: string
                   description: ''
-                  example: molestiae
+                  example: corrupti
                 answer:
                   type: integer
                   description: ''
@@ -2515,11 +2515,11 @@ paths:
                 punishment:
                   type: string
                   description: ''
-                  example: aliquid
+                  example: consequuntur
                 language_id:
                   type: integer
                   description: ''
-                  example: 7
+                  example: 14
               required:
                 - punishment
                 - language_id
@@ -2557,7 +2557,7 @@ paths:
                 id:
                   type: integer
                   description: ''
-                  example: 11
+                  example: 5
               required:
                 - id
       security: []
@@ -2594,15 +2594,15 @@ paths:
                 id:
                   type: integer
                   description: ''
-                  example: 1
+                  example: 20
                 punishment:
                   type: string
                   description: ''
-                  example: odio
+                  example: libero
                 language_id:
                   type: integer
                   description: ''
-                  example: 18
+                  example: 2
               required:
                 - id
                 - punishment
@@ -2641,19 +2641,19 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: est
+                  example: esse
                 language_id:
                   type: integer
                   description: ''
-                  example: 13
+                  example: 15
                 is_private:
                   type: boolean
                   description: ''
-                  example: false
+                  example: true
                 password:
                   type: string
                   description: 'This field is required when <code>field1</code> is <code>true</code>.  Must match the regex /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/. Must be at least 8 characters. Must not be greater than 32 characters.'
-                  example: 'jtN&2.RzY|)K[>1;'
+                  example: 'Lp@Oq:llh|Tv73sa%"L'
               required:
                 - name
                 - language_id

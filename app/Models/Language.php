@@ -27,6 +27,7 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Language whereName($value)
  * @method static Builder|Language whereUpdatedAt($value)
  * @mixin Eloquent
+ * @mixin \Eloquent
  */
 class Language extends Model
 {

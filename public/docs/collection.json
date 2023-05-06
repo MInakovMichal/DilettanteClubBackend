@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "ClubBackend_api",
-        "_postman_id": "9e9a8a76-a224-437e-91dd-ebf9b48419cc",
+        "_postman_id": "6c0860a0-4a47-4f78-8ccc-1302b11bfe0c",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -41,7 +41,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"koqvphhwrzruzrwrxevuonpw\",\"email\":\"grant.wintheiser@example.net\",\"username\":\"upowybmhgmgyovpkibdmpdpvo\",\"language_id\":7,\"password\":\".o?\\\/FVA;.V].3r3&S\",\"password_confirmation\":\"qqwtwrpnkatiiwegv\"}"
+                            "raw": "{\"name\":\"hbgf\",\"email\":\"jschmitt@example.net\",\"username\":\"sonso\",\"language_id\":15,\"password\":\"c%%X9k\\\"PQS&X@inw\",\"password_confirmation\":\"gzhzenq\"}"
                         },
                         "description": "",
                         "auth": {
@@ -72,7 +72,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"rsipes@example.org\",\"password\":\"gU:S\\\/Grpz-;\",\"device_token\":\"labore\"}"
+                            "raw": "{\"email\":\"grimes.jevon@example.com\",\"password\":\"c6qaMP5B>yRYW\",\"device_token\":\"explicabo\"}"
                         },
                         "description": "",
                         "auth": {
@@ -103,7 +103,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"user\":19}"
+                            "raw": "{\"user\":13}"
                         },
                         "description": "",
                         "auth": {
@@ -154,7 +154,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"question\":\"rerum\",\"answer\":16,\"language_id\":20}"
+                            "raw": "{\"question\":\"distinctio\",\"answer\":6,\"language_id\":16}"
                         },
                         "description": "",
                         "auth": {
@@ -185,7 +185,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"id\":9}"
+                            "raw": "{\"id\":15}"
                         },
                         "description": "",
                         "auth": {
@@ -216,7 +216,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"id\":12,\"question\":\"molestiae\",\"answer\":16,\"language_id\":8}"
+                            "raw": "{\"id\":10,\"question\":\"corrupti\",\"answer\":16,\"language_id\":8}"
                         },
                         "description": "",
                         "auth": {
@@ -298,7 +298,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"punishment\":\"aliquid\",\"language_id\":7}"
+                            "raw": "{\"punishment\":\"consequuntur\",\"language_id\":14}"
                         },
                         "description": "",
                         "auth": {
@@ -329,7 +329,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"id\":11}"
+                            "raw": "{\"id\":5}"
                         },
                         "description": "",
                         "auth": {
@@ -360,7 +360,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"id\":1,\"punishment\":\"odio\",\"language_id\":18}"
+                            "raw": "{\"id\":20,\"punishment\":\"libero\",\"language_id\":2}"
                         },
                         "description": "",
                         "auth": {
@@ -391,7 +391,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"est\",\"language_id\":13,\"is_private\":false,\"password\":\"jtN&2.RzY|)K[>1;\"}"
+                            "raw": "{\"name\":\"esse\",\"language_id\":15,\"is_private\":true,\"password\":\"Lp@Oq:llh|Tv73sa%\\\"L\"}"
                         },
                         "description": "",
                         "auth": {

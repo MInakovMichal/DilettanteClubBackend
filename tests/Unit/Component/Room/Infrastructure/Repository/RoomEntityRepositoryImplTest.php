@@ -54,7 +54,6 @@ class RoomEntityRepositoryImplTest extends TestCase
     {
         parent::setUp();
         $this->user = User::factory()->create();
-        $this->userWithoutRooms = User::factory()->create();
 
         $this->repositoryImpl = resolve(RoomEntityRepository::class);
     }

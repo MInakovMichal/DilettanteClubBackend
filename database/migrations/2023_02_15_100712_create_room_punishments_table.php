@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('room_id');
             $table->unsignedBigInteger('punishment_id');
-            $table->boolean('in_game');
-            $table->boolean('is_used');
+            $table->boolean('in_game')->default(false);
+            $table->boolean('is_used')->default(false);
 
             $table->timestamps();
         });

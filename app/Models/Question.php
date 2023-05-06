@@ -42,9 +42,6 @@ use Illuminate\Support\Carbon;
  */
 class Question extends Model
 {
-    use HasFactory;
-    use SoftDeletes;
-
     public $fillable = [
         'id',
         'user_id',
@@ -53,6 +50,17 @@ class Question extends Model
         'use_count',
         'language_id',
     ];
+
+    use HasFactory;
+    use SoftDeletes;
+
+    /**
+     * @param int $use_count
+     */
+    public function setUseCount(int $use_count): void
+    {
+        $this->use_count = $use_count;
+    }
 
     public function getId(): int
     {

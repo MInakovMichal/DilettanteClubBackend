@@ -25,8 +25,6 @@ class RoomEntityRepositoryImpl implements RoomEntityRepository
     public function createRoom(CreateRoomContract $contract, int $authUserId): Room
     {
         try {
-            $password = $contract->isPrivate() ? Hash::make($contract->getPassword()) : null;
-
             $isPrivate = $contract->isPrivate();
 
             $room = new Room();
@@ -34,7 +32,10 @@ class RoomEntityRepositoryImpl implements RoomEntityRepository
             $room->setName($contract->getName());
             $room->setAuthorId($authUserId);
             $room->setIsPrivate($isPrivate);
-            $room->setPassword($password);
+            if ($isPrivate) {
+                $password = Hash::make($contract->getPassword());
+                $room->setPassword($password);
+            }
             $room->save();
 
             return $room;

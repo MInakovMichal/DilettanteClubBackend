@@ -41,6 +41,7 @@ class QuestionEntityRepositoryImpl implements QuestionEntityRepository
             $question->setAnswer($contract->getAnswer());
             $question->setLanguageId($contract->getLanguageId());
             $question->setUserId($authUserId);
+            $question->setUseCount(0);
             $question->save();
 
             return $question;

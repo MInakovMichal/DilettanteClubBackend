@@ -7,10 +7,8 @@ use Common\Auth\Infrastructure\Mapper\UserProviderMapper;
 use Common\Auth\Sdk\Contract\LoginContract;
 use Common\Auth\Sdk\Contract\RegisterContract;
 use Common\Auth\Sdk\Model\Authenticate;
-use Common\Exception\UserWithProvidedCredentialsNotFoundException;
 use Component\User\Sdk\Model\UserRead;
 use Component\User\Sdk\UserFacade;
-use Tymon\JWTAuth\Facades\JWTAuth;
 
 class SocialiteServiceImpl implements SocialiteService
 {
@@ -20,28 +18,30 @@ class SocialiteServiceImpl implements SocialiteService
 
     private UserProviderMapper $userProviderMapper;
 
+    private UserPasswordChecker $checker;
+
     /**
      * @param UserFacade $userFacade
      * @param UserProviderMapper $userProviderMapper
      * @param UserProvider $userProvider
+     * @param UserPasswordChecker $checker
      */
-    public function __construct(UserFacade $userFacade, UserProviderMapper $userProviderMapper, UserProvider $userProvider)
-    {
+    public function __construct(
+        UserFacade $userFacade,
+        UserProviderMapper $userProviderMapper,
+        UserProvider $userProvider,
+        UserPasswordChecker $checker
+    ) {
         $this->userFacade = $userFacade;
         $this->userProviderMapper = $userProviderMapper;
         $this->userProvider = $userProvider;
+        $this->checker = $checker;
     }
 
 
     public function login(LoginContract $contract): Authenticate
     {
-
-        /** @var string $token */
-        $token = JWTAuth::attempt(['email' => $contract->getEmail()->getEmailAddress(), 'password' => $contract->getPassword()]);/** @phpstan-ignore-line */
-
-        if (!$token) {
-            throw new UserWithProvidedCredentialsNotFoundException();
-        }
+        $token = $this->checker->check($contract);
 
         $user = $this->userFacade->findByEmailOrFail($contract->getEmail());
 

@@ -27,8 +27,9 @@ class CreateRoomRequest extends FormRequest implements CreateRoomContract
         return [
             'name' => ['required', 'string'],
             'language_id' => ['required', 'integer', 'exists:languages,id'],
-            'is_private' => ['required', 'boolean', 'exists:languages,id'],
-            'password' => ['required_if:field1,true', 'string', 'min:8', 'max:' . $maxLength, 'confirmed', 'regex:' . $regexRule]
+            'is_private' => ['required', 'boolean'],
+            'password' => ['required_if:is_private,true', 'string', 'min:8', 'max:' . $maxLength, 'confirmed', 'regex:' . $regexRule],
+            'password_confirmation' => ['required', 'string', 'min:8', 'max:' . $maxLength, 'regex:' . $regexRule],
         ];
     }
 

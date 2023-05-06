@@ -40,6 +40,8 @@ class PunishmentEntityRepositoryImpl implements PunishmentEntityRepository
             $punishment->setPunishment($contract->getPunishment());
             $punishment->setUserId($authUserId);
             $punishment->setLanguageId($contract->getLanguageId());
+            $punishment->setLanguageId($contract->getLanguageId());
+            $punishment->setUseCount(0);
             $punishment->save();
 
             return $punishment;

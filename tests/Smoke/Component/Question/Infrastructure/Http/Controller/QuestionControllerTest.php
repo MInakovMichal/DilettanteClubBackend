@@ -16,7 +16,7 @@ class QuestionControllerTest extends SmokeTestCase
 
         $response = $this->actingAs($user, "api")->json(
             "GET",
-            route("user.questions"),
+            route("user.questions.all"),
             [
                 "user" => $user->getId(),
             ]
@@ -38,7 +38,6 @@ class QuestionControllerTest extends SmokeTestCase
             "POST",
             route("user.questions.add"),
             [
-                "user" => $user->getId(),
                 "question" => $question,
                 "answer" => $answer,
                 "language_id" => $language->getId(),

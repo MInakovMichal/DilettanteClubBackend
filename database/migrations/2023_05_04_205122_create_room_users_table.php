@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('room_id');
             $table->unsignedBigInteger('user_id');
-            $table->boolean('Is_ready');
-            $table->unsignedBigInteger('wins');
-            $table->unsignedBigInteger('looses');
+            $table->boolean('is_ready')->default(false);
+            $table->unsignedBigInteger('wins')->default(0);
+            $table->unsignedBigInteger('looses')->default(0);
 
             $table->timestamps();
         });

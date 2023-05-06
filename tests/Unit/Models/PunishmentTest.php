@@ -45,6 +45,38 @@ class PunishmentTest extends TestCase
         $this->assertSame($this->language->getId(), $this->punishment->getLanguageId());
     }
 
+    public function test_SetPunishment_ShouldChangePunishmentValue(): void
+    {
+        $newPunishmentValue = $this->faker->sentence();
+
+        $this->punishment->setPunishment($newPunishmentValue);
+        $this->assertSame($newPunishmentValue, $this->punishment->getPunishment());
+    }
+
+    public function test_SetUserId_ShouldChangeUserId(): void
+    {
+        $newUser = User::factory()->make(['id' => $this->user->getId() + 1]);
+
+        $this->punishment->setUserId($newUser->getId());
+        $this->assertSame($newUser->getId(), $this->punishment->getUserId());
+    }
+
+    public function test_SetUseCount_ShouldChangeUseCount(): void
+    {
+        $newUseCount = $this->faker->randomDigit();
+
+        $this->punishment->setUseCount($newUseCount);
+        $this->assertSame($newUseCount, $this->punishment->getUseCount());
+    }
+
+    public function test_SetLanguageId_ShouldChangeLanguageId(): void
+    {
+        $newLanguage = Language::where('id', '!=', $this->language->getId())->firstOrFail();
+
+        $this->punishment->setLanguageId($newLanguage->getId());
+        $this->assertSame($newLanguage->getId(), $this->punishment->getLanguageId());
+    }
+
     protected function setUp(): void
     {
         parent::setUp();

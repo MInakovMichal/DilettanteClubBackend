@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Common\Exception\RoomIsPublicException;
 use Database\Factories\RoomFactory;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
@@ -17,7 +18,7 @@ use Illuminate\Support\Carbon;
  * @property int $author_id
  * @property int $is_private
  * @property int $language_id
- * @property string|null $password
+ * @property string $password
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $deleted_at
@@ -72,11 +73,6 @@ class Room extends Model
         return $this->name;
     }
 
-    public function isPrivate(): bool
-    {
-        return $this->is_private;
-    }
-
     /**
      * @return int
      */
@@ -118,10 +114,27 @@ class Room extends Model
     }
 
     /**
-     * @param string|null $password
+     * @param string $password
      */
-    public function setPassword(?string $password): void
+    public function setPassword(string $password): void
     {
         $this->password = $password;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPassword(): string
+    {
+        if (!$this->isPrivate()) {
+            throw new RoomIsPublicException();
+        }
+
+        return $this->password;
+    }
+
+    public function isPrivate(): bool
+    {
+        return $this->is_private > 0;
     }
 }

@@ -3,7 +3,10 @@
 namespace Component\Room\Infrastructure\Service;
 
 use Component\Room\Infrastructure\Repository\RoomRepository;
+use Component\Room\Sdk\Contract\AddPunishmentsToRoomContract;
+use Component\Room\Sdk\Contract\AddQuestionsToRoomContract;
 use Component\Room\Sdk\Contract\CreateRoomContract;
+use Component\Room\Sdk\Contract\UserEnterRoomContract;
 use Component\Room\Sdk\Model\RoomRead;
 
 class RoomServiceImpl implements RoomService
@@ -22,5 +25,29 @@ class RoomServiceImpl implements RoomService
     public function createRoom(CreateRoomContract $contract, int $authUserId): RoomRead
     {
         return $this->repository->createRoom($contract, $authUserId);
+    }
+
+    public function addQuestionsToRoom(AddQuestionsToRoomContract $contract): void
+    {
+        $this->repository->addQuestionsToRoom($contract);
+    }
+
+    public function addPunishmentsToRoom(AddPunishmentsToRoomContract $contract): void
+    {
+        $this->repository->addPunishmentsToRoom($contract);
+    }
+
+    public function userEnterRoom(UserEnterRoomContract $contract, int $authUserId): void
+    {
+        $this->repository->userEnterRoom($contract, $authUserId);
+    }
+
+    /**
+     * @param int $roomId
+     * @return array<int,mixed>
+     */
+    public function getUsersInRoom(int $roomId): array
+    {
+        return $this->repository->getUsersInRoom($roomId);
     }
 }

@@ -16,7 +16,7 @@ class PunishmentControllerTest extends SmokeTestCase
 
         $response = $this->actingAs($user, "api")->json(
             "GET",
-            route("user.punishments"),
+            route("user.punishments.all"),
             [
                 "user" => $user->getId(),
             ]
@@ -37,7 +37,6 @@ class PunishmentControllerTest extends SmokeTestCase
             "POST",
             route("user.punishments.add"),
             [
-                "user" => $user->getId(),
                 "punishment" => $punishment,
                 "language_id" => $language->getId(),
             ]

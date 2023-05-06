@@ -103,7 +103,7 @@ function defaulting {
     mailcatcher_external_smtp_port=1025
 
     nginx_container_name=$name"_nginx"
-    nginx_external_port=8082
+    nginx_external_port=80
     nginx_ssl_external_port=443
 
     redis_container_name=$name"_redis"

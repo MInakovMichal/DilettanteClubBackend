@@ -2,7 +2,6 @@
 
 namespace Tests\Unit\Models;
 
-use App\Models\Answer;
 use App\Models\Language;
 use App\Models\Question;
 use App\Models\User;
@@ -50,6 +49,46 @@ class QuestionTest extends TestCase
     public function test_GetLanguageId_ShouldReturnLanguageId(): void
     {
         $this->assertSame($this->language->getId(), $this->question->getLanguageId());
+    }
+
+    public function test_SetUserId_ShouldChangeUserId(): void
+    {
+        $newUser = User::factory()->make(['id' => $this->user->getId() + 1]);
+
+        $this->question->setUserId($newUser->getId());
+        $this->assertSame($newUser->getId(), $this->question->getUserId());
+    }
+
+    public function test_SetUseCount_ShouldChangeUseCount(): void
+    {
+        $newUseCount = $this->faker->randomDigit();
+
+        $this->question->setUseCount($newUseCount);
+        $this->assertSame($newUseCount, $this->question->getUseCount());
+    }
+
+    public function test_SetLanguageId_ShouldChangeLanguageId(): void
+    {
+        $newLanguage = Language::where('id', '!=', $this->language->getId())->firstOrFail();
+
+        $this->question->setLanguageId($newLanguage->getId());
+        $this->assertSame($newLanguage->getId(), $this->question->getLanguageId());
+    }
+
+    public function test_SetQuestion_ShouldChangeQuestionValue(): void
+    {
+        $newQuestionValue = $this->faker->sentence();
+
+        $this->question->setQuestion($newQuestionValue);
+        $this->assertSame($newQuestionValue, $this->question->getQuestion());
+    }
+
+    public function test_SetAnswer_ShouldChangeanswer(): void
+    {
+        $newAnswer = $this->faker->randomDigit();
+
+        $this->question->setAnswer($newAnswer);
+        $this->assertSame($newAnswer, $this->question->getAnswer());
     }
 
     protected function setUp(): void
