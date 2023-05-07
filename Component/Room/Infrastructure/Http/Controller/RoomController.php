@@ -6,6 +6,7 @@ use Common\Auth\Sdk\AuthFacade;
 use Common\Http\ApiResponse;
 use Component\Room\Infrastructure\Http\Requests\AddPunishmentsToRoomRequest;
 use Component\Room\Infrastructure\Http\Requests\AddQuestionsToRoomRequest;
+use Component\Room\Infrastructure\Http\Requests\CloseRoomRequest;
 use Component\Room\Infrastructure\Http\Requests\CreateRoomRequest;
 use Component\Room\Infrastructure\Http\Requests\DeletePunishmentsFromRoomRequest;
 use Component\Room\Infrastructure\Http\Requests\DeleteQuestionsFromRoomRequest;
@@ -28,8 +29,11 @@ class RoomController
      * @param AuthFacade $authFacade
      * @param UserFacade $userFacade
      */
-    public function __construct(RoomFacade $roomFacade, AuthFacade $authFacade, UserFacade $userFacade)
-    {
+    public function __construct(
+        RoomFacade $roomFacade,
+        AuthFacade $authFacade,
+        UserFacade $userFacade
+    ) {
         $this->roomFacade = $roomFacade;
         $this->authFacade = $authFacade;
         $this->userFacade = $userFacade;
@@ -42,14 +46,30 @@ class RoomController
         $room = $this->roomFacade->createRoom($request, $authUser->getAuthUserId());
         $this->userFacade->addRoomToUser($authUser->getAuthUserId(), $room->getId());
 
+        $questions = $this->roomFacade->getAllUserQuestionsInRoom($authUser->getAuthUserId(), $room->getId());
+        $punishments = $this->roomFacade->getAllUserPunishmentsInRoom($authUser->getAuthUserId(), $room->getId());
+
         $usersInRoom = $this->roomFacade->getUsersInRoom($room->getId());
 
         $message = 'Room was created successfully';
 
         return ApiResponse::successResponse([
             'users' => $usersInRoom,
+            'questions' => $questions,
+            'punishments' => $punishments,
             'room' => $room->toArray()
         ], $message);
+    }
+
+    public function closeRoom(CloseRoomRequest $request): JsonResponse
+    {
+        $authUser = $this->authFacade->current();
+
+        $this->roomFacade->closeRoom($request, $authUser->getAuthUserId());
+
+        $message = 'Room was closed successfully';
+
+        return ApiResponse::successResponse([], $message);
     }
 
     public function addQuestionsToRoom(AddQuestionsToRoomRequest $request): JsonResponse
@@ -76,12 +96,19 @@ class RoomController
         $this->roomFacade->userEnterRoom($request, $authUser->getAuthUserId());
         $this->userFacade->addRoomToUser($authUser->getAuthUserId(), $roomId);
 
+        $room = $this->roomFacade->findByIdOrFail($roomId);
+        $questions = $this->roomFacade->getAllUserQuestionsInRoom($authUser->getAuthUserId(), $roomId);
+        $punishments = $this->roomFacade->getAllUserPunishmentsInRoom($authUser->getAuthUserId(), $roomId);
+
         $usersInRoom = $this->roomFacade->getUsersInRoom($roomId);
 
         $message = 'User has entered into the room successfully';
 
         return ApiResponse::successResponse([
-            'users' => $usersInRoom
+            'users' => $usersInRoom,
+            'questions' => $questions,
+            'punishments' => $punishments,
+            'room' => $room
         ], $message);
     }
 

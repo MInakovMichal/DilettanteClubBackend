@@ -38,10 +38,27 @@ class RoomControllerTest extends TestCase
         $response->assertStatus(200);
     }
 
+    public function test_CloseRoom(): void
+    {
+        $user = User::factory()->create();
+
+        $room = Room::factory()->create(['user_id' => $user->getId()]);
+
+        $response = $this->actingAs($user, "api")->json(
+            "DELETE",
+            route("user.room.close"),
+            [
+                "room_id" => $room->getId(),
+            ]
+        );
+
+        $response->assertStatus(200);
+    }
+
     public function test_AddQuestionsToRoom(): void
     {
         $user = User::factory()->create();
-        $room = Room::factory()->create(['author_id' => $user->getId()]);
+        $room = Room::factory()->create(['user_id' => $user->getId()]);
 
         /** @var Collection $questions */
         $questions = Question::factory(10)->create();
@@ -61,7 +78,7 @@ class RoomControllerTest extends TestCase
     public function test_AddPunishmentsToRoom(): void
     {
         $user = User::factory()->create();
-        $room = Room::factory()->create(['author_id' => $user->getId()]);
+        $room = Room::factory()->create(['user_id' => $user->getId()]);
 
         /** @var Collection $punishments */
         $punishments = Punishment::factory(10)->create();
@@ -82,7 +99,7 @@ class RoomControllerTest extends TestCase
     {
         $user = User::factory()->create();
         $password = 'Password123#';
-        $room = Room::factory()->create(['author_id' => $user->getId(), 'password' => Hash::make($password)]);
+        $room = Room::factory()->create(['user_id' => $user->getId(), 'password' => Hash::make($password)]);
 
         $usersCount = 10;
         RoomUser::factory($usersCount)->create([
@@ -105,7 +122,7 @@ class RoomControllerTest extends TestCase
     public function test_UsersLeaveRoom(): void
     {
         $user = User::factory()->create();
-        $room = Room::factory()->create(['author_id' => $user->getId()]);
+        $room = Room::factory()->create(['user_id' => $user->getId()]);
 
         RoomUser::factory()->create(['user_id' => $user->getId(), 'room_id' => $room->getId()]);
 

@@ -17,7 +17,7 @@ class RoomUserEntityRepositoryImplTest extends TestCase
 
     public function test_UserEnterToRoom_ShouldAddNewPunishments_WhenUserAddPunishments(): void
     {
-        $room = Room::factory()->create(['author_id' => $this->user->getId()]);
+        $room = Room::factory()->create(['user_id' => $this->user->getId()]);
 
         $usersInRoomBeforeAddNew = RoomUser::all();
         $this->assertSame(0, $usersInRoomBeforeAddNew->count());
@@ -31,7 +31,7 @@ class RoomUserEntityRepositoryImplTest extends TestCase
     public function test_UserLeaveRoom_ShouldDeleteUserFromRoom_WhenUserLeaveRoom(): void
     {
         $room = Room::factory()->create([
-            'author_id' => $this->user->getId(),
+            'user_id' => $this->user->getId(),
         ]);
 
         RoomUser::factory()->create([

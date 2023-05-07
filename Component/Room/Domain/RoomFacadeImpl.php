@@ -5,6 +5,7 @@ namespace Component\Room\Domain;
 use Component\Room\Infrastructure\Service\RoomService;
 use Component\Room\Sdk\Contract\AddPunishmentsToRoomContract;
 use Component\Room\Sdk\Contract\AddQuestionsToRoomContract;
+use Component\Room\Sdk\Contract\CloseRoomContract;
 use Component\Room\Sdk\Contract\CreateRoomContract;
 use Component\Room\Sdk\Contract\DeletePunishmentsFromRoomContract;
 use Component\Room\Sdk\Contract\DeleteQuestionsFromRoomContract;
@@ -67,5 +68,35 @@ class RoomFacadeImpl implements RoomFacade
     public function userLeaveRoom(UserLeaveRoomContract $contract, int $authUserId): void
     {
         $this->roomService->userLeaveRoom($contract, $authUserId);
+    }
+
+    /**
+     * @param int $authUserId
+     * @param int $roomId
+     * @return array<array-key, mixed>
+     */
+    public function getAllUserQuestionsInRoom(int $authUserId, int $roomId): array
+    {
+        return $this->roomService->getAllUserQuestionsInRoom($authUserId, $roomId);
+    }
+
+    /**
+     * @param int $authUserId
+     * @param int $roomId
+     * @return array<array-key, mixed>
+     */
+    public function getAllUserPunishmentsInRoom(int $authUserId, int $roomId): array
+    {
+        return $this->roomService->getAllUserPunishmentsInRoom($authUserId, $roomId);
+    }
+
+    public function closeRoom(CloseRoomContract $contract, int $authUserId): void
+    {
+        $this->roomService->closeRoom($contract, $authUserId);
+    }
+
+    public function findByIdOrFail(int $id): RoomRead
+    {
+        return $this->roomService->findByIdOrFail($id);
     }
 }

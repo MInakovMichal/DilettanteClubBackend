@@ -8,7 +8,7 @@ class RoomRead implements Arrayable
 {
     private int $id;
 
-    private int $authorId;
+    private int $userId;
 
     private string $name;
 
@@ -18,14 +18,14 @@ class RoomRead implements Arrayable
 
     /**
      * @param int $id
-     * @param int $authorId
+     * @param int $userId
      * @param string $name
      * @param bool $isPrivate
      */
-    public function __construct(int $id, int $authorId, string $name, bool $isPrivate, int $languageId)
+    public function __construct(int $id, int $userId, string $name, bool $isPrivate, int $languageId)
     {
         $this->id = $id;
-        $this->authorId = $authorId;
+        $this->userId = $userId;
         $this->name = $name;
         $this->isPrivate = $isPrivate;
         $this->languageId = $languageId;
@@ -42,9 +42,9 @@ class RoomRead implements Arrayable
     /**
      * @return int
      */
-    public function getAuthorId(): int
+    public function getuserId(): int
     {
-        return $this->authorId;
+        return $this->userId;
     }
 
     /**
@@ -75,7 +75,7 @@ class RoomRead implements Arrayable
     {
         return [
             'id' => $this->id,
-            'author_id' => $this->authorId,
+            'user_id' => $this->userId,
             'name' => $this->name,
             'is_private' => $this->isPrivate,
             'language_id' => $this->languageId

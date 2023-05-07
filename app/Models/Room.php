@@ -15,7 +15,7 @@ use Illuminate\Support\Carbon;
  *
  * @property int $id
  * @property string $name
- * @property int $author_id
+ * @property int $user_id
  * @property int $is_private
  * @property int $language_id
  * @property string $password
@@ -33,7 +33,7 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Room whereName($value)
  * @method static Builder|Room wherePassword($value)
  * @method static Builder|Room whereUpdatedAt($value)
- * @method static Builder|Room whereAuthorId($value)
+ * @method static Builder|Room whereUserId($value)
  * @method static Builder|Room whereLanguageId($value)
  * @mixin Eloquent
  */
@@ -43,7 +43,7 @@ class Room extends Model
 
     public $fillable = [
         'id',
-        'author_id',
+        'user_id',
         'name',
         'is_private',
         'password',
@@ -63,9 +63,9 @@ class Room extends Model
         return $this->id;
     }
 
-    public function getAuthorId(): int
+    public function getUserId(): int
     {
-        return $this->author_id;
+        return $this->user_id;
     }
 
     public function getName(): string
@@ -90,11 +90,11 @@ class Room extends Model
     }
 
     /**
-     * @param int $author_id
+     * @param int $user_id
      */
-    public function setAuthorId(int $author_id): void
+    public function setUserId(int $user_id): void
     {
-        $this->author_id = $author_id;
+        $this->user_id = $user_id;
     }
 
     /**

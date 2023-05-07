@@ -10,6 +10,7 @@ use App\Models\RoomPunishment;
 use App\Models\RoomQuestion;
 use App\Models\RoomUser;
 use App\Models\User;
+use Common\Exception\RoomByIdNotFoundException;
 use Component\Room\Infrastructure\Http\Requests\AddPunishmentsToRoomRequest;
 use Component\Room\Infrastructure\Http\Requests\AddQuestionsToRoomRequest;
 use Component\Room\Infrastructure\Http\Requests\CreateRoomRequest;
@@ -51,7 +52,7 @@ class RoomFacadeImplTest extends TestCase
     {
         $questionsCount = 10;
         $questions = Question::factory($questionsCount)->create(['user_id' => $this->user->getId()]);
-        $room = Room::factory()->create(['author_id' => $this->user->getId()]);
+        $room = Room::factory()->create(['user_id' => $this->user->getId()]);
 
         $contract = new AddQuestionsToRoomRequest([
             'questions' => $questions->pluck('id')->toArray(),
@@ -71,7 +72,7 @@ class RoomFacadeImplTest extends TestCase
     {
         $punishmentsCount = 10;
         $punishments = Punishment::factory($punishmentsCount)->create(['user_id' => $this->user->getId()]);
-        $room = Room::factory()->create(['author_id' => $this->user->getId()]);
+        $room = Room::factory()->create(['user_id' => $this->user->getId()]);
 
         $contract = new AddPunishmentsToRoomRequest([
             'punishments' => $punishments->pluck('id')->toArray(),
@@ -92,7 +93,7 @@ class RoomFacadeImplTest extends TestCase
         $password = $this->faker->password();
 
         $room = Room::factory()->create([
-            'author_id' => $this->user->getId(),
+            'user_id' => $this->user->getId(),
             'is_private' => true,
             'password' => Hash::make($password)
         ]);
@@ -115,14 +116,14 @@ class RoomFacadeImplTest extends TestCase
     public function test_UserLeaveRoom_ShouldDeleteUserFromRoom_WhenUserLeaveRoom(): void
     {
         $room = Room::factory()->create([
-            'author_id' => $this->user->getId(),
+            'user_id' => $this->user->getId(),
         ]);
 
         RoomUser::factory()->create([
             'room_id' => $room->getId(),
             'user_id' => $this->user->getId()
         ]);
-        
+
         $contract = new UserLeaveRoomRequest([
             'room_id' => $room->getId()
         ]);
@@ -152,7 +153,7 @@ class RoomFacadeImplTest extends TestCase
     {
         $questionsCount = 10;
         $questions = Question::factory($questionsCount)->create(['user_id' => $this->user->getId()]);
-        $room = Room::factory()->create(['author_id' => $this->user->getId()]);
+        $room = Room::factory()->create(['user_id' => $this->user->getId()]);
 
         foreach ($questions as $question) {
             RoomQuestion::factory()->create([
@@ -178,7 +179,7 @@ class RoomFacadeImplTest extends TestCase
     {
         $punishmentsCount = 10;
         $punishments = Punishment::factory($punishmentsCount)->create(['user_id' => $this->user->getId()]);
-        $room = Room::factory()->create(['author_id' => $this->user->getId()]);
+        $room = Room::factory()->create(['user_id' => $this->user->getId()]);
 
         foreach ($punishments as $punishment) {
             RoomPunishment::factory()->create([
@@ -198,6 +199,60 @@ class RoomFacadeImplTest extends TestCase
         $punishmentsInRoomAfterDelete = RoomPunishment::all();
 
         $this->assertSame($punishmentsCount / 2, $punishmentsInRoomAfterDelete->count());
+    }
+
+    public function test_GetAllUserQuestionsInRoom_ShouldReturnArrayWithTenElements(): void
+    {
+        $room = Room::factory()->create();
+        $questionCount = 10;
+        $questions = Question::factory($questionCount)->create(['user_id' => $this->user->getId()]);
+
+        foreach ($questions as $question){
+            RoomQuestion::factory()->create([
+                'room_id' => $room->getId(),
+                'question_id' => $question->getId()
+            ]);
+        }
+
+        $questionsInRoom = $this->facadeImpl->getAllUserQuestionsInRoom($this->user->getId(), $room->getId());
+
+        $this->assertSame($questionCount, count($questionsInRoom));
+    }
+
+    public function test_GetAllUserPunishmentsInRoom_ShouldReturnArrayWithTenElements(): void
+    {
+        $room = Room::factory()->create();
+        $punishmentCount = 10;
+        $punishments = Punishment::factory($punishmentCount)->create(['user_id' => $this->user->getId()]);
+
+        foreach ($punishments as $punishment){
+            RoomPunishment::factory()->create([
+                'room_id' => $room->getId(),
+                'punishment_id' => $punishment->getId()
+            ]);
+        }
+
+        $punishmentInRoom = $this->facadeImpl->getAllUserPunishmentsInRoom($this->user->getId(), $room->getId());
+
+        $this->assertSame($punishmentCount, count($punishmentInRoom));
+    }
+
+    public function test_FindByIdOrFail_ShouldThrowRoomByIdNotFoundException_WhenRoomNotFound(): void
+    {
+        /** @var Room $room */
+        $room = Room::factory()->create();
+        $this->expectException(RoomByIdNotFoundException::class);
+        $this->facadeImpl->findByIdOrFail($room->getId() + 1);
+    }
+
+    public function test_FindByIdOrFail_ShouldUserReadClass_WhenUserFind(): void
+    {
+        /** @var Room $room */
+        $room = Room::factory()->create();
+
+        $roomRead = $this->facadeImpl->findByIdOrFail($room->getId());
+
+        $this->assertInstanceOf(RoomRead::class, $roomRead);
     }
 
     protected function setUp(): void

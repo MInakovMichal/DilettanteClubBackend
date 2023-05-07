@@ -19,7 +19,7 @@ class RoomPunishmentEntityRepositoryImplTest extends TestCase
     public function test_AddPunishmentsToRoom_ShouldAddNewPunishments_WhenUserAddPunishments(): void
     {
         $punishment = Punishment::factory()->create(['user_id' => $this->user->getId()]);
-        $room = Room::factory()->create(['author_id' => $this->user->getId()]);
+        $room = Room::factory()->create(['user_id' => $this->user->getId()]);
 
         $punishmentsInRoomBeforeAddNew = RoomPunishment::all();
         $this->assertSame(0, $punishmentsInRoomBeforeAddNew->count());
@@ -33,7 +33,7 @@ class RoomPunishmentEntityRepositoryImplTest extends TestCase
     public function test_DeletePunishmentFromRoom_ShouldDeletePunishmentFromRoom(): void
     {
         $punishment = Punishment::factory()->create(['user_id' => $this->user->getId()]);
-        $room = Room::factory()->create(['author_id' => $this->user->getId()]);
+        $room = Room::factory()->create(['user_id' => $this->user->getId()]);
 
         RoomPunishment::factory()->create([
             'room_id' => $room->getId(),

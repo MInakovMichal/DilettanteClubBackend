@@ -19,7 +19,7 @@ class RoomQuestionEntityRepositoryImplTest extends TestCase
     public function test_AddQuestionsToRoom_ShouldAddNewQuestions_WhenUserAddQuestions(): void
     {
         $question = Question::factory()->create(['user_id' => $this->user->getId()]);
-        $room = Room::factory()->create(['author_id' => $this->user->getId()]);
+        $room = Room::factory()->create(['user_id' => $this->user->getId()]);
 
         $questionsInRoomBeforeAddNew = RoomQuestion::all();
         $this->assertSame(0, $questionsInRoomBeforeAddNew->count());
@@ -33,7 +33,7 @@ class RoomQuestionEntityRepositoryImplTest extends TestCase
     public function test_DeleteQuestionsFromRoom_ShouldDeleteQuestionsFromRoom(): void
     {
         $question = Question::factory()->create(['user_id' => $this->user->getId()]);
-        $room = Room::factory()->create(['author_id' => $this->user->getId()]);
+        $room = Room::factory()->create(['user_id' => $this->user->getId()]);
 
         RoomQuestion::factory()->create([
             'room_id' => $room->getId(),

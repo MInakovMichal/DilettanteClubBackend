@@ -23,9 +23,9 @@ class RoomTest extends TestCase
         $this->assertSame($this->id, $this->room->getId());
     }
 
-    public function test_GetAuthorId_ShouldReturnUserId(): void
+    public function test_GetUserId_ShouldReturnUserId(): void
     {
-        $this->assertSame($this->user->getId(), $this->room->getAuthorId());
+        $this->assertSame($this->user->getId(), $this->room->getUserId());
     }
 
     public function test_GetName_ShouldReturnName(): void
@@ -48,12 +48,12 @@ class RoomTest extends TestCase
         $this->assertTrue(Hash::check($this->password, $this->room->getPassword()));
     }
 
-    public function test_SetAuthorId_ShouldChangeAuthorId(): void
+    public function test_SetUserId_ShouldChangeUserId(): void
     {
         $newUser = User::factory()->make(['id' => $this->user->getId() + 1]);
 
-        $this->room->setAuthorId($newUser->getId());
-        $this->assertSame($newUser->getId(), $this->room->getAuthorId());
+        $this->room->setUserId($newUser->getId());
+        $this->assertSame($newUser->getId(), $this->room->getUserId());
     }
 
     public function test_SetUseCount_ShouldChangeUseCount(): void
@@ -103,7 +103,7 @@ class RoomTest extends TestCase
             'id' => $this->id,
             'is_private' => $this->isPrivate,
             'name' => $this->name,
-            'author_id' => $this->user->getId(),
+            'user_id' => $this->user->getId(),
             'language_id' => $this->language->getId(),
             'password' => Hash::make($this->password)
         ]);

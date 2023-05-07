@@ -4,6 +4,7 @@ namespace Component\Room\Infrastructure\Service;
 
 use Component\Room\Sdk\Contract\AddPunishmentsToRoomContract;
 use Component\Room\Sdk\Contract\AddQuestionsToRoomContract;
+use Component\Room\Sdk\Contract\CloseRoomContract;
 use Component\Room\Sdk\Contract\CreateRoomContract;
 use Component\Room\Sdk\Contract\DeletePunishmentsFromRoomContract;
 use Component\Room\Sdk\Contract\DeleteQuestionsFromRoomContract;
@@ -32,4 +33,22 @@ interface RoomService
     public function deletePunishmentsFromRoom(DeletePunishmentsFromRoomContract $contract, int $authUserId): void;
 
     public function userLeaveRoom(UserLeaveRoomContract $contract, int $authUserId): void;
+
+    /**
+     * @param int $authUserId
+     * @param int $roomId
+     * @return array<array-key, mixed>
+     */
+    public function getAllUserQuestionsInRoom(int $authUserId, int $roomId): array;
+
+    /**
+     * @param int $authUserId
+     * @param int $roomId
+     * @return array<array-key, mixed>
+     */
+    public function getAllUserPunishmentsInRoom(int $authUserId, int $roomId): array;
+
+    public function closeRoom(CloseRoomContract $contract, int $authUserId): void;
+
+    public function findByIdOrFail(int $id): RoomRead;
 }

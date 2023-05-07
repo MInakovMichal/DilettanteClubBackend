@@ -4,9 +4,8 @@ namespace Component\Room\Infrastructure\Repository;
 
 use Component\Room\Sdk\Contract\AddPunishmentsToRoomContract;
 use Component\Room\Sdk\Contract\AddQuestionsToRoomContract;
+use Component\Room\Sdk\Contract\CloseRoomContract;
 use Component\Room\Sdk\Contract\CreateRoomContract;
-use Component\Room\Sdk\Contract\DeletePunishmentsFromRoomContract;
-use Component\Room\Sdk\Contract\DeleteQuestionsFromRoomContract;
 use Component\Room\Sdk\Contract\UserEnterRoomContract;
 use Component\Room\Sdk\Contract\UserLeaveRoomContract;
 use Component\Room\Sdk\Model\RoomRead;
@@ -27,9 +26,27 @@ interface RoomRepository
      */
     public function getUsersInRoom(int $roomId): array;
 
-    public function deleteQuestionsFromRoom(DeleteQuestionsFromRoomContract $contract, int $authUserId): void;
+    public function deleteQuestionsFromRoom(int $roomId, int $questionId): void;
 
-    public function deletePunishmentsFromRoom(DeletePunishmentsFromRoomContract $contract, int $authUserId): void;
+    public function deletePunishmentsFromRoom(int $roomId, int $punishmentId): void;
 
     public function userLeaveRoom(UserLeaveRoomContract $contract, int $authUserId): void;
+
+    /**
+     * @param int $authUserId
+     * @param int $roomId
+     * @return array<array-key, mixed>
+     */
+    public function getAllUserQuestionsInRoom(int $authUserId, int $roomId): array;
+
+    /**
+     * @param int $authUserId
+     * @param int $roomId
+     * @return array<array-key, mixed>
+     */
+    public function getAllUserPunishmentsInRoom(int $authUserId, int $roomId): array;
+
+    public function closeRoom(CloseRoomContract $contract, int $authUserId): void;
+
+    public function findByIdOrFail(int $id): RoomRead;
 }

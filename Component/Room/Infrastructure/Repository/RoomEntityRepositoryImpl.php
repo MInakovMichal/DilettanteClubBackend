@@ -4,6 +4,7 @@ namespace Component\Room\Infrastructure\Repository;
 
 use App\Models\Room;
 use Common\Exception\RoomByIdNotFoundException;
+use Component\Room\Sdk\Contract\CloseRoomContract;
 use Component\Room\Sdk\Contract\CreateRoomContract;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Hash;
@@ -30,7 +31,7 @@ class RoomEntityRepositoryImpl implements RoomEntityRepository
             $room = new Room();
             $room->setLanguageId($contract->getLanguageId());
             $room->setName($contract->getName());
-            $room->setAuthorId($authUserId);
+            $room->setUserId($authUserId);
             $room->setIsPrivate($isPrivate);
             if ($isPrivate) {
                 $password = Hash::make($contract->getPassword());
@@ -53,5 +54,11 @@ class RoomEntityRepositoryImpl implements RoomEntityRepository
         } catch (ModelNotFoundException $e) {
             throw new RoomByIdNotFoundException($id);
         }
+    }
+
+    public function closeRoom(CloseRoomContract $contract, int $authUserId): void
+    {
+        $room = self::findByIdOrFail($contract->getRoomId());
+        $room->delete();
     }
 }

@@ -38,6 +38,7 @@ Route::group(["middleware" => ["auth:api"],], static function () {
 
     Route::group(["prefix" => '/punishment',], static function () {
         Route::post('/create', [RoomController::class, 'createRoom'])->name('user.room.create');
+        Route::delete('/close', [RoomController::class, 'closeRoom'])->name('user.room.close');
 
         Route::post('/add-questions', [RoomController::class, 'addQuestionsToRoom'])->name('user.room.questions.add');
         Route::delete('/delete-questions', [RoomController::class, 'deleteQuestionsFromRoom'])->name('user.room.questions.delete');

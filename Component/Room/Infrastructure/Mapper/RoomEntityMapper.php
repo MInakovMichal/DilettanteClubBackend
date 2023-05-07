@@ -11,7 +11,7 @@ class RoomEntityMapper
     {
         return new RoomRead(
             $room->getId(),
-            $room->getAuthorId(),
+            $room->getUserId(),
             $room->getName(),
             $room->isPrivate(),
             $room->getLanguageId()

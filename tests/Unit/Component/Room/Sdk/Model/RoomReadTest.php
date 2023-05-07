@@ -26,9 +26,9 @@ class RoomReadTest extends TestCase
         $this->assertSame($this->name, $this->roomReadModel->getName());
     }
 
-    public function test_GetAuthorId_ShouldReturnRoomAuthorId(): void
+    public function test_GetUserId_ShouldReturnRoomUserId(): void
     {
-        $this->assertSame($this->user->getId(), $this->roomReadModel->getAuthorId());
+        $this->assertSame($this->user->getId(), $this->roomReadModel->getuserId());
     }
 
     public function test_GetLanguageId_ShouldReturnRoomLanguageId(): void
