@@ -37,4 +37,14 @@ class UserRepositoryImpl implements UserRepository
         $user = $this->entityRepository->findByIdOrFail($id);
         return $this->userEntityMapper->mapToReadModel($user);
     }
+
+    public function addRoomToUser(int $authUserId, int $roomId): void
+    {
+        $this->entityRepository->addRoomToUser($authUserId, $roomId);
+    }
+
+    public function deleteRoomFromUser(int $authUserId): void
+    {
+        $this->entityRepository->deleteRoomFromUser($authUserId);
+    }
 }

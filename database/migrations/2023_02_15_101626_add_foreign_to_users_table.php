@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->foreign('actual_language_id')->on('languages')->references('id');
+            $table->foreign('room_id')->on('rooms')->references('id');
         });
     }
 
@@ -23,6 +24,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropForeign(['actual_language_id']);
+            $table->dropForeign(['room_id']);
         });
     }
 };

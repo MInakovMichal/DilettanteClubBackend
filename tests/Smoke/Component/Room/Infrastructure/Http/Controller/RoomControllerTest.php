@@ -6,6 +6,7 @@ use App\Models\Language;
 use App\Models\Punishment;
 use App\Models\Question;
 use App\Models\Room;
+use App\Models\RoomPunishment;
 use App\Models\RoomQuestion;
 use App\Models\RoomUser;
 use App\Models\User;
@@ -47,7 +48,7 @@ class RoomControllerTest extends TestCase
 
         $response = $this->actingAs($user, "api")->json(
             "POST",
-            route("user.room.addQuestions"),
+            route("user.room.questions.add"),
             [
                 "questions" => $questions->pluck('id'),
                 "room_id" => $room->getId(),
@@ -67,7 +68,7 @@ class RoomControllerTest extends TestCase
 
         $response = $this->actingAs($user, "api")->json(
             "POST",
-            route("user.room.addPunishments"),
+            route("user.room.punishments.add"),
             [
                 "punishments" => $punishments->pluck('id'),
                 "room_id" => $room->getId(),
@@ -77,7 +78,7 @@ class RoomControllerTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function test_UsersInRoom(): void
+    public function test_UsersEnterRoom(): void
     {
         $user = User::factory()->create();
         $password = 'Password123#';
@@ -90,10 +91,28 @@ class RoomControllerTest extends TestCase
 
         $response = $this->actingAs($user, "api")->json(
             "POST",
-            route("user.room.usersInRoom"),
+            route("user.room.users.enter"),
             [
                 "password" => $password,
                 "is_private" => true,
+                "room_id" => $room->getId(),
+            ]
+        );
+
+        $response->assertStatus(200);
+    }
+
+    public function test_UsersLeaveRoom(): void
+    {
+        $user = User::factory()->create();
+        $room = Room::factory()->create(['author_id' => $user->getId()]);
+
+        RoomUser::factory()->create(['user_id' => $user->getId(), 'room_id' => $room->getId()]);
+
+        $response = $this->actingAs($user, "api")->json(
+            "POST",
+            route("user.room.users.leave"),
+            [
                 "room_id" => $room->getId(),
             ]
         );
@@ -117,7 +136,7 @@ class RoomControllerTest extends TestCase
 
         $response = $this->actingAs($user, "api")->json(
             "DELETE",
-            route("user.room.deleteQuestions"),
+            route("user.room.questions.delete"),
             [
                 "questions" => $deleteQuestion->pluck('id'),
                 "room_id" => $room->getId(),
@@ -127,4 +146,29 @@ class RoomControllerTest extends TestCase
         $response->assertStatus(200);
     }
 
+    public function test_DeletePunishmentsFromRoom(): void
+    {
+        $user = User::factory()->create();
+        $room = Room::factory()->create();
+
+        $punishments = Punishment::factory(10)->create(['user_id' => $user->getId()]);
+        foreach ($punishments as $punishment) {
+            RoomPunishment::factory()->create([
+                'room_id' => $room->getId(),
+                'punishment_id' => $punishment->getId()
+            ]);
+        }
+        $deletePunishment = Punishment::get()->take(5);
+
+        $response = $this->actingAs($user, "api")->json(
+            "DELETE",
+            route("user.room.punishments.delete"),
+            [
+                "punishments" => $deletePunishment->pluck('id'),
+                "room_id" => $room->getId(),
+            ]
+        );
+
+        $response->assertStatus(200);
+    }
 }

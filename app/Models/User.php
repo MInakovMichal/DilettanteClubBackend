@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Common\Exception\UserEmailIsNotSetException;
+use Common\Exception\UserIsNotInRoomException;
 use Database\Factories\UserFactory;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
@@ -33,6 +34,7 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
  * @property Carbon|null $email_verified_at
  * @property string $password
  * @property int|null $is_blocked
+ * @property int $room_id
  * @property string|null $remember_token
  * @property string|null $last_login
  * @property Carbon|null $created_at
@@ -66,6 +68,7 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
  * @method static Builder|User whereRememberToken($value)
  * @method static Builder|User whereUpdatedAt($value)
  * @method static Builder|User whereUsername($value)
+ * @method static Builder|User whereRoomId($value)
  * @method static Builder|User withTrashed()
  * @method static Builder|User withoutTrashed()
  * @mixin Eloquent
@@ -92,6 +95,7 @@ class User extends Authenticatable implements JWTSubject
         'email_verified_at',
         'password',
         'is_blocked',
+        'room_id'
     ];
 
     /**
@@ -152,6 +156,20 @@ class User extends Authenticatable implements JWTSubject
         return $this->is_blocked === true;
     }
 
+    public function getRoomId(): int
+    {
+        if (!self::inRoom()) {
+            throw new UserIsNotInRoomException();
+        }
+
+        return $this->room_id;
+    }
+
+    public function inRoom(): bool
+    {
+        return $this->room_id !== null;
+    }
+
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.
      *
@@ -170,5 +188,18 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims(): array
     {
         return [];
+    }
+
+    /**
+     * @param int $room_id
+     */
+    public function setRoomId(int $room_id): void
+    {
+        $this->room_id = $room_id;
+    }
+
+    public function deleteRoomId(): void
+    {
+        $this->room_id = null;
     }
 }

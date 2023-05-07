@@ -31,4 +31,14 @@ class UserFacadeImpl implements UserFacade
     {
         return $this->userService->findByIdOrFail($id);
     }
+
+    public function addRoomToUser(int $authUserId, int $roomId): void
+    {
+        $this->userService->addRoomToUser($authUserId, $roomId);
+    }
+
+    public function deleteRoomFromUser(int $authUserId): void
+    {
+        $this->userService->deleteRoomFromUser($authUserId);
+    }
 }

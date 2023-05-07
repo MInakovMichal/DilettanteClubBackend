@@ -20,6 +20,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('is_blocked')->nullable()->default(false);
+            $table->unsignedBigInteger('room_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

@@ -49,5 +49,4 @@ class RoomPasswordCheckerImplTest extends TestCase
 
         $this->checker = app(RoomPasswordChecker::class);
     }
-
 }

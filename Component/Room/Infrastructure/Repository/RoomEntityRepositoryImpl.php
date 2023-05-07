@@ -44,7 +44,6 @@ class RoomEntityRepositoryImpl implements RoomEntityRepository
         }
     }
 
-
     public function findByIdOrFail(int $id): Room
     {
         try {

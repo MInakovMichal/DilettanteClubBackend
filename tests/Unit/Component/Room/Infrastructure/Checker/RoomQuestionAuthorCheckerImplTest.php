@@ -35,5 +35,4 @@ class RoomQuestionAuthorCheckerImplTest extends TestCase
 
         $this->checker = app(RoomQuestionAuthorChecker::class);
     }
-
 }

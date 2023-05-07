@@ -3,6 +3,7 @@
 namespace Tests\Unit\Component\User\Infrastructure\Service;
 
 use App\Models\Language;
+use App\Models\Room;
 use App\Models\User;
 use Common\Auth\Infrastructure\Http\Requests\RegisterRequest;
 use Common\Exception\UserByEmailNotFoundException;
@@ -84,6 +85,30 @@ class UserServiceImplTest extends TestCase
         $userRead = $this->serviceImpl->findByEmailOrFail($email);
 
         $this->assertInstanceOf(UserRead::class, $userRead);
+    }
+
+    public function test_AddRoomToUser_ShouldUpdateUser(): void
+    {
+        $room = Room::factory()->create();
+
+        $this->serviceImpl->addRoomToUser($this->user->getId(), $room->getId());
+
+        $user = User::find($this->user->getId());
+
+        $this->assertNotNull($user->getRoomId());
+    }
+
+    public function test_DeleteRoomFromUser_ShouldUpdateUser(): void
+    {
+        $room = Room::factory()->create();
+        $this->user->setRoomId($room->getId());
+        $this->user->save();
+
+        $this->serviceImpl->deleteRoomFromUser($this->user->getId());
+
+        $user = User::find($this->user->getId());
+
+        $this->assertFalse($user->inRoom());
     }
 
     protected function setUp(): void

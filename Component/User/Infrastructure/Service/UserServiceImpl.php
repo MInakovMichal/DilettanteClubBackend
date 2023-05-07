@@ -30,4 +30,14 @@ class UserServiceImpl implements UserService
     {
         return $this->userRepository->findByIdOrFail($id);
     }
+
+    public function addRoomToUser(int $authUserId, int $roomId): void
+    {
+        $this->userRepository->addRoomToUser($authUserId, $roomId);
+    }
+
+    public function deleteRoomFromUser(int $authUserId): void
+    {
+        $this->userRepository->deleteRoomFromUser($authUserId);
+    }
 }

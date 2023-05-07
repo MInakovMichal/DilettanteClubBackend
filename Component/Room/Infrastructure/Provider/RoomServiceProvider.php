@@ -7,6 +7,8 @@ namespace Component\Room\Infrastructure\Provider;
 use Component\Room\Domain\RoomFacadeImpl;
 use Component\Room\Infrastructure\Checker\RoomPasswordChecker;
 use Component\Room\Infrastructure\Checker\RoomPasswordCheckerImpl;
+use Component\Room\Infrastructure\Checker\RoomPunishmentAuthorChecker;
+use Component\Room\Infrastructure\Checker\RoomPunishmentAuthorCheckerImpl;
 use Component\Room\Infrastructure\Checker\RoomQuestionAuthorChecker;
 use Component\Room\Infrastructure\Checker\RoomQuestionAuthorCheckerImpl;
 use Component\Room\Infrastructure\Repository\RoomDatabaseRepository;
@@ -40,5 +42,6 @@ final class RoomServiceProvider extends EventServiceProvider
         $this->app->bind(RoomPasswordChecker::class, RoomPasswordCheckerImpl::class);
         $this->app->bind(RoomDatabaseRepository::class, RoomDatabaseRepositoryImpl::class);
         $this->app->bind(RoomQuestionAuthorChecker::class, RoomQuestionAuthorCheckerImpl::class);
+        $this->app->bind(RoomPunishmentAuthorChecker::class, RoomPunishmentAuthorCheckerImpl::class);
     }
 }

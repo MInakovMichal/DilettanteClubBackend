@@ -63,9 +63,26 @@ class UserEntityRepositoryImpl implements UserEntityRepository
         try {
             /** @var User $user */
             $user = $this->entity->findOrFail($id);
+
             return $user;
         } catch (ModelNotFoundException $e) {
             throw new UserNotFoundException($id);
         }
+    }
+
+    public function addRoomToUser(int $authUserId, int $roomId): void
+    {
+        $user = self::findByIdOrFail($authUserId);
+
+        $user->setRoomId($roomId);
+        $user->save();
+    }
+
+    public function deleteRoomFromUser(int $authUserId): void
+    {
+        $user = self::findByIdOrFail($authUserId);
+
+        $user->deleteRoomId();
+        $user->save();
     }
 }

@@ -2,8 +2,10 @@
 
 namespace Tests\Unit\Models;
 
+use App\Models\Room;
 use App\Models\User;
 use Common\Exception\UserEmailIsNotSetException;
+use Common\Exception\UserIsNotInRoomException;
 use Illuminate\Support\Carbon;
 use Tests\TestCase;
 
@@ -68,6 +70,42 @@ class UserTest extends TestCase
         $this->user->email = null;
         $this->expectException(UserEmailIsNotSetException::class);
         $this->user->getEmail();
+    }
+
+    public function test_GetRoomId_ShouldThrowUserIsNotInRoomException_WhenUserIsNotInRoom(): void
+    {
+        $this->expectException(UserIsNotInRoomException::class);
+        $this->user->getRoomId();
+    }
+
+    public function test_GetRoomId_ShouldReturnRoomId_WhenUserIsInRoom(): void
+    {
+        $room = Room::factory()->create();
+        $this->user->setRoomId($room->getId());
+
+        $this->assertSame($room->getId(), $this->user->getRoomId());
+    }
+
+    public function test_InRoom_ShouldReturnFalse_WhenUserIsNotInRoom(): void
+    {
+        $this->assertFalse($this->user->inRoom());
+    }
+
+    public function test_InRoom_ShouldReturnTrue_WhenUserIsInRoom(): void
+    {
+        $room = Room::factory()->create();
+        $this->user->room_id = $room->getId();
+
+        $this->assertTrue($this->user->inRoom());
+    }
+
+    public function test_DeleteRoomId_ShouldDeleteRoomId_WhenUserLeaveTheRoom(): void
+    {
+        $room = Room::factory()->create();
+        $this->user->room_id = $room->getId();
+
+        $this->user->deleteRoomId();
+        $this->assertFalse($this->user->inRoom());
     }
 
     protected function setUp(): void

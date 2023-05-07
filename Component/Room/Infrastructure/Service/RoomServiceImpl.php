@@ -6,8 +6,10 @@ use Component\Room\Infrastructure\Repository\RoomRepository;
 use Component\Room\Sdk\Contract\AddPunishmentsToRoomContract;
 use Component\Room\Sdk\Contract\AddQuestionsToRoomContract;
 use Component\Room\Sdk\Contract\CreateRoomContract;
+use Component\Room\Sdk\Contract\DeletePunishmentsFromRoomContract;
 use Component\Room\Sdk\Contract\DeleteQuestionsFromRoomContract;
 use Component\Room\Sdk\Contract\UserEnterRoomContract;
+use Component\Room\Sdk\Contract\UserLeaveRoomContract;
 use Component\Room\Sdk\Model\RoomRead;
 
 class RoomServiceImpl implements RoomService
@@ -55,5 +57,15 @@ class RoomServiceImpl implements RoomService
     public function deleteQuestionsFromRoom(DeleteQuestionsFromRoomContract $contract, int $authUserId): void
     {
         $this->repository->deleteQuestionsFromRoom($contract, $authUserId);
+    }
+
+    public function deletePunishmentsFromRoom(DeletePunishmentsFromRoomContract $contract, int $authUserId): void
+    {
+        $this->repository->deletePunishmentsFromRoom($contract, $authUserId);
+    }
+
+    public function userLeaveRoom(UserLeaveRoomContract $contract, int $authUserId): void
+    {
+        $this->repository->userLeaveRoom($contract, $authUserId);
     }
 }

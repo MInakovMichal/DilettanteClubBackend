@@ -18,4 +18,6 @@ interface PunishmentRepository
     public function deletePunishment(DeletePunishmentContract $contract, int $authUserId): void;
 
     public function updatePunishment(UpdatePunishmentContract $contract, int $authUserId): PunishmentRead;
+
+    public function findByIdOrFail(int $punishmentId): PunishmentRead;
 }

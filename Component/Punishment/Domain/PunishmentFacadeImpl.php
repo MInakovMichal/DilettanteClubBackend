@@ -42,4 +42,9 @@ class PunishmentFacadeImpl implements PunishmentFacade
     {
         return $this->punishmentService->updatePunishment($contract, $authUserId);
     }
+
+    public function findByIdOrFail(int $punishmentId): PunishmentRead
+    {
+        return $this->punishmentService->findByIdOrFail($punishmentId);
+    }
 }

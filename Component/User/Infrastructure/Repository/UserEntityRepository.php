@@ -13,4 +13,8 @@ interface UserEntityRepository
     public function findByEmailOrFail(Email $email): User;
 
     public function findByIdOrFail(int $id): User;
+
+    public function addRoomToUser(int $authUserId, int $roomId): void;
+
+    public function deleteRoomFromUser(int $authUserId): void;
 }

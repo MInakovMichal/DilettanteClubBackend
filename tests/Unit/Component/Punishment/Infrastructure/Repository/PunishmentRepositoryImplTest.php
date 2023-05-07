@@ -5,6 +5,7 @@ namespace Tests\Unit\Component\Punishment\Infrastructure\Repository;
 use App\Models\Language;
 use App\Models\Punishment;
 use App\Models\User;
+use Common\Exception\PunishmentByIdNotFoundException;
 use Common\Exception\UnauthorizedException;
 use Component\Punishment\Infrastructure\Http\Requests\AddPunishmentRequest;
 use Component\Punishment\Infrastructure\Http\Requests\DeletePunishmentRequest;
@@ -131,6 +132,24 @@ class PunishmentRepositoryImplTest extends TestCase
 
         $this->assertInstanceOf(PunishmentRead::class, $punishmentRead);
         $this->assertSame($newPunishmentValue, $punishmentRead->getPunishment());
+    }
+
+    public function test_FindByIdOrFail_ShouldThrowPunishmentByIdNotFoundException_WhenQuestionNotFound(): void
+    {
+        /** @var Punishment $punishment */
+        $punishment = Punishment::factory()->create();
+        $this->expectException(PunishmentByIdNotFoundException::class);
+        $this->repositoryImpl->findByIdOrFail($punishment->getId() + 1);
+    }
+
+    public function test_FindByIdOrFail_ShouldUserReadClass_WhenUserFind(): void
+    {
+        /** @var Punishment $punishment */
+        $punishment = Punishment::factory()->create();
+
+        $punishmentRead = $this->repositoryImpl->findByIdOrFail($punishment->getId());
+
+        $this->assertInstanceOf(PunishmentRead::class, $punishmentRead);
     }
 
     protected function setUp(): void

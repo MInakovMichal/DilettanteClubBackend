@@ -5,13 +5,14 @@ namespace Tests\Unit\Component\Punishment\Domain;
 use App\Models\Language;
 use App\Models\Punishment;
 use App\Models\User;
+use Common\Exception\PunishmentByIdNotFoundException;
 use Common\Exception\UnauthorizedException;
 use Component\Punishment\Infrastructure\Http\Requests\AddPunishmentRequest;
+use Component\Punishment\Infrastructure\Http\Requests\DeletePunishmentRequest;
 use Component\Punishment\Infrastructure\Http\Requests\GetPunishmentsRequest;
+use Component\Punishment\Infrastructure\Http\Requests\UpdatePunishmentRequest;
 use Component\Punishment\Sdk\Model\PunishmentRead;
 use Component\Punishment\Sdk\PunishmentFacade;
-use Component\Punishment\Infrastructure\Http\Requests\DeletePunishmentRequest;
-use Component\Punishment\Infrastructure\Http\Requests\UpdatePunishmentRequest;
 use Tests\TestCase;
 
 class PunishmentFacadeImplTest extends TestCase
@@ -132,6 +133,24 @@ class PunishmentFacadeImplTest extends TestCase
 
         $this->assertInstanceOf(PunishmentRead::class, $punishmentRead);
         $this->assertSame($newPunishmentValue, $punishmentRead->getPunishment());
+    }
+
+    public function test_FindByIdOrFail_ShouldThrowPunishmentByIdNotFoundException_WhenQuestionNotFound(): void
+    {
+        /** @var Punishment $punishment */
+        $punishment = Punishment::factory()->create();
+        $this->expectException(PunishmentByIdNotFoundException::class);
+        $this->facadeImpl->findByIdOrFail($punishment->getId() + 1);
+    }
+
+    public function test_FindByIdOrFail_ShouldUserReadClass_WhenUserFind(): void
+    {
+        /** @var Punishment $punishment */
+        $punishment = Punishment::factory()->create();
+
+        $punishmentRead = $this->facadeImpl->findByIdOrFail($punishment->getId());
+
+        $this->assertInstanceOf(PunishmentRead::class, $punishmentRead);
     }
 
     protected function setUp(): void

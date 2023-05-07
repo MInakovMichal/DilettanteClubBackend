@@ -3,6 +3,7 @@
 namespace Tests\Unit\Component\User\Infrastructure\Repository;
 
 use App\Models\Language;
+use App\Models\Room;
 use App\Models\User;
 use Common\Auth\Infrastructure\Http\Requests\RegisterRequest;
 use Common\Exception\UserByEmailNotFoundException;
@@ -83,6 +84,30 @@ class UserEntityRepositoryImplTest extends TestCase
         $userRead = $this->repositoryImpl->findByEmailOrFail($email);
 
         $this->assertInstanceOf(User::class, $userRead);
+    }
+
+    public function test_AddRoomToUser_ShouldUpdateUser(): void
+    {
+        $room = Room::factory()->create();
+
+        $this->repositoryImpl->addRoomToUser($this->user->getId(), $room->getId());
+
+        $user = User::find($this->user->getId());
+
+        $this->assertNotNull($user->getRoomId());
+    }
+
+    public function test_DeleteRoomFromUser_ShouldUpdateUser(): void
+    {
+        $room = Room::factory()->create();
+        $this->user->setRoomId($room->getId());
+        $this->user->save();
+
+        $this->repositoryImpl->deleteRoomFromUser($this->user->getId());
+
+        $user = User::find($this->user->getId());
+
+        $this->assertFalse($user->inRoom());
     }
 
     protected function setUp(): void

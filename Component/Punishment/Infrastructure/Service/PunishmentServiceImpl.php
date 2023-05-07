@@ -38,4 +38,9 @@ class PunishmentServiceImpl implements PunishmentService
     {
         return $this->punishmentRepository->updatePunishment($contract, $authUserId);
     }
+
+    public function findByIdOrFail(int $punishmentId): PunishmentRead
+    {
+        return $this->punishmentRepository->findByIdOrFail($punishmentId);
+    }
 }

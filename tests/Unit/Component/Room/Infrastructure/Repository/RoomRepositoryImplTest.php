@@ -13,8 +13,10 @@ use App\Models\User;
 use Component\Room\Infrastructure\Http\Requests\AddPunishmentsToRoomRequest;
 use Component\Room\Infrastructure\Http\Requests\AddQuestionsToRoomRequest;
 use Component\Room\Infrastructure\Http\Requests\CreateRoomRequest;
+use Component\Room\Infrastructure\Http\Requests\DeletePunishmentsFromRoomRequest;
 use Component\Room\Infrastructure\Http\Requests\DeleteQuestionsFromRoomRequest;
 use Component\Room\Infrastructure\Http\Requests\UserEnterRoomRequest;
+use Component\Room\Infrastructure\Http\Requests\UserLeaveRoomRequest;
 use Component\Room\Infrastructure\Repository\RoomRepository;
 use Component\Room\Sdk\Model\RoomRead;
 use Illuminate\Support\Facades\Hash;
@@ -107,6 +109,30 @@ class RoomRepositoryImplTest extends TestCase
         $this->assertSame(1, $usersInRoomAfterEnter->count());
     }
 
+    public function test_UserLeaveRoom_ShouldDeleteUserFromRoom_WhenUserLeaveRoom(): void
+    {
+        $room = Room::factory()->create([
+            'author_id' => $this->user->getId(),
+        ]);
+
+        RoomUser::factory()->create([
+            'room_id' => $room->getId(),
+            'user_id' => $this->user->getId()
+        ]);
+
+        $contract = new UserLeaveRoomRequest([
+            'room_id' => $room->getId()
+        ]);
+
+        $usersInRoomBeforeEnter = RoomUser::all();
+        $this->assertSame(1, $usersInRoomBeforeEnter->count());
+
+        $this->repositoryImpl->userLeaveRoom($contract, $this->user->getId());
+        $usersInRoomAfterEnter = RoomUser::all();
+
+        $this->assertSame(0, $usersInRoomAfterEnter->count());
+    }
+
     public function test_GetUsersInRoom_ShouldReturnArrayWithTenElement(): void
     {
         $userCount = 10;
@@ -143,6 +169,32 @@ class RoomRepositoryImplTest extends TestCase
         $questionsInRoomAfterDelete = RoomQuestion::all();
 
         $this->assertSame($questionsCount/2, $questionsInRoomAfterDelete->count());
+    }
+
+    public function test_DeletePunishmentsFromRoom_ShouldDeletePunishmentsFromRoom(): void
+    {
+        $punishmentsCount = 10;
+        $punishments = Punishment::factory($punishmentsCount)->create(['user_id' => $this->user->getId()]);
+        $room = Room::factory()->create(['author_id' => $this->user->getId()]);
+
+        foreach ($punishments as $punishment) {
+            RoomPunishment::factory()->create([
+                'room_id' => $room->getId(),
+                'punishment_id' => $punishment->getId()
+            ]);
+        }
+        $contract = new DeletePunishmentsFromRoomRequest([
+            'punishments' => $punishments->take($punishmentsCount / 2)->pluck('id')->toArray(),
+            'room_id' => $room->getId()
+        ]);
+
+        $punishmentsInRoomBeforeDelete = RoomPunishment::all();
+        $this->assertSame($punishmentsCount, $punishmentsInRoomBeforeDelete->count());
+
+        $this->repositoryImpl->deletePunishmentsFromRoom($contract, $this->user->getId());
+        $punishmentsInRoomAfterDelete = RoomPunishment::all();
+
+        $this->assertSame($punishmentsCount / 2, $punishmentsInRoomAfterDelete->count());
     }
 
     protected function setUp(): void

@@ -3,13 +3,16 @@
 namespace Component\Room\Infrastructure\Repository;
 
 use Component\Room\Infrastructure\Checker\RoomPasswordChecker;
+use Component\Room\Infrastructure\Checker\RoomPunishmentAuthorChecker;
 use Component\Room\Infrastructure\Checker\RoomQuestionAuthorChecker;
 use Component\Room\Infrastructure\Mapper\RoomEntityMapper;
 use Component\Room\Sdk\Contract\AddPunishmentsToRoomContract;
 use Component\Room\Sdk\Contract\AddQuestionsToRoomContract;
 use Component\Room\Sdk\Contract\CreateRoomContract;
+use Component\Room\Sdk\Contract\DeletePunishmentsFromRoomContract;
 use Component\Room\Sdk\Contract\DeleteQuestionsFromRoomContract;
 use Component\Room\Sdk\Contract\UserEnterRoomContract;
+use Component\Room\Sdk\Contract\UserLeaveRoomContract;
 use Component\Room\Sdk\Model\RoomRead;
 
 class RoomRepositoryImpl implements RoomRepository
@@ -29,6 +32,8 @@ class RoomRepositoryImpl implements RoomRepository
 
     private RoomQuestionAuthorChecker $questionAuthorChecker;
 
+    private RoomPunishmentAuthorChecker $punishmentAuthorChecker;
+
     /**
      * @param RoomEntityRepository $repository
      * @param RoomEntityMapper $entityMapper
@@ -38,6 +43,7 @@ class RoomRepositoryImpl implements RoomRepository
      * @param RoomPasswordChecker $roomPasswordChecker
      * @param RoomDatabaseRepository $databaseRepository
      * @param RoomQuestionAuthorChecker $questionAuthorChecker
+     * @param RoomPunishmentAuthorChecker $punishmentAuthorChecker
      */
     public function __construct(
         RoomEntityRepository $repository,
@@ -48,6 +54,7 @@ class RoomRepositoryImpl implements RoomRepository
         RoomPasswordChecker $roomPasswordChecker,
         RoomDatabaseRepository $databaseRepository,
         RoomQuestionAuthorChecker $questionAuthorChecker,
+        RoomPunishmentAuthorChecker $punishmentAuthorChecker,
     ) {
         $this->repository = $repository;
         $this->entityMapper = $entityMapper;
@@ -57,6 +64,7 @@ class RoomRepositoryImpl implements RoomRepository
         $this->roomPasswordChecker = $roomPasswordChecker;
         $this->databaseRepository = $databaseRepository;
         $this->questionAuthorChecker = $questionAuthorChecker;
+        $this->punishmentAuthorChecker = $punishmentAuthorChecker;
     }
 
 
@@ -113,5 +121,21 @@ class RoomRepositoryImpl implements RoomRepository
 
             $this->roomQuestionRepository->deleteQuestionFromRoom($roomId, $questionId);
         }
+    }
+
+    public function deletePunishmentsFromRoom(DeletePunishmentsFromRoomContract $contract, int $authUserId): void
+    {
+        $roomId = $contract->getRoomId();
+        $punishmentsId = $contract->getPunishments();
+        foreach ($punishmentsId as $punishmentId) {
+            $this->punishmentAuthorChecker->check($punishmentId, $authUserId);
+
+            $this->roomPunishmentRepository->deletePunishmentFromRoom($roomId, $punishmentId);
+        }
+    }
+
+    public function userLeaveRoom(UserLeaveRoomContract $contract, int $authUserId): void
+    {
+        $this->roomUserRepository->userLeaveRoom($contract->getRoomId(), $authUserId);
     }
 }
