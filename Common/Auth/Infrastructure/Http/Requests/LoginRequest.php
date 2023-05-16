@@ -30,10 +30,30 @@ class LoginRequest extends FormRequest implements LoginContract
 
         /** @var string $regexRule */
         $regexRule = config('auth.password_regex.rule');
+
         return [
             'email' => ['required', 'string', 'email', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'max:' . $maxLength, 'regex:' . $regexRule],
             'device_token' => ['required', 'string'],
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'email.required' => 'The email field is required.',
+            'email.string' => 'The email field must be a string.',
+            'email.email' => 'The email field must be a valid email address.',
+            'email.max' => 'The email field may not be greater than :max characters.',
+
+            'password.required' => 'The password field is required.',
+            'password.string' => 'The password field must be a string.',
+            'password.min' => 'The password must be at least :min characters.',
+            'password.max' => 'The password may not be greater than :max characters.',
+            'password.regex' => 'The password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.',
+
+            'device_token.required' => 'The device token field is required.',
+            'device_token.string' => 'The device token field must be a string.',
         ];
     }
 

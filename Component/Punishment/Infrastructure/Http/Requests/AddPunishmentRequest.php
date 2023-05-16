@@ -12,6 +12,18 @@ class AddPunishmentRequest extends FormRequest implements AddPunishmentContract
         return true;
     }
 
+    public function messages(): array
+    {
+        return [
+            'punishment.required' => 'The punishment field is required.',
+            'punishment.string' => 'The punishment must be a string.',
+
+            'language_id.required' => 'The language field is required.',
+            'language_id.integer' => 'The language must be an integer.',
+            'language_id.exists' => 'The selected language is invalid.',
+        ];
+    }
+
     /**
      * @return string[][]
      */
@@ -22,6 +34,7 @@ class AddPunishmentRequest extends FormRequest implements AddPunishmentContract
             'language_id' => ['required', 'integer', 'exists:languages,id']
         ];
     }
+
 
     public function getPunishment(): string
     {
