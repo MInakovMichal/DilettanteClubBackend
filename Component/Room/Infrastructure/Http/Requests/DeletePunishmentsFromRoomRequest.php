@@ -2,7 +2,6 @@
 
 namespace Component\Room\Infrastructure\Http\Requests;
 
-use Component\Room\Sdk\Contract\AddPunishmentsToRoomContract;
 use Component\Room\Sdk\Contract\DeletePunishmentsFromRoomContract;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -22,6 +21,33 @@ class DeletePunishmentsFromRoomRequest extends FormRequest implements DeletePuni
             'punishments' => ['required', 'array', 'min:1'],
             'punishments.*' => ['required', 'int', 'distinct', 'exists:punishments,id'],
             'room_id' => ['required', 'int', 'exists:rooms,id']
+        ];
+    }
+
+    /**
+     * Transform the resource into an array.
+     *
+     * @return array<string,mixed>
+     */
+    public function messages(): array
+    {
+        return [
+            'punishments' => [
+                'required' => 'The punishments field is required.',
+                'array' => 'The punishments field must be an array.',
+                'min' => 'The punishments field must have at least :min item(s).',
+            ],
+            'punishments.*' => [
+                'required' => 'Each punishment item is required.',
+                'int' => 'Each punishment item must be an integer.',
+                'distinct' => 'Each punishment item must be unique.',
+                'exists' => 'Each punishment item is invalid.',
+            ],
+            'room_id' => [
+                'required' => 'The room_id field is required.',
+                'int' => 'The room_id field must be an integer.',
+                'exists' => 'The selected room_id is invalid.',
+            ],
         ];
     }
 

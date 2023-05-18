@@ -24,6 +24,33 @@ class AddPunishmentsToRoomRequest extends FormRequest implements AddPunishmentsT
         ];
     }
 
+    /**
+     * Transform the resource into an array.
+     *
+     * @return array<string,mixed>
+     */
+    public function messages(): array
+    {
+        return [
+            'punishments' => [
+                'required' => 'The punishments field is required.',
+                'array' => 'The punishments field must be an array.',
+                'min' => 'The punishments field must have at least :min item(s).',
+            ],
+            'punishments.*' => [
+                'required' => 'Each punishment item is required.',
+                'int' => 'Each punishment item must be an integer.',
+                'distinct' => 'Each punishment item must be unique.',
+                'exists' => 'Each punishment item is invalid.',
+            ],
+            'room_id' => [
+                'required' => 'The room_id field is required.',
+                'int' => 'The room_id field must be an integer.',
+                'exists' => 'The selected room_id is invalid.',
+            ],
+        ];
+    }
+
     public function getPunishments(): array
     {
         /** @var array<int,int> $punishments */

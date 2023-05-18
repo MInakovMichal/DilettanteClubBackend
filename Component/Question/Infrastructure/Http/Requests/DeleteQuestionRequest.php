@@ -13,6 +13,22 @@ class DeleteQuestionRequest extends FormRequest implements DeleteQuestionContrac
     }
 
     /**
+     * Transform the resource into an array.
+     *
+     * @return array<string,mixed>
+     */
+    public function messages(): array
+    {
+        return [
+            'id' => [
+                'required' => 'The ID field is required.',
+                'int' => 'The ID field must be an integer.',
+                'exists' => 'The selected ID is invalid.',
+            ],
+        ];
+    }
+
+    /**
      * @return string[][]
      */
     public function rules(): array

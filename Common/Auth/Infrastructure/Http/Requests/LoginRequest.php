@@ -38,6 +38,9 @@ class LoginRequest extends FormRequest implements LoginContract
         ];
     }
 
+    /**
+     * @return array<string,string>
+     */
     public function messages(): array
     {
         return [

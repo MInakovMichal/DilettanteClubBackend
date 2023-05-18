@@ -24,6 +24,31 @@ class UpdatePunishmentRequest extends FormRequest implements UpdatePunishmentCon
         ];
     }
 
+    /**
+     * Transform the resource into an array.
+     *
+     * @return array<string,mixed>
+     */
+    public function messages(): array
+    {
+        return [
+            'id' => [
+                'required' => 'The id field is required.',
+                'int' => 'The id field must be an integer.',
+                'exists' => 'The selected id is invalid.',
+            ],
+            'punishment' => [
+                'required' => 'The punishment field is required.',
+                'string' => 'The punishment field must be a string.',
+            ],
+            'language_id' => [
+                'required' => 'The language_id field is required.',
+                'integer' => 'The language_id field must be an integer.',
+                'exists' => 'The selected language_id is invalid.',
+            ],
+        ];
+    }
+
     public function getPunishment(): string
     {
         /** @var string $punishment */

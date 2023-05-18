@@ -22,6 +22,20 @@ class DeletePunishmentRequest extends FormRequest implements DeletePunishmentCon
         ];
     }
 
+    /**
+     * @return array<string,mixed>
+     */
+    public function messages(): array
+    {
+        return [
+            'id' => [
+                'required' => 'The ID field is required.',
+                'int' => 'The ID field must be an integer.',
+                'exists' => 'The selected ID is invalid.',
+            ],
+        ];
+    }
+
     public function getPunishmentId(): int
     {
         /** @var int $punishmentId */

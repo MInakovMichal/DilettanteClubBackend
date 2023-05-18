@@ -38,6 +38,11 @@ class RegisterRequest extends FormRequest implements RegisterContract
         ];
     }
 
+    /**
+     * Transform the resource into an array.
+     *
+     * @return array<string,string>
+     */
     public function messages(): array
     {
         return [

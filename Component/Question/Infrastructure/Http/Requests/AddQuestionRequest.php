@@ -24,6 +24,28 @@ class AddQuestionRequest extends FormRequest implements AddQuestionContract
         ];
     }
 
+    /**
+     * @return array<string,mixed>
+     */
+    public function messages(): array
+    {
+        return [
+            'question' => [
+                'required' => 'The question field is required.',
+                'string' => 'The question field must be a string.',
+            ],
+            'answer' => [
+                'required' => 'The answer field is required.',
+                'integer' => 'The answer field must be an integer.',
+            ],
+            'language_id' => [
+                'required' => 'The language_id field is required.',
+                'integer' => 'The language_id field must be an integer.',
+                'exists' => 'The selected language_id is invalid.',
+            ],
+        ];
+    }
+
     public function getQuestion(): string
     {
         /** @var string $question */

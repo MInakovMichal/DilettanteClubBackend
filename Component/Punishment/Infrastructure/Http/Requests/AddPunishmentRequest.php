@@ -12,6 +12,11 @@ class AddPunishmentRequest extends FormRequest implements AddPunishmentContract
         return true;
     }
 
+    /**
+     * Transform the resource into an array.
+     *
+     * @return array<string,string>
+     */
     public function messages(): array
     {
         return [

@@ -22,6 +22,22 @@ class CloseRoomRequest extends FormRequest implements CloseRoomContract
         ];
     }
 
+    /**
+     * Transform the resource into an array.
+     *
+     * @return array<string,mixed>
+     */
+    public function messages(): array
+    {
+        return [
+            'room_id' => [
+                'required' => 'The room_id field is required.',
+                'int' => 'The room_id field must be an integer.',
+                'exists' => 'The selected room_id is invalid.',
+            ],
+        ];
+    }
+
     public function getRoomId(): int
     {
         /** @var int $roomId */

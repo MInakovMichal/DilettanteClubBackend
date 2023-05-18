@@ -33,6 +33,39 @@ class CreateRoomRequest extends FormRequest implements CreateRoomContract
         ];
     }
 
+    /**
+     * Transform the resource into an array.
+     *
+     * @return array<string,mixed>
+     */
+    public function messages(): array
+    {
+        return [
+            'name' => ['required' => 'The name field is required.', 'string' => 'The name field must be a string.'],
+            'language_id' => [
+                'required' => 'The language_id field is required.',
+                'integer' => 'The language_id field must be an integer.',
+                'exists' => 'The selected language_id is invalid.',
+            ],
+            'is_private' => ['required' => 'The is_private field is required.', 'boolean' => 'The is_private field must be a boolean.'],
+            'password' => [
+                'required_if' => 'The password field is required when is_private is true.',
+                'string' => 'The password field must be a string.',
+                'min' => 'The password field must be at least :min characters.',
+                'max' => 'The password field may not be greater than :max characters.',
+                'confirmed' => 'The password confirmation does not match.',
+                'regex' => 'The password confirmation must contain at least one uppercase letter, one lowercase letter, one number, and one special character.',
+            ],
+            'password_confirmation' => [
+                'required' => 'The password confirmation field is required.',
+                'string' => 'The password confirmation field must be a string.',
+                'min' => 'The password confirmation field must be at least :min characters.',
+                'max' => 'The password confirmation field may not be greater than :max characters.',
+                'regex' => 'The password confirmation must contain at least one uppercase letter, one lowercase letter, one number, and one special character.',
+            ],
+        ];
+    }
+
     public function getName(): string
     {
         /** @var string $name */

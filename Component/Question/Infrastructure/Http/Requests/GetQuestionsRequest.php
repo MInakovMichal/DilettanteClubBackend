@@ -22,6 +22,22 @@ class GetQuestionsRequest extends FormRequest implements GetQuestionsContract
         ];
     }
 
+    /**
+     * Transform the resource into an array.
+     *
+     * @return array<string,mixed>
+     */
+    public function messages(): array
+    {
+        return [
+            'user' => [
+                'required' => 'The user field is required.',
+                'integer' => 'The user field must be an integer.',
+                'exists' => 'The selected user is invalid.',
+            ],
+        ];
+    }
+
     public function getUserId(): int
     {
         /** @var int $userId */

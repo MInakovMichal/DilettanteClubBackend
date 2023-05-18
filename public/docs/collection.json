@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "ClubBackend_api",
-        "_postman_id": "d30afb7b-d0c4-45ef-b6fa-78e27187c5df",
+        "_postman_id": "bef70f65-6445-4299-bcdb-8bd871eb6020",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -41,7 +41,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"mgdmtrluzjzzyotxxfats\",\"email\":\"milford.lakin@example.net\",\"username\":\"llpgaizc\",\"language_id\":11,\"password\":\"m{0`f|;5{PBW\",\"password_confirmation\":\"icijtfxmxkuexzrdjj\"}"
+                            "raw": "{\"name\":\"pfeuzp\",\"email\":\"bernadine.jerde@example.org\",\"username\":\"fzuvvxho\",\"language_id\":11,\"password\":\"~nj1SzbYIb[Kwv%{%\",\"password_confirmation\":\"o\"}"
                         },
                         "description": "",
                         "auth": {
@@ -72,7 +72,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"morton.torp@example.net\",\"password\":\"]G<iXFVbd[FT\",\"device_token\":\"vel\"}"
+                            "raw": "{\"email\":\"ugerlach@example.net\",\"password\":\"CT5n6&N.,y\",\"device_token\":\"quos\"}"
                         },
                         "description": "",
                         "auth": {
@@ -103,7 +103,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"user\":1}"
+                            "raw": "{\"user\":16}"
                         },
                         "description": "",
                         "auth": {
@@ -154,7 +154,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"question\":\"odio\",\"answer\":9,\"language_id\":19}"
+                            "raw": "{\"question\":\"deserunt\",\"answer\":3,\"language_id\":13}"
                         },
                         "description": "",
                         "auth": {
@@ -185,7 +185,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"id\":7}"
+                            "raw": "{\"id\":9}"
                         },
                         "description": "",
                         "auth": {
@@ -216,7 +216,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"id\":10,\"question\":\"vel\",\"answer\":14,\"language_id\":20}"
+                            "raw": "{\"id\":14,\"question\":\"sit\",\"answer\":3,\"language_id\":18}"
                         },
                         "description": "",
                         "auth": {
@@ -247,7 +247,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"user\":9}"
+                            "raw": "{\"user\":5}"
                         },
                         "description": "",
                         "auth": {
@@ -298,7 +298,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"punishment\":\"nam\",\"language_id\":20}"
+                            "raw": "{\"punishment\":\"non\",\"language_id\":17}"
                         },
                         "description": "",
                         "auth": {
@@ -360,7 +360,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"id\":5,\"punishment\":\"nulla\",\"language_id\":6}"
+                            "raw": "{\"id\":6,\"punishment\":\"voluptate\",\"language_id\":20}"
                         },
                         "description": "",
                         "auth": {
@@ -391,7 +391,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"sint\",\"language_id\":20,\"is_private\":true,\"password\":\"6<*t*Ta42NE<g8M\",\"password_confirmation\":\"rmzyqcpjs\"}"
+                            "raw": "{\"name\":\"possimus\",\"language_id\":7,\"is_private\":true,\"password\":\"Ay0poj^($C_R\",\"password_confirmation\":\"ojhlzsitjhiqosozkn\"}"
                         },
                         "description": "",
                         "auth": {
@@ -422,7 +422,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"room_id\":15}"
+                            "raw": "{\"room_id\":8}"
                         },
                         "description": "",
                         "auth": {
@@ -453,7 +453,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"questions\":[15],\"room_id\":5}"
+                            "raw": "{\"questions\":[6],\"room_id\":4}"
                         },
                         "description": "",
                         "auth": {
@@ -484,7 +484,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"questions\":[17],\"room_id\":12}"
+                            "raw": "{\"questions\":[18],\"room_id\":10}"
                         },
                         "description": "",
                         "auth": {
@@ -515,7 +515,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"punishments\":[19],\"room_id\":6}"
+                            "raw": "{\"punishments\":[3],\"room_id\":16}"
                         },
                         "description": "",
                         "auth": {
@@ -546,7 +546,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"punishments\":[18],\"room_id\":2}"
+                            "raw": "{\"punishments\":[19],\"room_id\":20}"
                         },
                         "description": "",
                         "auth": {
@@ -577,7 +577,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"room_id\":12,\"is_private\":true,\"password\":\"u?Y(In[@8\"}"
+                            "raw": "{\"room_id\":12,\"is_private\":false,\"password\":\"S=`VqUFuL\"}"
                         },
                         "description": "",
                         "auth": {
@@ -608,7 +608,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"room_id\":13}"
+                            "raw": "{\"room_id\":4}"
                         },
                         "description": "",
                         "auth": {
