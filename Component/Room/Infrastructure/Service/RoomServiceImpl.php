@@ -140,4 +140,12 @@ class RoomServiceImpl implements RoomService
     {
         return $this->repository->findByIdOrFail($id);
     }
+
+    /**
+     * @return array<array-key, mixed>
+     */
+    public function getAllPublicRoomsWithUsersCount(): array
+    {
+        return $this->repository->getAllPublicRoomsWithUsersCount();
+    }
 }

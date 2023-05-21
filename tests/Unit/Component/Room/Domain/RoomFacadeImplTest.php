@@ -207,7 +207,7 @@ class RoomFacadeImplTest extends TestCase
         $questionCount = 10;
         $questions = Question::factory($questionCount)->create(['user_id' => $this->user->getId()]);
 
-        foreach ($questions as $question){
+        foreach ($questions as $question) {
             RoomQuestion::factory()->create([
                 'room_id' => $room->getId(),
                 'question_id' => $question->getId()
@@ -225,7 +225,7 @@ class RoomFacadeImplTest extends TestCase
         $punishmentCount = 10;
         $punishments = Punishment::factory($punishmentCount)->create(['user_id' => $this->user->getId()]);
 
-        foreach ($punishments as $punishment){
+        foreach ($punishments as $punishment) {
             RoomPunishment::factory()->create([
                 'room_id' => $room->getId(),
                 'punishment_id' => $punishment->getId()
@@ -253,6 +253,19 @@ class RoomFacadeImplTest extends TestCase
         $roomRead = $this->facadeImpl->findByIdOrFail($room->getId());
 
         $this->assertInstanceOf(RoomRead::class, $roomRead);
+    }
+
+    public function test_GEtAllPublicRoom_ShouldReturnArrayWithTenItems(): void
+    {
+        $roomsCount = 10;
+
+        $rooms = Room::factory($roomsCount)->create(['is_private' => false]);
+        foreach ($rooms as $room) {
+            RoomUser::factory(5)->create(['room_id' => $room->getId()]);
+        }
+        $publicRooms = $this->facadeImpl->getAllPublicRoomsWithUsersCount();
+
+        $this->assertSame($roomsCount, count($publicRooms));
     }
 
     protected function setUp(): void

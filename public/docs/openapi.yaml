@@ -40,27 +40,27 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 50 characters.'
-                  example: pfeuzp
+                  example: ujhxwuurknajxtodw
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: bernadine.jerde@example.org
+                  example: ada.robel@example.org
                 username:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: fzuvvxho
+                  example: mahscayfanfmtvfz
                 language_id:
                   type: number
                   description: 'Must not be greater than 255.'
-                  example: 11
+                  example: 24
                 password:
                   type: string
                   description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$/. Must be at least 8 characters. Must not be greater than 32 characters.'
-                  example: '~nj1SzbYIb[Kwv%{%'
+                  example: '`z!@`oP[zO}$90+J(y-p'
                 password_confirmation:
                   type: string
                   description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$/. Must be at least 8 characters. Must not be greater than 32 characters.'
-                  example: o
+                  example: vabobjzeplghxlfhtyyuxxb
               required:
                 - name
                 - email
@@ -102,15 +102,15 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: ugerlach@example.net
+                  example: tgerhold@example.net
                 password:
                   type: string
                   description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$/. Must be at least 8 characters. Must not be greater than 32 characters.'
-                  example: 'CT5n6&N.,y'
+                  example: fEGmT_eL2;
                 device_token:
                   type: string
                   description: ''
-                  example: quos
+                  example: repudiandae
               required:
                 - email
                 - password
@@ -161,7 +161,7 @@ paths:
                 user:
                   type: integer
                   description: ''
-                  example: 16
+                  example: 1
               required:
                 - user
       security: []
@@ -198,15 +198,15 @@ paths:
                 question:
                   type: string
                   description: ''
-                  example: deserunt
+                  example: provident
                 answer:
                   type: integer
                   description: ''
-                  example: 3
+                  example: 4
                 language_id:
                   type: integer
                   description: ''
-                  example: 13
+                  example: 12
               required:
                 - question
                 - answer
@@ -245,7 +245,7 @@ paths:
                 id:
                   type: integer
                   description: ''
-                  example: 9
+                  example: 1
               required:
                 - id
       security: []
@@ -282,29 +282,29 @@ paths:
                 id:
                   type: integer
                   description: ''
-                  example: 14
+                  example: 7
                 question:
                   type: string
                   description: ''
-                  example: sit
+                  example: vero
                 answer:
                   type: integer
                   description: ''
-                  example: 3
+                  example: 17
                 language_id:
                   type: integer
                   description: ''
-                  example: 18
+                  example: 17
               required:
                 - id
                 - question
                 - answer
                 - language_id
       security: []
-  /api/punishment:
+  /api/punishments:
     get:
       summary: ''
-      operationId: getApiPunishment
+      operationId: getApiPunishments
       description: ''
       parameters:
         -
@@ -346,14 +346,14 @@ paths:
                 user:
                   type: integer
                   description: ''
-                  example: 5
+                  example: 1
               required:
                 - user
       security: []
-  /api/punishment/add:
+  /api/punishments/add:
     post:
       summary: ''
-      operationId: postApiPunishmentAdd
+      operationId: postApiPunishmentsAdd
       description: ''
       parameters:
         -
@@ -383,19 +383,19 @@ paths:
                 punishment:
                   type: string
                   description: ''
-                  example: non
+                  example: dolor
                 language_id:
                   type: integer
                   description: ''
-                  example: 17
+                  example: 3
               required:
                 - punishment
                 - language_id
       security: []
-  /api/punishment/delete:
+  /api/punishments/delete:
     delete:
       summary: ''
-      operationId: deleteApiPunishmentDelete
+      operationId: deleteApiPunishmentsDelete
       description: ''
       parameters:
         -
@@ -425,14 +425,14 @@ paths:
                 id:
                   type: integer
                   description: ''
-                  example: 13
+                  example: 1
               required:
                 - id
       security: []
-  /api/punishment/update:
+  /api/punishments/update:
     put:
       summary: ''
-      operationId: putApiPunishmentUpdate
+      operationId: putApiPunishmentsUpdate
       description: ''
       parameters:
         -
@@ -462,24 +462,60 @@ paths:
                 id:
                   type: integer
                   description: ''
-                  example: 6
+                  example: 19
                 punishment:
                   type: string
                   description: ''
-                  example: voluptate
+                  example: nihil
                 language_id:
                   type: integer
                   description: ''
-                  example: 20
+                  example: 12
               required:
                 - id
                 - punishment
                 - language_id
       security: []
-  /api/punishment/create:
+  /api/rooms/public:
+    get:
+      summary: ''
+      operationId: getApiRoomsPublic
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  /api/rooms/create:
     post:
       summary: ''
-      operationId: postApiPunishmentCreate
+      operationId: postApiRoomsCreate
       description: ''
       parameters:
         -
@@ -509,33 +545,33 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: possimus
+                  example: earum
                 language_id:
                   type: integer
                   description: ''
-                  example: 7
+                  example: 15
                 is_private:
                   type: boolean
                   description: ''
-                  example: true
+                  example: false
                 password:
                   type: string
                   description: 'This field is required when <code>is_private</code> is <code>true</code>.  Must match the regex /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$/. Must be at least 8 characters. Must not be greater than 32 characters.'
-                  example: Ay0poj^($C_R
+                  example: 'e\"}~#o/.WL1V>1e'
                 password_confirmation:
                   type: string
                   description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$/. Must be at least 8 characters. Must not be greater than 32 characters.'
-                  example: ojhlzsitjhiqosozkn
+                  example: e
               required:
                 - name
                 - language_id
                 - is_private
                 - password_confirmation
       security: []
-  /api/punishment/close:
+  /api/rooms/close:
     delete:
       summary: ''
-      operationId: deleteApiPunishmentClose
+      operationId: deleteApiRoomsClose
       description: ''
       parameters:
         -
@@ -565,14 +601,14 @@ paths:
                 room_id:
                   type: integer
                   description: ''
-                  example: 8
+                  example: 15
               required:
                 - room_id
       security: []
-  /api/punishment/add-questions:
+  /api/rooms/add-questions:
     post:
       summary: ''
-      operationId: postApiPunishmentAddQuestions
+      operationId: postApiRoomsAddQuestions
       description: ''
       parameters:
         -
@@ -603,21 +639,21 @@ paths:
                   type: array
                   description: ''
                   example:
-                    - 6
+                    - 11
                   items:
                     type: integer
                 room_id:
                   type: integer
                   description: ''
-                  example: 4
+                  example: 2
               required:
                 - questions
                 - room_id
       security: []
-  /api/punishment/delete-questions:
+  /api/rooms/delete-questions:
     delete:
       summary: ''
-      operationId: deleteApiPunishmentDeleteQuestions
+      operationId: deleteApiRoomsDeleteQuestions
       description: ''
       parameters:
         -
@@ -648,21 +684,21 @@ paths:
                   type: array
                   description: ''
                   example:
-                    - 18
+                    - 19
                   items:
                     type: integer
                 room_id:
                   type: integer
                   description: ''
-                  example: 10
+                  example: 15
               required:
                 - questions
                 - room_id
       security: []
-  /api/punishment/add-punishments:
+  /api/rooms/add-punishments:
     post:
       summary: ''
-      operationId: postApiPunishmentAddPunishments
+      operationId: postApiRoomsAddPunishments
       description: ''
       parameters:
         -
@@ -699,15 +735,15 @@ paths:
                 room_id:
                   type: integer
                   description: ''
-                  example: 16
+                  example: 8
               required:
                 - punishments
                 - room_id
       security: []
-  /api/punishment/delete-punishments:
+  /api/rooms/delete-punishments:
     delete:
       summary: ''
-      operationId: deleteApiPunishmentDeletePunishments
+      operationId: deleteApiRoomsDeletePunishments
       description: ''
       parameters:
         -
@@ -738,21 +774,21 @@ paths:
                   type: array
                   description: ''
                   example:
-                    - 19
+                    - 3
                   items:
                     type: integer
                 room_id:
                   type: integer
                   description: ''
-                  example: 20
+                  example: 11
               required:
                 - punishments
                 - room_id
       security: []
-  /api/punishment/enter:
+  /api/rooms/enter:
     post:
       summary: ''
-      operationId: postApiPunishmentEnter
+      operationId: postApiRoomsEnter
       description: ''
       parameters:
         -
@@ -782,7 +818,7 @@ paths:
                 room_id:
                   type: integer
                   description: ''
-                  example: 12
+                  example: 10
                 is_private:
                   type: boolean
                   description: ''
@@ -790,15 +826,15 @@ paths:
                 password:
                   type: string
                   description: 'This field is required when <code>is_private</code> is <code>true</code>.  Must match the regex /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$/. Must be at least 8 characters. Must not be greater than 32 characters.'
-                  example: S=`VqUFuL
+                  example: "]Z(e2'y5|BO"
               required:
                 - room_id
                 - is_private
       security: []
-  /api/punishment/leave:
+  /api/rooms/leave:
     post:
       summary: ''
-      operationId: postApiPunishmentLeave
+      operationId: postApiRoomsLeave
       description: ''
       parameters:
         -
@@ -828,7 +864,7 @@ paths:
                 room_id:
                   type: integer
                   description: ''
-                  example: 4
+                  example: 19
               required:
                 - room_id
       security: []

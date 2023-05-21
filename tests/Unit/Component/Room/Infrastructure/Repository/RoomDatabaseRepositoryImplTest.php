@@ -62,6 +62,19 @@ class RoomDatabaseRepositoryImplTest extends TestCase
         $this->assertSame($punishmentCount, count($punishmentInRoom));
     }
 
+    public function test_GEtAllPublicRoom_ShouldReturnArrayWithTenItems(): void
+    {
+        $roomsCount = 10;
+
+        $rooms = Room::factory($roomsCount)->create(['is_private' => false]);
+        foreach ($rooms as $room) {
+            RoomUser::factory(5)->create(['room_id' => $room->getId()]);
+        }
+        $publicRooms = $this->repositoryImpl->getAllPublicRoomsWithUsersCount();
+
+        $this->assertSame($roomsCount, count($publicRooms));
+    }
+
     protected function setUp(): void
     {
         parent::setUp();

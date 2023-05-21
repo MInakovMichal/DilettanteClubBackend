@@ -30,7 +30,7 @@ class PunishmentResources extends JsonResource
         $languageCode = $language->getCode();
         return [
             'id' => $id,
-            'question' => $punishment,
+            'punishment' => $punishment,
             'use_count' => $useCount,
             'language' => $languageCode,
         ];

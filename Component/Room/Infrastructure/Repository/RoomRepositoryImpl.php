@@ -136,4 +136,12 @@ class RoomRepositoryImpl implements RoomRepository
     {
         return $this->entityMapper->mapToReadModel($this->repository->findByIdOrFail($id));
     }
+
+    /**
+     * @return array<array-key, mixed>
+     */
+    public function getAllPublicRoomsWithUsersCount(): array
+    {
+        return $this->databaseRepository->getAllPublicRoomsWithUsersCount();
+    }
 }

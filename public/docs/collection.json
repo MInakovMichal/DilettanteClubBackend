@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "ClubBackend_api",
-        "_postman_id": "bef70f65-6445-4299-bcdb-8bd871eb6020",
+        "_postman_id": "d9f4dda4-c56b-47e9-9d9a-8bed91c13bb9",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -41,7 +41,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"pfeuzp\",\"email\":\"bernadine.jerde@example.org\",\"username\":\"fzuvvxho\",\"language_id\":11,\"password\":\"~nj1SzbYIb[Kwv%{%\",\"password_confirmation\":\"o\"}"
+                            "raw": "{\"name\":\"ujhxwuurknajxtodw\",\"email\":\"ada.robel@example.org\",\"username\":\"mahscayfanfmtvfz\",\"language_id\":24,\"password\":\"`z!@`oP[zO}$90+J(y-p\",\"password_confirmation\":\"vabobjzeplghxlfhtyyuxxb\"}"
                         },
                         "description": "",
                         "auth": {
@@ -72,7 +72,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"ugerlach@example.net\",\"password\":\"CT5n6&N.,y\",\"device_token\":\"quos\"}"
+                            "raw": "{\"email\":\"tgerhold@example.net\",\"password\":\"fEGmT_eL2;\",\"device_token\":\"repudiandae\"}"
                         },
                         "description": "",
                         "auth": {
@@ -103,7 +103,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"user\":16}"
+                            "raw": "{\"user\":1}"
                         },
                         "description": "",
                         "auth": {
@@ -154,7 +154,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"question\":\"deserunt\",\"answer\":3,\"language_id\":13}"
+                            "raw": "{\"question\":\"provident\",\"answer\":4,\"language_id\":12}"
                         },
                         "description": "",
                         "auth": {
@@ -185,7 +185,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"id\":9}"
+                            "raw": "{\"id\":1}"
                         },
                         "description": "",
                         "auth": {
@@ -216,7 +216,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"id\":14,\"question\":\"sit\",\"answer\":3,\"language_id\":18}"
+                            "raw": "{\"id\":7,\"question\":\"vero\",\"answer\":17,\"language_id\":17}"
                         },
                         "description": "",
                         "auth": {
@@ -226,13 +226,13 @@
                     "response": []
                 },
                 {
-                    "name": "GET api\/punishment",
+                    "name": "GET api\/punishments",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/punishment",
+                            "path": "api\/punishments",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/punishment"
+                            "raw": "{{baseUrl}}\/api\/punishments"
                         },
                         "method": "GET",
                         "header": [
@@ -247,7 +247,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"user\":5}"
+                            "raw": "{\"user\":1}"
                         },
                         "description": "",
                         "auth": {
@@ -277,13 +277,13 @@
                     ]
                 },
                 {
-                    "name": "POST api\/punishment\/add",
+                    "name": "POST api\/punishments\/add",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/punishment\/add",
+                            "path": "api\/punishments\/add",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/punishment\/add"
+                            "raw": "{{baseUrl}}\/api\/punishments\/add"
                         },
                         "method": "POST",
                         "header": [
@@ -298,7 +298,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"punishment\":\"non\",\"language_id\":17}"
+                            "raw": "{\"punishment\":\"dolor\",\"language_id\":3}"
                         },
                         "description": "",
                         "auth": {
@@ -308,13 +308,13 @@
                     "response": []
                 },
                 {
-                    "name": "DELETE api\/punishment\/delete",
+                    "name": "DELETE api\/punishments\/delete",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/punishment\/delete",
+                            "path": "api\/punishments\/delete",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/punishment\/delete"
+                            "raw": "{{baseUrl}}\/api\/punishments\/delete"
                         },
                         "method": "DELETE",
                         "header": [
@@ -329,7 +329,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"id\":13}"
+                            "raw": "{\"id\":1}"
                         },
                         "description": "",
                         "auth": {
@@ -339,13 +339,13 @@
                     "response": []
                 },
                 {
-                    "name": "PUT api\/punishment\/update",
+                    "name": "PUT api\/punishments\/update",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/punishment\/update",
+                            "path": "api\/punishments\/update",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/punishment\/update"
+                            "raw": "{{baseUrl}}\/api\/punishments\/update"
                         },
                         "method": "PUT",
                         "header": [
@@ -360,7 +360,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"id\":6,\"punishment\":\"voluptate\",\"language_id\":20}"
+                            "raw": "{\"id\":19,\"punishment\":\"nihil\",\"language_id\":12}"
                         },
                         "description": "",
                         "auth": {
@@ -370,13 +370,61 @@
                     "response": []
                 },
                 {
-                    "name": "POST api\/punishment\/create",
+                    "name": "GET api\/rooms\/public",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/punishment\/create",
+                            "path": "api\/rooms\/public",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/punishment\/create"
+                            "raw": "{{baseUrl}}\/api\/rooms\/public"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST api\/rooms\/create",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/rooms\/create",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/rooms\/create"
                         },
                         "method": "POST",
                         "header": [
@@ -391,7 +439,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"possimus\",\"language_id\":7,\"is_private\":true,\"password\":\"Ay0poj^($C_R\",\"password_confirmation\":\"ojhlzsitjhiqosozkn\"}"
+                            "raw": "{\"name\":\"earum\",\"language_id\":15,\"is_private\":false,\"password\":\"e\\\\\\\"}~#o\\\/.WL1V>1e\",\"password_confirmation\":\"e\"}"
                         },
                         "description": "",
                         "auth": {
@@ -401,13 +449,13 @@
                     "response": []
                 },
                 {
-                    "name": "DELETE api\/punishment\/close",
+                    "name": "DELETE api\/rooms\/close",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/punishment\/close",
+                            "path": "api\/rooms\/close",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/punishment\/close"
+                            "raw": "{{baseUrl}}\/api\/rooms\/close"
                         },
                         "method": "DELETE",
                         "header": [
@@ -422,7 +470,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"room_id\":8}"
+                            "raw": "{\"room_id\":15}"
                         },
                         "description": "",
                         "auth": {
@@ -432,13 +480,13 @@
                     "response": []
                 },
                 {
-                    "name": "POST api\/punishment\/add-questions",
+                    "name": "POST api\/rooms\/add-questions",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/punishment\/add-questions",
+                            "path": "api\/rooms\/add-questions",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/punishment\/add-questions"
+                            "raw": "{{baseUrl}}\/api\/rooms\/add-questions"
                         },
                         "method": "POST",
                         "header": [
@@ -453,7 +501,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"questions\":[6],\"room_id\":4}"
+                            "raw": "{\"questions\":[11],\"room_id\":2}"
                         },
                         "description": "",
                         "auth": {
@@ -463,13 +511,13 @@
                     "response": []
                 },
                 {
-                    "name": "DELETE api\/punishment\/delete-questions",
+                    "name": "DELETE api\/rooms\/delete-questions",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/punishment\/delete-questions",
+                            "path": "api\/rooms\/delete-questions",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/punishment\/delete-questions"
+                            "raw": "{{baseUrl}}\/api\/rooms\/delete-questions"
                         },
                         "method": "DELETE",
                         "header": [
@@ -484,7 +532,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"questions\":[18],\"room_id\":10}"
+                            "raw": "{\"questions\":[19],\"room_id\":15}"
                         },
                         "description": "",
                         "auth": {
@@ -494,13 +542,13 @@
                     "response": []
                 },
                 {
-                    "name": "POST api\/punishment\/add-punishments",
+                    "name": "POST api\/rooms\/add-punishments",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/punishment\/add-punishments",
+                            "path": "api\/rooms\/add-punishments",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/punishment\/add-punishments"
+                            "raw": "{{baseUrl}}\/api\/rooms\/add-punishments"
                         },
                         "method": "POST",
                         "header": [
@@ -515,7 +563,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"punishments\":[3],\"room_id\":16}"
+                            "raw": "{\"punishments\":[3],\"room_id\":8}"
                         },
                         "description": "",
                         "auth": {
@@ -525,13 +573,13 @@
                     "response": []
                 },
                 {
-                    "name": "DELETE api\/punishment\/delete-punishments",
+                    "name": "DELETE api\/rooms\/delete-punishments",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/punishment\/delete-punishments",
+                            "path": "api\/rooms\/delete-punishments",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/punishment\/delete-punishments"
+                            "raw": "{{baseUrl}}\/api\/rooms\/delete-punishments"
                         },
                         "method": "DELETE",
                         "header": [
@@ -546,7 +594,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"punishments\":[19],\"room_id\":20}"
+                            "raw": "{\"punishments\":[3],\"room_id\":11}"
                         },
                         "description": "",
                         "auth": {
@@ -556,13 +604,13 @@
                     "response": []
                 },
                 {
-                    "name": "POST api\/punishment\/enter",
+                    "name": "POST api\/rooms\/enter",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/punishment\/enter",
+                            "path": "api\/rooms\/enter",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/punishment\/enter"
+                            "raw": "{{baseUrl}}\/api\/rooms\/enter"
                         },
                         "method": "POST",
                         "header": [
@@ -577,7 +625,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"room_id\":12,\"is_private\":false,\"password\":\"S=`VqUFuL\"}"
+                            "raw": "{\"room_id\":10,\"is_private\":false,\"password\":\"]Z(e2'y5|BO\"}"
                         },
                         "description": "",
                         "auth": {
@@ -587,13 +635,13 @@
                     "response": []
                 },
                 {
-                    "name": "POST api\/punishment\/leave",
+                    "name": "POST api\/rooms\/leave",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/punishment\/leave",
+                            "path": "api\/rooms\/leave",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/punishment\/leave"
+                            "raw": "{{baseUrl}}\/api\/rooms\/leave"
                         },
                         "method": "POST",
                         "header": [
@@ -608,7 +656,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"room_id\":4}"
+                            "raw": "{\"room_id\":19}"
                         },
                         "description": "",
                         "auth": {

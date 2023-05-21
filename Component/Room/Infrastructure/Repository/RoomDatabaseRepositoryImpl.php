@@ -76,4 +76,23 @@ class RoomDatabaseRepositoryImpl implements RoomDatabaseRepository
             ]
         );
     }
+
+    /**
+     * @return array<array-key, mixed>
+     */
+    public function getAllPublicRoomsWithUsersCount(): array
+    {
+        return $this->db::select(
+            "SELECT r.id, r.name, r.user_id, l.code as language, DATE_FORMAT(r.created_at, '%Y-%m-%d %H:%i') AS created_at,  COALESCE(u.user_count, 0) AS users_count
+                    FROM rooms AS r
+                    LEFT JOIN (
+                        SELECT room_id, COUNT(*) AS user_count
+                        FROM room_users
+                        GROUP BY room_id
+                    ) AS u ON r.id = u.room_id
+                    LEFT JOIN languages l ON r.language_id  = l.id
+                    WHERE r.is_private != 1
+                    AND r.deleted_at IS NULL;"
+        );
+    }
 }

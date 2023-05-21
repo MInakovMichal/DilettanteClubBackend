@@ -25,7 +25,7 @@ class RoomControllerTest extends TestCase
 
         $response = $this->actingAs($user, "api")->json(
             "POST",
-            route("user.room.create"),
+            route("user.rooms.create"),
             [
                 "name" => $this->faker->name(),
                 "language_id" => $language->getId(),
@@ -46,7 +46,7 @@ class RoomControllerTest extends TestCase
 
         $response = $this->actingAs($user, "api")->json(
             "DELETE",
-            route("user.room.close"),
+            route("user.rooms.close"),
             [
                 "room_id" => $room->getId(),
             ]
@@ -65,7 +65,7 @@ class RoomControllerTest extends TestCase
 
         $response = $this->actingAs($user, "api")->json(
             "POST",
-            route("user.room.questions.add"),
+            route("user.rooms.questions.add"),
             [
                 "questions" => $questions->pluck('id'),
                 "room_id" => $room->getId(),
@@ -85,7 +85,7 @@ class RoomControllerTest extends TestCase
 
         $response = $this->actingAs($user, "api")->json(
             "POST",
-            route("user.room.punishments.add"),
+            route("user.rooms.punishments.add"),
             [
                 "punishments" => $punishments->pluck('id'),
                 "room_id" => $room->getId(),
@@ -108,7 +108,7 @@ class RoomControllerTest extends TestCase
 
         $response = $this->actingAs($user, "api")->json(
             "POST",
-            route("user.room.users.enter"),
+            route("user.rooms.users.enter"),
             [
                 "password" => $password,
                 "is_private" => true,
@@ -128,7 +128,7 @@ class RoomControllerTest extends TestCase
 
         $response = $this->actingAs($user, "api")->json(
             "POST",
-            route("user.room.users.leave"),
+            route("user.rooms.users.leave"),
             [
                 "room_id" => $room->getId(),
             ]
@@ -153,7 +153,7 @@ class RoomControllerTest extends TestCase
 
         $response = $this->actingAs($user, "api")->json(
             "DELETE",
-            route("user.room.questions.delete"),
+            route("user.rooms.questions.delete"),
             [
                 "questions" => $deleteQuestion->pluck('id'),
                 "room_id" => $room->getId(),
@@ -179,12 +179,29 @@ class RoomControllerTest extends TestCase
 
         $response = $this->actingAs($user, "api")->json(
             "DELETE",
-            route("user.room.punishments.delete"),
+            route("user.rooms.punishments.delete"),
             [
                 "punishments" => $deletePunishment->pluck('id'),
                 "room_id" => $room->getId(),
             ]
         );
+
+        $response->assertStatus(200);
+    }
+
+    public function test_GetAllPublicRooms(): void
+    {
+        $user = User::factory()->create();
+//        $rooms = Room::factory(10)->create(['is_private' => rand(0, 1)]);
+//        foreach ($rooms as $room) {
+//            RoomUser::factory($this->faker->numberBetween(5, 25))->create([
+//                'room_id' => $room->getId(),
+//            ]);
+//        }
+
+        $response = $this->actingAs($user, "api")->json(
+            "GET",
+            route("user.rooms.public.all"));
 
         $response->assertStatus(200);
     }

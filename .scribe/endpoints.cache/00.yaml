@@ -28,51 +28,51 @@ endpoints:
         name: name
         description: 'Must not be greater than 50 characters.'
         required: true
-        example: pfeuzp
+        example: ujhxwuurknajxtodw
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: bernadine.jerde@example.org
+        example: ada.robel@example.org
         type: string
         custom: []
       username:
         name: username
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: fzuvvxho
+        example: mahscayfanfmtvfz
         type: string
         custom: []
       language_id:
         name: language_id
         description: 'Must not be greater than 255.'
         required: true
-        example: 11
+        example: 24
         type: number
         custom: []
       password:
         name: password
         description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$/. Must be at least 8 characters. Must not be greater than 32 characters.'
         required: true
-        example: '~nj1SzbYIb[Kwv%{%'
+        example: '`z!@`oP[zO}$90+J(y-p'
         type: string
         custom: []
       password_confirmation:
         name: password_confirmation
         description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$/. Must be at least 8 characters. Must not be greater than 32 characters.'
         required: true
-        example: o
+        example: vabobjzeplghxlfhtyyuxxb
         type: string
         custom: []
     cleanBodyParameters:
-      name: pfeuzp
-      email: bernadine.jerde@example.org
-      username: fzuvvxho
-      language_id: 11
-      password: '~nj1SzbYIb[Kwv%{%'
-      password_confirmation: o
+      name: ujhxwuurknajxtodw
+      email: ada.robel@example.org
+      username: mahscayfanfmtvfz
+      language_id: 24
+      password: '`z!@`oP[zO}$90+J(y-p'
+      password_confirmation: vabobjzeplghxlfhtyyuxxb
     fileParameters: []
     responses: []
     responseFields: []
@@ -106,27 +106,27 @@ endpoints:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: ugerlach@example.net
+        example: tgerhold@example.net
         type: string
         custom: []
       password:
         name: password
         description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$/. Must be at least 8 characters. Must not be greater than 32 characters.'
         required: true
-        example: 'CT5n6&N.,y'
+        example: fEGmT_eL2;
         type: string
         custom: []
       device_token:
         name: device_token
         description: ''
         required: true
-        example: quos
+        example: repudiandae
         type: string
         custom: []
     cleanBodyParameters:
-      email: ugerlach@example.net
-      password: 'CT5n6&N.,y'
-      device_token: quos
+      email: tgerhold@example.net
+      password: fEGmT_eL2;
+      device_token: repudiandae
     fileParameters: []
     responses: []
     responseFields: []
@@ -160,11 +160,11 @@ endpoints:
         name: user
         description: ''
         required: true
-        example: 16
+        example: 1
         type: integer
         custom: []
     cleanBodyParameters:
-      user: 16
+      user: 1
     fileParameters: []
     responses:
       -
@@ -207,27 +207,27 @@ endpoints:
         name: question
         description: ''
         required: true
-        example: deserunt
+        example: provident
         type: string
         custom: []
       answer:
         name: answer
         description: ''
         required: true
-        example: 3
+        example: 4
         type: integer
         custom: []
       language_id:
         name: language_id
         description: ''
         required: true
-        example: 13
+        example: 12
         type: integer
         custom: []
     cleanBodyParameters:
-      question: deserunt
-      answer: 3
-      language_id: 13
+      question: provident
+      answer: 4
+      language_id: 12
     fileParameters: []
     responses: []
     responseFields: []
@@ -261,11 +261,11 @@ endpoints:
         name: id
         description: ''
         required: true
-        example: 9
+        example: 1
         type: integer
         custom: []
     cleanBodyParameters:
-      id: 9
+      id: 1
     fileParameters: []
     responses: []
     responseFields: []
@@ -299,35 +299,35 @@ endpoints:
         name: id
         description: ''
         required: true
-        example: 14
+        example: 7
         type: integer
         custom: []
       question:
         name: question
         description: ''
         required: true
-        example: sit
+        example: vero
         type: string
         custom: []
       answer:
         name: answer
         description: ''
         required: true
-        example: 3
+        example: 17
         type: integer
         custom: []
       language_id:
         name: language_id
         description: ''
         required: true
-        example: 18
+        example: 17
         type: integer
         custom: []
     cleanBodyParameters:
-      id: 14
-      question: sit
-      answer: 3
-      language_id: 18
+      id: 7
+      question: vero
+      answer: 17
+      language_id: 17
     fileParameters: []
     responses: []
     responseFields: []
@@ -339,7 +339,7 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: api/punishment
+    uri: api/punishments
     metadata:
       groupName: Endpoints
       groupDescription: ''
@@ -361,11 +361,11 @@ endpoints:
         name: user
         description: ''
         required: true
-        example: 5
+        example: 1
         type: integer
         custom: []
     cleanBodyParameters:
-      user: 5
+      user: 1
     fileParameters: []
     responses:
       -
@@ -386,7 +386,7 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: api/punishment/add
+    uri: api/punishments/add
     metadata:
       groupName: Endpoints
       groupDescription: ''
@@ -408,19 +408,19 @@ endpoints:
         name: punishment
         description: ''
         required: true
-        example: non
+        example: dolor
         type: string
         custom: []
       language_id:
         name: language_id
         description: ''
         required: true
-        example: 17
+        example: 3
         type: integer
         custom: []
     cleanBodyParameters:
-      punishment: non
-      language_id: 17
+      punishment: dolor
+      language_id: 3
     fileParameters: []
     responses: []
     responseFields: []
@@ -432,7 +432,7 @@ endpoints:
   -
     httpMethods:
       - DELETE
-    uri: api/punishment/delete
+    uri: api/punishments/delete
     metadata:
       groupName: Endpoints
       groupDescription: ''
@@ -454,11 +454,11 @@ endpoints:
         name: id
         description: ''
         required: true
-        example: 13
+        example: 1
         type: integer
         custom: []
     cleanBodyParameters:
-      id: 13
+      id: 1
     fileParameters: []
     responses: []
     responseFields: []
@@ -470,7 +470,7 @@ endpoints:
   -
     httpMethods:
       - PUT
-    uri: api/punishment/update
+    uri: api/punishments/update
     metadata:
       groupName: Endpoints
       groupDescription: ''
@@ -492,27 +492,27 @@ endpoints:
         name: id
         description: ''
         required: true
-        example: 6
+        example: 19
         type: integer
         custom: []
       punishment:
         name: punishment
         description: ''
         required: true
-        example: voluptate
+        example: nihil
         type: string
         custom: []
       language_id:
         name: language_id
         description: ''
         required: true
-        example: 20
+        example: 12
         type: integer
         custom: []
     cleanBodyParameters:
-      id: 6
-      punishment: voluptate
-      language_id: 20
+      id: 19
+      punishment: nihil
+      language_id: 12
     fileParameters: []
     responses: []
     responseFields: []
@@ -523,8 +523,47 @@ endpoints:
     custom: []
   -
     httpMethods:
+      - GET
+    uri: api/rooms/public
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
       - POST
-    uri: api/punishment/create
+    uri: api/rooms/create
     metadata:
       groupName: Endpoints
       groupDescription: ''
@@ -546,43 +585,43 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: possimus
+        example: earum
         type: string
         custom: []
       language_id:
         name: language_id
         description: ''
         required: true
-        example: 7
+        example: 15
         type: integer
         custom: []
       is_private:
         name: is_private
         description: ''
         required: true
-        example: true
+        example: false
         type: boolean
         custom: []
       password:
         name: password
         description: 'This field is required when <code>is_private</code> is <code>true</code>.  Must match the regex /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$/. Must be at least 8 characters. Must not be greater than 32 characters.'
         required: false
-        example: Ay0poj^($C_R
+        example: 'e\"}~#o/.WL1V>1e'
         type: string
         custom: []
       password_confirmation:
         name: password_confirmation
         description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$/. Must be at least 8 characters. Must not be greater than 32 characters.'
         required: true
-        example: ojhlzsitjhiqosozkn
+        example: e
         type: string
         custom: []
     cleanBodyParameters:
-      name: possimus
-      language_id: 7
-      is_private: true
-      password: Ay0poj^($C_R
-      password_confirmation: ojhlzsitjhiqosozkn
+      name: earum
+      language_id: 15
+      is_private: false
+      password: 'e\"}~#o/.WL1V>1e'
+      password_confirmation: e
     fileParameters: []
     responses: []
     responseFields: []
@@ -594,7 +633,7 @@ endpoints:
   -
     httpMethods:
       - DELETE
-    uri: api/punishment/close
+    uri: api/rooms/close
     metadata:
       groupName: Endpoints
       groupDescription: ''
@@ -616,11 +655,11 @@ endpoints:
         name: room_id
         description: ''
         required: true
-        example: 8
+        example: 15
         type: integer
         custom: []
     cleanBodyParameters:
-      room_id: 8
+      room_id: 15
     fileParameters: []
     responses: []
     responseFields: []
@@ -632,7 +671,7 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: api/punishment/add-questions
+    uri: api/rooms/add-questions
     metadata:
       groupName: Endpoints
       groupDescription: ''
@@ -655,20 +694,20 @@ endpoints:
         description: ''
         required: true
         example:
-          - 6
+          - 11
         type: 'integer[]'
         custom: []
       room_id:
         name: room_id
         description: ''
         required: true
-        example: 4
+        example: 2
         type: integer
         custom: []
     cleanBodyParameters:
       questions:
-        - 6
-      room_id: 4
+        - 11
+      room_id: 2
     fileParameters: []
     responses: []
     responseFields: []
@@ -680,7 +719,7 @@ endpoints:
   -
     httpMethods:
       - DELETE
-    uri: api/punishment/delete-questions
+    uri: api/rooms/delete-questions
     metadata:
       groupName: Endpoints
       groupDescription: ''
@@ -703,20 +742,20 @@ endpoints:
         description: ''
         required: true
         example:
-          - 18
+          - 19
         type: 'integer[]'
         custom: []
       room_id:
         name: room_id
         description: ''
         required: true
-        example: 10
+        example: 15
         type: integer
         custom: []
     cleanBodyParameters:
       questions:
-        - 18
-      room_id: 10
+        - 19
+      room_id: 15
     fileParameters: []
     responses: []
     responseFields: []
@@ -728,7 +767,7 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: api/punishment/add-punishments
+    uri: api/rooms/add-punishments
     metadata:
       groupName: Endpoints
       groupDescription: ''
@@ -758,13 +797,13 @@ endpoints:
         name: room_id
         description: ''
         required: true
-        example: 16
+        example: 8
         type: integer
         custom: []
     cleanBodyParameters:
       punishments:
         - 3
-      room_id: 16
+      room_id: 8
     fileParameters: []
     responses: []
     responseFields: []
@@ -776,7 +815,7 @@ endpoints:
   -
     httpMethods:
       - DELETE
-    uri: api/punishment/delete-punishments
+    uri: api/rooms/delete-punishments
     metadata:
       groupName: Endpoints
       groupDescription: ''
@@ -799,20 +838,20 @@ endpoints:
         description: ''
         required: true
         example:
-          - 19
+          - 3
         type: 'integer[]'
         custom: []
       room_id:
         name: room_id
         description: ''
         required: true
-        example: 20
+        example: 11
         type: integer
         custom: []
     cleanBodyParameters:
       punishments:
-        - 19
-      room_id: 20
+        - 3
+      room_id: 11
     fileParameters: []
     responses: []
     responseFields: []
@@ -824,7 +863,7 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: api/punishment/enter
+    uri: api/rooms/enter
     metadata:
       groupName: Endpoints
       groupDescription: ''
@@ -846,7 +885,7 @@ endpoints:
         name: room_id
         description: ''
         required: true
-        example: 12
+        example: 10
         type: integer
         custom: []
       is_private:
@@ -860,13 +899,13 @@ endpoints:
         name: password
         description: 'This field is required when <code>is_private</code> is <code>true</code>.  Must match the regex /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$/. Must be at least 8 characters. Must not be greater than 32 characters.'
         required: false
-        example: S=`VqUFuL
+        example: "]Z(e2'y5|BO"
         type: string
         custom: []
     cleanBodyParameters:
-      room_id: 12
+      room_id: 10
       is_private: false
-      password: S=`VqUFuL
+      password: "]Z(e2'y5|BO"
     fileParameters: []
     responses: []
     responseFields: []
@@ -878,7 +917,7 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: api/punishment/leave
+    uri: api/rooms/leave
     metadata:
       groupName: Endpoints
       groupDescription: ''
@@ -900,11 +939,11 @@ endpoints:
         name: room_id
         description: ''
         required: true
-        example: 4
+        example: 19
         type: integer
         custom: []
     cleanBodyParameters:
-      room_id: 4
+      room_id: 19
     fileParameters: []
     responses: []
     responseFields: []

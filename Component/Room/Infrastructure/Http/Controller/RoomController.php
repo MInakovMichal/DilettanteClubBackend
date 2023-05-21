@@ -10,6 +10,7 @@ use Component\Room\Infrastructure\Http\Requests\CloseRoomRequest;
 use Component\Room\Infrastructure\Http\Requests\CreateRoomRequest;
 use Component\Room\Infrastructure\Http\Requests\DeletePunishmentsFromRoomRequest;
 use Component\Room\Infrastructure\Http\Requests\DeleteQuestionsFromRoomRequest;
+use Component\Room\Infrastructure\Http\Requests\GetPublicRoomsRequest;
 use Component\Room\Infrastructure\Http\Requests\UserEnterRoomRequest;
 use Component\Room\Infrastructure\Http\Requests\UserLeaveRoomRequest;
 use Component\Room\Sdk\RoomFacade;
@@ -37,6 +38,15 @@ class RoomController
         $this->roomFacade = $roomFacade;
         $this->authFacade = $authFacade;
         $this->userFacade = $userFacade;
+    }
+
+    public function getAllPublicRooms(GetPublicRoomsRequest $request): JsonResponse
+    {
+        $publicRooms = $this->roomFacade->getAllPublicRoomsWithUsersCount();
+
+        $message = 'All public rooms was loaded successfully';
+
+        return ApiResponse::successResponse($publicRooms, $message);
     }
 
     public function createRoom(CreateRoomRequest $request): JsonResponse

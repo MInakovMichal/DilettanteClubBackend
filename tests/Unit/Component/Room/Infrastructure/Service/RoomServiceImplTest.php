@@ -140,7 +140,7 @@ class RoomServiceImplTest extends TestCase
         $questionCount = 10;
         $questions = Question::factory($questionCount)->create(['user_id' => $this->user->getId()]);
 
-        foreach ($questions as $question){
+        foreach ($questions as $question) {
             RoomQuestion::factory()->create([
                 'room_id' => $room->getId(),
                 'question_id' => $question->getId()
@@ -158,7 +158,7 @@ class RoomServiceImplTest extends TestCase
         $punishmentCount = 10;
         $punishments = Punishment::factory($punishmentCount)->create(['user_id' => $this->user->getId()]);
 
-        foreach ($punishments as $punishment){
+        foreach ($punishments as $punishment) {
             RoomPunishment::factory()->create([
                 'room_id' => $room->getId(),
                 'punishment_id' => $punishment->getId()
@@ -188,14 +188,14 @@ class RoomServiceImplTest extends TestCase
         $questions = Question::factory($questionsCount)->create(['user_id' => $this->user->getId()]);
         $room = Room::factory()->create(['user_id' => $this->user->getId()]);
 
-        foreach ($questions as $question){
+        foreach ($questions as $question) {
             RoomQuestion::factory()->create([
                 'room_id' => $room->getId(),
                 'question_id' => $question->getId()
             ]);
         }
         $contract = new DeleteQuestionsFromRoomRequest([
-            'questions' => $questions->take($questionsCount/2)->pluck('id')->toArray(),
+            'questions' => $questions->take($questionsCount / 2)->pluck('id')->toArray(),
             'room_id' => $room->getId()
         ]);
 
@@ -205,7 +205,7 @@ class RoomServiceImplTest extends TestCase
         $this->serviceImpl->deleteQuestionsFromRoom($contract, $this->user->getId());
         $questionsInRoomAfterDelete = RoomQuestion::all();
 
-        $this->assertSame($questionsCount/2, $questionsInRoomAfterDelete->count());
+        $this->assertSame($questionsCount / 2, $questionsInRoomAfterDelete->count());
     }
 
     public function test_DeletePunishmentsFromRoom_ShouldDeletePunishmentsFromRoom(): void
@@ -250,6 +250,19 @@ class RoomServiceImplTest extends TestCase
         $roomRead = $this->serviceImpl->findByIdOrFail($room->getId());
 
         $this->assertInstanceOf(RoomRead::class, $roomRead);
+    }
+
+    public function test_GEtAllPublicRoom_ShouldReturnArrayWithTenItems(): void
+    {
+        $roomsCount = 10;
+
+        $rooms = Room::factory($roomsCount)->create(['is_private' => false]);
+        foreach ($rooms as $room) {
+            RoomUser::factory(5)->create(['room_id' => $room->getId()]);
+        }
+        $publicRooms = $this->serviceImpl->getAllPublicRoomsWithUsersCount();
+
+        $this->assertSame($roomsCount, count($publicRooms));
     }
 
     protected function setUp(): void

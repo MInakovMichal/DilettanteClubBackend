@@ -49,4 +49,9 @@ interface RoomRepository
     public function closeRoom(CloseRoomContract $contract, int $authUserId): void;
 
     public function findByIdOrFail(int $id): RoomRead;
+
+    /**
+     * @return array<array-key, mixed>
+     */
+    public function getAllPublicRoomsWithUsersCount(): array;
 }

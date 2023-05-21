@@ -99,4 +99,12 @@ class RoomFacadeImpl implements RoomFacade
     {
         return $this->roomService->findByIdOrFail($id);
     }
+
+    /**
+     * @return array<array-key, mixed>
+     */
+    public function getAllPublicRoomsWithUsersCount(): array
+    {
+        return $this->roomService->getAllPublicRoomsWithUsersCount();
+    }
 }

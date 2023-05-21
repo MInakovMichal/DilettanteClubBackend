@@ -23,4 +23,9 @@ interface RoomDatabaseRepository
      * @return array<array-key, mixed>
      */
     public function getAllUserPunishmentsInRoom(int $authUserId, int $roomId): array;
+
+    /**
+     * @return array<array-key, mixed>
+     */
+    public function getAllPublicRoomsWithUsersCount(): array;
 }
