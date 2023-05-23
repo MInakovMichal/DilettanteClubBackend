@@ -62,7 +62,7 @@ class RoomDatabaseRepositoryImplTest extends TestCase
         $this->assertSame($punishmentCount, count($punishmentInRoom));
     }
 
-    public function test_GEtAllPublicRoom_ShouldReturnArrayWithTenItems(): void
+    public function test_GetAllPublicRoom_ShouldReturnArrayWithTenItems(): void
     {
         $roomsCount = 10;
 

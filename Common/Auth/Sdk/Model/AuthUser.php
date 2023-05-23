@@ -29,4 +29,9 @@ final class AuthUser
     {
         return $this->user->getEmail();
     }
+
+    public function getRoomId(): ?int
+    {
+        return $this->user->getRoomId();
+    }
 }

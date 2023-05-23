@@ -37,6 +37,13 @@ class UserReadTest extends TestCase
         $this->assertSame($this->email, $this->userReadModel->getEmail());
     }
 
+    public function test_GetRoomId_ShouldReturnRoomId(): void
+    {
+        $roomId = 1;
+        $this->userReadModel->setRoomId($roomId);
+        $this->assertSame($roomId, $this->userReadModel->getRoomId());
+    }
+
     protected function setUp(): void
     {
         parent::setUp();

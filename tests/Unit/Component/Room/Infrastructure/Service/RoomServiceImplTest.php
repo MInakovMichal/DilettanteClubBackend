@@ -16,6 +16,7 @@ use Component\Room\Infrastructure\Http\Requests\AddQuestionsToRoomRequest;
 use Component\Room\Infrastructure\Http\Requests\CreateRoomRequest;
 use Component\Room\Infrastructure\Http\Requests\DeletePunishmentsFromRoomRequest;
 use Component\Room\Infrastructure\Http\Requests\DeleteQuestionsFromRoomRequest;
+use Component\Room\Infrastructure\Http\Requests\RoomDetailsRequest;
 use Component\Room\Infrastructure\Http\Requests\UserEnterRoomRequest;
 use Component\Room\Infrastructure\Http\Requests\UserLeaveRoomRequest;
 use Component\Room\Infrastructure\Service\RoomService;
@@ -252,7 +253,7 @@ class RoomServiceImplTest extends TestCase
         $this->assertInstanceOf(RoomRead::class, $roomRead);
     }
 
-    public function test_GEtAllPublicRoom_ShouldReturnArrayWithTenItems(): void
+    public function test_GetAllPublicRoom_ShouldReturnArrayWithTenItems(): void
     {
         $roomsCount = 10;
 
@@ -263,6 +264,37 @@ class RoomServiceImplTest extends TestCase
         $publicRooms = $this->serviceImpl->getAllPublicRoomsWithUsersCount();
 
         $this->assertSame($roomsCount, count($publicRooms));
+    }
+
+    public function test_GetRoomDetails_ShouldReturnArrayWithQuestionsAndPunishmentAndUsers(): void
+    {
+        $count = 10;
+        $room = Room::factory()->create(['is_private' => false]);
+        RoomUser::factory()->create(['user_id' => $this->user->getId(), 'room_id' => $room->getId()]);
+        $questions = Question::factory($count)->create(['user_id' => $this->user->getId()]);
+        $punishments = Punishment::factory($count)->create(['user_id' => $this->user->getId()]);
+        $users = User::factory($count)->create();
+
+        foreach ($questions as $question) {
+            RoomQuestion::factory()->create(['question_id' => $question->getId(), 'room_id' => $room->getId()]);
+        }
+        foreach ($punishments as $punishment) {
+            RoomPunishment::factory()->create(['punishment_id' => $punishment->getId(), 'room_id' => $room->getId()]);
+        }
+        foreach ($users as $user) {
+            RoomUser::factory()->create(['user_id' => $user->getId(), 'room_id' => $room->getId()]);
+        }
+
+        $contract = new RoomDetailsRequest([
+            'room_id' => $room->getId()
+        ]);
+
+        $roomDetails = $this->serviceImpl->getRoomDetails($contract, $this->user->getId());
+
+        $this->assertArrayHasKey('room', $roomDetails);
+        $this->assertArrayHasKey('users', $roomDetails);
+        $this->assertArrayHasKey('questions', $roomDetails);
+        $this->assertArrayHasKey('punishments', $roomDetails);
     }
 
     protected function setUp(): void

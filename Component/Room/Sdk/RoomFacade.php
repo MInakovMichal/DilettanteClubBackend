@@ -8,6 +8,7 @@ use Component\Room\Sdk\Contract\CloseRoomContract;
 use Component\Room\Sdk\Contract\CreateRoomContract;
 use Component\Room\Sdk\Contract\DeletePunishmentsFromRoomContract;
 use Component\Room\Sdk\Contract\DeleteQuestionsFromRoomContract;
+use Component\Room\Sdk\Contract\RoomDetailsContract;
 use Component\Room\Sdk\Contract\UserEnterRoomContract;
 use Component\Room\Sdk\Contract\UserLeaveRoomContract;
 use Component\Room\Sdk\Model\RoomRead;
@@ -56,4 +57,9 @@ interface RoomFacade
      * @return array<array-key, mixed>
      */
     public function getAllPublicRoomsWithUsersCount(): array;
+
+    /**
+     * @return array<array-key, mixed>
+     */
+    public function getRoomDetails(RoomDetailsContract $contract, int $userId): array;
 }

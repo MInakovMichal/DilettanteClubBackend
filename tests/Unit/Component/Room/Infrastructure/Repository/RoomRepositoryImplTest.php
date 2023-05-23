@@ -248,7 +248,7 @@ class RoomRepositoryImplTest extends TestCase
         $this->assertInstanceOf(RoomRead::class, $roomRead);
     }
 
-    public function test_GEtAllPublicRoom_ShouldReturnArrayWithTenItems(): void
+    public function test_GetAllPublicRoom_ShouldReturnArrayWithTenItems(): void
     {
         $roomsCount = 10;
 

@@ -40,6 +40,7 @@ final class Authenticate
             'name' => $this->authUser->getName(),
             'email' => $this->authUser->getEmail(),
             'token' => $this->token,
+            'room_id' => $this->authUser->getRoomId()
         ];
     }
 }

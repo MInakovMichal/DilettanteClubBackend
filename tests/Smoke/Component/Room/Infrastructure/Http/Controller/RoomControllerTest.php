@@ -192,16 +192,26 @@ class RoomControllerTest extends TestCase
     public function test_GetAllPublicRooms(): void
     {
         $user = User::factory()->create();
-//        $rooms = Room::factory(10)->create(['is_private' => rand(0, 1)]);
-//        foreach ($rooms as $room) {
-//            RoomUser::factory($this->faker->numberBetween(5, 25))->create([
-//                'room_id' => $room->getId(),
-//            ]);
-//        }
 
         $response = $this->actingAs($user, "api")->json(
             "GET",
             route("user.rooms.public.all"));
+
+        $response->assertStatus(200);
+    }
+
+    public function test_GetRoomDetails(): void
+    {
+        $user = User::factory()->create();
+        $room = Room::factory()->create(['user_id' => $user->getId()]);
+
+        $response = $this->actingAs($user, "api")->json(
+            "GET",
+            route("user.rooms.details"),
+            [
+                'room_id' => $room->getId()
+            ]
+        );
 
         $response->assertStatus(200);
     }

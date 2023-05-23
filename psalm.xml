@@ -78,6 +78,7 @@
                 <!-- Laravel Job issues-->
                 <referencedProperty name="Illuminate\Queue\InteractsWithQueue::$job"/>
                 <directory name="tests"/>
+                <file name="*/*/Sdk/Model/*Read*"/>
             </errorLevel>
         </PropertyNotSetInConstructor>
 
@@ -131,6 +132,5 @@
                 <file name="*/*/Infrastructure/Repository/*EntityRepositoryImpl*"/>
             </errorLevel>
         </MixedAssignment>
-
     </issueHandlers>
 </psalm>

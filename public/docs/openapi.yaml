@@ -40,27 +40,27 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 50 characters.'
-                  example: ujhxwuurknajxtodw
+                  example: qnqpumbsvckeyth
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: ada.robel@example.org
+                  example: qcremin@example.org
                 username:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: mahscayfanfmtvfz
+                  example: uhylolajzwqufzynhnyng
                 language_id:
                   type: number
                   description: 'Must not be greater than 255.'
-                  example: 24
+                  example: 19
                 password:
                   type: string
                   description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$/. Must be at least 8 characters. Must not be greater than 32 characters.'
-                  example: '`z!@`oP[zO}$90+J(y-p'
+                  example: 'QS?|@n6'
                 password_confirmation:
                   type: string
                   description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$/. Must be at least 8 characters. Must not be greater than 32 characters.'
-                  example: vabobjzeplghxlfhtyyuxxb
+                  example: wffglskzh
               required:
                 - name
                 - email
@@ -102,15 +102,15 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: tgerhold@example.net
+                  example: kohler.layla@example.com
                 password:
                   type: string
                   description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$/. Must be at least 8 characters. Must not be greater than 32 characters.'
-                  example: fEGmT_eL2;
+                  example: '|}FlGucyw!_'
                 device_token:
                   type: string
                   description: ''
-                  example: repudiandae
+                  example: quae
               required:
                 - email
                 - password
@@ -161,7 +161,7 @@ paths:
                 user:
                   type: integer
                   description: ''
-                  example: 1
+                  example: 20
               required:
                 - user
       security: []
@@ -198,15 +198,15 @@ paths:
                 question:
                   type: string
                   description: ''
-                  example: provident
+                  example: eos
                 answer:
                   type: integer
                   description: ''
-                  example: 4
+                  example: 5
                 language_id:
                   type: integer
                   description: ''
-                  example: 12
+                  example: 20
               required:
                 - question
                 - answer
@@ -245,7 +245,7 @@ paths:
                 id:
                   type: integer
                   description: ''
-                  example: 1
+                  example: 8
               required:
                 - id
       security: []
@@ -282,19 +282,19 @@ paths:
                 id:
                   type: integer
                   description: ''
-                  example: 7
+                  example: 13
                 question:
                   type: string
                   description: ''
-                  example: vero
+                  example: qui
                 answer:
                   type: integer
                   description: ''
-                  example: 17
+                  example: 14
                 language_id:
                   type: integer
                   description: ''
-                  example: 17
+                  example: 9
               required:
                 - id
                 - question
@@ -346,7 +346,7 @@ paths:
                 user:
                   type: integer
                   description: ''
-                  example: 1
+                  example: 4
               required:
                 - user
       security: []
@@ -383,11 +383,11 @@ paths:
                 punishment:
                   type: string
                   description: ''
-                  example: dolor
+                  example: aspernatur
                 language_id:
                   type: integer
                   description: ''
-                  example: 3
+                  example: 8
               required:
                 - punishment
                 - language_id
@@ -425,7 +425,7 @@ paths:
                 id:
                   type: integer
                   description: ''
-                  example: 1
+                  example: 7
               required:
                 - id
       security: []
@@ -462,15 +462,15 @@ paths:
                 id:
                   type: integer
                   description: ''
-                  example: 19
+                  example: 3
                 punishment:
                   type: string
                   description: ''
-                  example: nihil
+                  example: fugit
                 language_id:
                   type: integer
                   description: ''
-                  example: 12
+                  example: 1
               required:
                 - id
                 - punishment
@@ -512,6 +512,55 @@ paths:
       tags:
         - Endpoints
       security: []
+  /api/rooms/details:
+    get:
+      summary: ''
+      operationId: getApiRoomsDetails
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                room_id:
+                  type: integer
+                  description: ''
+                  example: 3
+              required:
+                - room_id
+      security: []
   /api/rooms/create:
     post:
       summary: ''
@@ -545,11 +594,11 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: earum
+                  example: et
                 language_id:
                   type: integer
                   description: ''
-                  example: 15
+                  example: 5
                 is_private:
                   type: boolean
                   description: ''
@@ -557,16 +606,15 @@ paths:
                 password:
                   type: string
                   description: 'This field is required when <code>is_private</code> is <code>true</code>.  Must match the regex /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$/. Must be at least 8 characters. Must not be greater than 32 characters.'
-                  example: 'e\"}~#o/.WL1V>1e'
+                  example: '3}U@z-:[Sv`'
                 password_confirmation:
                   type: string
-                  description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$/. Must be at least 8 characters. Must not be greater than 32 characters.'
-                  example: e
+                  description: 'This field is required when <code>is_private</code> is <code>true</code>.  Must match the regex /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$/. Must be at least 8 characters. Must not be greater than 32 characters.'
+                  example: xjwwrqucefhhjh
               required:
                 - name
                 - language_id
                 - is_private
-                - password_confirmation
       security: []
   /api/rooms/close:
     delete:
@@ -601,7 +649,7 @@ paths:
                 room_id:
                   type: integer
                   description: ''
-                  example: 15
+                  example: 13
               required:
                 - room_id
       security: []
@@ -639,13 +687,13 @@ paths:
                   type: array
                   description: ''
                   example:
-                    - 11
+                    - 6
                   items:
                     type: integer
                 room_id:
                   type: integer
                   description: ''
-                  example: 2
+                  example: 7
               required:
                 - questions
                 - room_id
@@ -684,13 +732,13 @@ paths:
                   type: array
                   description: ''
                   example:
-                    - 19
+                    - 8
                   items:
                     type: integer
                 room_id:
                   type: integer
                   description: ''
-                  example: 15
+                  example: 4
               required:
                 - questions
                 - room_id
@@ -729,13 +777,13 @@ paths:
                   type: array
                   description: ''
                   example:
-                    - 3
+                    - 14
                   items:
                     type: integer
                 room_id:
                   type: integer
                   description: ''
-                  example: 8
+                  example: 18
               required:
                 - punishments
                 - room_id
@@ -774,13 +822,13 @@ paths:
                   type: array
                   description: ''
                   example:
-                    - 3
+                    - 4
                   items:
                     type: integer
                 room_id:
                   type: integer
                   description: ''
-                  example: 11
+                  example: 16
               required:
                 - punishments
                 - room_id
@@ -818,15 +866,15 @@ paths:
                 room_id:
                   type: integer
                   description: ''
-                  example: 10
+                  example: 20
                 is_private:
                   type: boolean
                   description: ''
-                  example: false
+                  example: true
                 password:
                   type: string
                   description: 'This field is required when <code>is_private</code> is <code>true</code>.  Must match the regex /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$/. Must be at least 8 characters. Must not be greater than 32 characters.'
-                  example: "]Z(e2'y5|BO"
+                  example: hTgf/XT!O>>;HoMY
               required:
                 - room_id
                 - is_private
@@ -864,7 +912,7 @@ paths:
                 room_id:
                   type: integer
                   description: ''
-                  example: 19
+                  example: 6
               required:
                 - room_id
       security: []

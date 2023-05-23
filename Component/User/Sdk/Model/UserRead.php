@@ -16,6 +16,8 @@ final class UserRead implements Arrayable
 
     private string $email;
 
+    private int|null $roomId;
+
     public function __construct(
         int $id,
         string $name,
@@ -55,6 +57,23 @@ final class UserRead implements Arrayable
             'name' => $this->name,
             'username' => $this->username,
             'email' => $this->email,
+            'room_id' => $this->roomId
         ];
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getRoomId(): ?int
+    {
+        return $this->roomId;
+    }
+
+    /**
+     * @param int|null $roomId
+     */
+    public function setRoomId(?int $roomId): void
+    {
+        $this->roomId = $roomId;
     }
 }

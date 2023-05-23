@@ -9,6 +9,7 @@ use Component\Room\Sdk\Contract\CloseRoomContract;
 use Component\Room\Sdk\Contract\CreateRoomContract;
 use Component\Room\Sdk\Contract\DeletePunishmentsFromRoomContract;
 use Component\Room\Sdk\Contract\DeleteQuestionsFromRoomContract;
+use Component\Room\Sdk\Contract\RoomDetailsContract;
 use Component\Room\Sdk\Contract\UserEnterRoomContract;
 use Component\Room\Sdk\Contract\UserLeaveRoomContract;
 use Component\Room\Sdk\Model\RoomRead;
@@ -46,15 +47,6 @@ class RoomFacadeImpl implements RoomFacade
         $this->roomService->userEnterRoom($contract, $authUserId);
     }
 
-    /**
-     * @param int $roomId
-     * @return array<array-key, mixed>
-     */
-    public function getUsersInRoom(int $roomId): array
-    {
-        return $this->roomService->getUsersInRoom($roomId);
-    }
-
     public function deleteQuestionsFromRoom(DeleteQuestionsFromRoomContract $contract, int $authUserId): void
     {
         $this->roomService->deleteQuestionsFromRoom($contract, $authUserId);
@@ -68,6 +60,27 @@ class RoomFacadeImpl implements RoomFacade
     public function userLeaveRoom(UserLeaveRoomContract $contract, int $authUserId): void
     {
         $this->roomService->userLeaveRoom($contract, $authUserId);
+    }
+
+    public function closeRoom(CloseRoomContract $contract, int $authUserId): void
+    {
+        $this->roomService->closeRoom($contract, $authUserId);
+    }
+
+    /**
+     * @return array<array-key, mixed>
+     */
+    public function getAllPublicRoomsWithUsersCount(): array
+    {
+        return $this->roomService->getAllPublicRoomsWithUsersCount();
+    }
+
+    /**
+     * @return array<array-key, mixed>
+     */
+    public function getRoomDetails(RoomDetailsContract $contract, int $userId): array
+    {
+        return $this->roomService->getRoomDetails($contract, $userId);
     }
 
     /**
@@ -90,21 +103,17 @@ class RoomFacadeImpl implements RoomFacade
         return $this->roomService->getAllUserPunishmentsInRoom($authUserId, $roomId);
     }
 
-    public function closeRoom(CloseRoomContract $contract, int $authUserId): void
+    /**
+     * @param int $roomId
+     * @return array<array-key, mixed>
+     */
+    public function getUsersInRoom(int $roomId): array
     {
-        $this->roomService->closeRoom($contract, $authUserId);
+        return $this->roomService->getUsersInRoom($roomId);
     }
 
     public function findByIdOrFail(int $id): RoomRead
     {
         return $this->roomService->findByIdOrFail($id);
-    }
-
-    /**
-     * @return array<array-key, mixed>
-     */
-    public function getAllPublicRoomsWithUsersCount(): array
-    {
-        return $this->roomService->getAllPublicRoomsWithUsersCount();
     }
 }

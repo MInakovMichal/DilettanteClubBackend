@@ -13,6 +13,7 @@ use Component\Room\Sdk\Contract\CloseRoomContract;
 use Component\Room\Sdk\Contract\CreateRoomContract;
 use Component\Room\Sdk\Contract\DeletePunishmentsFromRoomContract;
 use Component\Room\Sdk\Contract\DeleteQuestionsFromRoomContract;
+use Component\Room\Sdk\Contract\RoomDetailsContract;
 use Component\Room\Sdk\Contract\UserEnterRoomContract;
 use Component\Room\Sdk\Contract\UserLeaveRoomContract;
 use Component\Room\Sdk\Model\RoomRead;
@@ -147,5 +148,22 @@ class RoomServiceImpl implements RoomService
     public function getAllPublicRoomsWithUsersCount(): array
     {
         return $this->repository->getAllPublicRoomsWithUsersCount();
+    }
+
+    /**
+     * @return array<array-key, mixed>
+     */
+    public function getRoomDetails(RoomDetailsContract $contract, int $userId): array
+    {
+        $questions = self::getAllUserQuestionsInRoom($userId, $contract->getRoomId());
+        $punishments = self::getAllUserPunishmentsInRoom($userId, $contract->getRoomId());
+        $users = self::getUsersInRoom($contract->getRoomId());
+        $room = self::findByIdOrFail($contract->getRoomId());
+        return [
+            'room' => $room->toArray(),
+            'users' => $users,
+            'questions' => $questions,
+            'punishments' => $punishments
+        ];
     }
 }

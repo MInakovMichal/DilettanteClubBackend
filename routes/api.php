@@ -39,6 +39,8 @@ Route::group(["middleware" => ["auth:api"],], static function () {
     Route::group(["prefix" => '/rooms',], static function () {
         Route::get('/public', [RoomController::class, 'getAllPublicRooms'])->name('user.rooms.public.all');
 
+        Route::get('/details', [RoomController::class, 'getRoomDetails'])->name('user.rooms.details');
+
         Route::post('/create', [RoomController::class, 'createRoom'])->name('user.rooms.create');
         Route::delete('/close', [RoomController::class, 'closeRoom'])->name('user.rooms.close');
 

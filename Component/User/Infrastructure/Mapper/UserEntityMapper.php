@@ -23,11 +23,17 @@ final class UserEntityMapper
             throw new UserIsNotVerifiedException($id);
         }
 
-        return new UserRead(
+        $userRead = new UserRead(
             $id,
             $userEntity->getName(),
             $userEntity->getUserName(),
-            $userEntity->getEmail()
+            $userEntity->getEmail(),
         );
+
+        if ($userEntity->inRoom()) {
+            $userRead->setRoomId($userEntity->getRoomId());
+        }
+
+        return $userRead;
     }
 }
