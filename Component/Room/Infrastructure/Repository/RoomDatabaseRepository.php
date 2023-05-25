@@ -28,4 +28,14 @@ interface RoomDatabaseRepository
      * @return array<array-key, mixed>
      */
     public function getAllPublicRoomsWithUsersCount(): array;
+
+    /**
+     * @return array<array-key, mixed>
+     */
+    public function getUserQuestionsNotInRoom(int $authUserId, int $roomId): array;
+
+    /**
+     * @return array<array-key, mixed>
+     */
+    public function getUserPunishmentsNotInRoom(int $authUserId, int $roomId): array;
 }

@@ -5,13 +5,10 @@ namespace Component\Room\Domain;
 use Component\Room\Infrastructure\Service\RoomService;
 use Component\Room\Sdk\Contract\AddPunishmentsToRoomContract;
 use Component\Room\Sdk\Contract\AddQuestionsToRoomContract;
-use Component\Room\Sdk\Contract\CloseRoomContract;
 use Component\Room\Sdk\Contract\CreateRoomContract;
 use Component\Room\Sdk\Contract\DeletePunishmentsFromRoomContract;
 use Component\Room\Sdk\Contract\DeleteQuestionsFromRoomContract;
-use Component\Room\Sdk\Contract\RoomDetailsContract;
 use Component\Room\Sdk\Contract\UserEnterRoomContract;
-use Component\Room\Sdk\Contract\UserLeaveRoomContract;
 use Component\Room\Sdk\Model\RoomRead;
 use Component\Room\Sdk\RoomFacade;
 
@@ -32,14 +29,14 @@ class RoomFacadeImpl implements RoomFacade
         return $this->roomService->createRoom($contract, $authUserId);
     }
 
-    public function addQuestionsToRoom(AddQuestionsToRoomContract $contract): void
+    public function addQuestionsToRoom(AddQuestionsToRoomContract $contract, int $roomId): void
     {
-        $this->roomService->addQuestionsToRoom($contract);
+        $this->roomService->addQuestionsToRoom($contract, $roomId);
     }
 
-    public function addPunishmentsToRoom(AddPunishmentsToRoomContract $contract): void
+    public function addPunishmentsToRoom(AddPunishmentsToRoomContract $contract, int $roomId): void
     {
-        $this->roomService->addPunishmentsToRoom($contract);
+        $this->roomService->addPunishmentsToRoom($contract, $roomId);
     }
 
     public function userEnterRoom(UserEnterRoomContract $contract, int $authUserId): void
@@ -47,24 +44,24 @@ class RoomFacadeImpl implements RoomFacade
         $this->roomService->userEnterRoom($contract, $authUserId);
     }
 
-    public function deleteQuestionsFromRoom(DeleteQuestionsFromRoomContract $contract, int $authUserId): void
+    public function deleteQuestionsFromRoom(DeleteQuestionsFromRoomContract $contract, int $authUserId, int $roomId): void
     {
-        $this->roomService->deleteQuestionsFromRoom($contract, $authUserId);
+        $this->roomService->deleteQuestionsFromRoom($contract, $authUserId, $roomId);
     }
 
-    public function deletePunishmentsFromRoom(DeletePunishmentsFromRoomContract $contract, int $authUserId): void
+    public function deletePunishmentsFromRoom(DeletePunishmentsFromRoomContract $contract, int $authUserId, int $roomId): void
     {
-        $this->roomService->deletePunishmentsFromRoom($contract, $authUserId);
+        $this->roomService->deletePunishmentsFromRoom($contract, $authUserId, $roomId);
     }
 
-    public function userLeaveRoom(UserLeaveRoomContract $contract, int $authUserId): void
+    public function userLeaveRoom(int $roomId, int $authUserId): void
     {
-        $this->roomService->userLeaveRoom($contract, $authUserId);
+        $this->roomService->userLeaveRoom($roomId, $authUserId);
     }
 
-    public function closeRoom(CloseRoomContract $contract, int $authUserId): void
+    public function closeRoom(int $roomId, int $authUserId): void
     {
-        $this->roomService->closeRoom($contract, $authUserId);
+        $this->roomService->closeRoom($roomId, $authUserId);
     }
 
     /**
@@ -78,9 +75,9 @@ class RoomFacadeImpl implements RoomFacade
     /**
      * @return array<array-key, mixed>
      */
-    public function getRoomDetails(RoomDetailsContract $contract, int $userId): array
+    public function getRoomDetails(int $roomId, int $userId): array
     {
-        return $this->roomService->getRoomDetails($contract, $userId);
+        return $this->roomService->getRoomDetails($roomId, $userId);
     }
 
     /**
@@ -115,5 +112,25 @@ class RoomFacadeImpl implements RoomFacade
     public function findByIdOrFail(int $id): RoomRead
     {
         return $this->roomService->findByIdOrFail($id);
+    }
+
+    /**
+     * @param int $authUserId
+     * @param int $roomId
+     * @return array<array-key, mixed>
+     */
+    public function getUserQuestionsNotInRoom(int $authUserId, int $roomId): array
+    {
+        return $this->roomService->getUserQuestionsNotInRoom($authUserId, $roomId);
+    }
+
+    /**
+     * @param int $authUserId
+     * @param int $roomId
+     * @return array<array-key, mixed>
+     */
+    public function getUserPunishmentsNotInRoom(int $authUserId, int $roomId): array
+    {
+        return $this->roomService->getUserPunishmentsNotInRoom($authUserId, $roomId);
     }
 }

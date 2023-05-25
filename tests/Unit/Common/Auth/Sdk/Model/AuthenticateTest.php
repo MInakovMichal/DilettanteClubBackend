@@ -15,6 +15,8 @@ class AuthenticateTest extends TestCase
     private int $authUserId;
     private string $name;
     private string $email;
+    private bool $inRoom;
+    private int $roomId;
 
     public function test_GetToken(): void
     {
@@ -37,9 +39,20 @@ class AuthenticateTest extends TestCase
             'id' => $this->authUserId,
             'name' => $this->name,
             'email' => $this->email,
-            'token' => $this->token
+            'token' => $this->token,
+            'in_room' => $this->inRoom
         ];
         $this->assertEquals($expectArray, $this->authenticate->toArray());
+    }
+
+    public function test_GetRoomId(): void
+    {
+        $this->assertSame($this->roomId, $this->authenticate->getRoomId());
+    }
+
+    public function test_IsInRoom(): void
+    {
+        $this->assertTrue($this->authenticate->isInRoom());
     }
 
     protected function setUp(): void
@@ -48,14 +61,18 @@ class AuthenticateTest extends TestCase
         $this->authUserId = 1;
         $this->name = 'test_name';
         $this->email = 'test_email';
+        $this->inRoom = true;
+        $this->roomId = 1;
 
         $userRead = new UserRead(
             $this->authUserId,
             $this->name,
             'test_username',
-            $this->email
+            $this->email,
+            $this->inRoom
         );
 
+        $userRead->setRoomId($this->roomId);
         $this->token = 'test_token';
         $this->authUser = new AuthUser($userRead);
 

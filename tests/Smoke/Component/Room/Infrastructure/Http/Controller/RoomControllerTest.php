@@ -44,6 +44,9 @@ class RoomControllerTest extends TestCase
 
         $room = Room::factory()->create(['user_id' => $user->getId()]);
 
+        $user->setRoomId($room->getId());
+        $user->save();
+
         $response = $this->actingAs($user, "api")->json(
             "DELETE",
             route("user.rooms.close"),
@@ -60,6 +63,9 @@ class RoomControllerTest extends TestCase
         $user = User::factory()->create();
         $room = Room::factory()->create(['user_id' => $user->getId()]);
 
+        $user->setRoomId($room->getId());
+        $user->save();
+
         /** @var Collection $questions */
         $questions = Question::factory(10)->create();
 
@@ -68,7 +74,6 @@ class RoomControllerTest extends TestCase
             route("user.rooms.questions.add"),
             [
                 "questions" => $questions->pluck('id'),
-                "room_id" => $room->getId(),
             ]
         );
 
@@ -80,6 +85,9 @@ class RoomControllerTest extends TestCase
         $user = User::factory()->create();
         $room = Room::factory()->create(['user_id' => $user->getId()]);
 
+        $user->setRoomId($room->getId());
+        $user->save();
+
         /** @var Collection $punishments */
         $punishments = Punishment::factory(10)->create();
 
@@ -88,7 +96,6 @@ class RoomControllerTest extends TestCase
             route("user.rooms.punishments.add"),
             [
                 "punishments" => $punishments->pluck('id'),
-                "room_id" => $room->getId(),
             ]
         );
 
@@ -124,14 +131,14 @@ class RoomControllerTest extends TestCase
         $user = User::factory()->create();
         $room = Room::factory()->create(['user_id' => $user->getId()]);
 
+        $user->setRoomId($room->getId());
+        $user->save();
+
         RoomUser::factory()->create(['user_id' => $user->getId(), 'room_id' => $room->getId()]);
 
         $response = $this->actingAs($user, "api")->json(
             "POST",
             route("user.rooms.users.leave"),
-            [
-                "room_id" => $room->getId(),
-            ]
         );
 
         $response->assertStatus(200);
@@ -141,6 +148,9 @@ class RoomControllerTest extends TestCase
     {
         $user = User::factory()->create();
         $room = Room::factory()->create();
+
+        $user->setRoomId($room->getId());
+        $user->save();
 
         $questions = Question::factory(10)->create(['user_id' => $user->getId()]);
         foreach ($questions as $question) {
@@ -156,7 +166,6 @@ class RoomControllerTest extends TestCase
             route("user.rooms.questions.delete"),
             [
                 "questions" => $deleteQuestion->pluck('id'),
-                "room_id" => $room->getId(),
             ]
         );
 
@@ -167,6 +176,9 @@ class RoomControllerTest extends TestCase
     {
         $user = User::factory()->create();
         $room = Room::factory()->create();
+
+        $user->setRoomId($room->getId());
+        $user->save();
 
         $punishments = Punishment::factory(10)->create(['user_id' => $user->getId()]);
         foreach ($punishments as $punishment) {
@@ -182,7 +194,6 @@ class RoomControllerTest extends TestCase
             route("user.rooms.punishments.delete"),
             [
                 "punishments" => $deletePunishment->pluck('id'),
-                "room_id" => $room->getId(),
             ]
         );
 
@@ -205,12 +216,44 @@ class RoomControllerTest extends TestCase
         $user = User::factory()->create();
         $room = Room::factory()->create(['user_id' => $user->getId()]);
 
+        $user->setRoomId($room->getId());
+        $user->save();
+
         $response = $this->actingAs($user, "api")->json(
             "GET",
             route("user.rooms.details"),
-            [
-                'room_id' => $room->getId()
-            ]
+        );
+
+        $response->assertStatus(200);
+    }
+
+    public function test_GetUserQuestionsNotInRoom(): void
+    {
+        $user = User::factory()->create();
+        $room = Room::factory()->create(['user_id' => $user->getId()]);
+
+        $user->setRoomId($room->getId());
+        $user->save();
+
+        $response = $this->actingAs($user, "api")->json(
+            "GET",
+            route("user.rooms.questions_not_in_room"),
+        );
+
+        $response->assertStatus(200);
+    }
+
+    public function test_GetUserPunishmentsNotInRoom(): void
+    {
+        $user = User::factory()->create();
+        $room = Room::factory()->create(['user_id' => $user->getId()]);
+
+        $user->setRoomId($room->getId());
+        $user->save();
+
+        $response = $this->actingAs($user, "api")->json(
+            "GET",
+            route("user.rooms.punishments_not_in_room"),
         );
 
         $response->assertStatus(200);

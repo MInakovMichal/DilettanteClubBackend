@@ -6,7 +6,6 @@ use App\Models\Room;
 use App\Models\User;
 use Common\Exception\InvalidArgumentException;
 use Component\Room\Infrastructure\Checker\RoomAuthorChecker;
-use Component\Room\Infrastructure\Http\Requests\CloseRoomRequest;
 use Tests\TestCase;
 
 class RoomAuthorCheckerImplTest extends TestCase
@@ -18,11 +17,7 @@ class RoomAuthorCheckerImplTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
         $room = Room::factory()->create();
 
-        $contract = new CloseRoomRequest([
-            'room_id' => $room->getId()
-        ]);
-
-        $this->checker->check($contract, $room->getId());
+        $this->checker->check($room->getId(), $room->getId());
     }
 
     public function test_Check_ShouldDoNothing_WhenDeleteOwnRoom(): void
@@ -31,11 +26,7 @@ class RoomAuthorCheckerImplTest extends TestCase
             'user_id' => $this->user->getId()
         ]);
 
-        $contract = new CloseRoomRequest([
-            'room_id' => $room->getId()
-        ]);
-
-        $this->assertNull($this->checker->check($contract, $this->user->getId()));
+        $this->assertNull($this->checker->check($room->getId(), $this->user->getId()));
     }
 
     protected function setUp(): void

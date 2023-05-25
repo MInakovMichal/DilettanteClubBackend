@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Component\User\Sdk\Model;
 
+use Common\Exception\UserIsNotInRoomException;
 use Illuminate\Contracts\Support\Arrayable;
 
 final class UserRead implements Arrayable
@@ -16,18 +17,22 @@ final class UserRead implements Arrayable
 
     private string $email;
 
-    private int|null $roomId;
+    private bool $inRoom;
+
+    private int $roomId;
 
     public function __construct(
         int $id,
         string $name,
         string $username,
-        string $email
+        string $email,
+        bool $inRoom
     ) {
         $this->id = $id;
         $this->name = $name;
         $this->username = $username;
         $this->email = $email;
+        $this->inRoom = $inRoom;
     }
 
     public function getId(): int
@@ -57,23 +62,25 @@ final class UserRead implements Arrayable
             'name' => $this->name,
             'username' => $this->username,
             'email' => $this->email,
-            'room_id' => $this->roomId
+            'in_room' => $this->inRoom
         ];
     }
 
-    /**
-     * @return int|null
-     */
-    public function getRoomId(): ?int
+    public function getRoomId(): int
     {
+        if (!self::isInRoom()) {
+            throw new UserIsNotInRoomException();
+        }
         return $this->roomId;
     }
 
-    /**
-     * @param int|null $roomId
-     */
-    public function setRoomId(?int $roomId): void
+    public function setRoomId(int $roomId): void
     {
         $this->roomId = $roomId;
+    }
+
+    public function isInRoom(): bool
+    {
+        return $this->inRoom;
     }
 }

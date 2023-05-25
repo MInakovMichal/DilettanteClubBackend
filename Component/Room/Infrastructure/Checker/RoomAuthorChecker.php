@@ -2,9 +2,7 @@
 
 namespace Component\Room\Infrastructure\Checker;
 
-use Component\Room\Sdk\Contract\CloseRoomContract;
-
 interface RoomAuthorChecker
 {
-    public function check(CloseRoomContract $contract, int $authUserId): void;
+    public function check(int $roomId, int $authUserId): void;
 }

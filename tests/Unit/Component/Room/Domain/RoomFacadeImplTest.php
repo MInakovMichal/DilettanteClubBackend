@@ -16,9 +16,7 @@ use Component\Room\Infrastructure\Http\Requests\AddQuestionsToRoomRequest;
 use Component\Room\Infrastructure\Http\Requests\CreateRoomRequest;
 use Component\Room\Infrastructure\Http\Requests\DeletePunishmentsFromRoomRequest;
 use Component\Room\Infrastructure\Http\Requests\DeleteQuestionsFromRoomRequest;
-use Component\Room\Infrastructure\Http\Requests\RoomDetailsRequest;
 use Component\Room\Infrastructure\Http\Requests\UserEnterRoomRequest;
-use Component\Room\Infrastructure\Http\Requests\UserLeaveRoomRequest;
 use Component\Room\Sdk\Model\RoomRead;
 use Component\Room\Sdk\RoomFacade;
 use Illuminate\Support\Facades\Hash;
@@ -63,7 +61,7 @@ class RoomFacadeImplTest extends TestCase
         $questionsInRoomBeforeAddNew = RoomQuestion::all();
         $this->assertSame(0, $questionsInRoomBeforeAddNew->count());
 
-        $this->facadeImpl->addQuestionsToRoom($contract);
+        $this->facadeImpl->addQuestionsToRoom($contract, $room->getId());
         $questionsInRoomAfterAddNew = RoomQuestion::all();
 
         $this->assertSame($questionsCount, $questionsInRoomAfterAddNew->count());
@@ -83,7 +81,7 @@ class RoomFacadeImplTest extends TestCase
         $punishmentsInRoomBeforeAddNew = RoomPunishment::all();
         $this->assertSame(0, $punishmentsInRoomBeforeAddNew->count());
 
-        $this->facadeImpl->addPunishmentsToRoom($contract);
+        $this->facadeImpl->addPunishmentsToRoom($contract, $room->getId());
         $punishmentsInRoomAfterAddNew = RoomPunishment::all();
 
         $this->assertSame($punishmentsCount, $punishmentsInRoomAfterAddNew->count());
@@ -125,14 +123,10 @@ class RoomFacadeImplTest extends TestCase
             'user_id' => $this->user->getId()
         ]);
 
-        $contract = new UserLeaveRoomRequest([
-            'room_id' => $room->getId()
-        ]);
-
         $usersInRoomBeforeEnter = RoomUser::all();
         $this->assertSame(1, $usersInRoomBeforeEnter->count());
 
-        $this->facadeImpl->userLeaveRoom($contract, $this->user->getId());
+        $this->facadeImpl->userLeaveRoom($room->getId(), $this->user->getId());
         $usersInRoomAfterEnter = RoomUser::all();
 
         $this->assertSame(0, $usersInRoomAfterEnter->count());
@@ -164,13 +158,12 @@ class RoomFacadeImplTest extends TestCase
         }
         $contract = new DeleteQuestionsFromRoomRequest([
             'questions' => $questions->take($questionsCount / 2)->pluck('id')->toArray(),
-            'room_id' => $room->getId()
         ]);
 
         $questionsInRoomBeforeDelete = RoomQuestion::all();
         $this->assertSame($questionsCount, $questionsInRoomBeforeDelete->count());
 
-        $this->facadeImpl->deleteQuestionsFromRoom($contract, $this->user->getId());
+        $this->facadeImpl->deleteQuestionsFromRoom($contract, $this->user->getId(), $room->getId());
         $questionsInRoomAfterDelete = RoomQuestion::all();
 
         $this->assertSame($questionsCount / 2, $questionsInRoomAfterDelete->count());
@@ -190,13 +183,12 @@ class RoomFacadeImplTest extends TestCase
         }
         $contract = new DeletePunishmentsFromRoomRequest([
             'punishments' => $punishments->take($punishmentsCount / 2)->pluck('id')->toArray(),
-            'room_id' => $room->getId()
         ]);
 
         $punishmentsInRoomBeforeDelete = RoomPunishment::all();
         $this->assertSame($punishmentsCount, $punishmentsInRoomBeforeDelete->count());
 
-        $this->facadeImpl->deletePunishmentsFromRoom($contract, $this->user->getId());
+        $this->facadeImpl->deletePunishmentsFromRoom($contract, $this->user->getId(), $room->getId());
         $punishmentsInRoomAfterDelete = RoomPunishment::all();
 
         $this->assertSame($punishmentsCount / 2, $punishmentsInRoomAfterDelete->count());
@@ -288,16 +280,48 @@ class RoomFacadeImplTest extends TestCase
             RoomUser::factory()->create(['user_id' => $user->getId(), 'room_id' => $room->getId()]);
         }
 
-        $contract = new RoomDetailsRequest([
-            'room_id' => $room->getId()
-        ]);
+        $roomDetails = $this->facadeImpl->getRoomDetails($room->getId(), $this->user->getId());
 
-        $roomDetails = $this->facadeImpl->getRoomDetails($contract, $this->user->getId());
-        dd($roomDetails);
         $this->assertArrayHasKey('room', $roomDetails);
         $this->assertArrayHasKey('users', $roomDetails);
         $this->assertArrayHasKey('questions', $roomDetails);
         $this->assertArrayHasKey('punishments', $roomDetails);
+    }
+
+    public function test_GetUserQuestionsNotInRoom_ShouldReturnArrayWithTenItems(): void
+    {
+        $questionsCount = 20;
+        $questionsInRoomCount = $questionsCount / 2;
+
+        $questions = Question::factory($questionsCount)->create(['user_id' => $this->user->getId()]);
+
+        $room = Room::factory()->create();
+
+        foreach ($questions->take($questionsInRoomCount) as $question) {
+            RoomQuestion::factory()->create(['room_id' => $room->getId(), 'question_id' => $question->getId()]);
+        }
+
+        $questionNotInRoom = $this->facadeImpl->getUserQuestionsNotInRoom($this->user->getId(), $room->getId());
+
+        $this->assertSame($questionsInRoomCount, count($questionNotInRoom));
+    }
+
+    public function test_GetUserPunishmentsNotInRoom_ShouldReturnArrayWithTenItems(): void
+    {
+        $punishmentCount = 20;
+        $punishmentInRoomCount = $punishmentCount / 2;
+
+        $punishments = Punishment::factory($punishmentCount)->create(['user_id' => $this->user->getId()]);
+
+        $room = Room::factory()->create();
+
+        foreach ($punishments->take($punishmentInRoomCount) as $punishment) {
+            RoomPunishment::factory()->create(['room_id' => $room->getId(), 'punishment_id' => $punishment->getId()]);
+        }
+
+        $punishmentNotInRoom = $this->facadeImpl->getUserPunishmentsNotInRoom($this->user->getId(), $room->getId());
+
+        $this->assertSame($punishmentInRoomCount, count($punishmentNotInRoom));
     }
 
     protected function setUp(): void

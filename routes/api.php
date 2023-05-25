@@ -44,9 +44,11 @@ Route::group(["middleware" => ["auth:api"],], static function () {
         Route::post('/create', [RoomController::class, 'createRoom'])->name('user.rooms.create');
         Route::delete('/close', [RoomController::class, 'closeRoom'])->name('user.rooms.close');
 
+        Route::get('/user-questions-not-in-room', [RoomController::class, 'getUserQuestionsNotInRoom'])->name('user.rooms.questions_not_in_room');
         Route::post('/add-questions', [RoomController::class, 'addQuestionsToRoom'])->name('user.rooms.questions.add');
         Route::delete('/delete-questions', [RoomController::class, 'deleteQuestionsFromRoom'])->name('user.rooms.questions.delete');
 
+        Route::get('/user-punishments-not-in-room', [RoomController::class, 'getUserPunishmentsNotInRoom'])->name('user.rooms.punishments_not_in_room');
         Route::post('/add-punishments', [RoomController::class, 'addPunishmentsToRoom'])->name('user.rooms.punishments.add');
         Route::delete('/delete-punishments', [RoomController::class, 'deletePunishmentsFromRoom'])->name('user.rooms.punishments.delete');
 

@@ -12,5 +12,5 @@ interface RoomEntityRepository
 
     public function findByIdOrFail(int $id): Room;
 
-    public function closeRoom(CloseRoomContract $contract, int $authUserId): void;
+    public function closeRoom(int $roomId, int $authUserId): void;
 }

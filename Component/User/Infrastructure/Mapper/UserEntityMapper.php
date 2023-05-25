@@ -28,6 +28,7 @@ final class UserEntityMapper
             $userEntity->getName(),
             $userEntity->getUserName(),
             $userEntity->getEmail(),
+            $userEntity->inRoom()
         );
 
         if ($userEntity->inRoom()) {

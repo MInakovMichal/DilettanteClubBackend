@@ -15,7 +15,6 @@ use Component\Room\Infrastructure\Http\Requests\AddPunishmentsToRoomRequest;
 use Component\Room\Infrastructure\Http\Requests\AddQuestionsToRoomRequest;
 use Component\Room\Infrastructure\Http\Requests\CreateRoomRequest;
 use Component\Room\Infrastructure\Http\Requests\UserEnterRoomRequest;
-use Component\Room\Infrastructure\Http\Requests\UserLeaveRoomRequest;
 use Component\Room\Infrastructure\Repository\RoomRepository;
 use Component\Room\Sdk\Model\RoomRead;
 use Illuminate\Support\Facades\Hash;
@@ -57,7 +56,7 @@ class RoomRepositoryImplTest extends TestCase
         $questionsInRoomBeforeAddNew = RoomQuestion::all();
         $this->assertSame(0, $questionsInRoomBeforeAddNew->count());
 
-        $this->repositoryImpl->addQuestionsToRoom($contract);
+        $this->repositoryImpl->addQuestionsToRoom($contract, $room->getId());
         $questionsInRoomAfterAddNew = RoomQuestion::all();
 
         $this->assertSame($questionsCount, $questionsInRoomAfterAddNew->count());
@@ -77,7 +76,7 @@ class RoomRepositoryImplTest extends TestCase
         $punishmentsInRoomBeforeAddNew = RoomPunishment::all();
         $this->assertSame(0, $punishmentsInRoomBeforeAddNew->count());
 
-        $this->repositoryImpl->addPunishmentsToRoom($contract);
+        $this->repositoryImpl->addPunishmentsToRoom($contract, $room->getId());
         $punishmentsInRoomAfterAddNew = RoomPunishment::all();
 
         $this->assertSame($punishmentsCount, $punishmentsInRoomAfterAddNew->count());
@@ -119,14 +118,10 @@ class RoomRepositoryImplTest extends TestCase
             'user_id' => $this->user->getId()
         ]);
 
-        $contract = new UserLeaveRoomRequest([
-            'room_id' => $room->getId()
-        ]);
-
         $usersInRoomBeforeEnter = RoomUser::all();
         $this->assertSame(1, $usersInRoomBeforeEnter->count());
 
-        $this->repositoryImpl->userLeaveRoom($contract, $this->user->getId());
+        $this->repositoryImpl->userLeaveRoom($room->getId(), $this->user->getId());
         $usersInRoomAfterEnter = RoomUser::all();
 
         $this->assertSame(0, $usersInRoomAfterEnter->count());
@@ -259,6 +254,42 @@ class RoomRepositoryImplTest extends TestCase
         $publicRooms = $this->repositoryImpl->getAllPublicRoomsWithUsersCount();
 
         $this->assertSame($roomsCount, count($publicRooms));
+    }
+
+    public function test_GetUserQuestionsNotInRoom_ShouldReturnArrayWithTenItems(): void
+    {
+        $questionsCount = 20;
+        $questionsInRoomCount = $questionsCount / 2;
+
+        $questions = Question::factory($questionsCount)->create(['user_id' => $this->user->getId()]);
+
+        $room = Room::factory()->create();
+
+        foreach ($questions->take($questionsInRoomCount) as $question) {
+            RoomQuestion::factory()->create(['room_id' => $room->getId(), 'question_id' => $question->getId()]);
+        }
+
+        $questionNotInRoom = $this->repositoryImpl->getUserQuestionsNotInRoom($this->user->getId(), $room->getId());
+
+        $this->assertSame($questionsInRoomCount, count($questionNotInRoom));
+    }
+
+    public function test_GetUserPunishmentsNotInRoom_ShouldReturnArrayWithTenItems(): void
+    {
+        $punishmentCount = 20;
+        $punishmentInRoomCount = $punishmentCount / 2;
+
+        $punishments = Punishment::factory($punishmentCount)->create(['user_id' => $this->user->getId()]);
+
+        $room = Room::factory()->create();
+
+        foreach ($punishments->take($punishmentInRoomCount) as $punishment) {
+            RoomPunishment::factory()->create(['room_id' => $room->getId(), 'punishment_id' => $punishment->getId()]);
+        }
+
+        $punishmentNotInRoom = $this->repositoryImpl->getUserPunishmentsNotInRoom($this->user->getId(), $room->getId());
+
+        $this->assertSame($punishmentInRoomCount, count($punishmentNotInRoom));
     }
 
     protected function setUp(): void

@@ -28,21 +28,21 @@ endpoints:
         name: name
         description: 'Must not be greater than 50 characters.'
         required: true
-        example: qnqpumbsvckeyth
+        example: zszefdouxtq
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: qcremin@example.org
+        example: rowena87@example.net
         type: string
         custom: []
       username:
         name: username
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: uhylolajzwqufzynhnyng
+        example: fynaonzdrit
         type: string
         custom: []
       language_id:
@@ -56,23 +56,23 @@ endpoints:
         name: password
         description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$/. Must be at least 8 characters. Must not be greater than 32 characters.'
         required: true
-        example: 'QS?|@n6'
+        example: 'z6#z~]n*2pu'
         type: string
         custom: []
       password_confirmation:
         name: password_confirmation
         description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$/. Must be at least 8 characters. Must not be greater than 32 characters.'
         required: true
-        example: wffglskzh
+        example: rlluhansjnburaf
         type: string
         custom: []
     cleanBodyParameters:
-      name: qnqpumbsvckeyth
-      email: qcremin@example.org
-      username: uhylolajzwqufzynhnyng
+      name: zszefdouxtq
+      email: rowena87@example.net
+      username: fynaonzdrit
       language_id: 19
-      password: 'QS?|@n6'
-      password_confirmation: wffglskzh
+      password: 'z6#z~]n*2pu'
+      password_confirmation: rlluhansjnburaf
     fileParameters: []
     responses: []
     responseFields: []
@@ -106,27 +106,27 @@ endpoints:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: kohler.layla@example.com
+        example: maxwell90@example.org
         type: string
         custom: []
       password:
         name: password
         description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$/. Must be at least 8 characters. Must not be greater than 32 characters.'
         required: true
-        example: '|}FlGucyw!_'
+        example: 'CQmVW)*'
         type: string
         custom: []
       device_token:
         name: device_token
         description: ''
         required: true
-        example: quae
+        example: impedit
         type: string
         custom: []
     cleanBodyParameters:
-      email: kohler.layla@example.com
-      password: '|}FlGucyw!_'
-      device_token: quae
+      email: maxwell90@example.org
+      password: 'CQmVW)*'
+      device_token: impedit
     fileParameters: []
     responses: []
     responseFields: []
@@ -160,11 +160,11 @@ endpoints:
         name: user
         description: ''
         required: true
-        example: 20
+        example: 8
         type: integer
         custom: []
     cleanBodyParameters:
-      user: 20
+      user: 8
     fileParameters: []
     responses:
       -
@@ -207,27 +207,27 @@ endpoints:
         name: question
         description: ''
         required: true
-        example: eos
+        example: voluptates
         type: string
         custom: []
       answer:
         name: answer
         description: ''
         required: true
-        example: 5
+        example: 17
         type: integer
         custom: []
       language_id:
         name: language_id
         description: ''
         required: true
-        example: 20
+        example: 19
         type: integer
         custom: []
     cleanBodyParameters:
-      question: eos
-      answer: 5
-      language_id: 20
+      question: voluptates
+      answer: 17
+      language_id: 19
     fileParameters: []
     responses: []
     responseFields: []
@@ -261,11 +261,11 @@ endpoints:
         name: id
         description: ''
         required: true
-        example: 8
+        example: 10
         type: integer
         custom: []
     cleanBodyParameters:
-      id: 8
+      id: 10
     fileParameters: []
     responses: []
     responseFields: []
@@ -299,35 +299,35 @@ endpoints:
         name: id
         description: ''
         required: true
-        example: 13
+        example: 14
         type: integer
         custom: []
       question:
         name: question
         description: ''
         required: true
-        example: qui
+        example: quis
         type: string
         custom: []
       answer:
         name: answer
         description: ''
         required: true
-        example: 14
+        example: 3
         type: integer
         custom: []
       language_id:
         name: language_id
         description: ''
         required: true
-        example: 9
+        example: 20
         type: integer
         custom: []
     cleanBodyParameters:
-      id: 13
-      question: qui
-      answer: 14
-      language_id: 9
+      id: 14
+      question: quis
+      answer: 3
+      language_id: 20
     fileParameters: []
     responses: []
     responseFields: []
@@ -361,11 +361,11 @@ endpoints:
         name: user
         description: ''
         required: true
-        example: 4
+        example: 7
         type: integer
         custom: []
     cleanBodyParameters:
-      user: 4
+      user: 7
     fileParameters: []
     responses:
       -
@@ -408,19 +408,19 @@ endpoints:
         name: punishment
         description: ''
         required: true
-        example: aspernatur
+        example: omnis
         type: string
         custom: []
       language_id:
         name: language_id
         description: ''
         required: true
-        example: 8
+        example: 1
         type: integer
         custom: []
     cleanBodyParameters:
-      punishment: aspernatur
-      language_id: 8
+      punishment: omnis
+      language_id: 1
     fileParameters: []
     responses: []
     responseFields: []
@@ -454,11 +454,11 @@ endpoints:
         name: id
         description: ''
         required: true
-        example: 7
+        example: 2
         type: integer
         custom: []
     cleanBodyParameters:
-      id: 7
+      id: 2
     fileParameters: []
     responses: []
     responseFields: []
@@ -492,27 +492,27 @@ endpoints:
         name: id
         description: ''
         required: true
-        example: 3
+        example: 20
         type: integer
         custom: []
       punishment:
         name: punishment
         description: ''
         required: true
-        example: fugit
+        example: voluptatem
         type: string
         custom: []
       language_id:
         name: language_id
         description: ''
         required: true
-        example: 1
+        example: 2
         type: integer
         custom: []
     cleanBodyParameters:
-      id: 3
-      punishment: fugit
-      language_id: 1
+      id: 20
+      punishment: voluptatem
+      language_id: 2
     fileParameters: []
     responses: []
     responseFields: []
@@ -580,16 +580,8 @@ endpoints:
     cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters:
-      room_id:
-        name: room_id
-        description: ''
-        required: true
-        example: 3
-        type: integer
-        custom: []
-    cleanBodyParameters:
-      room_id: 3
+    bodyParameters: []
+    cleanBodyParameters: []
     fileParameters: []
     responses:
       -
@@ -632,14 +624,14 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: et
+        example: adipisci
         type: string
         custom: []
       language_id:
         name: language_id
         description: ''
         required: true
-        example: 5
+        example: 13
         type: integer
         custom: []
       is_private:
@@ -653,22 +645,22 @@ endpoints:
         name: password
         description: 'This field is required when <code>is_private</code> is <code>true</code>.  Must match the regex /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$/. Must be at least 8 characters. Must not be greater than 32 characters.'
         required: false
-        example: '3}U@z-:[Sv`'
+        example: h)hA||(Azx=6L1PfrS
         type: string
         custom: []
       password_confirmation:
         name: password_confirmation
         description: 'This field is required when <code>is_private</code> is <code>true</code>.  Must match the regex /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$/. Must be at least 8 characters. Must not be greater than 32 characters.'
         required: false
-        example: xjwwrqucefhhjh
+        example: oelovycbnnicslypotzkgzqhz
         type: string
         custom: []
     cleanBodyParameters:
-      name: et
-      language_id: 5
+      name: adipisci
+      language_id: 13
       is_private: false
-      password: '3}U@z-:[Sv`'
-      password_confirmation: xjwwrqucefhhjh
+      password: h)hA||(Azx=6L1PfrS
+      password_confirmation: oelovycbnnicslypotzkgzqhz
     fileParameters: []
     responses: []
     responseFields: []
@@ -697,18 +689,49 @@ endpoints:
     cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters:
-      room_id:
-        name: room_id
-        description: ''
-        required: true
-        example: 13
-        type: integer
-        custom: []
-    cleanBodyParameters:
-      room_id: 13
+    bodyParameters: []
+    cleanBodyParameters: []
     fileParameters: []
     responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/rooms/user-questions-not-in-room
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
     responseFields: []
     auth: []
     controller: null
@@ -741,20 +764,12 @@ endpoints:
         description: ''
         required: true
         example:
-          - 6
+          - 11
         type: 'integer[]'
-        custom: []
-      room_id:
-        name: room_id
-        description: ''
-        required: true
-        example: 7
-        type: integer
         custom: []
     cleanBodyParameters:
       questions:
-        - 6
-      room_id: 7
+        - 11
     fileParameters: []
     responses: []
     responseFields: []
@@ -789,22 +804,53 @@ endpoints:
         description: ''
         required: true
         example:
-          - 8
+          - 9
         type: 'integer[]'
-        custom: []
-      room_id:
-        name: room_id
-        description: ''
-        required: true
-        example: 4
-        type: integer
         custom: []
     cleanBodyParameters:
       questions:
-        - 8
-      room_id: 4
+        - 9
     fileParameters: []
     responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/rooms/user-punishments-not-in-room
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
     responseFields: []
     auth: []
     controller: null
@@ -837,20 +883,12 @@ endpoints:
         description: ''
         required: true
         example:
-          - 14
+          - 10
         type: 'integer[]'
-        custom: []
-      room_id:
-        name: room_id
-        description: ''
-        required: true
-        example: 18
-        type: integer
         custom: []
     cleanBodyParameters:
       punishments:
-        - 14
-      room_id: 18
+        - 10
     fileParameters: []
     responses: []
     responseFields: []
@@ -885,20 +923,12 @@ endpoints:
         description: ''
         required: true
         example:
-          - 4
+          - 9
         type: 'integer[]'
-        custom: []
-      room_id:
-        name: room_id
-        description: ''
-        required: true
-        example: 16
-        type: integer
         custom: []
     cleanBodyParameters:
       punishments:
-        - 4
-      room_id: 16
+        - 9
     fileParameters: []
     responses: []
     responseFields: []
@@ -932,27 +962,27 @@ endpoints:
         name: room_id
         description: ''
         required: true
-        example: 20
+        example: 3
         type: integer
         custom: []
       is_private:
         name: is_private
         description: ''
         required: true
-        example: true
+        example: false
         type: boolean
         custom: []
       password:
         name: password
         description: 'This field is required when <code>is_private</code> is <code>true</code>.  Must match the regex /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$/. Must be at least 8 characters. Must not be greater than 32 characters.'
         required: false
-        example: hTgf/XT!O>>;HoMY
+        example: '@AxldOAQih:ujHxGO'
         type: string
         custom: []
     cleanBodyParameters:
-      room_id: 20
-      is_private: true
-      password: hTgf/XT!O>>;HoMY
+      room_id: 3
+      is_private: false
+      password: '@AxldOAQih:ujHxGO'
     fileParameters: []
     responses: []
     responseFields: []
@@ -981,16 +1011,8 @@ endpoints:
     cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters:
-      room_id:
-        name: room_id
-        description: ''
-        required: true
-        example: 6
-        type: integer
-        custom: []
-    cleanBodyParameters:
-      room_id: 6
+    bodyParameters: []
+    cleanBodyParameters: []
     fileParameters: []
     responses: []
     responseFields: []

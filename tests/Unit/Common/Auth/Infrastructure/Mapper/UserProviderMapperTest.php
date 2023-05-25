@@ -17,7 +17,8 @@ class UserProviderMapperTest extends TestCase
             1,
             $this->faker->name(),
             $this->faker->userName(),
-            $this->faker->email()
+            $this->faker->email(),
+            false
         );
 
         $authenticateClass = app(UserProviderMapper::class);

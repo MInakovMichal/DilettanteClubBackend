@@ -132,5 +132,23 @@
                 <file name="*/*/Infrastructure/Repository/*EntityRepositoryImpl*"/>
             </errorLevel>
         </MixedAssignment>
+
+        <MixedArgumentTypeCoercion>
+            <errorLevel type="suppress">
+                <file name="*/*/Infrastructure/Repository/*DatabaseRepositoryImpl*"/>
+            </errorLevel>
+        </MixedArgumentTypeCoercion>
+
+        <MissingClosureReturnType>
+            <errorLevel type="suppress">
+                <file name="*/*/Infrastructure/Repository/*DatabaseRepositoryImpl*"/>
+            </errorLevel>
+        </MissingClosureReturnType>
+
+        <MixedPropertyFetch>
+            <errorLevel type="suppress">
+                <file name="*/*/Infrastructure/Repository/*DatabaseRepositoryImpl*"/>
+            </errorLevel>
+        </MixedPropertyFetch>
     </issueHandlers>
 </psalm>

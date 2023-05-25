@@ -113,11 +113,17 @@
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-rooms-close">
                                 <a href="#endpoints-DELETEapi-rooms-close">DELETE api/rooms/close</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-rooms-user-questions-not-in-room">
+                                <a href="#endpoints-GETapi-rooms-user-questions-not-in-room">GET api/rooms/user-questions-not-in-room</a>
+                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-POSTapi-rooms-add-questions">
                                 <a href="#endpoints-POSTapi-rooms-add-questions">POST api/rooms/add-questions</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-rooms-delete-questions">
                                 <a href="#endpoints-DELETEapi-rooms-delete-questions">DELETE api/rooms/delete-questions</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-rooms-user-punishments-not-in-room">
+                                <a href="#endpoints-GETapi-rooms-user-punishments-not-in-room">GET api/rooms/user-punishments-not-in-room</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-POSTapi-rooms-add-punishments">
                                 <a href="#endpoints-POSTapi-rooms-add-punishments">POST api/rooms/add-punishments</a>
@@ -142,7 +148,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: May 23, 2023</li>
+        <li>Last updated: May 25, 2023</li>
     </ul>
 </div>
 
@@ -181,12 +187,12 @@ You can switch the language used with the tabs at the top right (or from the nav
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"qnqpumbsvckeyth\",
-    \"email\": \"qcremin@example.org\",
-    \"username\": \"uhylolajzwqufzynhnyng\",
+    \"name\": \"zszefdouxtq\",
+    \"email\": \"rowena87@example.net\",
+    \"username\": \"fynaonzdrit\",
     \"language_id\": 19,
-    \"password\": \"QS?|@n6\",
-    \"password_confirmation\": \"wffglskzh\"
+    \"password\": \"z6#z~]n*2pu\",
+    \"password_confirmation\": \"rlluhansjnburaf\"
 }"
 </code></pre></div>
 
@@ -202,12 +208,12 @@ const headers = {
 };
 
 let body = {
-    "name": "qnqpumbsvckeyth",
-    "email": "qcremin@example.org",
-    "username": "uhylolajzwqufzynhnyng",
+    "name": "zszefdouxtq",
+    "email": "rowena87@example.net",
+    "username": "fynaonzdrit",
     "language_id": 19,
-    "password": "QS?|@n6",
-    "password_confirmation": "wffglskzh"
+    "password": "z6#z~]n*2pu",
+    "password_confirmation": "rlluhansjnburaf"
 };
 
 fetch(url, {
@@ -288,10 +294,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="name"                data-endpoint="POSTapi-auth-register"
-               value="qnqpumbsvckeyth"
+               value="zszefdouxtq"
                data-component="body">
     <br>
-<p>Must not be greater than 50 characters. Example: <code>qnqpumbsvckeyth</code></p>
+<p>Must not be greater than 50 characters. Example: <code>zszefdouxtq</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -299,10 +305,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="email"                data-endpoint="POSTapi-auth-register"
-               value="qcremin@example.org"
+               value="rowena87@example.net"
                data-component="body">
     <br>
-<p>Must be a valid email address. Must not be greater than 255 characters. Example: <code>qcremin@example.org</code></p>
+<p>Must be a valid email address. Must not be greater than 255 characters. Example: <code>rowena87@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>username</code></b>&nbsp;&nbsp;
@@ -310,10 +316,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="username"                data-endpoint="POSTapi-auth-register"
-               value="uhylolajzwqufzynhnyng"
+               value="fynaonzdrit"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>uhylolajzwqufzynhnyng</code></p>
+<p>Must not be greater than 255 characters. Example: <code>fynaonzdrit</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>language_id</code></b>&nbsp;&nbsp;
@@ -332,10 +338,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="password"                data-endpoint="POSTapi-auth-register"
-               value="QS?|@n6"
+               value="z6#z~]n*2pu"
                data-component="body">
     <br>
-<p>Must match the regex /^(?=.<em>[A-Za-z])(?=.</em>\d)(?=.<em>[@$!%</em>#?&amp;])[A-Za-z\d@$!%*#?&amp;]+$/. Must be at least 8 characters. Must not be greater than 32 characters. Example: <code>QS?|@n6</code></p>
+<p>Must match the regex /^(?=.<em>[A-Za-z])(?=.</em>\d)(?=.<em>[@$!%</em>#?&amp;])[A-Za-z\d@$!%<em>#?&amp;]+$/. Must be at least 8 characters. Must not be greater than 32 characters. Example: `z6#z~]n</em>2pu`</p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password_confirmation</code></b>&nbsp;&nbsp;
@@ -343,10 +349,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="password_confirmation"                data-endpoint="POSTapi-auth-register"
-               value="wffglskzh"
+               value="rlluhansjnburaf"
                data-component="body">
     <br>
-<p>Must match the regex /^(?=.<em>[A-Za-z])(?=.</em>\d)(?=.<em>[@$!%</em>#?&amp;])[A-Za-z\d@$!%*#?&amp;]+$/. Must be at least 8 characters. Must not be greater than 32 characters. Example: <code>wffglskzh</code></p>
+<p>Must match the regex /^(?=.<em>[A-Za-z])(?=.</em>\d)(?=.<em>[@$!%</em>#?&amp;])[A-Za-z\d@$!%*#?&amp;]+$/. Must be at least 8 characters. Must not be greater than 32 characters. Example: <code>rlluhansjnburaf</code></p>
         </div>
         </form>
 
@@ -367,9 +373,9 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"kohler.layla@example.com\",
-    \"password\": \"|}FlGucyw!_\",
-    \"device_token\": \"quae\"
+    \"email\": \"maxwell90@example.org\",
+    \"password\": \"CQmVW)*\",
+    \"device_token\": \"impedit\"
 }"
 </code></pre></div>
 
@@ -385,9 +391,9 @@ const headers = {
 };
 
 let body = {
-    "email": "kohler.layla@example.com",
-    "password": "|}FlGucyw!_",
-    "device_token": "quae"
+    "email": "maxwell90@example.org",
+    "password": "CQmVW)*",
+    "device_token": "impedit"
 };
 
 fetch(url, {
@@ -468,10 +474,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="email"                data-endpoint="POSTapi-auth-login"
-               value="kohler.layla@example.com"
+               value="maxwell90@example.org"
                data-component="body">
     <br>
-<p>Must be a valid email address. Must not be greater than 255 characters. Example: <code>kohler.layla@example.com</code></p>
+<p>Must be a valid email address. Must not be greater than 255 characters. Example: <code>maxwell90@example.org</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -479,10 +485,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="password"                data-endpoint="POSTapi-auth-login"
-               value="|}FlGucyw!_"
+               value="CQmVW)*"
                data-component="body">
     <br>
-<p>Must match the regex /^(?=.<em>[A-Za-z])(?=.</em>\d)(?=.<em>[@$!%</em>#?&amp;])[A-Za-z\d@$!%*#?&amp;]+$/. Must be at least 8 characters. Must not be greater than 32 characters. Example: <code>|}FlGucyw!_</code></p>
+<p>Must match the regex /^(?=.<em>[A-Za-z])(?=.</em>\d)(?=.<em>[@$!%</em>#?&amp;])[A-Za-z\d@$!%<em>#?&amp;]+$/. Must be at least 8 characters. Must not be greater than 32 characters. Example: `CQmVW)</em>`</p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>device_token</code></b>&nbsp;&nbsp;
@@ -490,10 +496,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="device_token"                data-endpoint="POSTapi-auth-login"
-               value="quae"
+               value="impedit"
                data-component="body">
     <br>
-<p>Example: <code>quae</code></p>
+<p>Example: <code>impedit</code></p>
         </div>
         </form>
 
@@ -514,7 +520,7 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"user\": 20
+    \"user\": 8
 }"
 </code></pre></div>
 
@@ -530,7 +536,7 @@ const headers = {
 };
 
 let body = {
-    "user": 20
+    "user": 8
 };
 
 fetch(url, {
@@ -627,10 +633,10 @@ access-control-allow-origin: *
  &nbsp;
                 <input type="number" style="display: none"
                name="user"                data-endpoint="GETapi-questions"
-               value="20"
+               value="8"
                data-component="body">
     <br>
-<p>Example: <code>20</code></p>
+<p>Example: <code>8</code></p>
         </div>
         </form>
 
@@ -651,9 +657,9 @@ access-control-allow-origin: *
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"question\": \"eos\",
-    \"answer\": 5,
-    \"language_id\": 20
+    \"question\": \"voluptates\",
+    \"answer\": 17,
+    \"language_id\": 19
 }"
 </code></pre></div>
 
@@ -669,9 +675,9 @@ const headers = {
 };
 
 let body = {
-    "question": "eos",
-    "answer": 5,
-    "language_id": 20
+    "question": "voluptates",
+    "answer": 17,
+    "language_id": 19
 };
 
 fetch(url, {
@@ -752,10 +758,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="question"                data-endpoint="POSTapi-questions-add"
-               value="eos"
+               value="voluptates"
                data-component="body">
     <br>
-<p>Example: <code>eos</code></p>
+<p>Example: <code>voluptates</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>answer</code></b>&nbsp;&nbsp;
@@ -763,10 +769,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="answer"                data-endpoint="POSTapi-questions-add"
-               value="5"
+               value="17"
                data-component="body">
     <br>
-<p>Example: <code>5</code></p>
+<p>Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>language_id</code></b>&nbsp;&nbsp;
@@ -774,10 +780,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="language_id"                data-endpoint="POSTapi-questions-add"
-               value="20"
+               value="19"
                data-component="body">
     <br>
-<p>Example: <code>20</code></p>
+<p>Example: <code>19</code></p>
         </div>
         </form>
 
@@ -798,7 +804,7 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id\": 8
+    \"id\": 10
 }"
 </code></pre></div>
 
@@ -814,7 +820,7 @@ const headers = {
 };
 
 let body = {
-    "id": 8
+    "id": 10
 };
 
 fetch(url, {
@@ -895,10 +901,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="id"                data-endpoint="DELETEapi-questions-delete"
-               value="8"
+               value="10"
                data-component="body">
     <br>
-<p>Example: <code>8</code></p>
+<p>Example: <code>10</code></p>
         </div>
         </form>
 
@@ -919,10 +925,10 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id\": 13,
-    \"question\": \"qui\",
-    \"answer\": 14,
-    \"language_id\": 9
+    \"id\": 14,
+    \"question\": \"quis\",
+    \"answer\": 3,
+    \"language_id\": 20
 }"
 </code></pre></div>
 
@@ -938,10 +944,10 @@ const headers = {
 };
 
 let body = {
-    "id": 13,
-    "question": "qui",
-    "answer": 14,
-    "language_id": 9
+    "id": 14,
+    "question": "quis",
+    "answer": 3,
+    "language_id": 20
 };
 
 fetch(url, {
@@ -1022,10 +1028,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="id"                data-endpoint="PUTapi-questions-update"
-               value="13"
+               value="14"
                data-component="body">
     <br>
-<p>Example: <code>13</code></p>
+<p>Example: <code>14</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>question</code></b>&nbsp;&nbsp;
@@ -1033,10 +1039,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="question"                data-endpoint="PUTapi-questions-update"
-               value="qui"
+               value="quis"
                data-component="body">
     <br>
-<p>Example: <code>qui</code></p>
+<p>Example: <code>quis</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>answer</code></b>&nbsp;&nbsp;
@@ -1044,10 +1050,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="answer"                data-endpoint="PUTapi-questions-update"
-               value="14"
+               value="3"
                data-component="body">
     <br>
-<p>Example: <code>14</code></p>
+<p>Example: <code>3</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>language_id</code></b>&nbsp;&nbsp;
@@ -1055,10 +1061,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="language_id"                data-endpoint="PUTapi-questions-update"
-               value="9"
+               value="20"
                data-component="body">
     <br>
-<p>Example: <code>9</code></p>
+<p>Example: <code>20</code></p>
         </div>
         </form>
 
@@ -1079,7 +1085,7 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"user\": 4
+    \"user\": 7
 }"
 </code></pre></div>
 
@@ -1095,7 +1101,7 @@ const headers = {
 };
 
 let body = {
-    "user": 4
+    "user": 7
 };
 
 fetch(url, {
@@ -1192,10 +1198,10 @@ access-control-allow-origin: *
  &nbsp;
                 <input type="number" style="display: none"
                name="user"                data-endpoint="GETapi-punishments"
-               value="4"
+               value="7"
                data-component="body">
     <br>
-<p>Example: <code>4</code></p>
+<p>Example: <code>7</code></p>
         </div>
         </form>
 
@@ -1216,8 +1222,8 @@ access-control-allow-origin: *
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"punishment\": \"aspernatur\",
-    \"language_id\": 8
+    \"punishment\": \"omnis\",
+    \"language_id\": 1
 }"
 </code></pre></div>
 
@@ -1233,8 +1239,8 @@ const headers = {
 };
 
 let body = {
-    "punishment": "aspernatur",
-    "language_id": 8
+    "punishment": "omnis",
+    "language_id": 1
 };
 
 fetch(url, {
@@ -1315,10 +1321,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="punishment"                data-endpoint="POSTapi-punishments-add"
-               value="aspernatur"
+               value="omnis"
                data-component="body">
     <br>
-<p>Example: <code>aspernatur</code></p>
+<p>Example: <code>omnis</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>language_id</code></b>&nbsp;&nbsp;
@@ -1326,10 +1332,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="language_id"                data-endpoint="POSTapi-punishments-add"
-               value="8"
+               value="1"
                data-component="body">
     <br>
-<p>Example: <code>8</code></p>
+<p>Example: <code>1</code></p>
         </div>
         </form>
 
@@ -1350,7 +1356,7 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id\": 7
+    \"id\": 2
 }"
 </code></pre></div>
 
@@ -1366,7 +1372,7 @@ const headers = {
 };
 
 let body = {
-    "id": 7
+    "id": 2
 };
 
 fetch(url, {
@@ -1447,10 +1453,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="id"                data-endpoint="DELETEapi-punishments-delete"
-               value="7"
+               value="2"
                data-component="body">
     <br>
-<p>Example: <code>7</code></p>
+<p>Example: <code>2</code></p>
         </div>
         </form>
 
@@ -1471,9 +1477,9 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id\": 3,
-    \"punishment\": \"fugit\",
-    \"language_id\": 1
+    \"id\": 20,
+    \"punishment\": \"voluptatem\",
+    \"language_id\": 2
 }"
 </code></pre></div>
 
@@ -1489,9 +1495,9 @@ const headers = {
 };
 
 let body = {
-    "id": 3,
-    "punishment": "fugit",
-    "language_id": 1
+    "id": 20,
+    "punishment": "voluptatem",
+    "language_id": 2
 };
 
 fetch(url, {
@@ -1572,10 +1578,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="id"                data-endpoint="PUTapi-punishments-update"
-               value="3"
+               value="20"
                data-component="body">
     <br>
-<p>Example: <code>3</code></p>
+<p>Example: <code>20</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>punishment</code></b>&nbsp;&nbsp;
@@ -1583,10 +1589,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="punishment"                data-endpoint="PUTapi-punishments-update"
-               value="fugit"
+               value="voluptatem"
                data-component="body">
     <br>
-<p>Example: <code>fugit</code></p>
+<p>Example: <code>voluptatem</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>language_id</code></b>&nbsp;&nbsp;
@@ -1594,10 +1600,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="language_id"                data-endpoint="PUTapi-punishments-update"
-               value="1"
+               value="2"
                data-component="body">
     <br>
-<p>Example: <code>1</code></p>
+<p>Example: <code>2</code></p>
         </div>
         </form>
 
@@ -1732,11 +1738,7 @@ access-control-allow-origin: *
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost/api/rooms/details" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"room_id\": 3
-}"
-</code></pre></div>
+    --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -1749,14 +1751,9 @@ const headers = {
     "Accept": "application/json",
 };
 
-let body = {
-    "room_id": 3
-};
-
 fetch(url, {
     method: "GET",
     headers,
-    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -1840,19 +1837,7 @@ access-control-allow-origin: *
     <br>
 <p>Example: <code>application/json</code></p>
             </div>
-                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>room_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               name="room_id"                data-endpoint="GETapi-rooms-details"
-               value="3"
-               data-component="body">
-    <br>
-<p>Example: <code>3</code></p>
-        </div>
-        </form>
+                        </form>
 
                     <h2 id="endpoints-POSTapi-rooms-create">POST api/rooms/create</h2>
 
@@ -1871,11 +1856,11 @@ access-control-allow-origin: *
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"et\",
-    \"language_id\": 5,
+    \"name\": \"adipisci\",
+    \"language_id\": 13,
     \"is_private\": false,
-    \"password\": \"3}U@z-:[Sv`\",
-    \"password_confirmation\": \"xjwwrqucefhhjh\"
+    \"password\": \"h)hA||(Azx=6L1PfrS\",
+    \"password_confirmation\": \"oelovycbnnicslypotzkgzqhz\"
 }"
 </code></pre></div>
 
@@ -1891,11 +1876,11 @@ const headers = {
 };
 
 let body = {
-    "name": "et",
-    "language_id": 5,
+    "name": "adipisci",
+    "language_id": 13,
     "is_private": false,
-    "password": "3}U@z-:[Sv`",
-    "password_confirmation": "xjwwrqucefhhjh"
+    "password": "h)hA||(Azx=6L1PfrS",
+    "password_confirmation": "oelovycbnnicslypotzkgzqhz"
 };
 
 fetch(url, {
@@ -1976,10 +1961,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="name"                data-endpoint="POSTapi-rooms-create"
-               value="et"
+               value="adipisci"
                data-component="body">
     <br>
-<p>Example: <code>et</code></p>
+<p>Example: <code>adipisci</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>language_id</code></b>&nbsp;&nbsp;
@@ -1987,10 +1972,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="language_id"                data-endpoint="POSTapi-rooms-create"
-               value="5"
+               value="13"
                data-component="body">
     <br>
-<p>Example: <code>5</code></p>
+<p>Example: <code>13</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>is_private</code></b>&nbsp;&nbsp;
@@ -2019,10 +2004,10 @@ fetch(url, {
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                name="password"                data-endpoint="POSTapi-rooms-create"
-               value="3}U@z-:[Sv`"
+               value="h)hA||(Azx=6L1PfrS"
                data-component="body">
     <br>
-<p>This field is required when <code>is_private</code> is <code>true</code>.  Must match the regex /^(?=.<em>[A-Za-z])(?=.</em>\d)(?=.<em>[@$!%</em>#?&amp;])[A-Za-z\d@$!%*#?&amp;]+$/. Must be at least 8 characters. Must not be greater than 32 characters. Example: `3}U@z-:[Sv``</p>
+<p>This field is required when <code>is_private</code> is <code>true</code>.  Must match the regex /^(?=.<em>[A-Za-z])(?=.</em>\d)(?=.<em>[@$!%</em>#?&amp;])[A-Za-z\d@$!%*#?&amp;]+$/. Must be at least 8 characters. Must not be greater than 32 characters. Example: <code>h)hA||(Azx=6L1PfrS</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password_confirmation</code></b>&nbsp;&nbsp;
@@ -2030,10 +2015,10 @@ fetch(url, {
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                name="password_confirmation"                data-endpoint="POSTapi-rooms-create"
-               value="xjwwrqucefhhjh"
+               value="oelovycbnnicslypotzkgzqhz"
                data-component="body">
     <br>
-<p>This field is required when <code>is_private</code> is <code>true</code>.  Must match the regex /^(?=.<em>[A-Za-z])(?=.</em>\d)(?=.<em>[@$!%</em>#?&amp;])[A-Za-z\d@$!%*#?&amp;]+$/. Must be at least 8 characters. Must not be greater than 32 characters. Example: <code>xjwwrqucefhhjh</code></p>
+<p>This field is required when <code>is_private</code> is <code>true</code>.  Must match the regex /^(?=.<em>[A-Za-z])(?=.</em>\d)(?=.<em>[@$!%</em>#?&amp;])[A-Za-z\d@$!%*#?&amp;]+$/. Must be at least 8 characters. Must not be greater than 32 characters. Example: <code>oelovycbnnicslypotzkgzqhz</code></p>
         </div>
         </form>
 
@@ -2052,11 +2037,7 @@ fetch(url, {
     <pre><code class="language-bash">curl --request DELETE \
     "http://localhost/api/rooms/close" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"room_id\": 13
-}"
-</code></pre></div>
+    --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -2069,14 +2050,9 @@ const headers = {
     "Accept": "application/json",
 };
 
-let body = {
-    "room_id": 13
-};
-
 fetch(url, {
     method: "DELETE",
     headers,
-    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -2144,19 +2120,123 @@ fetch(url, {
     <br>
 <p>Example: <code>application/json</code></p>
             </div>
-                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>room_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
+                        </form>
+
+                    <h2 id="endpoints-GETapi-rooms-user-questions-not-in-room">GET api/rooms/user-questions-not-in-room</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-rooms-user-questions-not-in-room">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/rooms/user-questions-not-in-room" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/rooms/user-questions-not-in-room"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-rooms-user-questions-not-in-room">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-rooms-user-questions-not-in-room" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-rooms-user-questions-not-in-room"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-rooms-user-questions-not-in-room" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-rooms-user-questions-not-in-room" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-rooms-user-questions-not-in-room"></code></pre>
+</span>
+<form id="form-GETapi-rooms-user-questions-not-in-room" data-method="GET"
+      data-path="api/rooms/user-questions-not-in-room"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-rooms-user-questions-not-in-room', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-rooms-user-questions-not-in-room"
+                    onclick="tryItOut('GETapi-rooms-user-questions-not-in-room');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-rooms-user-questions-not-in-room"
+                    onclick="cancelTryOut('GETapi-rooms-user-questions-not-in-room');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-rooms-user-questions-not-in-room" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/rooms/user-questions-not-in-room</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
  &nbsp;
-                <input type="number" style="display: none"
-               name="room_id"                data-endpoint="DELETEapi-rooms-close"
-               value="13"
-               data-component="body">
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="GETapi-rooms-user-questions-not-in-room"
+               value="application/json"
+               data-component="header">
     <br>
-<p>Example: <code>13</code></p>
-        </div>
-        </form>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="GETapi-rooms-user-questions-not-in-room"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
 
                     <h2 id="endpoints-POSTapi-rooms-add-questions">POST api/rooms/add-questions</h2>
 
@@ -2176,9 +2256,8 @@ fetch(url, {
     --header "Accept: application/json" \
     --data "{
     \"questions\": [
-        6
-    ],
-    \"room_id\": 7
+        11
+    ]
 }"
 </code></pre></div>
 
@@ -2195,9 +2274,8 @@ const headers = {
 
 let body = {
     "questions": [
-        6
-    ],
-    "room_id": 7
+        11
+    ]
 };
 
 fetch(url, {
@@ -2285,17 +2363,6 @@ fetch(url, {
     <br>
 
         </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>room_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               name="room_id"                data-endpoint="POSTapi-rooms-add-questions"
-               value="7"
-               data-component="body">
-    <br>
-<p>Example: <code>7</code></p>
-        </div>
         </form>
 
                     <h2 id="endpoints-DELETEapi-rooms-delete-questions">DELETE api/rooms/delete-questions</h2>
@@ -2316,9 +2383,8 @@ fetch(url, {
     --header "Accept: application/json" \
     --data "{
     \"questions\": [
-        8
-    ],
-    \"room_id\": 4
+        9
+    ]
 }"
 </code></pre></div>
 
@@ -2335,9 +2401,8 @@ const headers = {
 
 let body = {
     "questions": [
-        8
-    ],
-    "room_id": 4
+        9
+    ]
 };
 
 fetch(url, {
@@ -2425,18 +2490,123 @@ fetch(url, {
     <br>
 
         </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>room_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               name="room_id"                data-endpoint="DELETEapi-rooms-delete-questions"
-               value="4"
-               data-component="body">
-    <br>
-<p>Example: <code>4</code></p>
-        </div>
         </form>
+
+                    <h2 id="endpoints-GETapi-rooms-user-punishments-not-in-room">GET api/rooms/user-punishments-not-in-room</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-rooms-user-punishments-not-in-room">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/rooms/user-punishments-not-in-room" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/rooms/user-punishments-not-in-room"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-rooms-user-punishments-not-in-room">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-rooms-user-punishments-not-in-room" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-rooms-user-punishments-not-in-room"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-rooms-user-punishments-not-in-room" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-rooms-user-punishments-not-in-room" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-rooms-user-punishments-not-in-room"></code></pre>
+</span>
+<form id="form-GETapi-rooms-user-punishments-not-in-room" data-method="GET"
+      data-path="api/rooms/user-punishments-not-in-room"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-rooms-user-punishments-not-in-room', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-rooms-user-punishments-not-in-room"
+                    onclick="tryItOut('GETapi-rooms-user-punishments-not-in-room');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-rooms-user-punishments-not-in-room"
+                    onclick="cancelTryOut('GETapi-rooms-user-punishments-not-in-room');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-rooms-user-punishments-not-in-room" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/rooms/user-punishments-not-in-room</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="GETapi-rooms-user-punishments-not-in-room"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="GETapi-rooms-user-punishments-not-in-room"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
 
                     <h2 id="endpoints-POSTapi-rooms-add-punishments">POST api/rooms/add-punishments</h2>
 
@@ -2456,9 +2626,8 @@ fetch(url, {
     --header "Accept: application/json" \
     --data "{
     \"punishments\": [
-        14
-    ],
-    \"room_id\": 18
+        10
+    ]
 }"
 </code></pre></div>
 
@@ -2475,9 +2644,8 @@ const headers = {
 
 let body = {
     "punishments": [
-        14
-    ],
-    "room_id": 18
+        10
+    ]
 };
 
 fetch(url, {
@@ -2565,17 +2733,6 @@ fetch(url, {
     <br>
 
         </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>room_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               name="room_id"                data-endpoint="POSTapi-rooms-add-punishments"
-               value="18"
-               data-component="body">
-    <br>
-<p>Example: <code>18</code></p>
-        </div>
         </form>
 
                     <h2 id="endpoints-DELETEapi-rooms-delete-punishments">DELETE api/rooms/delete-punishments</h2>
@@ -2596,9 +2753,8 @@ fetch(url, {
     --header "Accept: application/json" \
     --data "{
     \"punishments\": [
-        4
-    ],
-    \"room_id\": 16
+        9
+    ]
 }"
 </code></pre></div>
 
@@ -2615,9 +2771,8 @@ const headers = {
 
 let body = {
     "punishments": [
-        4
-    ],
-    "room_id": 16
+        9
+    ]
 };
 
 fetch(url, {
@@ -2705,17 +2860,6 @@ fetch(url, {
     <br>
 
         </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>room_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               name="room_id"                data-endpoint="DELETEapi-rooms-delete-punishments"
-               value="16"
-               data-component="body">
-    <br>
-<p>Example: <code>16</code></p>
-        </div>
         </form>
 
                     <h2 id="endpoints-POSTapi-rooms-enter">POST api/rooms/enter</h2>
@@ -2735,9 +2879,9 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"room_id\": 20,
-    \"is_private\": true,
-    \"password\": \"hTgf\\/XT!O&gt;&gt;;HoMY\"
+    \"room_id\": 3,
+    \"is_private\": false,
+    \"password\": \"@AxldOAQih:ujHxGO\"
 }"
 </code></pre></div>
 
@@ -2753,9 +2897,9 @@ const headers = {
 };
 
 let body = {
-    "room_id": 20,
-    "is_private": true,
-    "password": "hTgf\/XT!O&gt;&gt;;HoMY"
+    "room_id": 3,
+    "is_private": false,
+    "password": "@AxldOAQih:ujHxGO"
 };
 
 fetch(url, {
@@ -2836,10 +2980,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="room_id"                data-endpoint="POSTapi-rooms-enter"
-               value="20"
+               value="3"
                data-component="body">
     <br>
-<p>Example: <code>20</code></p>
+<p>Example: <code>3</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>is_private</code></b>&nbsp;&nbsp;
@@ -2860,7 +3004,7 @@ fetch(url, {
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -2868,10 +3012,10 @@ fetch(url, {
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                name="password"                data-endpoint="POSTapi-rooms-enter"
-               value="hTgf/XT!O>>;HoMY"
+               value="@AxldOAQih:ujHxGO"
                data-component="body">
     <br>
-<p>This field is required when <code>is_private</code> is <code>true</code>.  Must match the regex /^(?=.<em>[A-Za-z])(?=.</em>\d)(?=.<em>[@$!%</em>#?&amp;])[A-Za-z\d@$!%*#?&amp;]+$/. Must be at least 8 characters. Must not be greater than 32 characters. Example: <code>hTgf/XT!O&gt;&gt;;HoMY</code></p>
+<p>This field is required when <code>is_private</code> is <code>true</code>.  Must match the regex /^(?=.<em>[A-Za-z])(?=.</em>\d)(?=.<em>[@$!%</em>#?&amp;])[A-Za-z\d@$!%*#?&amp;]+$/. Must be at least 8 characters. Must not be greater than 32 characters. Example: <code>@AxldOAQih:ujHxGO</code></p>
         </div>
         </form>
 
@@ -2890,11 +3034,7 @@ fetch(url, {
     <pre><code class="language-bash">curl --request POST \
     "http://localhost/api/rooms/leave" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"room_id\": 6
-}"
-</code></pre></div>
+    --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -2907,14 +3047,9 @@ const headers = {
     "Accept": "application/json",
 };
 
-let body = {
-    "room_id": 6
-};
-
 fetch(url, {
     method: "POST",
     headers,
-    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -2982,19 +3117,7 @@ fetch(url, {
     <br>
 <p>Example: <code>application/json</code></p>
             </div>
-                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>room_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               name="room_id"                data-endpoint="POSTapi-rooms-leave"
-               value="6"
-               data-component="body">
-    <br>
-<p>Example: <code>6</code></p>
-        </div>
-        </form>
+                        </form>
 
             
 

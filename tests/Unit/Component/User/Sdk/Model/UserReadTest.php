@@ -8,14 +8,13 @@ use Tests\TestCase;
 class UserReadTest extends TestCase
 {
     private UserRead $userReadModel;
-
     private int $id;
-
     private string $name;
-
     private string $username;
-
     private string $email;
+    private int $roomId;
+    private bool $inRoom;
+
 
     public function test_GetId_ShouldReturnUserId(): void
     {
@@ -39,9 +38,13 @@ class UserReadTest extends TestCase
 
     public function test_GetRoomId_ShouldReturnRoomId(): void
     {
-        $roomId = 1;
-        $this->userReadModel->setRoomId($roomId);
-        $this->assertSame($roomId, $this->userReadModel->getRoomId());
+        $this->userReadModel->setRoomId($this->roomId);
+        $this->assertSame($this->roomId, $this->userReadModel->getRoomId());
+    }
+
+    public function test_IsInRoom(): void
+    {
+        $this->assertTrue($this->userReadModel->isInRoom());
     }
 
     protected function setUp(): void
@@ -52,12 +55,15 @@ class UserReadTest extends TestCase
         $this->name = 'name';
         $this->username = 'username';
         $this->email = 'example@email.com';
+        $this->roomId = 1;
+        $this->inRoom = true;
 
         $this->userReadModel = new UserRead(
             $this->id,
             $this->name,
             $this->username,
-            $this->email
+            $this->email,
+            $this->inRoom
         );
     }
 }

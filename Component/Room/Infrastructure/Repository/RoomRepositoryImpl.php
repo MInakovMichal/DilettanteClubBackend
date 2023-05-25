@@ -5,10 +5,8 @@ namespace Component\Room\Infrastructure\Repository;
 use Component\Room\Infrastructure\Mapper\RoomEntityMapper;
 use Component\Room\Sdk\Contract\AddPunishmentsToRoomContract;
 use Component\Room\Sdk\Contract\AddQuestionsToRoomContract;
-use Component\Room\Sdk\Contract\CloseRoomContract;
 use Component\Room\Sdk\Contract\CreateRoomContract;
 use Component\Room\Sdk\Contract\UserEnterRoomContract;
-use Component\Room\Sdk\Contract\UserLeaveRoomContract;
 use Component\Room\Sdk\Model\RoomRead;
 
 class RoomRepositoryImpl implements RoomRepository
@@ -63,9 +61,8 @@ class RoomRepositoryImpl implements RoomRepository
         $this->roomUserRepository->userEnterRoom($contract->getRoomId(), $authUserId);
     }
 
-    public function addQuestionsToRoom(AddQuestionsToRoomContract $contract): void
+    public function addQuestionsToRoom(AddQuestionsToRoomContract $contract, int $roomId): void
     {
-        $roomId = $contract->getRoomId();
         $questionsId = $contract->getQuestions();
 
         foreach ($questionsId as $questionId) {
@@ -73,9 +70,8 @@ class RoomRepositoryImpl implements RoomRepository
         }
     }
 
-    public function addPunishmentsToRoom(AddPunishmentsToRoomContract $contract): void
+    public function addPunishmentsToRoom(AddPunishmentsToRoomContract $contract, int $roomId): void
     {
-        $roomId = $contract->getRoomId();
         $punishmentsId = $contract->getPunishments();
 
         foreach ($punishmentsId as $punishmentId) {
@@ -102,9 +98,9 @@ class RoomRepositoryImpl implements RoomRepository
         $this->roomPunishmentRepository->deletePunishmentFromRoom($roomId, $punishmentId);
     }
 
-    public function userLeaveRoom(UserLeaveRoomContract $contract, int $authUserId): void
+    public function userLeaveRoom(int $roomId, int $authUserId): void
     {
-        $this->roomUserRepository->userLeaveRoom($contract->getRoomId(), $authUserId);
+        $this->roomUserRepository->userLeaveRoom($roomId, $authUserId);
     }
 
     /**
@@ -127,9 +123,9 @@ class RoomRepositoryImpl implements RoomRepository
         return $this->databaseRepository->getAllUserPunishmentsInRoom($authUserId, $roomId);
     }
 
-    public function closeRoom(CloseRoomContract $contract, int $authUserId): void
+    public function closeRoom(int $roomId, int $authUserId): void
     {
-        $this->repository->closeRoom($contract, $authUserId);
+        $this->repository->closeRoom($roomId, $authUserId);
     }
 
     public function findByIdOrFail(int $id): RoomRead
@@ -143,5 +139,23 @@ class RoomRepositoryImpl implements RoomRepository
     public function getAllPublicRoomsWithUsersCount(): array
     {
         return $this->databaseRepository->getAllPublicRoomsWithUsersCount();
+    }
+
+    /**
+     * @return array<array-key, mixed>
+     */
+    public function getUserQuestionsNotInRoom(int $authUserId, int $roomId): array
+    {
+        return $this->databaseRepository->getUserQuestionsNotInRoom($authUserId, $roomId);
+    }
+
+    /**
+     * @param int $authUserId
+     * @param int $roomId
+     * @return array<array-key, mixed>
+     */
+    public function getUserPunishmentsNotInRoom(int $authUserId, int $roomId): array
+    {
+        return $this->databaseRepository->getUserPunishmentsNotInRoom($authUserId, $roomId);
     }
 }

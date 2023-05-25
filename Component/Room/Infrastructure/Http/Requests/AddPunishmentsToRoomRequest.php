@@ -20,7 +20,6 @@ class AddPunishmentsToRoomRequest extends FormRequest implements AddPunishmentsT
         return [
             'punishments' => ['required', 'array', 'min:1'],
             'punishments.*' => ['required', 'int', 'distinct', 'exists:punishments,id'],
-            'room_id' => ['required', 'int', 'exists:rooms,id']
         ];
     }
 
@@ -43,11 +42,6 @@ class AddPunishmentsToRoomRequest extends FormRequest implements AddPunishmentsT
                 'distinct' => 'Each punishment item must be unique.',
                 'exists' => 'Each punishment item is invalid.',
             ],
-            'room_id' => [
-                'required' => 'The room_id field is required.',
-                'int' => 'The room_id field must be an integer.',
-                'exists' => 'The selected room_id is invalid.',
-            ],
         ];
     }
 
@@ -57,13 +51,5 @@ class AddPunishmentsToRoomRequest extends FormRequest implements AddPunishmentsT
         $punishments = $this->get('punishments');
 
         return $punishments;
-    }
-
-    public function getRoomId(): int
-    {
-        /** @var int $roomId */
-        $roomId = $this->get('room_id');
-
-        return $roomId;
     }
 }

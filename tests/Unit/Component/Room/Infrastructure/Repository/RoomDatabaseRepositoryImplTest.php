@@ -75,6 +75,42 @@ class RoomDatabaseRepositoryImplTest extends TestCase
         $this->assertSame($roomsCount, count($publicRooms));
     }
 
+    public function test_GetUserQuestionsNotInRoom_ShouldReturnArrayWithTenItems(): void
+    {
+        $questionsCount = 20;
+        $questionsInRoomCount = $questionsCount / 2;
+
+        $questions = Question::factory($questionsCount)->create(['user_id' => $this->user->getId()]);
+
+        $room = Room::factory()->create();
+
+        foreach ($questions->take($questionsInRoomCount) as $question) {
+            RoomQuestion::factory()->create(['room_id' => $room->getId(), 'question_id' => $question->getId()]);
+        }
+
+        $questionNotInRoom = $this->repositoryImpl->getUserQuestionsNotInRoom($this->user->getId(), $room->getId());
+
+        $this->assertSame($questionsInRoomCount, count($questionNotInRoom));
+    }
+
+    public function test_GetUserPunishmentsNotInRoom_ShouldReturnArrayWithTenItems(): void
+    {
+        $punishmentCount = 20;
+        $punishmentInRoomCount = $punishmentCount / 2;
+
+        $punishments = Punishment::factory($punishmentCount)->create(['user_id' => $this->user->getId()]);
+
+        $room = Room::factory()->create();
+
+        foreach ($punishments->take($punishmentInRoomCount) as $punishment) {
+            RoomPunishment::factory()->create(['room_id' => $room->getId(), 'punishment_id' => $punishment->getId()]);
+        }
+
+        $punishmentNotInRoom = $this->repositoryImpl->getUserPunishmentsNotInRoom($this->user->getId(), $room->getId());
+
+        $this->assertSame($punishmentInRoomCount, count($punishmentNotInRoom));
+    }
+
     protected function setUp(): void
     {
         parent::setUp();

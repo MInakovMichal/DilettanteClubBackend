@@ -4,7 +4,6 @@ namespace Component\Room\Infrastructure\Checker;
 
 use Common\Exception\InvalidArgumentException;
 use Component\Room\Infrastructure\Repository\RoomEntityRepository;
-use Component\Room\Sdk\Contract\CloseRoomContract;
 
 class RoomAuthorCheckerImpl implements RoomAuthorChecker
 {
@@ -19,9 +18,9 @@ class RoomAuthorCheckerImpl implements RoomAuthorChecker
     }
 
 
-    public function check(CloseRoomContract $contract, int $authUserId): void
+    public function check(int $roomId, int $authUserId): void
     {
-        $room = $this->repository->findByIdOrFail($contract->getRoomId());
+        $room = $this->repository->findByIdOrFail($roomId);
 
         if ($room->getUserId() !== $authUserId) {
             throw new InvalidArgumentException('Can not remove not your own room');

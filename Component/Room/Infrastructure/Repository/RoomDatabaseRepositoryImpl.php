@@ -35,6 +35,45 @@ class RoomDatabaseRepositoryImpl implements RoomDatabaseRepository
     }
 
     /**
+     * @return array<array-key, mixed>
+     */
+    public function getAllPublicRoomsWithUsersCount(): array
+    {
+        return $this->db::select(
+            "SELECT r.id, r.name, r.user_id, l.code as language, DATE_FORMAT(r.created_at, '%Y-%m-%d %H:%i') AS created_at,  COALESCE(u.user_count, 0) AS users_count
+                    FROM rooms AS r
+                    LEFT JOIN (
+                        SELECT room_id, COUNT(*) AS user_count
+                        FROM room_users
+                        GROUP BY room_id
+                    ) AS u ON r.id = u.room_id
+                    LEFT JOIN languages l ON r.language_id  = l.id
+                    WHERE r.is_private != 1
+                    AND r.deleted_at IS NULL;"
+        );
+    }
+
+    public function getUserQuestionsNotInRoom(int $authUserId, int $roomId): array
+    {
+        $userQuestionsInRoom = $this->getAllUserQuestionsInRoom($authUserId, $roomId);
+
+        $ids = array_map(function ($question) {
+            /** @phpstan-ignore-next-line */
+            return $question->id;
+        }, $userQuestionsInRoom);
+
+        return $this->db::select(
+            "SELECT *
+                    FROM questions
+                    WHERE questions.id NOT IN ('" . implode("', '", $ids) . "')
+                    AND questions.user_id = :userId;",
+            [
+                "userId" => $authUserId,
+            ]
+        );
+    }
+
+    /**
      * @param int $authUserId
      * @param int $roomId
      * @return array<array-key, mixed>
@@ -59,6 +98,31 @@ class RoomDatabaseRepositoryImpl implements RoomDatabaseRepository
      * @param int $roomId
      * @return array<array-key, mixed>
      */
+    public function getUserPunishmentsNotInRoom(int $authUserId, int $roomId): array
+    {
+        $userPunishmentsInRoom = $this->getAllUserPunishmentsInRoom($authUserId, $roomId);
+
+        $ids = array_map(function ($punishment) {
+            /** @phpstan-ignore-next-line */
+            return $punishment->id;
+        }, $userPunishmentsInRoom);
+
+        return $this->db::select(
+            "SELECT *
+                    FROM punishments
+                    WHERE punishments.id NOT IN ('" . implode("', '", $ids) . "')
+                    AND punishments.user_id = :userId;",
+            [
+                "userId" => $authUserId,
+            ]
+        );
+    }
+
+    /**
+     * @param int $authUserId
+     * @param int $roomId
+     * @return array<array-key, mixed>
+     */
     public function getAllUserPunishmentsInRoom(int $authUserId, int $roomId): array
     {
         return $this->db::select(
@@ -71,25 +135,6 @@ class RoomDatabaseRepositoryImpl implements RoomDatabaseRepository
                 "userId" => $authUserId,
                 "roomId" => $roomId
             ]
-        );
-    }
-
-    /**
-     * @return array<array-key, mixed>
-     */
-    public function getAllPublicRoomsWithUsersCount(): array
-    {
-        return $this->db::select(
-            "SELECT r.id, r.name, r.user_id, l.code as language, DATE_FORMAT(r.created_at, '%Y-%m-%d %H:%i') AS created_at,  COALESCE(u.user_count, 0) AS users_count
-                    FROM rooms AS r
-                    LEFT JOIN (
-                        SELECT room_id, COUNT(*) AS user_count
-                        FROM room_users
-                        GROUP BY room_id
-                    ) AS u ON r.id = u.room_id
-                    LEFT JOIN languages l ON r.language_id  = l.id
-                    WHERE r.is_private != 1
-                    AND r.deleted_at IS NULL;"
         );
     }
 }

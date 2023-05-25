@@ -20,7 +20,6 @@ class AddQuestionsToRoomRequest extends FormRequest implements AddQuestionsToRoo
         return [
             'questions' => ['required', 'array', 'min:1'],
             'questions.*' => ['required', 'int', 'distinct', 'exists:questions,id'],
-            'room_id' => ['required', 'int', 'exists:rooms,id']
         ];
     }
 
@@ -43,11 +42,6 @@ class AddQuestionsToRoomRequest extends FormRequest implements AddQuestionsToRoo
                 'distinct' => 'Each question item must be unique.',
                 'exists' => 'Each question item is invalid.',
             ],
-            'room_id' => [
-                'required' => 'The room_id field is required.',
-                'int' => 'The room_id field must be an integer.',
-                'exists' => 'The selected room_id is invalid.',
-            ],
         ];
     }
 
@@ -57,13 +51,5 @@ class AddQuestionsToRoomRequest extends FormRequest implements AddQuestionsToRoo
         $questions = $this->get('questions');
 
         return $questions;
-    }
-
-    public function getRoomId(): int
-    {
-        /** @var int $roomId */
-        $roomId = $this->get('room_id');
-
-        return $roomId;
     }
 }

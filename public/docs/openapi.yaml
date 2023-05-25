@@ -40,15 +40,15 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 50 characters.'
-                  example: qnqpumbsvckeyth
+                  example: zszefdouxtq
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: qcremin@example.org
+                  example: rowena87@example.net
                 username:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: uhylolajzwqufzynhnyng
+                  example: fynaonzdrit
                 language_id:
                   type: number
                   description: 'Must not be greater than 255.'
@@ -56,11 +56,11 @@ paths:
                 password:
                   type: string
                   description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$/. Must be at least 8 characters. Must not be greater than 32 characters.'
-                  example: 'QS?|@n6'
+                  example: 'z6#z~]n*2pu'
                 password_confirmation:
                   type: string
                   description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$/. Must be at least 8 characters. Must not be greater than 32 characters.'
-                  example: wffglskzh
+                  example: rlluhansjnburaf
               required:
                 - name
                 - email
@@ -102,15 +102,15 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: kohler.layla@example.com
+                  example: maxwell90@example.org
                 password:
                   type: string
                   description: 'Must match the regex /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$/. Must be at least 8 characters. Must not be greater than 32 characters.'
-                  example: '|}FlGucyw!_'
+                  example: 'CQmVW)*'
                 device_token:
                   type: string
                   description: ''
-                  example: quae
+                  example: impedit
               required:
                 - email
                 - password
@@ -161,7 +161,7 @@ paths:
                 user:
                   type: integer
                   description: ''
-                  example: 20
+                  example: 8
               required:
                 - user
       security: []
@@ -198,15 +198,15 @@ paths:
                 question:
                   type: string
                   description: ''
-                  example: eos
+                  example: voluptates
                 answer:
                   type: integer
                   description: ''
-                  example: 5
+                  example: 17
                 language_id:
                   type: integer
                   description: ''
-                  example: 20
+                  example: 19
               required:
                 - question
                 - answer
@@ -245,7 +245,7 @@ paths:
                 id:
                   type: integer
                   description: ''
-                  example: 8
+                  example: 10
               required:
                 - id
       security: []
@@ -282,19 +282,19 @@ paths:
                 id:
                   type: integer
                   description: ''
-                  example: 13
+                  example: 14
                 question:
                   type: string
                   description: ''
-                  example: qui
+                  example: quis
                 answer:
                   type: integer
                   description: ''
-                  example: 14
+                  example: 3
                 language_id:
                   type: integer
                   description: ''
-                  example: 9
+                  example: 20
               required:
                 - id
                 - question
@@ -346,7 +346,7 @@ paths:
                 user:
                   type: integer
                   description: ''
-                  example: 4
+                  example: 7
               required:
                 - user
       security: []
@@ -383,11 +383,11 @@ paths:
                 punishment:
                   type: string
                   description: ''
-                  example: aspernatur
+                  example: omnis
                 language_id:
                   type: integer
                   description: ''
-                  example: 8
+                  example: 1
               required:
                 - punishment
                 - language_id
@@ -425,7 +425,7 @@ paths:
                 id:
                   type: integer
                   description: ''
-                  example: 7
+                  example: 2
               required:
                 - id
       security: []
@@ -462,15 +462,15 @@ paths:
                 id:
                   type: integer
                   description: ''
-                  example: 3
+                  example: 20
                 punishment:
                   type: string
                   description: ''
-                  example: fugit
+                  example: voluptatem
                 language_id:
                   type: integer
                   description: ''
-                  example: 1
+                  example: 2
               required:
                 - id
                 - punishment
@@ -547,19 +547,6 @@ paths:
                     example: Unauthenticated.
       tags:
         - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                room_id:
-                  type: integer
-                  description: ''
-                  example: 3
-              required:
-                - room_id
       security: []
   /api/rooms/create:
     post:
@@ -594,11 +581,11 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: et
+                  example: adipisci
                 language_id:
                   type: integer
                   description: ''
-                  example: 5
+                  example: 13
                 is_private:
                   type: boolean
                   description: ''
@@ -606,11 +593,11 @@ paths:
                 password:
                   type: string
                   description: 'This field is required when <code>is_private</code> is <code>true</code>.  Must match the regex /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$/. Must be at least 8 characters. Must not be greater than 32 characters.'
-                  example: '3}U@z-:[Sv`'
+                  example: h)hA||(Azx=6L1PfrS
                 password_confirmation:
                   type: string
                   description: 'This field is required when <code>is_private</code> is <code>true</code>.  Must match the regex /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$/. Must be at least 8 characters. Must not be greater than 32 characters.'
-                  example: xjwwrqucefhhjh
+                  example: oelovycbnnicslypotzkgzqhz
               required:
                 - name
                 - language_id
@@ -639,19 +626,42 @@ paths:
       responses: {  }
       tags:
         - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                room_id:
-                  type: integer
-                  description: ''
-                  example: 13
-              required:
-                - room_id
+      security: []
+  /api/rooms/user-questions-not-in-room:
+    get:
+      summary: ''
+      operationId: getApiRoomsUserQuestionsNotInRoom
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
       security: []
   /api/rooms/add-questions:
     post:
@@ -687,16 +697,11 @@ paths:
                   type: array
                   description: ''
                   example:
-                    - 6
+                    - 11
                   items:
                     type: integer
-                room_id:
-                  type: integer
-                  description: ''
-                  example: 7
               required:
                 - questions
-                - room_id
       security: []
   /api/rooms/delete-questions:
     delete:
@@ -732,16 +737,47 @@ paths:
                   type: array
                   description: ''
                   example:
-                    - 8
+                    - 9
                   items:
                     type: integer
-                room_id:
-                  type: integer
-                  description: ''
-                  example: 4
               required:
                 - questions
-                - room_id
+      security: []
+  /api/rooms/user-punishments-not-in-room:
+    get:
+      summary: ''
+      operationId: getApiRoomsUserPunishmentsNotInRoom
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
       security: []
   /api/rooms/add-punishments:
     post:
@@ -777,16 +813,11 @@ paths:
                   type: array
                   description: ''
                   example:
-                    - 14
+                    - 10
                   items:
                     type: integer
-                room_id:
-                  type: integer
-                  description: ''
-                  example: 18
               required:
                 - punishments
-                - room_id
       security: []
   /api/rooms/delete-punishments:
     delete:
@@ -822,16 +853,11 @@ paths:
                   type: array
                   description: ''
                   example:
-                    - 4
+                    - 9
                   items:
                     type: integer
-                room_id:
-                  type: integer
-                  description: ''
-                  example: 16
               required:
                 - punishments
-                - room_id
       security: []
   /api/rooms/enter:
     post:
@@ -866,15 +892,15 @@ paths:
                 room_id:
                   type: integer
                   description: ''
-                  example: 20
+                  example: 3
                 is_private:
                   type: boolean
                   description: ''
-                  example: true
+                  example: false
                 password:
                   type: string
                   description: 'This field is required when <code>is_private</code> is <code>true</code>.  Must match the regex /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]+$/. Must be at least 8 characters. Must not be greater than 32 characters.'
-                  example: hTgf/XT!O>>;HoMY
+                  example: '@AxldOAQih:ujHxGO'
               required:
                 - room_id
                 - is_private
@@ -902,19 +928,6 @@ paths:
       responses: {  }
       tags:
         - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                room_id:
-                  type: integer
-                  description: ''
-                  example: 6
-              required:
-                - room_id
       security: []
 tags:
   -

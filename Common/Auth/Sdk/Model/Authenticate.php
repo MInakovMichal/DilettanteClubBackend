@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Common\Auth\Sdk\Model;
 
+use Common\Exception\UserIsNotInRoomException;
+
 final class Authenticate
 {
     private string $token;
@@ -30,6 +32,19 @@ final class Authenticate
         return $this->authUser;
     }
 
+    public function getRoomId(): int
+    {
+        if (!self::isInRoom()) {
+            throw new UserIsNotInRoomException();
+        }
+        return $this->authUser->getRoomId();
+    }
+
+    public function isInRoom(): bool
+    {
+        return $this->authUser->isInRoom();
+    }
+
     /**
      * @return array<string, mixed>
      */
@@ -40,7 +55,7 @@ final class Authenticate
             'name' => $this->authUser->getName(),
             'email' => $this->authUser->getEmail(),
             'token' => $this->token,
-            'room_id' => $this->authUser->getRoomId()
+            'in_room' => $this->authUser->isInRoom()
         ];
     }
 }

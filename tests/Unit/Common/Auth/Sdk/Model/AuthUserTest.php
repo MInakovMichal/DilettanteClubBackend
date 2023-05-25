@@ -13,6 +13,7 @@ class AuthUserTest extends TestCase
     private string $name;
     private string $email;
     private int $roomId;
+    private bool $inRoom;
 
     public function test_GetId(): void
     {
@@ -34,6 +35,11 @@ class AuthUserTest extends TestCase
         $this->assertSame($this->roomId, $this->authUser->getRoomId());
     }
 
+    public function test_IsInRoom(): void
+    {
+        $this->assertTrue($this->authUser->isInRoom());
+    }
+
     protected function setUp(): void
     {
         parent::setUp();
@@ -41,12 +47,14 @@ class AuthUserTest extends TestCase
         $this->name = 'test_name';
         $this->email = 'test_email';
         $this->roomId = 1;
+        $this->inRoom = true;
 
         $userRead = new UserRead(
             $this->id,
             $this->name,
             'test_username',
-            $this->email
+            $this->email,
+            $this->inRoom
         );
 
         $userRead->setRoomId($this->roomId);
