@@ -263,29 +263,14 @@ class RoomFacadeImplTest extends TestCase
 
     public function test_GetRoomDetails_ShouldReturnArrayWithQuestionsAndPunishmentAndUsers(): void
     {
-        $count = 10;
-        $room = Room::factory()->create(['is_private' => false]);
-        RoomUser::factory()->create(['user_id' => $this->user->getId(), 'room_id' => $room->getId()]);
-        $questions = Question::factory($count)->create(['user_id' => $this->user->getId()]);
-        $punishments = Punishment::factory($count)->create(['user_id' => $this->user->getId()]);
-        $users = User::factory($count)->create();
-
-        foreach ($questions as $question) {
-            RoomQuestion::factory()->create(['question_id' => $question->getId(), 'room_id' => $room->getId()]);
-        }
-        foreach ($punishments as $punishment) {
-            RoomPunishment::factory()->create(['punishment_id' => $punishment->getId(), 'room_id' => $room->getId()]);
-        }
-        foreach ($users as $user) {
-            RoomUser::factory()->create(['user_id' => $user->getId(), 'room_id' => $room->getId()]);
-        }
+        $room = Room::factory()->create(['is_private' => false, 'user_id' => $this->user->getId()]);
 
         $roomDetails = $this->facadeImpl->getRoomDetails($room->getId(), $this->user->getId());
 
-        $this->assertArrayHasKey('room', $roomDetails);
-        $this->assertArrayHasKey('users', $roomDetails);
-        $this->assertArrayHasKey('questions', $roomDetails);
-        $this->assertArrayHasKey('punishments', $roomDetails);
+        $this->assertSame($room->getId(), $roomDetails['id']);
+        $this->assertSame($this->user->getId(), $roomDetails['user_id']);
+        $this->assertSame($room->getName(), $roomDetails['name']);
+        $this->assertSame($room->isPrivate(), $roomDetails['is_private']);
     }
 
     public function test_GetUserQuestionsNotInRoom_ShouldReturnArrayWithTenItems(): void

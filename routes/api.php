@@ -1,6 +1,7 @@
 <?php
 
 use Common\Auth\Infrastructure\Http\Controller\LoginController;
+use Common\Auth\Infrastructure\Http\Controller\LogoutController;
 use Common\Auth\Infrastructure\Http\Controller\RegisterController;
 use Component\Punishment\Infrastructure\Http\Controller\PunishmentController;
 use Component\Question\Infrastructure\Http\Controller\QuestionController;
@@ -22,6 +23,8 @@ Route::post('/auth/register', [RegisterController::class, 'register'])->name('us
 Route::post('/auth/login', [LoginController::class, 'login'])->name('user.login');
 
 Route::group(["middleware" => ["auth:api"],], static function () {
+    Route::post('/auth/logout', [LogoutController::class, 'logout'])->name('user.logout');
+
     Route::group(["prefix" => '/questions',], static function () {
         Route::get('/', [QuestionController::class, 'getAllQuestions'])->name('user.questions.all');
         Route::post('/add', [QuestionController::class, 'addQuestion'])->name('user.questions.add');
@@ -45,10 +48,12 @@ Route::group(["middleware" => ["auth:api"],], static function () {
         Route::delete('/close', [RoomController::class, 'closeRoom'])->name('user.rooms.close');
 
         Route::get('/user-questions-not-in-room', [RoomController::class, 'getUserQuestionsNotInRoom'])->name('user.rooms.questions_not_in_room');
+        Route::get('/user-questions-in-room', [RoomController::class, 'getUserQuestionsInRoom'])->name('user.rooms.questions_in_room');
         Route::post('/add-questions', [RoomController::class, 'addQuestionsToRoom'])->name('user.rooms.questions.add');
         Route::delete('/delete-questions', [RoomController::class, 'deleteQuestionsFromRoom'])->name('user.rooms.questions.delete');
 
         Route::get('/user-punishments-not-in-room', [RoomController::class, 'getUserPunishmentsNotInRoom'])->name('user.rooms.punishments_not_in_room');
+        Route::get('/user-punishments-in-room', [RoomController::class, 'getUserPunishmentsInRoom'])->name('user.rooms.punishments_in_room');
         Route::post('/add-punishments', [RoomController::class, 'addPunishmentsToRoom'])->name('user.rooms.punishments.add');
         Route::delete('/delete-punishments', [RoomController::class, 'deletePunishmentsFromRoom'])->name('user.rooms.punishments.delete');
 

@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "ClubBackend_api",
-        "_postman_id": "550d6679-9d2a-4e2b-a801-d5b35d2118cf",
+        "_postman_id": "bf39451c-788f-4a41-a8b0-05cb6e4785e0",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -41,7 +41,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"zszefdouxtq\",\"email\":\"rowena87@example.net\",\"username\":\"fynaonzdrit\",\"language_id\":19,\"password\":\"z6#z~]n*2pu\",\"password_confirmation\":\"rlluhansjnburaf\"}"
+                            "raw": "{\"name\":\"xggjkkjknycjau\",\"email\":\"simonis.wilber@example.net\",\"username\":\"swfpfoxcionhv\",\"language_id\":22,\"password\":\"~Bp(QfKn3fn\",\"password_confirmation\":\"jcxqgxyqnzqoygcuky\"}"
                         },
                         "description": "",
                         "auth": {
@@ -72,8 +72,36 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"maxwell90@example.org\",\"password\":\"CQmVW)*\",\"device_token\":\"impedit\"}"
+                            "raw": "{\"email\":\"rkutch@example.com\",\"password\":\"CYH=LTeP6:krV#+m\\\\tQ\",\"device_token\":\"fuga\"}"
                         },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "POST api\/auth\/logout",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/logout",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/logout"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
                         "description": "",
                         "auth": {
                             "type": "noauth"
@@ -103,7 +131,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"user\":8}"
+                            "raw": "{\"user\":18}"
                         },
                         "description": "",
                         "auth": {
@@ -154,7 +182,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"question\":\"voluptates\",\"answer\":17,\"language_id\":19}"
+                            "raw": "{\"question\":\"inventore\",\"answer\":13,\"language_id\":15}"
                         },
                         "description": "",
                         "auth": {
@@ -185,7 +213,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"id\":10}"
+                            "raw": "{\"id\":12}"
                         },
                         "description": "",
                         "auth": {
@@ -216,7 +244,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"id\":14,\"question\":\"quis\",\"answer\":3,\"language_id\":20}"
+                            "raw": "{\"id\":4,\"question\":\"ratione\",\"answer\":3,\"language_id\":7}"
                         },
                         "description": "",
                         "auth": {
@@ -247,7 +275,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"user\":7}"
+                            "raw": "{\"user\":1}"
                         },
                         "description": "",
                         "auth": {
@@ -298,7 +326,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"punishment\":\"omnis\",\"language_id\":1}"
+                            "raw": "{\"punishment\":\"ipsum\",\"language_id\":20}"
                         },
                         "description": "",
                         "auth": {
@@ -329,7 +357,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"id\":2}"
+                            "raw": "{\"id\":10}"
                         },
                         "description": "",
                         "auth": {
@@ -360,7 +388,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"id\":20,\"punishment\":\"voluptatem\",\"language_id\":2}"
+                            "raw": "{\"id\":6,\"punishment\":\"et\",\"language_id\":18}"
                         },
                         "description": "",
                         "auth": {
@@ -487,7 +515,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"adipisci\",\"language_id\":13,\"is_private\":false,\"password\":\"h)hA||(Azx=6L1PfrS\",\"password_confirmation\":\"oelovycbnnicslypotzkgzqhz\"}"
+                            "raw": "{\"name\":\"atque\",\"language_id\":6,\"is_private\":false,\"password\":\"A}-Tak=`B:g@\\\/5*XZ#$I\",\"password_confirmation\":\"zoclxuifbga\"}"
                         },
                         "description": "",
                         "auth": {
@@ -625,7 +653,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"questions\":[9]}"
+                            "raw": "{\"questions\":[8]}"
                         },
                         "description": "",
                         "auth": {
@@ -704,7 +732,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"punishments\":[10]}"
+                            "raw": "{\"punishments\":[6]}"
                         },
                         "description": "",
                         "auth": {
@@ -735,7 +763,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"punishments\":[9]}"
+                            "raw": "{\"punishments\":[2]}"
                         },
                         "description": "",
                         "auth": {
@@ -766,7 +794,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"room_id\":3,\"is_private\":false,\"password\":\"@AxldOAQih:ujHxGO\"}"
+                            "raw": "{\"room_id\":9,\"is_private\":false,\"password\":\"H{u?T2C[5T2\\\\[yl`Swb}\"}"
                         },
                         "description": "",
                         "auth": {

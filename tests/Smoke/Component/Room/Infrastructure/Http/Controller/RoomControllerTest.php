@@ -243,6 +243,22 @@ class RoomControllerTest extends TestCase
         $response->assertStatus(200);
     }
 
+    public function test_GetUserQuestionsInRoom(): void
+    {
+        $user = User::factory()->create();
+        $room = Room::factory()->create(['user_id' => $user->getId()]);
+
+        $user->setRoomId($room->getId());
+        $user->save();
+
+        $response = $this->actingAs($user, "api")->json(
+            "GET",
+            route("user.rooms.questions_in_room"),
+        );
+
+        $response->assertStatus(200);
+    }
+
     public function test_GetUserPunishmentsNotInRoom(): void
     {
         $user = User::factory()->create();
@@ -254,6 +270,22 @@ class RoomControllerTest extends TestCase
         $response = $this->actingAs($user, "api")->json(
             "GET",
             route("user.rooms.punishments_not_in_room"),
+        );
+
+        $response->assertStatus(200);
+    }
+
+    public function test_GetUserPunishmentsInRoom(): void
+    {
+        $user = User::factory()->create();
+        $room = Room::factory()->create(['user_id' => $user->getId()]);
+
+        $user->setRoomId($room->getId());
+        $user->save();
+
+        $response = $this->actingAs($user, "api")->json(
+            "GET",
+            route("user.rooms.punishments_in_room"),
         );
 
         $response->assertStatus(200);

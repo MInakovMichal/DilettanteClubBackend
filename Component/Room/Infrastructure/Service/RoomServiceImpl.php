@@ -150,16 +150,8 @@ class RoomServiceImpl implements RoomService
      */
     public function getRoomDetails(int $roomId, int $userId): array
     {
-        $questions = self::getAllUserQuestionsInRoom($userId, $roomId);
-        $punishments = self::getAllUserPunishmentsInRoom($userId, $roomId);
-        $users = self::getUsersInRoom($roomId);
         $room = self::findByIdOrFail($roomId);
-        return [
-            'room' => $room->toArray(),
-            'users' => $users,
-            'questions' => $questions,
-            'punishments' => $punishments
-        ];
+        return $room->toArray();
     }
 
     /**

@@ -150,5 +150,11 @@
                 <file name="*/*/Infrastructure/Repository/*DatabaseRepositoryImpl*"/>
             </errorLevel>
         </MixedPropertyFetch>
+
+        <UndefinedInterfaceMethod>
+            <errorLevel type="suppress">
+                <file name="Common/Auth/Infrastructure/Service/SocialiteServiceImpl.php"/>
+            </errorLevel>
+        </UndefinedInterfaceMethod>
     </issueHandlers>
 </psalm>

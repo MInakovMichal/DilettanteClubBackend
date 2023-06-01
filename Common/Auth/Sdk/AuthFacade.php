@@ -16,4 +16,6 @@ interface AuthFacade
     public function login(LoginContract $contract): Authenticate;
 
     public function register(RegisterContract $contract): UserRead;
+
+    public function logout(): void;
 }

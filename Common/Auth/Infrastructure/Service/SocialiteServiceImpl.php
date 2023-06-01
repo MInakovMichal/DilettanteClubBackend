@@ -62,4 +62,10 @@ class SocialiteServiceImpl implements SocialiteService
     {
         return $this->userFacade->createUser($contract);
     }
+
+    public function logout(): void
+    {
+        /** @phpstan-ignore-next-line */
+        auth()->logout();
+    }
 }

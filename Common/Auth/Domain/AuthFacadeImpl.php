@@ -40,4 +40,9 @@ class AuthFacadeImpl implements AuthFacade
     {
         return $this->socialiteService->register($contract);
     }
+
+    public function logout(): void
+    {
+        $this->socialiteService->logout();
+    }
 }

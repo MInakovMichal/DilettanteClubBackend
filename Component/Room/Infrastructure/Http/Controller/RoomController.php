@@ -118,19 +118,10 @@ class RoomController
         $this->userFacade->addRoomToUser($authUser->getAuthUserId(), $roomId);
 
         $room = $this->roomFacade->findByIdOrFail($roomId);
-        $questions = $this->roomFacade->getAllUserQuestionsInRoom($authUser->getAuthUserId(), $roomId);
-        $punishments = $this->roomFacade->getAllUserPunishmentsInRoom($authUser->getAuthUserId(), $roomId);
-
-        $usersInRoom = $this->roomFacade->getUsersInRoom($roomId);
 
         $message = 'User has entered into the room successfully';
 
-        return ApiResponse::successResponse([
-            'users' => $usersInRoom,
-            'questions' => $questions,
-            'punishments' => $punishments,
-            'room' => $room
-        ], $message);
+        return ApiResponse::successResponse($room, $message);
     }
 
     public function userLeaveRoom(BaseRequest $request): JsonResponse
@@ -183,6 +174,28 @@ class RoomController
         $punishments = $this->roomFacade->getUserPunishmentsNotInRoom($authUser->getAuthUserId(), $authUser->getRoomId());
 
         $message = 'Punishments which not in room was loaded successfully';
+
+        return ApiResponse::successResponse($punishments, $message);
+    }
+
+    public function getUserQuestionsInRoom(BaseRequest $request): JsonResponse
+    {
+        $authUser = $this->authFacade->current();
+
+        $questions = $this->roomFacade->getAllUserQuestionsInRoom($authUser->getAuthUserId(), $authUser->getRoomId());
+
+        $message = 'Questions which in room was loaded successfully';
+
+        return ApiResponse::successResponse($questions, $message);
+    }
+
+    public function getUserPunishmentsInRoom(BaseRequest $request): JsonResponse
+    {
+        $authUser = $this->authFacade->current();
+
+        $punishments = $this->roomFacade->getAllUserPunishmentsInRoom($authUser->getAuthUserId(), $authUser->getRoomId());
+
+        $message = 'Punishments which in room was loaded successfully';
 
         return ApiResponse::successResponse($punishments, $message);
     }

@@ -16,4 +16,6 @@ interface SocialiteService
     public function current(): Authenticate;
 
     public function register(RegisterContract $contract): UserRead;
+
+    public function logout(): void;
 }

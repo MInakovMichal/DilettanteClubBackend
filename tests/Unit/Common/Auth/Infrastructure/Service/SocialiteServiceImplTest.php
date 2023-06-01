@@ -13,6 +13,7 @@ use Common\Exception\UserWithProvidedCredentialsNotFoundException;
 use Component\User\Sdk\Model\UserRead;
 use Illuminate\Support\Facades\Auth;
 use Tests\TestCase;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class SocialiteServiceImplTest extends TestCase
 {
