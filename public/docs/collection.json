@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "ClubBackend_api",
-        "_postman_id": "bf39451c-788f-4a41-a8b0-05cb6e4785e0",
+        "_postman_id": "3c40cc03-b3b8-49f4-ac0c-5417c1003021",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -41,7 +41,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"xggjkkjknycjau\",\"email\":\"simonis.wilber@example.net\",\"username\":\"swfpfoxcionhv\",\"language_id\":22,\"password\":\"~Bp(QfKn3fn\",\"password_confirmation\":\"jcxqgxyqnzqoygcuky\"}"
+                            "raw": "{\"name\":\"mmchhpezipdjzlsvorllvm\",\"email\":\"bmetz@example.org\",\"username\":\"fujkxzzs\",\"language_id\":16,\"password\":\"h|f4kH$x*8D\",\"password_confirmation\":\"ayttsqfjqfydkreveoqa\"}"
                         },
                         "description": "",
                         "auth": {
@@ -72,7 +72,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"rkutch@example.com\",\"password\":\"CYH=LTeP6:krV#+m\\\\tQ\",\"device_token\":\"fuga\"}"
+                            "raw": "{\"email\":\"okuneva.leda@example.org\",\"password\":\"MW$o0#(q=TO&qG'\",\"device_token\":\"est\"}"
                         },
                         "description": "",
                         "auth": {
@@ -131,7 +131,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"user\":18}"
+                            "raw": "{\"user\":11}"
                         },
                         "description": "",
                         "auth": {
@@ -182,7 +182,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"question\":\"inventore\",\"answer\":13,\"language_id\":15}"
+                            "raw": "{\"question\":\"et\",\"answer\":3,\"language_id\":18}"
                         },
                         "description": "",
                         "auth": {
@@ -213,7 +213,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"id\":12}"
+                            "raw": "{\"id\":4}"
                         },
                         "description": "",
                         "auth": {
@@ -244,7 +244,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"id\":4,\"question\":\"ratione\",\"answer\":3,\"language_id\":7}"
+                            "raw": "{\"id\":16,\"question\":\"modi\",\"answer\":4,\"language_id\":20}"
                         },
                         "description": "",
                         "auth": {
@@ -275,7 +275,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"user\":1}"
+                            "raw": "{\"user\":19}"
                         },
                         "description": "",
                         "auth": {
@@ -326,7 +326,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"punishment\":\"ipsum\",\"language_id\":20}"
+                            "raw": "{\"punishment\":\"neque\",\"language_id\":12}"
                         },
                         "description": "",
                         "auth": {
@@ -357,7 +357,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"id\":10}"
+                            "raw": "{\"id\":4}"
                         },
                         "description": "",
                         "auth": {
@@ -388,7 +388,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"id\":6,\"punishment\":\"et\",\"language_id\":18}"
+                            "raw": "{\"id\":2,\"punishment\":\"facilis\",\"language_id\":4}"
                         },
                         "description": "",
                         "auth": {
@@ -515,7 +515,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"atque\",\"language_id\":6,\"is_private\":false,\"password\":\"A}-Tak=`B:g@\\\/5*XZ#$I\",\"password_confirmation\":\"zoclxuifbga\"}"
+                            "raw": "{\"name\":\"voluptatum\",\"language_id\":9,\"is_private\":false,\"password\":\"Gl:JeO8*-y1y4i%%<@s\",\"password_confirmation\":\"esbxqzgigacmwvpeimvmp\"}"
                         },
                         "description": "",
                         "auth": {
@@ -601,6 +601,54 @@
                     ]
                 },
                 {
+                    "name": "GET api\/rooms\/user-questions-in-room",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/rooms\/user-questions-in-room",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/rooms\/user-questions-in-room"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
                     "name": "POST api\/rooms\/add-questions",
                     "request": {
                         "url": {
@@ -622,7 +670,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"questions\":[11]}"
+                            "raw": "{\"questions\":[12]}"
                         },
                         "description": "",
                         "auth": {
@@ -653,7 +701,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"questions\":[8]}"
+                            "raw": "{\"questions\":[1]}"
                         },
                         "description": "",
                         "auth": {
@@ -670,6 +718,54 @@
                             "path": "api\/rooms\/user-punishments-not-in-room",
                             "query": [],
                             "raw": "{{baseUrl}}\/api\/rooms\/user-punishments-not-in-room"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/rooms\/user-punishments-in-room",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/rooms\/user-punishments-in-room",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/rooms\/user-punishments-in-room"
                         },
                         "method": "GET",
                         "header": [
@@ -732,7 +828,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"punishments\":[6]}"
+                            "raw": "{\"punishments\":[1]}"
                         },
                         "description": "",
                         "auth": {
@@ -763,7 +859,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"punishments\":[2]}"
+                            "raw": "{\"punishments\":[3]}"
                         },
                         "description": "",
                         "auth": {
@@ -794,7 +890,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"room_id\":9,\"is_private\":false,\"password\":\"H{u?T2C[5T2\\\\[yl`Swb}\"}"
+                            "raw": "{\"room_id\":11,\"is_private\":false,\"password\":\"4c\\\/[7{3yssUehy\"}"
                         },
                         "description": "",
                         "auth": {

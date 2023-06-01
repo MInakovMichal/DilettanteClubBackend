@@ -290,4 +290,22 @@ class RoomControllerTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    public function test_GetUsersInRoom(): void
+    {
+        $user = User::factory()->create();
+        $room = Room::factory()->create(['user_id' => $user->getId()]);
+
+        RoomUser::factory(10)->create(['room_id' => $room->getId()]);
+
+        $user->setRoomId($room->getId());
+        $user->save();
+
+        $response = $this->actingAs($user, "api")->json(
+            "GET",
+            route("user.rooms.users_in_room"),
+        );
+
+        $response->assertStatus(200);
+    }
 }

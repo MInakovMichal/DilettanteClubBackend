@@ -59,5 +59,7 @@ Route::group(["middleware" => ["auth:api"],], static function () {
 
         Route::post('/enter', [RoomController::class, 'userEnterRoom'])->name('user.rooms.users.enter');
         Route::post('/leave', [RoomController::class, 'userLeaveRoom'])->name('user.rooms.users.leave');
+
+        Route::get('/user-in-room', [RoomController::class, 'getUsersInRoom'])->name('user.rooms.users_in_room');
     });
 });

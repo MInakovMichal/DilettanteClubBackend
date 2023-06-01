@@ -199,4 +199,15 @@ class RoomController
 
         return ApiResponse::successResponse($punishments, $message);
     }
+
+    public function getUsersInRoom(BaseRequest $request): JsonResponse
+    {
+        $authUser = $this->authFacade->current();
+
+        $users = $this->roomFacade->getUsersInRoom($authUser->getRoomId());
+
+        $message = 'Users which in room was loaded successfully';
+
+        return ApiResponse::successResponse($users, $message);
+    }
 }
