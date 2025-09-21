@@ -35,5 +35,5 @@ echo 'Revoming docker container volumes (if any)'
 echo '####################################################'
 docker volume rm $(docker volume ls -q)
 
-./scripts/remove_networks.sh
+./remove_networks.sh
 
